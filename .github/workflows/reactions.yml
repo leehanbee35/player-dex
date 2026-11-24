@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r reactions/requirements.txt
-      - run: python reactions/collect.py
+      - run: python -u reactions/collect.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # 선택: 네이버 검색 API 키가 있으면 네이버 뉴스도 함께 수집
