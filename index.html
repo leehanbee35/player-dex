@@ -98,6 +98,10 @@ main{padding-block:20px 48px}
 .fav-btn{display:block;margin-top:6px;font:inherit;font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .fav-btn[aria-pressed="true"]{border-color:var(--gk);color:var(--gk);font-weight:700}
 .fav-btn:focus-visible{outline:2px solid var(--accent)}
+.comments{border-top:1px solid var(--line);padding-top:14px}
+.comments h3{margin:0 0 8px;font-size:14px}
+.c-note{margin:0;color:var(--muted);font-size:12.5px;line-height:1.6}
+.c-note a{color:var(--df)}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
 .badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap}
@@ -123,6 +127,8 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .links{display:flex;gap:6px;flex-wrap:wrap}
 .links a{font-size:12px;text-decoration:none;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
 .links a:hover{border-color:var(--accent)}
+.links a{display:inline-flex;align-items:center;gap:5px}
+.ext{width:11px;height:11px;flex:0 0 auto;opacity:.65}
 .close{position:absolute;top:10px;right:12px;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer}
 .flag{width:18px;height:12px;border-radius:2px;vertical-align:-1px;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 .bdg.ghost{display:inline-flex;align-items:center;gap:5px}
@@ -309,12 +315,13 @@ function encodeHash(){
   if(st.nat)t.push("n",st.nat);
   if(st.league&&LEAGUES.includes(st.league))t.push("l",LEAGUES.indexOf(st.league));
   if(st.club&&CLUBS.includes(st.club))t.push("c",CLUBS.indexOf(st.club));
+  if(st.open)t.push("d",st.open);
   return t.length?"v-"+t.join("-"):"";
 }
 function applyHash(){
   const h=decodeURIComponent(location.hash.slice(1));
   if(!h.startsWith("v-"))return false;
-  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:""});
+  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",open:0});
   const a=h.slice(2).split("-");
   for(let i=0;i+1<a.length;i+=2){
     const [k,v]=[a[i],a[i+1]];
@@ -324,10 +331,12 @@ function applyHash(){
     else if(k==="n"&&OK.n.includes(v))st.nat=v;
     else if(k==="l"&&LEAGUES[+v])st.league=LEAGUES[+v];
     else if(k==="c"&&CLUBS[+v])st.club=CLUBS[+v];
+    else if(k==="d"&&players[+v-1])st.open=+v;
   }
   return true;
 }
 try{const s=JSON.parse(localStorage.getItem("dexState")||"null");if(s)Object.assign(st,s)}catch(e){}
+st.open=0; // 열어 둔 선수 화면은 주소(#...-d-번호)로만 복원
 // 예전 버전(팀만 즐겨찾기, favs 배열)에서 넘어온 값 정리
 if(Array.isArray(st.favs)){st.fav={nat:[],league:[],club:st.favs};delete st.favs}
 st.fav=Object.assign({nat:[],league:[],club:[]},st.fav||{});
@@ -335,7 +344,7 @@ FAV_KINDS.forEach(k=>{if(!Array.isArray(st.fav[k]))st.fav[k]=[]});
 if(!OK.o.includes(st.sort))st.sort="no";
 applyHash();
 const save=()=>{
-  try{localStorage.setItem("dexState",JSON.stringify(st))}catch(e){}
+  try{localStorage.setItem("dexState",JSON.stringify({...st,open:0}))}catch(e){}
   const h=encodeHash();
   if(location.hash.slice(1)!==h){try{location.replace("#"+h)}catch(e){}}
 };
@@ -353,7 +362,7 @@ function jersey(p,size){
 // 없는 선수는 유니폼 그림으로 대신함
 let PHOTO={};
 const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" loading="lazy" decoding="async">`:jersey(p);
-fetch("photos/web.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render()}).catch(()=>{});
+fetch("photos/web.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
 
 function buildControls(){
   $("posRow").innerHTML=POS_CHIPS.map(([k,l])=>`<button type="button" class="pos" data-k="${k}" style="color:${chipColor[k]}" aria-pressed="${st.chip===k}"><b style="background:${chipColor[k]}">${k==="ALL"?"ALL":k}</b><span style="color:inherit">${l}</span></button>`).join("");
@@ -419,7 +428,7 @@ function render(){
 
 // 반응 데이터: 수집기(reactions/collect.py)가 만든 reactions.json을 페이지 옆에 두면 읽음
 let REACT=null;
-fetch("reactions/reactions.json", {cache: "no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d}).catch(()=>{});
+fetch("reactions/reactions.json", {cache: "no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d;if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
 const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
@@ -438,6 +447,8 @@ function reactionHTML(p){
     <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>`;
 }
 
+// 새 창 바로가기 아이콘(↗)
+const EXT=`<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 2h3v3M10 2L5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const favBtn=(kind,v)=>`<button type="button" class="fav-btn" data-kind="${kind}" data-v="${esc(v)}" aria-pressed="${isFavOf(kind,v)}">${isFavOf(kind,v)?"★ 즐겨찾기 중":"☆ 즐겨찾기"}</button>`;
 function openDetail(no){
   openNo=no;
@@ -449,15 +460,35 @@ function openDetail(no){
     <div><span>출생</span><b>${p.born}년</b></div><div><span>키</span><b>${p.h}cm</b></div><div><span>주발</span><b>${p.foot}</b></div></div>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
-        <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스</a>
-        <a href="https://news.google.com/search?q=${q}&hl=ko&gl=KR" target="_blank" rel="noopener">구글 뉴스</a>
-        <a href="https://www.fmkorea.com/search.php?mid=football_world&search_keyword=${q}&search_target=title_content" target="_blank" rel="noopener">에펨코리아</a>
-        <a href="https://www.reddit.com/r/soccer/search/?q=${encodeURIComponent(p.en)}" target="_blank" rel="noopener">r/soccer</a>
+        <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스${EXT}</a>
+        <a href="https://news.google.com/search?q=${q}&hl=ko&gl=KR" target="_blank" rel="noopener">구글 뉴스${EXT}</a>
+        <a href="https://www.fmkorea.com/search.php?mid=football_world&search_keyword=${q}&search_target=title_content" target="_blank" rel="noopener">에펨코리아${EXT}</a>
+        <a href="https://www.reddit.com/r/soccer/search/?q=${encodeURIComponent(p.en)}" target="_blank" rel="noopener">r/soccer${EXT}</a>
       </div>
     </section>
     ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`:""}
+    <section class="comments"><h3>팬 댓글</h3><div class="giscus" id="giscus"></div></section>
   </div>`;
-  $("dlg").showModal();
+  if(!$("dlg").open)$("dlg").showModal();
+  st.open=no;save();
+  mountComments(p);
+}
+// 댓글: giscus(GitHub Discussions). 선수마다 "[도감 No.001] 손흥민" 같은 제목의 토론 글에 댓글이 쌓임
+// 쓰려면 GitHub 로그인 필요, 읽기는 누구나. claude.ai 미리보기에서는 외부 위젯이 막혀서 사이트 링크만 보여줌
+const GISCUS={repo:"leehanbee35/player-dex",repoId:"R_kgDOV5rIVw",category:"Announcements",categoryId:"DIC_kwDOV5rIV84DL2ae"};
+const SITE="https://leehanbee35.github.io/player-dex/";
+function mountComments(p){
+  const box=$("giscus");if(!box)return;
+  if(!/\.github\.io$/.test(location.hostname)){
+    box.innerHTML=`<p class="c-note">댓글은 <a href="${SITE}#v-d-${p.no}" target="_blank" rel="noopener">GitHub 사이트</a>에서 쓰고 볼 수 있어요.</p>`;return;
+  }
+  const s=document.createElement("script");
+  s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";
+  const d={repo:GISCUS.repo,repoId:GISCUS.repoId,category:GISCUS.category,categoryId:GISCUS.categoryId,
+    mapping:"specific",term:`[도감 No.${String(p.no).padStart(3,"0")}] ${p.kr}`,strict:"1",
+    reactionsEnabled:"1",emitMetadata:"0",inputPosition:"top",theme:"preferred_color_scheme",lang:"ko",loading:"lazy"};
+  Object.entries(d).forEach(([k,v])=>{s.dataset[k]=v});
+  box.appendChild(s);
 }
 
 buildControls();render();
@@ -492,4 +523,7 @@ $("dBody").addEventListener("click",e=>{
   b.textContent=isFavOf(b.dataset.kind,b.dataset.v)?"★ 즐겨찾기 중":"☆ 즐겨찾기";
 });
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
+$("dlg").addEventListener("close",()=>{st.open=0;save()});
+// 주소에 선수 번호가 있으면(공유 링크, GitHub 로그인 후 돌아왔을 때) 그 선수 화면을 바로 열기
+if(st.open)openDetail(st.open);
 </script>
