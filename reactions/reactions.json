@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-24T17:05+09:00",
+ "generated_at": "2026-11-24T17:16+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "players": {
   "1": {
-   "n": 123,
+   "n": 126,
    "sentiment": {
     "pos": 12,
-    "neu": 64,
+    "neu": 67,
     "neg": 47
    },
    "daily": [
@@ -37,7 +37,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 50
+     "n": 53
     }
    ],
    "topics": [
@@ -47,12 +47,18 @@
    ],
    "keywords": [
     "연봉",
-    "코리안 더비",
     "플레이오프",
+    "코리안 더비",
     "순위",
     "침묵"
    ],
    "headlines": [
+    {
+     "title": "‘1골 1도움’ 정상빈, 손흥민에 판정승…팀도 PO 1차전서 3-2 승리",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBNeVl5dWVXQThOQlFxS2Q1eENlZm52RVRZc3lLX3UxNVhPQUZNdkJmZW52MnIxam9nTG8ycVV4eWR6UXRyVGlscDdlSEVRb3Vr?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
     {
      "title": "손흥민·메시도 조기 탈락 위기…MLS 슈퍼스타들의 수난시대",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZmt6N3VjMVlEZWI1cGhpOVIyOWk4TjM1R1U0bHJTNFFjWE9JSFFIWnpUb2dHNkhsUm51X0ZkbUtkRWxUOUN4UDVnQ1lqMVZYTGplSkcwMnBoa2ZtTnhmVA?oc=5",
@@ -64,20 +70,14 @@
      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0xcGZfd0Fsamt0RnFUZXNfTHRDYy1yVnZGbHpLZUJnVWlUaVZGQ1h1Z3BYenBrcUw3THdBWFh4TktmWWNCckJSd1l0TXNZYkNWSXZnQ1VDUkdnR3NGNW5TMG9KS2l4MGlxMWFj0gFvQVVfeXFMT3JQOV9aTkl2YVhRUGV0MXZoanc4X3NQdEVxZVViWEV4UWNXZmsyNEhuVGdYOUJIZVdTcGVOLV9JT2c5NGp4Q2tic2wyVmVkZXUteVR2dkhmeVlkcmZGQ3lfY01kSk4zakFkUDNCU3pF?oc=5",
      "date": "2026-11-24",
      "sentiment": "neg"
-    },
-    {
-     "title": "'손흥민 제치고 POTM 선정!' 정상빈, 1골+세컨더리 도움으로 코리안 더비 지배…LAFC 2-3 패배, 우승 도전 '빨간불'",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1PN2t6cGVzZjZaNk02MjFNQklzaUxTOWFvX05YbElVMXlLRkpYQWE1anhLOEE1ZlV6MjVQUGMwbVIxamlKQk1qWFFPTjBJVGtLc0dlZUxnMktoVkVJa3AxdllZTlRCQldITDFvZWxZTXI?oc=5",
-     "date": "2026-11-24",
-     "sentiment": "neg"
     }
    ]
   },
   "2": {
-   "n": 116,
+   "n": 117,
    "sentiment": {
     "pos": 17,
-    "neu": 68,
+    "neu": 69,
     "neg": 31
    },
    "daily": [
@@ -95,7 +95,7 @@
     },
     {
      "date": "2026-11-21",
-     "n": 45
+     "n": 46
     },
     {
      "date": "2026-11-22",
@@ -144,10 +144,10 @@
    ]
   },
   "3": {
-   "n": 127,
+   "n": 128,
    "sentiment": {
     "pos": 94,
-    "neu": 23,
+    "neu": 24,
     "neg": 10
    },
    "daily": [
@@ -173,7 +173,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 43
+     "n": 44
     },
     {
      "date": "2026-11-24",
