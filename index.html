@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>풋볼 선수 도감</title>
+<script>/* 기본은 다크 모드. 헤더의 ☀/☾ 버튼으로 바꾸면 이 브라우저에 기억 */try{document.documentElement.dataset.theme=localStorage.getItem("dexTheme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
 <style>
@@ -40,9 +41,12 @@ header{background:var(--head);color:var(--head-ink)}
 .search input{flex:1;border:0;outline:0;font:inherit;font-size:14px;color:#18223a;background:transparent;padding:6px 0;min-width:0}
 .search span{font-size:11px;color:#5b6680;margin-right:8px;white-space:nowrap}
 .search:focus-within{box-shadow:0 0 0 3px var(--accent)}
+.theme-btn{margin-left:auto;width:36px;height:36px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:none;color:var(--head-ink);font-size:16px;line-height:1;cursor:pointer}
+.theme-btn:hover{background:rgba(255,255,255,.08)}
+.theme-btn:focus-visible{outline:2px solid var(--accent)}
 
 .rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
-.pos-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.pos-row{display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0;scrollbar-width:thin}
 .pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
 .pos b{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font-family:var(--f-num);font-weight:700;font-size:15px;color:#fff;opacity:.55;transition:opacity .15s,transform .15s}
 .pos[aria-pressed="true"]{color:var(--head-ink)}
@@ -52,6 +56,24 @@ header{background:var(--head);color:var(--head-ink)}
 .ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .ctrls label{font-size:11px;color:var(--head-muted);display:flex;align-items:center;gap:6px}
 select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 8px;max-width:180px}
+/* 커스텀 드롭다운 (원래 select는 상태 보관용으로 숨김) */
+.sr-only{position:absolute!important;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+.dd{position:relative}
+.dd-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:8px;min-width:150px;max-width:210px;font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 9px 6px 11px;cursor:pointer}
+.dd-btn:hover{border-color:rgba(255,255,255,.28)}
+.dd-btn[aria-expanded="true"]{border-color:var(--accent)}
+.dd-btn:focus-visible{outline:2px solid var(--accent)}
+.dd-val{display:inline-flex;align-items:center;gap:6px;min-width:0;overflow:hidden;white-space:nowrap}
+.dd-val .txt{overflow:hidden;text-overflow:ellipsis}
+.dd-val .cnt{display:none}
+.dd-chev{width:12px;height:12px;flex:0 0 auto;opacity:.7;transition:transform .15s}
+.dd-btn[aria-expanded="true"] .dd-chev{transform:rotate(180deg)}
+.dd-list{position:absolute;top:calc(100% + 6px);left:0;z-index:30;min-width:100%;width:max-content;max-width:280px;max-height:320px;overflow-y:auto;margin:0;padding:4px;list-style:none;background:var(--head);border:1px solid rgba(255,255,255,.14);border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.dd-opt{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;color:var(--head-ink);white-space:nowrap;cursor:pointer}
+.dd-opt:hover,.dd-opt.active{background:rgba(255,255,255,.08)}
+.dd-opt[aria-selected="true"]{color:var(--accent);font-weight:700}
+.dd-opt .cnt{margin-left:auto;padding-left:14px;color:var(--head-muted);font-family:var(--f-num);font-weight:500}
+.dd .star{color:#f5c542}
 .seg{display:inline-flex;background:var(--chip);border-radius:8px;padding:2px}
 .seg button{font:inherit;font-size:12px;border:0;background:none;color:var(--head-muted);padding:5px 10px;border-radius:6px;cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--accent);color:#0b1a12;font-weight:700}
@@ -86,17 +108,18 @@ main{padding-block:20px 48px}
 .fav-toggle:disabled{opacity:.3;cursor:default}
 .fav-toggle:focus-visible{outline:2px solid var(--accent)}
 .favbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.favbar>span{font-size:11px;color:var(--head-muted);margin-right:2px}
+.favbar>span{font-size:11px;color:var(--head-muted);position:relative;padding-right:12px;margin-right:4px}
+.favbar>span::after{content:"";position:absolute;right:0;top:50%;height:12px;margin-top:-6px;border-left:1px solid rgba(255,255,255,.28)}
 .favbar>em{font-style:normal;font-size:11.5px;color:var(--head-muted)}
 .fchip{display:inline-flex;align-items:center;gap:5px;font:inherit;font-size:12px;background:var(--chip);color:var(--head-ink);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 4px 3px 10px;cursor:pointer}
 .fchip[aria-pressed="true"]{background:#f5c542;color:#1d1a0b;border-color:#f5c542}
 .fchip .x{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;opacity:.65}
 .fchip .x:hover{opacity:1;background:rgba(0,0,0,.18)}
 .fchip:focus-visible{outline:2px solid var(--accent)}
-.d-info .fav-btn{margin-top:5px}
 .meta .clear{font:inherit;font-size:12px;background:none;border:0;color:var(--df);cursor:pointer;padding:0;text-decoration:underline}
-.fav-btn{display:block;margin-top:6px;font:inherit;font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.fav-btn[aria-pressed="true"]{border-color:var(--gk);color:var(--gk);font-weight:700}
+.fav-btn{font:inherit;font-size:15px;line-height:1;border:0;background:none;color:var(--muted);cursor:pointer;padding:0 2px;border-radius:4px}
+.fav-btn:hover{color:var(--gk)}
+.fav-btn[aria-pressed="true"]{color:var(--gk)}
 .fav-btn:focus-visible{outline:2px solid var(--accent)}
 .comments{border-top:1px solid var(--line);padding-top:14px}
 .comments h3{margin:0;font-size:14px}
@@ -137,23 +160,36 @@ main{padding-block:20px 48px}
 .cm-empty{padding:14px 0;color:var(--muted);font-size:12.5px;text-align:center}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
-.badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap}
+.badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap;align-items:center}
+.badges .bdg{display:inline-flex;align-items:center;height:22px;line-height:1}
 .bdg{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;color:#fff;background:var(--c);font-family:var(--f-num);letter-spacing:.4px}
 .bdg.ghost{background:none;color:var(--ink);border:1px solid var(--line);font-family:var(--f-body);font-weight:500}
 .stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 10px 10px;border-top:1px dashed var(--line);font-size:12px}
 .stats dt{color:var(--muted)} .stats dd{margin:0;font-weight:500;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
 .empty{padding:60px 0;text-align:center;color:var(--muted)}
 
-dialog{border:0;border-radius:16px;padding:0;max-width:min(520px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink)}
+/* 선수 상세 팝업: 넓은 화면은 왼쪽 정보·반응 | 오른쪽 댓글, 좁은 화면은 한 줄. 닫기 버튼은 고정, 내용만 스크롤 */
+dialog{border:0;border-radius:16px;padding:0;width:min(980px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 40px);background:var(--surface);color:var(--ink);overflow:hidden}
+dialog[open]{display:flex;flex-direction:column}
 dialog::backdrop{background:rgba(8,12,24,.6)}
-.d-top{padding:18px 20px;display:flex;gap:16px;align-items:center}
+.d-shell{position:relative;display:flex;flex-direction:column;flex:1;min-height:0}
+#dBody{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.d-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px;padding:0 22px 22px;align-items:stretch}
+.d-main{display:flex;flex-direction:column;gap:14px;min-width:0;align-self:start}
+.d-grid .comments{border-top:0;padding-top:0;padding-left:22px;border-left:1px solid var(--line);min-width:0}
+@media (max-width:820px){
+  .d-grid{grid-template-columns:1fr;padding:0 16px 18px}
+  .d-grid .comments{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:14px}
+}
+.d-top{padding:20px 64px 16px 22px;display:flex;gap:16px;align-items:center}
 .d-top svg{width:84px;height:84px;flex:0 0 auto}
 .d-top h2{font-family:var(--f-display);font-size:26px;margin:0;font-weight:400}
 .d-top p{margin:2px 0 0;color:var(--muted)}
-.d-body{padding:0 20px 20px;display:flex;flex-direction:column;gap:16px}
 .d-info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.d-info div{background:var(--bg);border-radius:10px;padding:8px 10px}
+.d-info>div{background:var(--bg);border-radius:10px;padding:8px 10px;min-width:0}
 .d-info span{display:block;font-size:11px;color:var(--muted)} .d-info b{font-size:14px}
+.d-info .lab{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:2px}
+.d-info b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .react{border:1px dashed var(--line);border-radius:12px;padding:14px}
 .react h3{margin:0 0 6px;font-size:14px}
 .react p{margin:0 0 10px;color:var(--muted);font-size:12.5px;line-height:1.6}
@@ -162,7 +198,9 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .links a:hover{border-color:var(--accent)}
 .links a{display:inline-flex;align-items:center;gap:5px}
 .ext{width:11px;height:11px;flex:0 0 auto;opacity:.65}
-.close{position:absolute;top:10px;right:12px;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer}
+.close{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--bg);font-size:20px;line-height:1;color:var(--ink);cursor:pointer}
+.close:hover{background:var(--line)}
+.close:focus-visible{outline:2px solid var(--accent)}
 .flag{width:18px;height:12px;border-radius:2px;vertical-align:-1px;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 .bdg.ghost{display:inline-flex;align-items:center;gap:5px}
 .group-h .flag{width:27px;height:18px}
@@ -199,7 +237,8 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
       <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M16 9l5 3.6-1.9 5.9h-6.2L11 12.6z" fill="#16213b"/><path d="M16 2v7M30 13l-9 -0.4M25 28l-5.9-9.5M7 28l5.9-9.5M2 13l9-.4" stroke="#16213b" stroke-width="1.6" fill="none"/></svg>
       풋볼 도감
     </div>
-    <label class="search"><span>선수 검색</span><input id="q" type="search" placeholder="이름·클럽을 입력하세요" autocomplete="off"></label>
+    <label class="search"><span>선수 검색</span><input id="q" type="search" placeholder="이름·클럽 입력" autocomplete="off"></label>
+    <button type="button" class="theme-btn" id="themeBtn"></button>
   </div>
   <div class="wrap rail">
     <div class="pos-row" id="posRow" role="group" aria-label="포지션"></div>
@@ -222,12 +261,12 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 </header>
 
 <main class="wrap">
-  <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열려요</div></div>
+  <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열립니다</div></div>
   <div id="out"></div>
 </main>
-<footer class="wrap">예시 데이터: 2025-26 시즌 기준으로 손으로 입력한 60명이에요. 이후 이적은 반영되지 않았을 수 있어요. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이고, 촬영자와 라이선스는 각 선수 상세 화면에 있어요. 사진이 없는 선수는 포지션 색 유니폼으로 그렸어요.</footer>
+<footer class="wrap">예시 데이터: 2025-26 시즌 기준으로 직접 입력한 60명입니다. 이후 이적은 반영되지 않았을 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
 
-<dialog id="dlg"><div style="position:relative"><button class="close" id="closeD" aria-label="닫기">×</button><div id="dBody"></div></div></dialog>
+<dialog id="dlg"><div class="d-shell"><button class="close" id="closeD" aria-label="닫기" autofocus>×</button><div id="dBody"></div></div></dialog>
 
 <script>
 const POS = {GK:["GK","골키퍼"],CB:["DF","센터백"],LB:["DF","레프트백"],RB:["DF","라이트백"],DM:["MF","수비형 미드"],CM:["MF","중앙 미드"],AM:["MF","공격형 미드"],LW:["FW","왼쪽 윙"],RW:["FW","오른쪽 윙"],ST:["FW","스트라이커"]};
@@ -394,8 +433,60 @@ function jersey(p,size){
 // 사진: 위키미디어 공용 사진을 200px로 줄여 한 파일(photos/bundle.json)로 묶음. 요청 1번으로 전부 받음
 // 없는 선수는 유니폼 그림으로 대신함
 let PHOTO={};
-const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" loading="lazy" decoding="async">`:jersey(p);
-fetch("photos/web.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" decoding="async">`:jersey(p);
+fetch("photos/bundle.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+
+// 커스텀 드롭다운: 원래 <select>는 숨겨 두고 값만 보관. 나라에는 국기, 즐겨찾기는 ★, 선수 수는 오른쪽 숫자로 표시
+const CHEV=`<svg class="dd-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+function ddLabel(sel,o){
+  const m=o.textContent.match(/^(★ )?(.*?)(?: \((\d+)\))?$/);
+  const fl=sel.id==="nat"&&o.value?flag(o.value):"";
+  return `${m[1]?'<span class="star">★</span>':""}${fl}<span class="txt">${esc(m[2])}</span>${m[3]?`<span class="cnt">${m[3]}</span>`:""}`;
+}
+function syncDD(sel){
+  let dd=sel.nextElementSibling;
+  if(!dd||!dd.classList.contains("dd")){
+    dd=document.createElement("div");dd.className="dd";
+    dd.innerHTML=`<button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button><ul class="dd-list" role="listbox" hidden></ul>`;
+    sel.after(dd);sel.classList.add("sr-only");sel.tabIndex=-1;
+  }
+  const cur=sel.options[sel.selectedIndex]||sel.options[0];
+  dd.querySelector(".dd-btn").innerHTML=`<span class="dd-val">${ddLabel(sel,cur)}</span>${CHEV}`;
+  dd.querySelector(".dd-list").innerHTML=[...sel.options].map((o,i)=>`<li role="option" class="dd-opt" data-i="${i}" aria-selected="${o.selected}">${ddLabel(sel,o)}</li>`).join("");
+}
+let ddOpen=null;
+function closeDD(){if(!ddOpen)return;ddOpen.querySelector(".dd-list").hidden=true;ddOpen.querySelector(".dd-btn").setAttribute("aria-expanded","false");ddOpen=null}
+function openDD(dd){
+  closeDD();ddOpen=dd;
+  const l=dd.querySelector(".dd-list");l.hidden=false;dd.querySelector(".dd-btn").setAttribute("aria-expanded","true");
+  l.querySelectorAll(".active").forEach(x=>x.classList.remove("active"));
+  const s=l.querySelector('[aria-selected="true"]');if(s){s.classList.add("active");s.scrollIntoView({block:"nearest"})}
+}
+function pickDD(dd,i){
+  const sel=dd.previousElementSibling;sel.selectedIndex=i;
+  sel.dispatchEvent(new Event("change",{bubbles:true}));
+  syncDD(sel);closeDD();dd.querySelector(".dd-btn").focus();
+}
+document.addEventListener("click",e=>{
+  const btn=e.target.closest(".dd-btn");
+  if(btn){e.preventDefault();const dd=btn.parentElement;ddOpen===dd?closeDD():openDD(dd);return}
+  const opt=e.target.closest(".dd-opt");
+  if(opt){e.preventDefault();pickDD(opt.closest(".dd"),+opt.dataset.i);return}
+  if(!e.target.closest(".dd"))closeDD();
+});
+document.addEventListener("keydown",e=>{
+  const dd=e.target.closest&&e.target.closest(".dd");if(!dd)return;
+  const opts=[...dd.querySelector(".dd-list").children];
+  if(ddOpen!==dd){if(e.key==="ArrowDown"||e.key==="Enter"||e.key===" "){e.preventDefault();openDD(dd)}return}
+  let a=opts.findIndex(o=>o.classList.contains("active"));
+  if(e.key==="Escape"){e.preventDefault();e.stopPropagation();closeDD();dd.querySelector(".dd-btn").focus()}
+  else if(e.key==="ArrowDown"||e.key==="ArrowUp"){
+    e.preventDefault();a=Math.max(0,Math.min(opts.length-1,a+(e.key==="ArrowDown"?1:-1)));
+    opts.forEach(o=>o.classList.remove("active"));opts[a].classList.add("active");opts[a].scrollIntoView({block:"nearest"});
+  }
+  else if(e.key==="Enter"||e.key===" "){e.preventDefault();if(a>=0)pickDD(dd,a)}
+  else if(e.key==="Tab")closeDD();
+});
 
 function buildControls(){
   $("posRow").innerHTML=POS_CHIPS.map(([k,l])=>`<button type="button" class="pos" data-k="${k}" style="color:${chipColor[k]}" aria-pressed="${st.chip===k}"><b style="background:${chipColor[k]}">${k==="ALL"?"ALL":k}</b><span style="color:inherit">${l}</span></button>`).join("");
@@ -408,13 +499,14 @@ function buildControls(){
   $("league").innerHTML=`<option value="">전체 리그</option>`+Object.keys(lc).sort(favFirst("league",lc)).map(k=>`<option value="${esc(k)}">${star("league",k)}${esc(k)} (${lc[k]})</option>`).join("");
   $("nat").value=st.nat;$("league").value=st.league;$("sort").value=st.sort;$("q").value=st.q;
   syncSeg();syncFav();
+  ["nat","league","sort"].forEach(id=>syncDD($(id)));
 }
 // 고른 나라·리그 옆 ☆ 상태와 즐겨찾기 칩 줄
 function syncFav(){
   [["favNat","nat"],["favLeague","league"]].forEach(([id,kind])=>{
     const b=$(id),v=st[kind],on=!!v&&isFavOf(kind,v);
     b.disabled=!v;b.setAttribute("aria-pressed",on);b.textContent=on?"★":"☆";
-    b.title=!v?"먼저 하나를 고르세요":on?"즐겨찾기 해제":"즐겨찾기에 추가";
+    b.title=!v?"먼저 하나를 선택해 주십시오":on?"즐겨찾기 해제":"즐겨찾기에 추가";
   });
   const chips=[
     ...st.fav.nat.filter(k=>NAT[k]).map(k=>({kind:"nat",v:k,label:flag(k)+NAT[k]})),
@@ -423,7 +515,7 @@ function syncFav(){
   ];
   $("favBar").innerHTML=`<span>★ 즐겨찾기</span>`+(chips.length
     ?chips.map(c=>`<button type="button" class="fchip" data-kind="${c.kind}" data-v="${esc(c.v)}" aria-pressed="${st[c.kind]===c.v}">${c.label}<span class="x" data-remove="1" title="즐겨찾기 삭제" aria-label="즐겨찾기 삭제">×</span></button>`).join("")
-    :`<em>나라·리그 옆 ☆나 선수 상세 화면의 ☆로 추가해요</em>`);
+    :`<em>나라·리그 옆 ☆나 선수 상세 화면의 ☆로 추가</em>`);
 }
 function toggleFav(kind,v){
   st.fav[kind]=isFavOf(kind,v)?st.fav[kind].filter(x=>x!==v):[...st.fav[kind],v];
@@ -449,7 +541,7 @@ function render(){
   list.sort(S[st.sort]);
   $("count").textContent=list.length;
   $("clubNote").innerHTML=st.club?` · <b>${esc(st.club)}</b> 선수만 보는 중 <button type="button" class="clear" id="clearClub">해제</button>`:"";
-  if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없어요. 필터를 하나 풀어보세요.</div>`;return}
+  if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없습니다. 필터를 하나 해제해 보십시오.</div>`;return}
   if(!st.group){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`;return}
   const keyOf={pos:p=>p.g,nat:p=>p.nat,league:p=>p.league}[st.group];
   const label={pos:k=>GROUP_NAME[k],nat:k=>NAT[k],league:k=>k}[st.group];
@@ -466,14 +558,14 @@ const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
   if(!r||!r.n){
-    return `<h3>뉴스 · 커뮤니티 반응</h3><p>${REACT?"최근 "+REACT.window_days+"일 동안 수집된 기사가 없어요.":"아직 연결된 반응 데이터가 없어요. 수집기가 돌기 시작하면 긍정·부정 비율, 언급량 추이, 키워드, 대표 헤드라인이 여기에 표시돼요."} 지금은 바로가기로 확인할 수 있어요.</p>`;
+    return `<h3>뉴스 · 커뮤니티 반응</h3><p>${REACT?"최근 "+REACT.window_days+"일 동안 수집된 기사가 없습니다.":"아직 연결된 반응 데이터가 없습니다. 수집기가 실행되면 긍정·부정 비율, 언급량 추이, 키워드, 대표 헤드라인이 여기에 표시됩니다."} 지금은 바로가기로 확인할 수 있습니다.</p>`;
   }
   const s=r.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   const max=Math.max(1,...r.daily.map(d=>d.n));
   return `<div class="r-head"><h3>최근 ${REACT.window_days}일 반응</h3><small>${esc(REACT.source)} ${r.n}건 · ${esc(REACT.generated_at.slice(0,16).replace("T"," "))} 기준</small></div>
     <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
     <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
-    ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있어요.</p>`:""}
+    ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있습니다.</p>`:""}
     <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" title="${d.date} ${d.n}건"></div>`).join("")}</div>
     <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
     <div class="tags">${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}${r.keywords.map(k=>`<span>#${esc(k)}</span>`).join("")}</div>
@@ -482,14 +574,15 @@ function reactionHTML(p){
 
 // 새 창 바로가기 아이콘(↗)
 const EXT=`<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 2h3v3M10 2L5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const favBtn=(kind,v)=>`<button type="button" class="fav-btn" data-kind="${kind}" data-v="${esc(v)}" aria-pressed="${isFavOf(kind,v)}">${isFavOf(kind,v)?"★ 즐겨찾기 중":"☆ 즐겨찾기"}</button>`;
+const favBtn=(kind,v)=>`<button type="button" class="fav-btn" data-kind="${kind}" data-v="${esc(v)}" aria-pressed="${isFavOf(kind,v)}" aria-label="즐겨찾기" title="${isFavOf(kind,v)?"즐겨찾기 해제":"즐겨찾기에 추가"}">${isFavOf(kind,v)?"★":"☆"}</button>`;
 function openDetail(no){
   openNo=no;
   const p=players[no-1];const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
+  const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
   $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p></div></div>
-  <div class="d-body">
-    <div class="d-info"><div><span>나라</span><b>${flag(p.nat)}${NAT[p.nat]}</b>${favBtn("nat",p.nat)}</div><div><span>클럽</span><b>${esc(p.club)}</b>${favBtn("club",p.club)}</div><div><span>리그</span><b>${esc(p.league)}</b>${favBtn("league",p.league)}</div>
+  <div class="d-grid"><div class="d-main">
+    <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${NAT[p.nat]}</b></div><div><span class="lab">클럽${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born}년</b></div><div><span>키</span><b>${p.h}cm</b></div><div><span>주발</span><b>${p.foot}</b></div></div>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
@@ -500,9 +593,11 @@ function openDetail(no){
       </div>
     </section>
     ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`:""}
-    <section class="comments" id="comments"></section>
+  </div>
+  <section class="comments" id="comments"></section>
   </div>`;
-  if(!$("dlg").open)$("dlg").showModal();
+  // 새로 열 때는 항상 맨 위(선수 이름)부터, 열린 채로 다시 그릴 때는 보던 위치 유지
+  if(!wasOpen){$("dlg").showModal();$("dBody").scrollTop=0}else $("dBody").scrollTop=y;
   st.open=no;save();
   mountComments(p);
 }
@@ -516,22 +611,22 @@ const cm={no:0,sort:"new",list:[]};
 async function sb(path,body){
   const r=await fetch(SB.url+path,{method:body?"POST":"GET",headers:{apikey:SB.key,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
   const t=await r.text();const d=t?JSON.parse(t):null;
-  if(!r.ok)throw new Error((d&&d.message)||"잠시 후 다시 시도해 주세요");
+  if(!r.ok)throw new Error((d&&d.message)||"잠시 후 다시 시도해 주십시오");
   return d;
 }
 const fmtTime=s=>{const d=new Date(s);const p=n=>String(n).padStart(2,"0");return `${p(d.getMonth()+1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`};
 function mountComments(p){
   const box=$("comments");if(!box)return;
   if(!/\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)){
-    box.innerHTML=`<div class="cm-head"><h3>팬 댓글</h3></div><p class="c-note">댓글은 <a href="${SITE}#v-d-${p.no}" target="_blank" rel="noopener">도감 사이트</a>에서 쓰고 볼 수 있어요.</p>`;return;
+    box.innerHTML=`<div class="cm-head"><h3>팬 댓글</h3></div><p class="c-note">댓글은 <a href="${SITE}#v-d-${p.no}" target="_blank" rel="noopener">도감 사이트</a>에서 쓰고 볼 수 있습니다.</p>`;return;
   }
   cm.no=p.no;
   let nick="";try{nick=localStorage.getItem("dexNick")||""}catch(e){}
   box.innerHTML=`<div class="cm-head"><h3>팬 댓글<small id="cmCount"></small></h3>
       <div class="cm-sort" id="cmSort"><button type="button" data-s="new" aria-pressed="${cm.sort==="new"}">최신순</button><button type="button" data-s="best" aria-pressed="${cm.sort==="best"}">추천순</button></div></div>
     <form class="cm-form" id="cmForm" novalidate>
-      <div class="cm-row"><input id="cmNick" maxlength="12" placeholder="닉네임 (비우면 ㅇㅇ)" value="${esc(nick)}" autocomplete="nickname"><input id="cmPw" type="password" maxlength="30" placeholder="비밀번호 (삭제용 4자↑)" autocomplete="new-password"></div>
-      <textarea id="cmBody" maxlength="300" placeholder="${esc(p.kr)} 선수에 대해 한마디 (300자)"></textarea>
+      <div class="cm-row"><input id="cmNick" maxlength="12" placeholder="ㅇㅇ" aria-label="닉네임 (비우면 ㅇㅇ)" value="${esc(nick)}" autocomplete="nickname"><input id="cmPw" type="password" maxlength="30" placeholder="비밀번호" aria-label="비밀번호 (삭제할 때 필요, 4자 이상)" autocomplete="new-password"></div>
+      <textarea id="cmBody" maxlength="300" placeholder="내용" aria-label="${esc(p.kr)} 선수 댓글 내용 (300자)"></textarea>
       <div class="cm-foot"><span id="cmLen">0/300</span><span class="cm-msg" id="cmMsg" role="status"></span><button type="submit" class="cm-submit" id="cmSend">등록</button></div>
     </form>
     <ul class="cm-list" id="cmList"><li class="cm-empty">댓글을 불러오는 중…</li></ul>`;
@@ -542,7 +637,7 @@ async function loadComments(){
   try{
     cm.list=await sb(`/comments_public?player_no=eq.${no}&select=id,nick,body,ip_prefix,up,down,created_at&order=created_at.desc&limit=200`);
     if(no===cm.no)drawComments();
-  }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했어요. ${esc(e.message)}</li>`}
+  }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했습니다. ${esc(e.message)}</li>`}
 }
 function drawComments(){
   const ul=$("cmList");if(!ul)return;
@@ -555,7 +650,7 @@ function drawComments(){
       <p>${esc(c.body)}</p>
       <div class="cm-act"><button type="button" class="up" data-act="up">추천 ${c.up}</button><button type="button" class="down" data-act="down">비추 ${c.down}</button><button type="button" class="ghost" data-act="del">삭제</button><button type="button" class="ghost" data-act="report">신고</button></div>
     </li>`;
-  ul.innerHTML=cm.list.length?best.map(c=>item(c,true)).join("")+rest.map(c=>item(c,false)).join(""):`<li class="cm-empty">첫 댓글을 남겨 보세요.</li>`;
+  ul.innerHTML=cm.list.length?best.map(c=>item(c,true)).join("")+rest.map(c=>item(c,false)).join(""):`<li class="cm-empty">아직 댓글이 없습니다. 첫 댓글을 남겨 주십시오.</li>`;
 }
 function cmNote(li,text){const a=li.querySelector(".cm-act");let n=a.querySelector(".note");if(!n){n=document.createElement("span");n.className="note";a.appendChild(n)}n.textContent=text}
 $("dBody").addEventListener("input",e=>{if(e.target.id==="cmBody")$("cmLen").textContent=`${e.target.value.length}/300`});
@@ -564,13 +659,13 @@ $("dBody").addEventListener("submit",async e=>{
   e.preventDefault();
   const nick=$("cmNick").value.trim(),pw=$("cmPw").value,body=$("cmBody").value.trim(),msg=$("cmMsg");
   msg.className="cm-msg";
-  if(!body){msg.textContent="내용을 입력해 주세요";return}
-  if(pw.length<4){msg.textContent="비밀번호는 4자 이상이에요";$("cmPw").focus();return}
+  if(!body){msg.textContent="내용을 입력해 주십시오";return}
+  if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다";$("cmPw").focus();return}
   $("cmSend").disabled=true;msg.textContent="등록 중…";
   try{
     await sb("/rpc/post_comment",{p_player:cm.no,p_nick:nick,p_pw:pw,p_body:body});
     try{localStorage.setItem("dexNick",nick)}catch(e2){}
-    $("cmBody").value="";$("cmLen").textContent="0/300";msg.className="cm-msg ok";msg.textContent="등록했어요";
+    $("cmBody").value="";$("cmLen").textContent="0/300";msg.className="cm-msg ok";msg.textContent="등록했습니다";
     cm.sort="new";document.querySelectorAll("#cmSort button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s==="new"));
     await loadComments();
   }catch(err){msg.textContent=err.message}
@@ -592,10 +687,25 @@ $("dBody").addEventListener("click",async e=>{
       cm.list=cm.list.filter(x=>x.id!==id);drawComments();return;
     }
     const r=await sb("/rpc/vote_comment",{p_id:id,p_kind:act});
-    if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했어요");return}
+    if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했습니다");return}
     if(c){c.up=r.up;c.down=r.down}drawComments();
   }catch(err){cmNote(li,err.message)}
 });
+
+// 화면 밝기: 기본 다크. 버튼을 누를 때마다 다크 ↔ 라이트
+function syncTheme(){
+  const dark=document.documentElement.dataset.theme!=="light";
+  $("themeBtn").textContent=dark?"☀":"☾";
+  $("themeBtn").setAttribute("aria-label",dark?"밝은 화면으로":"어두운 화면으로");
+  $("themeBtn").title=dark?"밝은 화면으로":"어두운 화면으로";
+}
+$("themeBtn").addEventListener("click",()=>{
+  const next=document.documentElement.dataset.theme==="light"?"dark":"light";
+  document.documentElement.dataset.theme=next;
+  try{localStorage.setItem("dexTheme",next)}catch(e){}
+  syncTheme();
+});
+syncTheme();
 
 buildControls();render();
 $("q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
@@ -626,7 +736,8 @@ $("dBody").addEventListener("click",e=>{
   const b=e.target.closest(".fav-btn");if(!b)return;
   toggleFav(b.dataset.kind,b.dataset.v);
   b.setAttribute("aria-pressed",isFavOf(b.dataset.kind,b.dataset.v));
-  b.textContent=isFavOf(b.dataset.kind,b.dataset.v)?"★ 즐겨찾기 중":"☆ 즐겨찾기";
+  b.textContent=isFavOf(b.dataset.kind,b.dataset.v)?"★":"☆";
+  b.title=isFavOf(b.dataset.kind,b.dataset.v)?"즐겨찾기 해제":"즐겨찾기에 추가";
 });
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("dlg").addEventListener("close",()=>{st.open=0;save()});
