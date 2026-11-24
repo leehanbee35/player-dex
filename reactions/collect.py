@@ -219,7 +219,14 @@ SCHEMA = {
 def classify(db: sqlite3.Connection, players: list[dict]) -> int:
     import anthropic
 
-    client = anthropic.Anthropic()
+    raw_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    key = raw_key.strip()  # 붙여넣을 때 딸려 온 줄바꿈·공백 제거
+    print(f"[확인] API 키: 길이 {len(key)}, 형식 {'정상' if key.startswith('sk-ant-') else '확인 필요'}, "
+          f"앞뒤 공백·줄바꿈 {'있었음(제거함)' if key != raw_key else '없음'}")
+    if not key:
+        print("[분류 건너뜀] ANTHROPIC_API_KEY가 비어 있어요")
+        return 0
+    client = anthropic.Anthropic(api_key=key)
     by_no = {p["no"]: p for p in players}
     rows = db.execute(
         """SELECT m.id, m.player_no, m.title, m.snippet FROM mentions m
@@ -231,6 +238,7 @@ def classify(db: sqlite3.Connection, players: list[dict]) -> int:
         groups[r[1]].append(r)
 
     labeled = 0
+    fails = 0
     for no, items in groups.items():
         p = by_no.get(no)
         if not p:
@@ -241,7 +249,12 @@ def classify(db: sqlite3.Connection, players: list[dict]) -> int:
             prompt = f"선수: {p['name']} (소속 {p['club']})\n기사 목록(JSON Lines):\n{payload}"
             result = call_claude(client, prompt)
             if result is None:
+                fails += 1
+                if fails >= 3:
+                    print("[분류 중단] 3번 연속 실패해서 멈춰요. 남은 기사는 다음 실행 때 분류해요.")
+                    return labeled
                 continue
+            fails = 0
             valid_ids = {r[0] for r in batch}
             stamp = now_kst().isoformat()
             for it in result.get("items", []):
@@ -277,7 +290,7 @@ def call_claude(client, prompt: str) -> dict | None:
             time.sleep(wait)
             continue
         except anthropic.APIConnectionError as e:
-            print(f"[재시도] 연결 오류: {e}")
+            print(f"[재시도] 연결 오류: {e!r} / 원인: {e.__cause__!r}")
             time.sleep(5)
             continue
         except anthropic.APIStatusError as e:
