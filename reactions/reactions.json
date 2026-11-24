@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-24T16:37+09:00",
+ "generated_at": "2026-11-24T16:53+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "players": {
   "1": {
-   "n": 121,
+   "n": 122,
    "sentiment": {
     "pos": 12,
-    "neu": 63,
+    "neu": 64,
     "neg": 46
    },
    "daily": [
@@ -25,7 +25,7 @@
     },
     {
      "date": "2026-11-21",
-     "n": 9
+     "n": 10
     },
     {
      "date": "2026-11-22",
@@ -74,10 +74,10 @@
    ]
   },
   "2": {
-   "n": 112,
+   "n": 114,
    "sentiment": {
     "pos": 17,
-    "neu": 64,
+    "neu": 66,
     "neg": 31
    },
    "daily": [
@@ -87,7 +87,7 @@
     },
     {
      "date": "2026-11-19",
-     "n": 14
+     "n": 15
     },
     {
      "date": "2026-11-20",
@@ -107,7 +107,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 3
+     "n": 4
     }
    ],
    "topics": [
@@ -120,9 +120,15 @@
     "케인 부상",
     "교체출전",
     "이적설",
-    "교체 출전"
+    "연봉"
    ],
    "headlines": [
+    {
+     "title": "`레알 마드리드가 두 차례 공식 접촉했다`…`이적설` 바이에른 뮌헨 김민재 동료 반전",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9QczdHX3JsS2NvNDdnaVNtS1ZGLWNqUkVmb0t1OFEybHl6X1JrLU5fcFJ3YzN2dHNCSzBQeC1rUTdfY0pDQU9INm1EVmNTMjZwN1dQdjdvWUdJcmxhYWVST19SdkVqZw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
     {
      "title": "`이럴 수가` 김민재 재계약 논의 없었다…\"올가을 논의 진행할 예정이었지만…\"",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBSU1EtNDJ5VTV5NzFNbUdDb0JaQXlvNkZoS0dMZXhaQm9nMmN4R1MwUkU0S2NjbThOOTB6Wk1nMmtFdXV3ZmVQd25SWlBQTk9xTVVUVThJNEdUM2FPeTQ5NXdJNkRDZw?oc=5",
@@ -134,19 +140,13 @@
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE83d2ZzV0tLUVl0UC1tbWF4VFZIMFlWWDY5dGdHWS1iZGRNdkJMNHlkck1XTVRXeTJpQ09IazR6ampPam5OeGxoTXh2YmJ3by1rdHE0WUxVWnBNRkYxeDY0clpRM1RPQnljSk9DSVlqWmU4RnJS?oc=5",
      "date": "2026-11-24",
      "sentiment": "neu"
-    },
-    {
-     "title": "\"연봉 236억, 다른 팀에선 어려워!\" 김민재, 뮌헨 '3옵션'에도 잔류 희망...\"현재 이적 의사 없어\"",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNUEFjeHJCdkFnN1g0RkxKNDBMZFpTdjlpVHZiUlZRS0JjeXdxMDJZR081ZHBTSkVNU2N1aG5iaXN3YkZIcFRaeVJkcFlMUmRqcWRub0tyVU5TWVVCSUVpZEo0eTNPcEU3VXFXRGQ2UDk3TC1sak9HNlVTVnlOUWd0eWdn?oc=5",
-     "date": "2026-11-24",
-     "sentiment": "neu"
     }
    ]
   },
   "3": {
-   "n": 123,
+   "n": 124,
    "sentiment": {
-    "pos": 92,
+    "pos": 93,
     "neu": 21,
     "neg": 10
    },
@@ -173,7 +173,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 40
+     "n": 41
     },
     {
      "date": "2026-11-24",
