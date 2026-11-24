@@ -1,14 +1,14 @@
 {
- "generated_at": "2026-11-24T16:55+09:00",
+ "generated_at": "2026-11-24T17:02+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "players": {
   "1": {
-   "n": 122,
+   "n": 123,
    "sentiment": {
     "pos": 12,
     "neu": 64,
-    "neg": 46
+    "neg": 47
    },
    "daily": [
     {
@@ -37,7 +37,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 49
+     "n": 50
     }
    ],
    "topics": [
@@ -54,6 +54,12 @@
    ],
    "headlines": [
     {
+     "title": "손흥민·메시도 조기 탈락 위기…MLS 슈퍼스타들의 수난시대",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZmt6N3VjMVlEZWI1cGhpOVIyOWk4TjM1R1U0bHJTNFFjWE9JSFFIWnpUb2dHNkhsUm51X0ZkbUtkRWxUOUN4UDVnQ1lqMVZYTGplSkcwMnBoa2ZtTnhmVA?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
      "title": "‘1골 1도움’ 정상빈, 손흥민과 맞대결 승리… 세인트루이스 기선 제압",
      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0xcGZfd0Fsamt0RnFUZXNfTHRDYy1yVnZGbHpLZUJnVWlUaVZGQ1h1Z3BYenBrcUw3THdBWFh4TktmWWNCckJSd1l0TXNZYkNWSXZnQ1VDUkdnR3NGNW5TMG9KS2l4MGlxMWFj0gFvQVVfeXFMT3JQOV9aTkl2YVhRUGV0MXZoanc4X3NQdEVxZVViWEV4UWNXZmsyNEhuVGdYOUJIZVdTcGVOLV9JT2c5NGp4Q2tic2wyVmVkZXUteVR2dkhmeVlkcmZGQ3lfY01kSk4zakFkUDNCU3pF?oc=5",
      "date": "2026-11-24",
@@ -64,20 +70,14 @@
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1PN2t6cGVzZjZaNk02MjFNQklzaUxTOWFvX05YbElVMXlLRkpYQWE1anhLOEE1ZlV6MjVQUGMwbVIxamlKQk1qWFFPTjBJVGtLc0dlZUxnMktoVkVJa3AxdllZTlRCQldITDFvZWxZTXI?oc=5",
      "date": "2026-11-24",
      "sentiment": "neg"
-    },
-    {
-     "title": "또 침묵한 92년생 손흥민, 1골·1도움 펄펄 난 02년생 정상빈",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNa0hrYXN2RWhJby1YZXdHYUdyV1l4djBiMlN2MlAwVl9pQWg5QXVLSmZLZ2pPYVNBZ0s3TXowWi1XWWRONkF4U1V0ZlUyVEJjVFNqOWc3V1h2S1FoR21BRzdtYUxJaV9NX3RPMnA2MXRGaXl2TzBFY04yN1M2ajZJWWxZS1I4Nzdw?oc=5",
-     "date": "2026-11-24",
-     "sentiment": "neg"
     }
    ]
   },
   "2": {
-   "n": 115,
+   "n": 116,
    "sentiment": {
     "pos": 17,
-    "neu": 67,
+    "neu": 68,
     "neg": 31
    },
    "daily": [
@@ -99,7 +99,7 @@
     },
     {
      "date": "2026-11-22",
-     "n": 9
+     "n": 10
     },
     {
      "date": "2026-11-23",
