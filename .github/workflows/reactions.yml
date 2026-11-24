@@ -21,19 +21,25 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    outputs:
+      credit_low: ${{ steps.check.outputs.low }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r reactions/requirements.txt
-      - run: python -u reactions/collect.py
+      - run: python -u reactions/collect.py | tee "$RUNNER_TEMP/collect.log"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: claude-haiku-5-5
           # 선택: 네이버 검색 API 키가 있으면 네이버 뉴스도 함께 수집
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+      - id: check
+        name: 크레딧 확인
+        run: |
+          if grep -q "credit balance is too low" "$RUNNER_TEMP/collect.log"; then echo "low=1" >> "$GITHUB_OUTPUT"; fi
       - name: 결과 커밋
         run: |
           git config user.name "reactions-bot"
@@ -58,3 +64,13 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Claude API 크레딧이 떨어지면 이 단계가 실패 → GitHub이 저장소 주인에게 실패 메일을 보냄
+  alert:
+    needs: collect
+    if: needs.collect.outputs.credit_low == '1'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error::Claude API 크레딧이 부족해서 기사 분류를 못 했어요. console.anthropic.com → Settings → Billing에서 충전해 주세요."
+          exit 1
