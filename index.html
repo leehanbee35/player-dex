@@ -99,9 +99,42 @@ main{padding-block:20px 48px}
 .fav-btn[aria-pressed="true"]{border-color:var(--gk);color:var(--gk);font-weight:700}
 .fav-btn:focus-visible{outline:2px solid var(--accent)}
 .comments{border-top:1px solid var(--line);padding-top:14px}
-.comments h3{margin:0 0 8px;font-size:14px}
+.comments h3{margin:0;font-size:14px}
 .c-note{margin:0;color:var(--muted);font-size:12.5px;line-height:1.6}
 .c-note a{color:var(--df)}
+/* 디씨 스타일 댓글 */
+.cm-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.cm-head h3 small{font-family:var(--f-num);font-size:14px;color:var(--muted);font-weight:600;margin-left:4px}
+.cm-sort{display:inline-flex;gap:2px;background:var(--bg);border-radius:8px;padding:2px}
+.cm-sort button{font:inherit;font-size:11.5px;border:0;background:none;color:var(--muted);padding:4px 9px;border-radius:6px;cursor:pointer}
+.cm-sort button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:0 0 0 1px var(--line)}
+.cm-form{display:flex;flex-direction:column;gap:6px;background:var(--bg);border-radius:10px;padding:10px}
+.cm-row{display:flex;gap:6px}
+.cm-form input,.cm-form textarea{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+.cm-row input{flex:1}
+.cm-form textarea{resize:vertical;min-height:58px;line-height:1.5}
+.cm-form input:focus,.cm-form textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.cm-foot{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cm-msg{flex:1;color:var(--fw)}
+.cm-msg.ok{color:var(--mf)}
+.cm-submit{font:inherit;font-size:12.5px;font-weight:700;border:0;border-radius:6px;padding:6px 14px;background:var(--df);color:#fff;cursor:pointer}
+.cm-submit:disabled{opacity:.5;cursor:default}
+.cm-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column}
+.cm-item{padding:10px 2px;border-bottom:1px solid var(--line)}
+.cm-item.best{background:var(--fw-soft);border-radius:8px;padding:10px;border-bottom:0;margin-bottom:4px}
+.cm-meta{display:flex;align-items:baseline;gap:6px;font-size:12px;flex-wrap:wrap}
+.cm-meta b{font-size:12.5px}
+.cm-meta .ip{color:var(--muted);font-family:var(--f-num)}
+.cm-meta time{margin-left:auto;color:var(--muted);font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.cm-best{font-size:10.5px;font-weight:700;color:#fff;background:var(--fw);border-radius:4px;padding:1px 6px}
+.cm-item p{margin:5px 0 6px;font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+.cm-act{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.cm-act button{font:inherit;font-size:11.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:2px 9px;cursor:pointer;font-variant-numeric:tabular-nums}
+.cm-act .up{color:var(--df)} .cm-act .down{color:var(--fw)}
+.cm-act .ghost{border-color:transparent;background:none;color:var(--muted)}
+.cm-act input{font:inherit;font-size:12px;width:110px;border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--surface);color:var(--ink)}
+.cm-act .note{font-size:11.5px;color:var(--muted);margin-left:4px}
+.cm-empty{padding:14px 0;color:var(--muted);font-size:12.5px;text-align:center}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
 .badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap}
@@ -467,29 +500,102 @@ function openDetail(no){
       </div>
     </section>
     ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`:""}
-    <section class="comments"><h3>팬 댓글</h3><div class="giscus" id="giscus"></div></section>
+    <section class="comments" id="comments"></section>
   </div>`;
   if(!$("dlg").open)$("dlg").showModal();
   st.open=no;save();
   mountComments(p);
 }
-// 댓글: giscus(GitHub Discussions). 선수마다 "[도감 No.001] 손흥민" 같은 제목의 토론 글에 댓글이 쌓임
-// 쓰려면 GitHub 로그인 필요, 읽기는 누구나. claude.ai 미리보기에서는 외부 위젯이 막혀서 사이트 링크만 보여줌
-const GISCUS={repo:"leehanbee35/player-dex",repoId:"R_kgDOV5rIVw",category:"Announcements",categoryId:"DIC_kwDOV5rIV84DL2ae"};
+// 댓글: 디씨 스타일 익명 댓글. 저장은 Supabase(comments 테이블). 쓰기·삭제·추천은 서버 함수(rpc)로만 가능
+// 닉네임(비우면 ㅇㅇ) + 비밀번호(삭제용), IP 앞 두 자리 표시, 추천 10개 이상 베스트, 금지어·30초 도배 제한은 서버에서 검사
+// claude.ai 미리보기에서는 외부 서버 접속이 막혀서 GitHub 사이트 링크만 보여줌
+const SB={url:"https://zfpzsnjkqrkkcahrilrl.supabase.co/rest/v1",key:"sb_publishable_uKKYBhe_cYsdKMnw2mFYQw_jIKazYgt"};
 const SITE="https://leehanbee35.github.io/player-dex/";
-function mountComments(p){
-  const box=$("giscus");if(!box)return;
-  if(!/\.github\.io$/.test(location.hostname)){
-    box.innerHTML=`<p class="c-note">댓글은 <a href="${SITE}#v-d-${p.no}" target="_blank" rel="noopener">GitHub 사이트</a>에서 쓰고 볼 수 있어요.</p>`;return;
-  }
-  const s=document.createElement("script");
-  s.src="https://giscus.app/client.js";s.async=true;s.crossOrigin="anonymous";
-  const d={repo:GISCUS.repo,repoId:GISCUS.repoId,category:GISCUS.category,categoryId:GISCUS.categoryId,
-    mapping:"specific",term:`[도감 No.${String(p.no).padStart(3,"0")}] ${p.kr}`,strict:"1",
-    reactionsEnabled:"1",emitMetadata:"0",inputPosition:"top",theme:"preferred_color_scheme",lang:"ko",loading:"lazy"};
-  Object.entries(d).forEach(([k,v])=>{s.dataset[k]=v});
-  box.appendChild(s);
+const BEST_UP=10;
+const cm={no:0,sort:"new",list:[]};
+async function sb(path,body){
+  const r=await fetch(SB.url+path,{method:body?"POST":"GET",headers:{apikey:SB.key,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
+  const t=await r.text();const d=t?JSON.parse(t):null;
+  if(!r.ok)throw new Error((d&&d.message)||"잠시 후 다시 시도해 주세요");
+  return d;
 }
+const fmtTime=s=>{const d=new Date(s);const p=n=>String(n).padStart(2,"0");return `${p(d.getMonth()+1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`};
+function mountComments(p){
+  const box=$("comments");if(!box)return;
+  if(!/\.github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname)){
+    box.innerHTML=`<div class="cm-head"><h3>팬 댓글</h3></div><p class="c-note">댓글은 <a href="${SITE}#v-d-${p.no}" target="_blank" rel="noopener">도감 사이트</a>에서 쓰고 볼 수 있어요.</p>`;return;
+  }
+  cm.no=p.no;
+  let nick="";try{nick=localStorage.getItem("dexNick")||""}catch(e){}
+  box.innerHTML=`<div class="cm-head"><h3>팬 댓글<small id="cmCount"></small></h3>
+      <div class="cm-sort" id="cmSort"><button type="button" data-s="new" aria-pressed="${cm.sort==="new"}">최신순</button><button type="button" data-s="best" aria-pressed="${cm.sort==="best"}">추천순</button></div></div>
+    <form class="cm-form" id="cmForm" novalidate>
+      <div class="cm-row"><input id="cmNick" maxlength="12" placeholder="닉네임 (비우면 ㅇㅇ)" value="${esc(nick)}" autocomplete="nickname"><input id="cmPw" type="password" maxlength="30" placeholder="비밀번호 (삭제용 4자↑)" autocomplete="new-password"></div>
+      <textarea id="cmBody" maxlength="300" placeholder="${esc(p.kr)} 선수에 대해 한마디 (300자)"></textarea>
+      <div class="cm-foot"><span id="cmLen">0/300</span><span class="cm-msg" id="cmMsg" role="status"></span><button type="submit" class="cm-submit" id="cmSend">등록</button></div>
+    </form>
+    <ul class="cm-list" id="cmList"><li class="cm-empty">댓글을 불러오는 중…</li></ul>`;
+  loadComments();
+}
+async function loadComments(){
+  const no=cm.no;
+  try{
+    cm.list=await sb(`/comments_public?player_no=eq.${no}&select=id,nick,body,ip_prefix,up,down,created_at&order=created_at.desc&limit=200`);
+    if(no===cm.no)drawComments();
+  }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했어요. ${esc(e.message)}</li>`}
+}
+function drawComments(){
+  const ul=$("cmList");if(!ul)return;
+  $("cmCount").textContent=cm.list.length?String(cm.list.length):"";
+  const best=cm.list.filter(c=>c.up>=BEST_UP).sort((a,b)=>b.up-a.up).slice(0,3);
+  const rest=cm.list.filter(c=>!best.includes(c));
+  if(cm.sort==="best")rest.sort((a,b)=>(b.up-b.down)-(a.up-a.down)||b.id-a.id);
+  const item=(c,isBest)=>`<li class="cm-item${isBest?" best":""}" data-id="${c.id}">
+      <div class="cm-meta">${isBest?'<span class="cm-best">BEST</span>':""}<b>${esc(c.nick)}</b><span class="ip">${c.ip_prefix?`(${esc(c.ip_prefix)})`:""}</span><time datetime="${esc(c.created_at)}">${fmtTime(c.created_at)}</time></div>
+      <p>${esc(c.body)}</p>
+      <div class="cm-act"><button type="button" class="up" data-act="up">추천 ${c.up}</button><button type="button" class="down" data-act="down">비추 ${c.down}</button><button type="button" class="ghost" data-act="del">삭제</button><button type="button" class="ghost" data-act="report">신고</button></div>
+    </li>`;
+  ul.innerHTML=cm.list.length?best.map(c=>item(c,true)).join("")+rest.map(c=>item(c,false)).join(""):`<li class="cm-empty">첫 댓글을 남겨 보세요.</li>`;
+}
+function cmNote(li,text){const a=li.querySelector(".cm-act");let n=a.querySelector(".note");if(!n){n=document.createElement("span");n.className="note";a.appendChild(n)}n.textContent=text}
+$("dBody").addEventListener("input",e=>{if(e.target.id==="cmBody")$("cmLen").textContent=`${e.target.value.length}/300`});
+$("dBody").addEventListener("submit",async e=>{
+  if(e.target.id!=="cmForm")return;
+  e.preventDefault();
+  const nick=$("cmNick").value.trim(),pw=$("cmPw").value,body=$("cmBody").value.trim(),msg=$("cmMsg");
+  msg.className="cm-msg";
+  if(!body){msg.textContent="내용을 입력해 주세요";return}
+  if(pw.length<4){msg.textContent="비밀번호는 4자 이상이에요";$("cmPw").focus();return}
+  $("cmSend").disabled=true;msg.textContent="등록 중…";
+  try{
+    await sb("/rpc/post_comment",{p_player:cm.no,p_nick:nick,p_pw:pw,p_body:body});
+    try{localStorage.setItem("dexNick",nick)}catch(e2){}
+    $("cmBody").value="";$("cmLen").textContent="0/300";msg.className="cm-msg ok";msg.textContent="등록했어요";
+    cm.sort="new";document.querySelectorAll("#cmSort button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s==="new"));
+    await loadComments();
+  }catch(err){msg.textContent=err.message}
+  finally{if($("cmSend"))$("cmSend").disabled=false}
+});
+$("dBody").addEventListener("click",async e=>{
+  const s=e.target.closest("#cmSort button");
+  if(s){cm.sort=s.dataset.s;document.querySelectorAll("#cmSort button").forEach(b=>b.setAttribute("aria-pressed",b===s));drawComments();return}
+  const b=e.target.closest(".cm-act button");if(!b)return;
+  const li=b.closest(".cm-item"),id=+li.dataset.id,act=b.dataset.act,c=cm.list.find(x=>x.id===id);
+  if(act==="del"){
+    b.closest(".cm-act").innerHTML=`<input type="password" placeholder="비밀번호" aria-label="삭제 비밀번호"><button type="button" data-act="delok">삭제</button><button type="button" class="ghost" data-act="cancel">취소</button>`;
+    li.querySelector(".cm-act input").focus();return;
+  }
+  if(act==="cancel"){drawComments();return}
+  try{
+    if(act==="delok"){
+      await sb("/rpc/delete_comment",{p_id:id,p_pw:li.querySelector(".cm-act input").value});
+      cm.list=cm.list.filter(x=>x.id!==id);drawComments();return;
+    }
+    const r=await sb("/rpc/vote_comment",{p_id:id,p_kind:act});
+    if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했어요");return}
+    if(c){c.up=r.up;c.down=r.down}drawComments();
+  }catch(err){cmNote(li,err.message)}
+});
 
 buildControls();render();
 $("q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
