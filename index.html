@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>풋볼 선수 도감</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: navy pitch-side header + filter rail, then a dense card grid like a sticker album */
+:root{
+  --bg:#eef1f6; --surface:#ffffff; --ink:#18223a; --muted:#5b6680; --line:#d6dce8;
+  --head:#16213b; --head-ink:#f2f5fb; --head-muted:#9aa6c2; --chip:#24304f; --accent:#2fbf71;
+  --gk:#d99a1a; --gk-soft:#fbf0d6; --df:#2f6fd6; --df-soft:#dde8fb;
+  --mf:#21a05e; --mf-soft:#d9f2e4; --fw:#e0533d; --fw-soft:#fbe1dc;
+  --f-display:"Black Han Sans","Noto Sans KR",system-ui,sans-serif;
+  --f-body:"Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"Barlow Condensed","Noto Sans KR",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1424; --surface:#172036; --ink:#e8ecf5; --muted:#99a4bd; --line:#2a3552;
+  --head:#0a0f1d; --head-ink:#eef2fa; --head-muted:#8591ad; --chip:#1d2741;
+  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --surface:#172036; --ink:#e8ecf5; --muted:#99a4bd; --line:#2a3552;
+  --head:#0a0f1d; --head-ink:#eef2fa; --head-muted:#8591ad; --chip:#1d2741;
+  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header{background:var(--head);color:var(--head-ink)}
+.top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:14px}
+.logo{font-family:var(--f-display);font-size:26px;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.logo svg{width:28px;height:28px}
+.search{flex:1;min-width:200px;max-width:520px;display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px 6px 4px 16px}
+.search input{flex:1;border:0;outline:0;font:inherit;font-size:14px;color:#18223a;background:transparent;padding:6px 0;min-width:0}
+.search span{font-size:11px;color:#5b6680;margin-right:8px;white-space:nowrap}
+.search:focus-within{box-shadow:0 0 0 3px var(--accent)}
+
+.rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
+.pos-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
+.pos b{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font-family:var(--f-num);font-weight:700;font-size:15px;color:#fff;opacity:.55;transition:opacity .15s,transform .15s}
+.pos[aria-pressed="true"]{color:var(--head-ink)}
+.pos[aria-pressed="true"] b{opacity:1;transform:scale(1.06);box-shadow:0 0 0 2px var(--head),0 0 0 4px currentColor}
+.pos:hover b{opacity:.9}
+.pos:focus-visible{outline:2px solid var(--accent)}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ctrls label{font-size:11px;color:var(--head-muted);display:flex;align-items:center;gap:6px}
+select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 8px;max-width:180px}
+.seg{display:inline-flex;background:var(--chip);border-radius:8px;padding:2px}
+.seg button{font:inherit;font-size:12px;border:0;background:none;color:var(--head-muted);padding:5px 10px;border-radius:6px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#0b1a12;font-weight:700}
+.reset{margin-left:auto;font:inherit;font-size:12px;background:none;border:1px solid rgba(255,255,255,.2);color:var(--head-muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+
+main{padding-block:20px 48px}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:14px}
+.meta strong{color:var(--ink);font-family:var(--f-num);font-size:16px}
+.group-h{font-family:var(--f-display);font-size:20px;margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+.group-h small{font-family:var(--f-num);font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+
+.card{--c:var(--fw);--soft:var(--fw-soft);background:var(--surface);border:2px solid var(--c);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,30,60,.15)}
+.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.card.GK{--c:var(--gk);--soft:var(--gk-soft)} .card.DF{--c:var(--df);--soft:var(--df-soft)} .card.MF{--c:var(--mf);--soft:var(--mf-soft)}
+.c-head{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 10px;background:var(--soft)}
+.c-no{font-family:var(--f-num);font-weight:600;color:var(--muted);font-size:13px}
+.c-name{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-art{background:linear-gradient(180deg,var(--soft),var(--surface));display:grid;place-items:center;padding:10px 0 4px}
+.c-art svg{width:96px;height:96px}
+.c-art img{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid var(--c);background:var(--soft)}
+.d-top img{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex:0 0 auto;border:3px solid var(--line)}
+.fav-star{color:var(--gk)}
+.fav-btn{display:block;margin-top:6px;font:inherit;font-size:11.5px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.fav-btn[aria-pressed="true"]{border-color:var(--gk);color:var(--gk);font-weight:700}
+.fav-btn:focus-visible{outline:2px solid var(--accent)}
+.credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
+.credit a{color:inherit}
+.badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap}
+.bdg{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;color:#fff;background:var(--c);font-family:var(--f-num);letter-spacing:.4px}
+.bdg.ghost{background:none;color:var(--ink);border:1px solid var(--line);font-family:var(--f-body);font-weight:500}
+.stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 10px 10px;border-top:1px dashed var(--line);font-size:12px}
+.stats dt{color:var(--muted)} .stats dd{margin:0;font-weight:500;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
+.empty{padding:60px 0;text-align:center;color:var(--muted)}
+
+dialog{border:0;border-radius:16px;padding:0;max-width:min(520px,calc(100vw - 32px));width:100%;background:var(--surface);color:var(--ink)}
+dialog::backdrop{background:rgba(8,12,24,.6)}
+.d-top{padding:18px 20px;display:flex;gap:16px;align-items:center}
+.d-top svg{width:84px;height:84px;flex:0 0 auto}
+.d-top h2{font-family:var(--f-display);font-size:26px;margin:0;font-weight:400}
+.d-top p{margin:2px 0 0;color:var(--muted)}
+.d-body{padding:0 20px 20px;display:flex;flex-direction:column;gap:16px}
+.d-info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.d-info div{background:var(--bg);border-radius:10px;padding:8px 10px}
+.d-info span{display:block;font-size:11px;color:var(--muted)} .d-info b{font-size:14px}
+.react{border:1px dashed var(--line);border-radius:12px;padding:14px}
+.react h3{margin:0 0 6px;font-size:14px}
+.react p{margin:0 0 10px;color:var(--muted);font-size:12.5px;line-height:1.6}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links a{font-size:12px;text-decoration:none;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.links a:hover{border-color:var(--accent)}
+.close{position:absolute;top:10px;right:12px;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer}
+.flag{width:18px;height:12px;border-radius:2px;vertical-align:-1px;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.bdg.ghost{display:inline-flex;align-items:center;gap:5px}
+.group-h .flag{width:27px;height:18px}
+.d-info b{display:flex;align-items:center;gap:5px}
+.r-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.r-head small{color:var(--muted);font-size:11px}
+.sbar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--bg)}
+.sbar i{display:block}
+.s-pos{background:var(--mf)} .s-neu{background:var(--muted);opacity:.45} .s-neg{background:var(--fw)}
+.slegend{display:flex;gap:12px;font-size:12px;margin:6px 0 12px;font-variant-numeric:tabular-nums}
+.slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
+.slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
+.slegend b{color:var(--ink);font-weight:500}
+.spark{display:flex;align-items:flex-end;gap:4px;height:44px;margin-bottom:4px}
+.spark div{flex:1;background:var(--df);border-radius:3px 3px 0 0;min-height:2px;opacity:.75}
+.spark-x{display:flex;gap:4px;font-size:10px;color:var(--muted);margin-bottom:12px}
+.spark-x span{flex:1;text-align:center}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.tags span{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.tags .t{background:var(--df-soft);border-color:transparent}
+.hl{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px}
+.hl a{display:flex;gap:8px;font-size:13px;color:var(--ink);text-decoration:none;line-height:1.45}
+.hl a:hover span:last-child{text-decoration:underline}
+.hl i{flex:0 0 8px;height:8px;border-radius:50%;margin-top:6px}
+.thin{font-size:11px;color:var(--fw);margin:-4px 0 10px}
+footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}.reset{margin-left:0}}
+</style>
+
+<header>
+  <div class="wrap top">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#fff"/><path d="M16 9l5 3.6-1.9 5.9h-6.2L11 12.6z" fill="#16213b"/><path d="M16 2v7M30 13l-9 -0.4M25 28l-5.9-9.5M7 28l5.9-9.5M2 13l9-.4" stroke="#16213b" stroke-width="1.6" fill="none"/></svg>
+      풋볼 도감
+    </div>
+    <label class="search"><span>선수 검색</span><input id="q" type="search" placeholder="이름·클럽을 입력하세요" autocomplete="off"></label>
+  </div>
+  <div class="wrap rail">
+    <div class="pos-row" id="posRow" role="group" aria-label="포지션"></div>
+    <div class="ctrls">
+      <label>나라 <select id="nat"></select></label>
+      <label>리그 <select id="league"></select></label>
+      <label>정렬 <select id="sort">
+        <option value="no">도감 번호</option><option value="fav">즐겨찾는 팀 먼저</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+      </select></label>
+      <label>묶어보기 <span class="seg" id="grp">
+        <button type="button" data-g="" aria-pressed="true">없음</button>
+        <button type="button" data-g="pos" aria-pressed="false">포지션</button>
+        <button type="button" data-g="nat" aria-pressed="false">나라</button>
+        <button type="button" data-g="league" aria-pressed="false">리그</button>
+      </span></label>
+      <button class="reset" id="reset" type="button">필터 초기화</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="meta"><div><strong id="count">0</strong> 명 표시 중</div><div>카드를 누르면 상세·반응 패널이 열려요</div></div>
+  <div id="out"></div>
+</main>
+<footer class="wrap">예시 데이터: 2025-26 시즌 기준으로 손으로 입력한 60명이에요. 이후 이적은 반영되지 않았을 수 있어요. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이고, 촬영자와 라이선스는 각 선수 상세 화면에 있어요. 사진이 없는 선수는 포지션 색 유니폼으로 그렸어요.</footer>
+
+<dialog id="dlg"><div style="position:relative"><button class="close" id="closeD" aria-label="닫기">×</button><div id="dBody"></div></div></dialog>
+
+<script>
+const POS = {GK:["GK","골키퍼"],CB:["DF","센터백"],LB:["DF","레프트백"],RB:["DF","라이트백"],DM:["MF","수비형 미드"],CM:["MF","중앙 미드"],AM:["MF","공격형 미드"],LW:["FW","왼쪽 윙"],RW:["FW","오른쪽 윙"],ST:["FW","스트라이커"]};
+const GROUP_NAME={GK:"골키퍼",DF:"수비수",MF:"미드필더",FW:"공격수"};
+const NAT={KOR:"대한민국",JPN:"일본",ENG:"잉글랜드",FRA:"프랑스",ESP:"스페인",GER:"독일",POR:"포르투갈",BRA:"브라질",ARG:"아르헨티나",NED:"네덜란드",BEL:"벨기에",ITA:"이탈리아",CRO:"크로아티아",NOR:"노르웨이",SWE:"스웨덴",EGY:"이집트",MAR:"모로코",URU:"우루과이",GEO:"조지아",NGA:"나이지리아",USA:"미국",ECU:"에콰도르",HUN:"헝가리",SCO:"스코틀랜드"};
+// 국기: Windows는 국기 이모지를 그리지 않아서 30×20 SVG로 직접 그림 (단순화한 모양)
+const R=(x,y,w,h,c)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${c}"/>`;
+const V3=(a,b,c)=>R(0,0,10,20,a)+R(10,0,10,20,b)+R(20,0,10,20,c);
+const H3=(a,b,c)=>R(0,0,30,7,a)+R(0,6.67,30,6.67,b)+R(0,13.33,30,6.67,c);
+const NORDIC=(bg,out,inn)=>R(0,0,30,20,bg)+(inn?R(8,0,6,20,out)+R(0,7,30,6,out)+R(9.5,0,3,20,inn)+R(0,8.5,30,3,inn):R(9,0,4,20,out)+R(0,8,30,4,out));
+const STRIPES=(n,a,b)=>Array.from({length:n},(_,i)=>R(0,i*20/n,30,20/n+.05,i%2?b:a)).join("");
+const TRIGRAM=(x,y,rot)=>`<g transform="translate(${x} ${y}) rotate(${rot})" fill="#000">${R(-2.5,-2,5,.9,"#000")+R(-2.5,-.45,5,.9,"#000")+R(-2.5,1.1,5,.9,"#000")}</g>`;
+const FLAG_SVG={
+  KOR:R(0,0,30,20,"#fff")+`<path d="M10 10a5 5 0 0 1 10 0a2.5 2.5 0 0 1-5 0a2.5 2.5 0 0 0-5 0z" fill="#CD2E3A"/><path d="M20 10a5 5 0 0 1-10 0a2.5 2.5 0 0 1 5 0a2.5 2.5 0 0 0 5 0z" fill="#0047A0"/>`+TRIGRAM(6,4.5,-33)+TRIGRAM(24,4.5,33)+TRIGRAM(6,15.5,33)+TRIGRAM(24,15.5,-33),
+  JPN:R(0,0,30,20,"#fff")+`<circle cx="15" cy="10" r="6" fill="#BC002D"/>`,
+  ENG:R(0,0,30,20,"#fff")+R(13,0,4,20,"#CE1124")+R(0,8,30,4,"#CE1124"),
+  SCO:R(0,0,30,20,"#005EB8")+`<path d="M0 0L30 20M30 0L0 20" stroke="#fff" stroke-width="3.2"/>`,
+  FRA:V3("#0055A4","#fff","#EF4135"), ITA:V3("#009246","#fff","#CE2B37"), BEL:V3("#000","#FDDA24","#EF3340"), NGA:V3("#008751","#fff","#008751"),
+  GER:H3("#000","#DD0000","#FFCE00"), NED:H3("#AE1C28","#fff","#21468B"), HUN:H3("#CE2939","#fff","#477050"),
+  ESP:R(0,0,30,20,"#AA151B")+R(0,5,30,10,"#F1BF00"),
+  POR:R(0,0,30,20,"#DA291C")+R(0,0,12,20,"#046A38")+`<circle cx="12" cy="10" r="4" fill="#FFE900"/><circle cx="12" cy="10" r="2.4" fill="#DA291C"/>`,
+  CRO:H3("#FF0000","#fff","#171796")+R(12,5,6,7,"#fff")+[[12,5],[16,5],[14,7],[12,9],[16,9],[14,11]].map(([x,y])=>R(x,y,2,2,"#FF0000")).join(""),
+  NOR:NORDIC("#BA0C2F","#fff","#00205B"), SWE:NORDIC("#006AA7","#FECC02"),
+  EGY:H3("#CE1126","#fff","#000")+R(13.5,8,3,4,"#C09300"),
+  BRA:R(0,0,30,20,"#009C3B")+`<polygon points="3,10 15,2.5 27,10 15,17.5" fill="#FFDF00"/><circle cx="15" cy="10" r="4.6" fill="#002776"/>`,
+  ARG:H3("#74ACDF","#fff","#74ACDF")+`<circle cx="15" cy="10" r="2" fill="#F6B40E"/>`,
+  URU:STRIPES(9,"#fff","#0038A8")+R(0,0,11,11.1,"#fff")+`<circle cx="5.5" cy="5.5" r="3" fill="#FCD116"/>`,
+  USA:STRIPES(13,"#B22234","#fff")+R(0,0,12,10.8,"#3C3B6E"),
+  ECU:R(0,0,30,10,"#FFDD00")+R(0,10,30,5,"#034EA2")+R(0,15,30,5,"#ED1C24")+`<circle cx="15" cy="10" r="2.6" fill="#7a5a1e" opacity=".8"/>`,
+  MAR:R(0,0,30,20,"#C1272D")+`<polygon points="15,5 17.94,14.05 10.25,8.45 19.75,8.45 12.06,14.05" fill="none" stroke="#006233" stroke-width="1"/>`,
+  GEO:R(0,0,30,20,"#fff")+R(13,0,4,20,"#FF0000")+R(0,8,30,4,"#FF0000")+[[6.5,4],[23.5,4],[6.5,16],[23.5,16]].map(([x,y])=>R(x-.6,y-2,1.2,4,"#FF0000")+R(x-2,y-.6,4,1.2,"#FF0000")).join(""),
+};
+const flag=k=>FLAG_SVG[k]?`<svg class="flag" viewBox="0 0 30 20" role="img" aria-label="${NAT[k]} 국기">${FLAG_SVG[k]}</svg>`:"";
+// [한글명, 영문명, 포지션, 국적, 클럽, 리그, 출생연도, 키, 주발]
+const RAW=[
+["손흥민","Son Heung-min","LW","KOR","LAFC","MLS",1992,183,"오른발"],
+["김민재","Kim Min-jae","CB","KOR","바이에른 뮌헨","분데스리가",1996,190,"오른발"],
+["이강인","Lee Kang-in","AM","KOR","파리 생제르맹","리그 1",2001,173,"왼발"],
+["황희찬","Hwang Hee-chan","ST","KOR","울버햄튼","프리미어리그",1996,177,"오른발"],
+["이재성","Lee Jae-sung","AM","KOR","마인츠","분데스리가",1992,180,"오른발"],
+["황인범","Hwang In-beom","CM","KOR","페예노르트","에레디비시",1996,177,"오른발"],
+["옌스 카스트로프","Jens Castrop","CM","KOR","묀헨글라트바흐","분데스리가",2003,179,"오른발"],
+["배준호","Bae Jun-ho","AM","KOR","스토크 시티","챔피언십",2003,180,"오른발"],
+["조현우","Jo Hyeon-woo","GK","KOR","울산 HD","K리그1",1991,189,"오른발"],
+["엘링 홀란","Erling Haaland","ST","NOR","맨체스터 시티","프리미어리그",2000,195,"왼발"],
+["킬리안 음바페","Kylian Mbappe","ST","FRA","레알 마드리드","라리가",1998,178,"오른발"],
+["비니시우스 주니오르","Vinicius Junior","LW","BRA","레알 마드리드","라리가",2000,176,"오른발"],
+["주드 벨링엄","Jude Bellingham","AM","ENG","레알 마드리드","라리가",2003,186,"오른발"],
+["모하메드 살라","Mohamed Salah","RW","EGY","리버풀","프리미어리그",1992,175,"왼발"],
+["라민 야말","Lamine Yamal","RW","ESP","바르셀로나","라리가",2007,180,"왼발"],
+["페드리","Pedri","CM","ESP","바르셀로나","라리가",2002,174,"오른발"],
+["해리 케인","Harry Kane","ST","ENG","바이에른 뮌헨","분데스리가",1993,188,"오른발"],
+["자말 무시알라","Jamal Musiala","AM","GER","바이에른 뮌헨","분데스리가",2003,184,"오른발"],
+["플로리안 비르츠","Florian Wirtz","AM","GER","리버풀","프리미어리그",2003,177,"오른발"],
+["로드리","Rodri","DM","ESP","맨체스터 시티","프리미어리그",1996,191,"오른발"],
+["부카요 사카","Bukayo Saka","RW","ENG","아스널","프리미어리그",2001,178,"왼발"],
+["데클란 라이스","Declan Rice","CM","ENG","아스널","프리미어리그",1999,185,"오른발"],
+["버질 반 다이크","Virgil van Dijk","CB","NED","리버풀","프리미어리그",1991,195,"오른발"],
+["윌리엄 살리바","William Saliba","CB","FRA","아스널","프리미어리그",2001,192,"오른발"],
+["알리송","Alisson","GK","BRA","리버풀","프리미어리그",1992,193,"오른발"],
+["티보 쿠르투아","Thibaut Courtois","GK","BEL","레알 마드리드","라리가",1992,199,"왼발"],
+["잔루이지 돈나룸마","Gianluigi Donnarumma","GK","ITA","맨체스터 시티","프리미어리그",1999,196,"오른발"],
+["아슈라프 하키미","Achraf Hakimi","RB","MAR","파리 생제르맹","리그 1",1998,181,"오른발"],
+["우스만 뎀벨레","Ousmane Dembele","RW","FRA","파리 생제르맹","리그 1",1997,178,"양발"],
+["비티냐","Vitinha","CM","POR","파리 생제르맹","리그 1",2000,172,"오른발"],
+["흐비차 크바라츠헬리아","Khvicha Kvaratskhelia","LW","GEO","파리 생제르맹","리그 1",2001,183,"오른발"],
+["누누 멘데스","Nuno Mendes","LB","POR","파리 생제르맹","리그 1",2002,176,"왼발"],
+["라우타로 마르티네스","Lautaro Martinez","ST","ARG","인테르","세리에 A",1997,174,"오른발"],
+["리오넬 메시","Lionel Messi","RW","ARG","인터 마이애미","MLS",1987,170,"왼발"],
+["크리스티아누 호날두","Cristiano Ronaldo","ST","POR","알나스르","사우디 프로리그",1985,187,"오른발"],
+["쿠보 다케후사","Kubo Takefusa","RW","JPN","레알 소시에다드","라리가",2001,173,"왼발"],
+["미토마 가오루","Mitoma Kaoru","LW","JPN","브라이튼","프리미어리그",1997,178,"오른발"],
+["엔도 와타루","Endo Wataru","DM","JPN","리버풀","프리미어리그",1993,178,"오른발"],
+["브루노 페르난데스","Bruno Fernandes","AM","POR","맨체스터 유나이티드","프리미어리그",1994,179,"오른발"],
+["페데리코 발베르데","Federico Valverde","CM","URU","레알 마드리드","라리가",1998,182,"오른발"],
+["트렌트 알렉산더아놀드","Trent Alexander-Arnold","RB","ENG","레알 마드리드","라리가",1998,180,"오른발"],
+["요슈코 그바르디올","Josko Gvardiol","CB","CRO","맨체스터 시티","프리미어리그",2002,185,"왼발"],
+["루카 모드리치","Luka Modric","CM","CRO","AC 밀란","세리에 A",1985,172,"오른발"],
+["요주아 키미히","Joshua Kimmich","DM","GER","바이에른 뮌헨","분데스리가",1995,177,"오른발"],
+["마이클 올리세","Michael Olise","RW","FRA","바이에른 뮌헨","분데스리가",2001,184,"왼발"],
+["알렉산데르 이사크","Alexander Isak","ST","SWE","리버풀","프리미어리그",1999,192,"오른발"],
+["빅토르 요케레스","Viktor Gyokeres","ST","SWE","아스널","프리미어리그",1998,187,"오른발"],
+["빅터 오시멘","Victor Osimhen","ST","NGA","갈라타사라이","쉬페르리그",1998,186,"오른발"],
+["하피냐","Raphinha","LW","BRA","바르셀로나","라리가",1996,176,"왼발"],
+["콜 파머","Cole Palmer","AM","ENG","첼시","프리미어리그",2002,189,"왼발"],
+["하파엘 레앙","Rafael Leao","LW","POR","AC 밀란","세리에 A",1999,188,"오른발"],
+["야신 부누","Yassine Bounou","GK","MAR","알힐랄","사우디 프로리그",1991,195,"왼발"],
+["크리스티안 풀리식","Christian Pulisic","RW","USA","AC 밀란","세리에 A",1998,177,"오른발"],
+["파우 쿠바르시","Pau Cubarsi","CB","ESP","바르셀로나","라리가",2007,184,"오른발"],
+["모이세스 카이세도","Moises Caicedo","DM","ECU","첼시","프리미어리그",2001,178,"오른발"],
+["알레산드로 바스토니","Alessandro Bastoni","CB","ITA","인테르","세리에 A",1999,190,"왼발"],
+["덴젤 둠프리스","Denzel Dumfries","RB","NED","인테르","세리에 A",1996,188,"오른발"],
+["도미니크 소보슬러이","Dominik Szoboszlai","CM","HUN","리버풀","프리미어리그",2000,186,"오른발"],
+["케빈 더브라위너","Kevin De Bruyne","AM","BEL","나폴리","세리에 A",1991,181,"오른발"],
+["스콧 맥토미니","Scott McTominay","CM","SCO","나폴리","세리에 A",1996,191,"오른발"],
+];
+const YEAR=2026;
+const players=RAW.map((r,i)=>({no:i+1,kr:r[0],en:r[1],pos:r[2],g:POS[r[2]][0],nat:r[3],club:r[4],league:r[5],born:r[6],h:r[7],foot:r[8]}));
+const COLOR={GK:"var(--gk)",DF:"var(--df)",MF:"var(--mf)",FW:"var(--fw)"};
+const POS_CHIPS=[["ALL","전체"],["GK","골키퍼"],["CB","센터백"],["FB","풀백"],["DM","수비형"],["CM","중앙"],["AM","공격형"],["W","윙어"],["ST","스트라이커"]];
+const chipColor={ALL:"#5b6680",GK:"#d99a1a",CB:"#2f6fd6",FB:"#4f8be6",DM:"#1b8a50",CM:"#21a05e",AM:"#4bbd7f",W:"#ee7a5f",ST:"#e0533d"};
+const chipMatch={ALL:()=>true,GK:p=>p.pos==="GK",CB:p=>p.pos==="CB",FB:p=>p.pos==="LB"||p.pos==="RB",DM:p=>p.pos==="DM",CM:p=>p.pos==="CM",AM:p=>p.pos==="AM",W:p=>p.pos==="LW"||p.pos==="RW",ST:p=>p.pos==="ST"};
+
+const st={q:"",chip:"ALL",nat:"",league:"",sort:"no",group:"",favs:[]};
+const isFav=p=>st.favs.includes(p.club);
+// 필터·정렬 유지: 브라우저 저장소 + 주소의 #(예: #v-o-young-g-nat-p-ST). 저장소가 막힌 화면에서도 새로고침하면 유지되고, 링크를 공유하면 같은 화면이 열림
+const LEAGUES=[...new Set(players.map(p=>p.league))];
+const OK={o:["no","fav","young","old","tall","name"],g:["pos","nat","league"],p:POS_CHIPS.map(c=>c[0]),n:Object.keys(NAT)};
+function encodeHash(){
+  const t=[];
+  if(st.sort!=="no")t.push("o",st.sort);
+  if(st.group)t.push("g",st.group);
+  if(st.chip!=="ALL")t.push("p",st.chip);
+  if(st.nat)t.push("n",st.nat);
+  if(st.league&&LEAGUES.includes(st.league))t.push("l",LEAGUES.indexOf(st.league));
+  return t.length?"v-"+t.join("-"):"";
+}
+function applyHash(){
+  const h=decodeURIComponent(location.hash.slice(1));
+  if(!h.startsWith("v-"))return false;
+  Object.assign(st,{chip:"ALL",nat:"",league:"",sort:"no",group:""});
+  const a=h.slice(2).split("-");
+  for(let i=0;i+1<a.length;i+=2){
+    const [k,v]=[a[i],a[i+1]];
+    if(k==="o"&&OK.o.includes(v))st.sort=v;
+    else if(k==="g"&&OK.g.includes(v))st.group=v;
+    else if(k==="p"&&OK.p.includes(v))st.chip=v;
+    else if(k==="n"&&OK.n.includes(v))st.nat=v;
+    else if(k==="l"&&LEAGUES[+v])st.league=LEAGUES[+v];
+  }
+  return true;
+}
+try{const s=JSON.parse(localStorage.getItem("dexState")||"null");if(s)Object.assign(st,s)}catch(e){}
+applyHash();
+const save=()=>{
+  try{localStorage.setItem("dexState",JSON.stringify(st))}catch(e){}
+  const h=encodeHash();
+  if(location.hash.slice(1)!==h){try{location.replace("#"+h)}catch(e){}}
+};
+addEventListener("hashchange",()=>{if(location.hash.slice(1)!==encodeHash()&&applyHash()){buildControls();render()}});
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function jersey(p,size){
+  const ini=p.en.split(/[\s-]+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+  const c=COLOR[p.g];
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M34 12 L20 18 L6 34 L18 46 L26 40 L26 90 L74 90 L74 40 L82 46 L94 34 L80 18 L66 12 Q50 24 34 12Z" fill="${c}" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/><path d="M34 12 Q50 24 66 12" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="3"/><text x="50" y="68" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="28" fill="#fff">${ini}</text></svg>`;
+}
+
+// 사진: 위키미디어 공용 사진을 200px로 줄여 한 파일(photos/bundle.json)로 묶음. 요청 1번으로 전부 받음
+// 없는 선수는 유니폼 그림으로 대신함
+let PHOTO={};
+const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" loading="lazy" decoding="async">`:jersey(p);
+fetch("photos/web.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render()}).catch(()=>{});
+
+function buildControls(){
+  $("posRow").innerHTML=POS_CHIPS.map(([k,l])=>`<button type="button" class="pos" data-k="${k}" style="color:${chipColor[k]}" aria-pressed="${st.chip===k}"><b style="background:${chipColor[k]}">${k==="ALL"?"ALL":k}</b><span style="color:inherit">${l}</span></button>`).join("");
+  const count=(key)=>players.reduce((m,p)=>(m[p[key]]=(m[p[key]]||0)+1,m),{});
+  const nc=count("nat"),lc=count("league");
+  $("nat").innerHTML=`<option value="">전체 나라</option>`+Object.keys(nc).sort((a,b)=>nc[b]-nc[a]||NAT[a].localeCompare(NAT[b])).map(k=>`<option value="${k}">${NAT[k]} (${nc[k]})</option>`).join("");
+  $("league").innerHTML=`<option value="">전체 리그</option>`+Object.keys(lc).sort((a,b)=>lc[b]-lc[a]).map(k=>`<option value="${esc(k)}">${esc(k)} (${lc[k]})</option>`).join("");
+  $("nat").value=st.nat;$("league").value=st.league;$("sort").value=st.sort;$("q").value=st.q;
+  syncSeg();
+}
+function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.g===st.group));
+  document.querySelectorAll(".pos").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===st.chip));}
+
+function card(p){
+  return `<button type="button" class="card ${p.g}" data-no="${p.no}">
+    <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${esc(p.kr)}</span></div>
+    <div class="c-art">${art(p)}</div>
+    <div class="badges"><span class="bdg">${p.pos}</span><span class="bdg ghost">${flag(p.nat)}${NAT[p.nat]}</span></div>
+    <dl class="stats"><dt>클럽</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born}년 (${YEAR-p.born}세)</dd><dt>키 · 주발</dt><dd>${p.h}cm · ${p.foot}</dd></dl>
+  </button>`;
+}
+
+function render(){
+  const q=st.q.trim().toLowerCase();
+  let list=players.filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&
+    (!q||(p.kr+p.en+p.club+NAT[p.nat]).toLowerCase().includes(q)));
+  const S={no:(a,b)=>a.no-b.no,fav:(a,b)=>(isFav(b)-isFav(a))||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>a.born-b.born,tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
+  list.sort(S[st.sort]);
+  $("count").textContent=list.length;
+  if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없어요. 필터를 하나 풀어보세요.</div>`;return}
+  if(!st.group){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`;return}
+  const keyOf={pos:p=>p.g,nat:p=>p.nat,league:p=>p.league}[st.group];
+  const label={pos:k=>GROUP_NAME[k],nat:k=>NAT[k],league:k=>k}[st.group];
+  const order={pos:["GK","DF","MF","FW"]}[st.group];
+  const groups={};list.forEach(p=>(groups[keyOf(p)]??=[]).push(p));
+  const keys=order?order.filter(k=>groups[k]):Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length);
+  $("out").innerHTML=keys.map(k=>`<h2 class="group-h">${st.group==="nat"?flag(k):""}${esc(label(k))}<small>${groups[k].length}명</small></h2><div class="grid">${groups[k].map(card).join("")}</div>`).join("");
+}
+
+// 반응 데이터: 수집기(reactions/collect.py)가 만든 reactions.json을 페이지 옆에 두면 읽음
+let REACT=null;
+fetch("reactions/reactions.json", {cache: "no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d}).catch(()=>{});
+const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
+function reactionHTML(p){
+  const r=REACT&&REACT.players&&REACT.players[p.no];
+  if(!r||!r.n){
+    return `<h3>뉴스 · 커뮤니티 반응</h3><p>${REACT?"최근 "+REACT.window_days+"일 동안 수집된 기사가 없어요.":"아직 연결된 반응 데이터가 없어요. 수집기가 돌기 시작하면 긍정·부정 비율, 언급량 추이, 키워드, 대표 헤드라인이 여기에 표시돼요."} 지금은 바로가기로 확인할 수 있어요.</p>`;
+  }
+  const s=r.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
+  const max=Math.max(1,...r.daily.map(d=>d.n));
+  return `<div class="r-head"><h3>최근 ${REACT.window_days}일 반응</h3><small>${esc(REACT.source)} ${r.n}건 · ${esc(REACT.generated_at.slice(0,16).replace("T"," "))} 기준</small></div>
+    <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
+    <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
+    ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있어요.</p>`:""}
+    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" title="${d.date} ${d.n}건"></div>`).join("")}</div>
+    <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
+    <div class="tags">${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}${r.keywords.map(k=>`<span>#${esc(k)}</span>`).join("")}</div>
+    <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>`;
+}
+
+function openDetail(no){
+  openNo=no;
+  const p=players[no-1];const q=encodeURIComponent(p.kr);
+  const ph=PHOTO[p.no];
+  $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p></div></div>
+  <div class="d-body">
+    <div class="d-info"><div><span>나라</span><b>${flag(p.nat)}${NAT[p.nat]}</b></div><div><span>클럽</span><b>${esc(p.club)}</b><button type="button" class="fav-btn" id="favBtn" aria-pressed="${isFav(p)}">${isFav(p)?"★ 즐겨찾는 팀":"☆ 팀 즐겨찾기"}</button></div><div><span>리그</span><b>${esc(p.league)}</b></div>
+    <div><span>출생</span><b>${p.born}년</b></div><div><span>키</span><b>${p.h}cm</b></div><div><span>주발</span><b>${p.foot}</b></div></div>
+    <section class="react" id="react">${reactionHTML(p)}
+      <div class="links">
+        <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스</a>
+        <a href="https://news.google.com/search?q=${q}&hl=ko&gl=KR" target="_blank" rel="noopener">구글 뉴스</a>
+        <a href="https://www.fmkorea.com/search.php?mid=football_world&search_keyword=${q}&search_target=title_content" target="_blank" rel="noopener">에펨코리아</a>
+        <a href="https://www.reddit.com/r/soccer/search/?q=${encodeURIComponent(p.en)}" target="_blank" rel="noopener">r/soccer</a>
+      </div>
+    </section>
+    ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`:""}
+  </div>`;
+  $("dlg").showModal();
+}
+
+buildControls();render();
+$("q").addEventListener("input",e=>{st.q=e.target.value;save();render()});
+$("posRow").addEventListener("click",e=>{const b=e.target.closest(".pos");if(!b)return;st.chip=b.dataset.k;syncSeg();save();render()});
+$("nat").addEventListener("change",e=>{st.nat=e.target.value;save();render()});
+$("league").addEventListener("change",e=>{st.league=e.target.value;save();render()});
+$("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
+$("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
+$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",sort:"no",group:""});buildControls();save();render()});
+$("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
+$("closeD").addEventListener("click",()=>$("dlg").close());
+// 즐겨찾는 팀: 상세 화면의 ☆ 버튼으로 켜고 끔. 이 브라우저에만 저장됨
+let openNo=0;
+$("dBody").addEventListener("click",e=>{
+  if(!e.target.closest("#favBtn"))return;
+  const club=players[openNo-1].club;
+  st.favs=isFav(players[openNo-1])?st.favs.filter(c=>c!==club):[...st.favs,club];
+  if(st.favs.length&&st.sort==="no"){st.sort="fav";$("sort").value="fav";}
+  save();render();openDetail(openNo);
+});
+$("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
+</script>
