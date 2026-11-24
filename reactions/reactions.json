@@ -1,178 +1,294 @@
 {
- "generated_at": "2026-11-24T16:28+09:00",
+ "generated_at": "2026-11-24T16:37+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "players": {
   "1": {
-   "n": 0,
+   "n": 121,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 12,
+    "neu": 63,
+    "neg": 46
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 5
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 8
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 26
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 9
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 11
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 13
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 49
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "기록",
+    "인터뷰"
+   ],
+   "keywords": [
+    "연봉",
+    "코리안 더비",
+    "플레이오프",
+    "순위",
+    "침묵"
+   ],
+   "headlines": [
+    {
+     "title": "‘1골 1도움’ 정상빈, 손흥민과 맞대결 승리… 세인트루이스 기선 제압",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE0xcGZfd0Fsamt0RnFUZXNfTHRDYy1yVnZGbHpLZUJnVWlUaVZGQ1h1Z3BYenBrcUw3THdBWFh4TktmWWNCckJSd1l0TXNZYkNWSXZnQ1VDUkdnR3NGNW5TMG9KS2l4MGlxMWFj0gFvQVVfeXFMT3JQOV9aTkl2YVhRUGV0MXZoanc4X3NQdEVxZVViWEV4UWNXZmsyNEhuVGdYOUJIZVdTcGVOLV9JT2c5NGp4Q2tic2wyVmVkZXUteVR2dkhmeVlkcmZGQ3lfY01kSk4zakFkUDNCU3pF?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "'손흥민 제치고 POTM 선정!' 정상빈, 1골+세컨더리 도움으로 코리안 더비 지배…LAFC 2-3 패배, 우승 도전 '빨간불'",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1PN2t6cGVzZjZaNk02MjFNQklzaUxTOWFvX05YbElVMXlLRkpYQWE1anhLOEE1ZlV6MjVQUGMwbVIxamlKQk1qWFFPTjBJVGtLc0dlZUxnMktoVkVJa3AxdllZTlRCQldITDFvZWxZTXI?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "또 침묵한 92년생 손흥민, 1골·1도움 펄펄 난 02년생 정상빈",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNa0hrYXN2RWhJby1YZXdHYUdyV1l4djBiMlN2MlAwVl9pQWg5QXVLSmZLZ2pPYVNBZ0s3TXowWi1XWWRONkF4U1V0ZlUyVEJjVFNqOWc3V1h2S1FoR21BRzdtYUxJaV9NX3RPMnA2MXRGaXl2TzBFY04yN1M2ajZJWWxZS1I4Nzdw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    }
+   ]
   },
   "2": {
-   "n": 0,
+   "n": 112,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 17,
+    "neu": 64,
+    "neg": 31
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 24
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 14
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 11
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 44
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 9
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 7
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 3
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "이적",
+    "경기력",
+    "부상"
+   ],
+   "keywords": [
+    "무승부",
+    "케인 부상",
+    "교체출전",
+    "이적설",
+    "교체 출전"
+   ],
+   "headlines": [
+    {
+     "title": "`이럴 수가` 김민재 재계약 논의 없었다…\"올가을 논의 진행할 예정이었지만…\"",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBSU1EtNDJ5VTV5NzFNbUdDb0JaQXlvNkZoS0dMZXhaQm9nMmN4R1MwUkU0S2NjbThOOTB6Wk1nMmtFdXV3ZmVQd25SWlBQTk9xTVVUVThJNEdUM2FPeTQ5NXdJNkRDZw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "[ACLE 프리뷰] 마사-밥신 돌아온 대전, 무조건 이겨야 한다'....김민재 뛰었던 베이징과 대결! 연패 끊고 16강 바라본다",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE83d2ZzV0tLUVl0UC1tbWF4VFZIMFlWWDY5dGdHWS1iZGRNdkJMNHlkck1XTVRXeTJpQ09IazR6ampPam5OeGxoTXh2YmJ3by1rdHE0WUxVWnBNRkYxeDY0clpRM1RPQnljSk9DSVlqWmU4RnJS?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
+    {
+     "title": "\"연봉 236억, 다른 팀에선 어려워!\" 김민재, 뮌헨 '3옵션'에도 잔류 희망...\"현재 이적 의사 없어\"",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNUEFjeHJCdkFnN1g0RkxKNDBMZFpTdjlpVHZiUlZRS0JjeXdxMDJZR081ZHBTSkVNU2N1aG5iaXN3YkZIcFRaeVJkcFlMUmRqcWRub0tyVU5TWVVCSUVpZEo0eTNPcEU3VXFXRGQ2UDk3TC1sak9HNlVTVnlOUWd0eWdn?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    }
+   ]
   },
   "3": {
-   "n": 0,
+   "n": 123,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 92,
+    "neu": 21,
+    "neg": 10
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 12
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 13
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 45
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 6
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 5
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 40
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 2
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "기록",
+    "대표팀"
+   ],
+   "keywords": [
+    "국제선수상",
+    "킬패스",
+    "완승",
+    "AFC 국제선수상",
+    "2연패"
+   ],
+   "headlines": [
+    {
+     "title": "두 달 넘게 침묵, ‘공격포인트’가 필요한 이강인…챔스 비킹전서 반등할까",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1QbDVZbi1vSUFXVXFHRDk3Z0Z6M0JYMmFxNC1CYUl4ZjNvRFBUZktKNEhvQ0xQbnJ1Yjhzbm1NeFJMQ09zTjEzODJIMkxiTFNOV1JSUDJRS1c1U2RqWHfSAWNBVV95cUxOTnlDNUI0cS1vX0VySGdsVlRWd0xyNE16Y2lsVUp2MUlJRkdqb3ctX0JlR0ktR29LNy16azBab284R1AwMUhlbmo5dUxMQ3dmX0JMcHk2ZUpZQ3JCUmxxdW1fYVk?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "[핌 포커스] '60분의 벽' 갇힌 이강인…공격포인트 없이는 주전도 없다",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1kQmRuZm5HNlIwOXpsaVp5ZExwbWdCMV9adGxITXBOOFpTbTJ3c2JTZE5ja3FYVE5FSHc5WkotNWxwMmtpS05KNWp6YW9Ndkhrb1Y4TzdrcXlTMnoz?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "\"이강인, 미드필더 많을수록 좋다\" 시메오네 전술에 주목한 스페인... 과감한 슛에 여러 번 득점 찬스→\"쇠를로트에 좋은 기회도 만들었다\"",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1FT2VaT1BtZi1WbTNHVmtweW9LSkowRktGQVlhNkwyeTNVZXRibHNoak1tZTZWUGE3RFpHT19HRkYyTGExVWY0WEJfWVdlSWh1S3NPUEl3LTFkOHJ3clp2dElOa09WeG9hZkNlMEVXbS1HNVNja1E?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "pos"
+    }
+   ]
   },
   "4": {
-   "n": 0,
+   "n": 38,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 5,
+    "neu": 9,
+    "neg": 24
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 17
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 6
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 3
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "기록",
+    "대표팀"
+   ],
+   "keywords": [
+    "무득점",
+    "선발 출전",
+    "혹평",
+    "침묵",
+    "슈팅 0개"
+   ],
+   "headlines": [
+    {
+     "title": "황희찬 어쩌나…샬케 122년 역사상 최악의 공격진이라는 불명예→충격 혹평 “분데스리가 수준에 미치지 못한다”",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9xLVJudWsyRHZCRWFLLXVDVDZLOGNuNTI1YzZDdlByWlpuS3VIRE5nSGUwTHZWQWRWY0thMTdaNDdwSmlNU25XckwyekYzdHpEQmpaeG1IQ0NHNjNYZ25mNFFVcUVvMTNLczlHWV94OTRVbzFR?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "\"황희찬, 분데스리가 수준 미달\" 역대급 혹평에도 감독은 만족! \"9번이나 슈팅 때렸어, 최고야!\"",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPLVpyM3VQUy01UEphUHNiWGlVRkZFczdVQVRCWndCNTNQQUpyRXk4X1J5WXJYVjVWUjI2ZE9EWFh3RS12ZDk3ZC10NUxLeHNXSURHMHZvcnZETDZYVzZvcUxTdC13U2hpQTNSQXJxeUswOHB2WlhDZnM3SVA0NkN0ZW9B?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "\"황희찬, 분데스리가 수준 아니야\" 독일 매체 충격 혹평! '韓 국가대표' 향해 쏟아진 맹비난→소속팀은 10경기 5골로 122년 역사상 최악의 불명예",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5DUmxDQTFxR0NlV0oxT0l1Z3pxeTBGWktpQV92TDFoRl9mc2RDZXVPd19zWTlVVUdoanBLRmNDUGZnUDg0eVd1MURNN2pXVVdVZG0taWU4cnA5ZkEwaEc4ZFg0SQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    }
+   ]
   },
   "5": {
-   "n": 0,
+   "n": 8,
    "sentiment": {
     "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "neu": 4,
+    "neg": 4
    },
    "daily": [
     {
@@ -185,52 +301,81 @@
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 2
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 1
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "인터뷰",
+    "대표팀"
+   ],
+   "keywords": [
+    "경기 일정",
+    "주전 경쟁",
+    "위기 발언",
+    "팀 패배",
+    "교체"
+   ],
+   "headlines": [
+    {
+     "title": "이재성, 계속되는 위기에 \"어려운 상황 놓였지만, 포기 말자\"...주전 경쟁 난항 설영우 향해선 \"조급함, 내려놓고 할 수 있는 최선만\"",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONkhjWmo4ckNHWVNBdWxIcmxZdEtkWHd2cVQwZXVYclJab2hsbzE5ejJMU0RUMFhDelRpZUQ1VWx4TzJTaWpOemNDWFlQSDBoLWM1cDVxOHhKX2tpRF9JUFBxTU1ZbGhOSWR0Y1p1N2N3VjZUX21QNFk0amh6MTVzby1R?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    },
+    {
+     "title": "설영우 뛴 아우크스부르크, 이재성 빠진 마인츠에 3-1 승리… : 스포츠",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9kYnRpTFFETW5YQjA3STdaV3ZYdVRjcGZPdUNPNVdzQ1lvSGEtdEp3WGYySW1xRFpFMlp3MHBKRWdIMWdyZmRoSl8yZw?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neg"
+    },
+    {
+     "title": "‘설영우 아까운 유효슛!’ 이재성 소속팀 상대로 승리에 기여, 연패 끊은 쪽은 아우크스부르크 [분데스 리뷰]",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9jNGd4U1ZfRnYxNFlGVUc4cmdWa0ZJZFdhQ0dFa0JHWGpZMXY0OE9RR0haX01GczdtcUpDODliZTlxTE9MYmlkTHJmRWpNRWdtNHNFajNqd1RaN3BMMm5rNGNqZHN1WXgydEZnNEpEVk1JUQ?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neu"
+    }
+   ]
   },
   "6": {
-   "n": 0,
+   "n": 24,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 6,
+    "neu": 15,
+    "neg": 3
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 4
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 2
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 11
     },
     {
      "date": "2026-11-22",
@@ -242,19 +387,48 @@
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 4
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "대표팀",
+    "인터뷰"
+   ],
+   "keywords": [
+    "교체 출전",
+    "FA컵 16강",
+    "그리움",
+    "A매치",
+    "승부차기"
+   ],
+   "headlines": [
+    {
+     "title": "‘韓 국가대표’ 황인범 아직도 그리워하는 페예노르트…“중원의 균형을 유지해 주는 핵심 선수였다, 그가 떠나자 공백을 느꼈다”",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBXYmN4bEZBOTYtd0dkV0xla0dnNnJFU0VUMWRvT1R6Q2ltamxKTkJaVHI1SExKcHZwcV9pMHlWaE5wbWR1eWVIS0Z5NnRoei1IeDVEUVpZMGVwVjNEVGJqeXMyWGtIV1lmWjRjS3l5VnZ5LUIz?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "\"김정은도 못 이겨!\" 응원가 2년 만에 불릴까…친정 찾는 황인범, 페예노르트 팬들 뜨거운 환영 예고",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1BVFktakVZLXIxN0phcVJzSXFwZ2l2VWpOU3NINWFiVWU0UXM0cXJZOVdBdFJhTXNpWnlpMWszbVlhdWVlanZvTkg1ZkVvRWJWVHBmZHJ0SGx6YXFYRmJYNUJUOA?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'황인범이 이렇게 대단했어?'…韓 중원 사령관 떠나보낸 페예노르트, 뒤늦은 그리움 \"정말 중요한 선수였다\"",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQRGpNYTBhS3M2Rm9mMU5qakxnNWw0cmctLTZ3aF84dTFQWURGc2pRbHEzTGhIS25tb1ZvWlNLOUc0UU9ucldjeGVxZFRrLVB0Q19qVVZaaDRfV1NMZVhwSmtKRWU0N0FjX0w5OWhvUHZGQUhlM29hTVJ3RFRUVjRyNzNR?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
   },
   "7": {
-   "n": 0,
+   "n": 27,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "pos": 15,
+    "neu": 11,
+    "neg": 1
    },
    "daily": [
     {
@@ -263,19 +437,19 @@
     },
     {
      "date": "2026-11-19",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-20",
-     "n": 0
+     "n": 4
     },
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 2
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 20
     },
     {
      "date": "2026-11-23",
@@ -286,15 +460,44 @@
      "n": 0
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력",
+    "부상",
+    "대표팀"
+   ],
+   "keywords": [
+    "첫 선발",
+    "선발 출전",
+    "팀 패배",
+    "드리블 성공",
+    "시즌 첫 선발"
+   ],
+   "headlines": [
+    {
+     "title": "'韓 축구' 대형 호재! '혼혈 국가대표' 카스트로프 시즌 첫 선발 출전, 도르트문트전 74분 소화...獨 매체 \"아주 좋은 활약\" 극찬",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB0cU0yczFxcGhZSDd5S0pRVFVVNWNPSHFHUllVM25tbmFZUnFzYzZtY0JPQWR3N0RlbU1mVzQwbXQ4SW5tVzNwRWo4bkdmSURhTnV2SjU3UUJLeFZqTFNkZA?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'첫 선발 수비 11회' 카스트로프 분전에도 묀헨글라트바흐 패배…황희찬도 침묵",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9WY0pTV2VSdnFyZ2dJMGdBTGJpUGRnSEtDN19Rb0lMMmxuUkFkV1lRTlZXNHhJN29DTFppUjFSRGpLMjF4MjlHVTN3dEw5cG02eXBpTGpiRFI3dzVOU1RBemt1SjdoRUZwOXdLTUV3VjBFSXFOWS1CR092NA?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    },
+    {
+     "title": "'드리블 성공 3회·수비 기여 11회' 카스트로프 선발 복귀전서 맹활약! 74분간 공수 종횡무진→팀은 도르트문트에 0-1 패배...리그 최하위 유지",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1JR2xpMVBMRE9TWDlSQWttRzRxYkhGaDFlM3c2U2tvcWs2c05ZRUcwa2xIZGlJVTRibFIxTlpkWGY5cGV1RzZXNy1HamF5c1Bua2Q1VWRKZHEwSjMzN3l0QzJEcw?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
   },
   "8": {
-   "n": 0,
+   "n": 2,
    "sentiment": {
-    "pos": 0,
-    "neu": 0,
+    "pos": 1,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
@@ -316,7 +519,7 @@
     },
     {
      "date": "2026-11-22",
-     "n": 0
+     "n": 2
     },
     {
      "date": "2026-11-23",
@@ -327,21 +530,41 @@
      "n": 0
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "도움",
+    "코리안 더비",
+    "코리언더비",
+    "4연승"
+   ],
+   "headlines": [
+    {
+     "title": "스완지 엄지성, 시즌 4호 도움...배준호-백승호는 '코리안 더비' 격돌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5sNldkekVNVTV1RlJhU0tyU2ZFSXdDQk9vcE1zYUdBZlVNaTdGMnA3OFJtWnNIb08xblJ5U01ERjc4azJJM0pJZFA1VzdZVnVHNVRjS0w2Z2Vla3dR?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    },
+    {
+     "title": "배준호, 백승호와 코리언더비서 판정승…스토크시티 4연승 질주 [SS현장]",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE16dGt5Z2dWQkl6UU9xa1JXTVVkWXUwbndLN29oNkt1OGIwZ1hIdXRYeG82NTBwc1lvMEFkbVo2dWJVYm53YWs1cXY5M0I2a1VIT1NyZ2gwenY?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
   },
   "9": {
-   "n": 0,
+   "n": 3,
    "sentiment": {
     "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "neu": 2,
+    "neg": 1
    },
    "daily": [
     {
      "date": "2026-11-18",
-     "n": 0
+     "n": 3
     },
     {
      "date": "2026-11-19",
@@ -368,9 +591,37 @@
      "n": 0
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "대표팀",
+    "경기력"
+   ],
+   "keywords": [
+    "평가전",
+    "귀국",
+    "골키퍼",
+    "무실점",
+    "세대교체"
+   ],
+   "headlines": [
+    {
+     "title": "평가전 마치고 귀국하는 조현우",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9WVnhuNVBmbE8ySEc1LUJWbzlPM1FJbzFiX2xEcXZKd2xRNk1WdHNVSTRtTmg0bEtHdzNLVDAzRXllYnJOblYzMk9wVXVjMFVPMDVGX0dnLUg3dDFqY2RhbDEydTlRN1ZSU2o5MVR4ekpfZUlzODRiZNIBeEFVX3lxTE9WVnhuNVBmbE8ySEc1LUJWbzlPM1FJbzFiX2xEcXZKd2xRNk1WdHNVSTRtTmg0bEtHdzNLVDAzRXllYnJOblYzMk9wVXVjMFVPMDVGX0dnLUg3dDFqY2RhbDEydTlRN1ZSU2o5MVR4ekpfZUlzODRiZA?oc=5",
+     "date": "2026-11-18",
+     "sentiment": "neu"
+    },
+    {
+     "title": "'29세 송범근, 36세 김승규·35세 조현우의 시대 끝낼까' A매치 5경기 연속 무실점...'세대교체 절실' 공격진은 21슈팅에도 고작 1골",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBWMFVTUWQ2SUlTTGFpUDlrZ1N3RUhkbmlyWUY2LXpTMVVpSC1MRVJXaXNFUHMyWVpjVnMtLVFIX2IxN19vald4R2JCUVhSbjJBYi0tOQ?oc=5",
+     "date": "2026-11-18",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[카타르전] 조현우 상대하던 독일이 이런 기분이었을까…韓 파상공세 속 '선방 쇼' 선보인 자카리아, 패배에도 POTM 선정",
+     "url": "https://news.google.com/rss/articles/CBMigwtBVV95cUxPdEhwM2dVdTRWbG9JS1A2b0x5ZDJ6YTdmZ3JIR2FFUHdmOFhrVnJNUFZfSkxRR2gwNGd0aW9LZjNuTWVxbXF5SXVxRlBQRzFWQ1M4UHp4ZDh3a3EwUFhoQmRGT0tIN2tDQk1xQnNDUlYyd3hwOVdRWXc5UFlQZ1Y4dkxqQ0ZIekhpVHZESHphSWd3Zm5zLTRKUXFoQlBYZndkV29tWFNYYVBKbE82QWhDTWZfeFprRFNNdUFRUDdwZXpSaWY5WDJTNEl4N1RRcVRMUzh3eExoRHc0dlVibGdqSlVsemRydDhoazZnQjFJRXBfQmhIamppWEI0WGZFT1Y5QmV4NHZRbnZUWXJkRkhETXFLbS1XazA1eDl5cXFHWkE1dFdEbzZsXzJrSzFZMVZtM0Y5cjFaenA2QnRpWHFpSFFkOWtBZGVnNWE0TEJ0ZmRzNHFheWk3MWVvLUw0NEI5VHlKUnY5bTJjX3cyTHMxSUdEX2RkcURwR1ZvUWVxb251OHZnZmU5NnhYV0N6SVlVYVlYWVFPclYyS25DUUJmLThSRkhJbWZhMXhodnhSWUtxZkFTeWk3TGRnejZsUlhqQWhhZzhZMVNMSGpCYzBJS00tbElVYUlMcXlET3RfOXoxUFF2VDM1blFYTG9pTWQxaGZNbXdVVk55MG1KMGl3TlpidUJVVG1RZFZrRno1cVZFemNfdy1DRE8td0pFWDNyZDR5T3NrWFlmOWFtQkgzTVU4d011RTlNeGJXc1J2NjRtbGRqMEhQMHdGWXBDd2lDdnZVVDZQUVdlR3JIVjdxNTZ1Y2dNOV9EWHBXaGltLW9BbGVkT0kzSl9RQnV3Vll1RHc3VzZmZmlEZTlWZ3NzaVJSc08zYk9mdTQtV2xLTVEwcEZQdWtsZWYxVWNkM3JGNDkwMUFHS0VXeTZVS013N3dxWnA2dy0talVQT0tmOHR2V1c0MGR3UTk1bDU0eTFNUjJWdFA1NjFmT2VIamJvb0loNGo3M0dfdzRkRHdBZ0F6aC1yMW94MXRXTUU2c2dmbEhldFFrcDZqRDRkSXh6SW1lYmtVaEVtdWE1Y2JyMDJxMG0yWk9nbHg2ZGtOVkdIR1RlRGt4VlpzUkcyTTVNS2Q4aUlacUpaWlVOS0s0UHkxck5kWlpDNnFtSXE4blFlV05CM3pvNjJnbTNvd1I4cG5YU1RPYkJZc29JMFVhODB4SnU1a3p6ZzlwVGthbGdNMG9XQklLNk9GWEVDeTNoTUplZnJqT0NHYjZTX3FBc1RVc3l2OE1tV3pCZW5lQTNtVlZzVmoycGpoTGlyVWs1bWVkMWlUNWlnUHlHVGdwNllGelRkdkhGWWtJZElUS25uLUpvcXhDcERRbGhYeUJLeml2U1hOR3BUVk9hU08zYnNHRkNVU2NGa1hienZ0alZRMzJOSS1KYVowb3hRWFl6YXNOb3ptVVFmbUJ2R1ZlVzdKMk9qQnlGSzhBZ2xNb05RVFdkYUVFUW9WanBlLU5kUTBiOUNfVzlYZFhzeFI3UzlNSUZGTEFjSU1WNkNSdU9vTzVBdFVFcXVQVnM4VHJoSjBCRVduTVFMcEFuUDVzbGRGNDFVT2JiRGd2YVVhdTFFX2REd0JPNFBVZGFoaXFFazhTRGRNR3pLdGRzcGRqLWhWdzFkYl9FRFNyX05FY2I0ak1ETzlLLVdpaUUydDV4cVdUbnpncnU3STNaRmhkX3BQRWV6Q3lNcERsNGFQMExXMFhHajZwSGpLdVlrNDlNRWFMdVV5WFlrMTRTeGVqSTktSmxGQVEtYWk1MzZNMjVzRm1Ta0pTOV9SY21pU3VhZmR3QU9HLTRSU2JGTVFFaElrc01TMkFnV2RzMk85UE5DalRn?oc=5",
+     "date": "2026-11-18",
+     "sentiment": "neg"
+    }
+   ]
   }
  }
 }
