@@ -17,7 +17,7 @@ import sys
 import time
 import unicodedata
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -239,6 +239,35 @@ def translate(todo: list[tuple[str, str]], ko: dict, head: str = TRANSLATE_HEAD,
         KO.write_text(json.dumps(ko, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
 
 
+TRANSFERS = HERE / "transfers.json"
+
+
+def record_transfers(players: list, overrides: dict) -> None:
+    """이전 명단(players.json)과 비교해 팀이 바뀐 선수를 transfers.json에 기록 (최근 60일만 보관)"""
+    old = load(OUT, {})
+    if not old.get("players"):
+        return
+    before = {r[0]: r[5] for r in old["players"]}
+    before.update({int(k): v[0] for k, v in old.get("curated", {}).items()})
+    now = {r[0]: (r[5], r[6]) for r in players}
+    now.update({int(k): (v[0], v[1]) for k, v in overrides.items()})
+    today = datetime.now(timezone.utc).date().isoformat()
+    moved = [{"no": no, "from": before[no], "to": club, "league": lg, "date": today}
+             for no, (club, lg) in now.items()
+             if no in before and before[no] and club and before[no] != club
+             and re.search(r"[가-힣]", before[no]) and re.search(r"[가-힣]", club)]
+    if len(moved) > 600:  # 팀 이름 표기가 한꺼번에 바뀐 경우 등은 이적이 아님
+        print(f"[이적] 바뀐 선수가 {len(moved)}명이라 이름 변경으로 보고 기록하지 않음")
+        return
+    hist = load(TRANSFERS, [])
+    seen = {(t["no"], t["to"]) for t in hist}
+    hist += [m for m in moved if (m["no"], m["to"]) not in seen]
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=60)).date().isoformat()
+    hist = sorted((t for t in hist if t["date"] >= cutoff), key=lambda t: t["date"], reverse=True)
+    TRANSFERS.write_text(json.dumps(hist, ensure_ascii=False, indent=0), encoding="utf-8")
+    print(f"[이적] 이번에 {len(moved)}명, 최근 60일 {len(hist)}건")
+
+
 def main() -> None:
     curated = load(CURATED, [])
     ids: dict[str, int] = load(IDS, {})
@@ -365,6 +394,7 @@ def main() -> None:
         "curated": overrides,
         "players": players,
     }
+    record_transfers(players, overrides)
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"[완료] 선수 {len(players)}명 + 직접 입력 {len(overrides)}명 갱신 → {OUT.name}")
 

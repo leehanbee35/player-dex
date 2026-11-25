@@ -252,6 +252,9 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .stbl td{text-align:right;padding:6px;border-bottom:1px solid var(--line)}
 .stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
 .stbl tfoot td{font-weight:700;border-bottom:0}
+.bdg.move{background:#f5c542;color:#2a2000;border-color:transparent;font-weight:700}
+.d-move{font-size:12.5px!important;margin-top:4px!important;color:var(--muted)}
+.d-move b{color:var(--ink)}
 /* 첫 화면 한국 선수 경기 */
 .kgames{margin:0 0 20px}
 .kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
@@ -405,6 +408,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 <main class="wrap">
   <section class="kgames" id="kgames" hidden></section>
   <section class="hot" id="hot" hidden></section>
+  <section class="hot" id="moves" hidden></section>
   <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열림</div></div>
   <div id="out"></div>
 </main>
@@ -804,7 +808,7 @@ function card(p){
   return `<button type="button" class="card ${p.g}" data-no="${p.no}">
     <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${esc(p.kr)}</span></div>
     <div class="c-art">${art(p)}</div>
-    <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}</div>
+    <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}${moveBadge(p)}</div>
     ${reactLine(p)}
     <dl class="stats"><dt>팀</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born?`${p.born}년 (${YEAR-p.born}세)`:"-"}</dd><dt>${p.foot?"키 · 주발":"키"}</dt><dd>${p.h?p.h+"cm":"-"}${p.foot?" · "+p.foot:""}</dd></dl>
   </button>`;
@@ -837,6 +841,24 @@ function renderKGames(){
         return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${t.md}</span>${who(p)}<span class="km"><b>${esc(p.kr)}</b><span><span class="gr ${r[1]}">${r[0]}</span> ${g.atVs==="@"?"원정":"홈"} ${esc(teamKo(g.opp))} ${esc(g.score)}</span><small>${/start/i.test(g.role)?"선발":/sub/i.test(g.role)?"교체":"출전 기록 없음"}${g.g?` · ${g.g}골`:""}${g.a?` · ${g.a}도움`:""}</small></span></button></li>`}).join("")}</ul></div>`:""}
     </div>`;
 }
+// 최근 이적: data/transfers.json (매주 명단 갱신 때 팀이 바뀐 선수). 30일 안 이적은 카드에 "이적" 배지
+let MOVES={},MOVE_LIST=[];
+fetch("data/transfers.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(a=>{
+  const cut=new Date(Date.now()-30*864e5).toISOString().slice(0,10);
+  MOVE_LIST=(a||[]).filter(t=>t.date>=cut);MOVES={};MOVE_LIST.forEach(t=>{if(!MOVES[t.no])MOVES[t.no]=t});render();
+}).catch(()=>{});
+const moveBadge=p=>{const t=MOVES[p.no];return t?`<span class="bdg move" title="${esc(t.from)} → ${esc(t.to)} (${t.date})">이적</span>`:""};
+function renderMoves(){
+  const box=$("moves");if(!box)return;
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group;
+  // 사진이 있거나 반응을 수집하는 선수부터 (알려진 선수 위주)
+  const known=p=>(PHOTO[p.no]||WPHOTO[p.no]?2:0)+(hotN(p)?1:0);
+  const list=plain?MOVE_LIST.map(t=>BY_NO[t.no]).filter((p,i,a)=>p&&a.indexOf(p)===i).sort((a,b)=>known(b)-known(a)).slice(0,12):[];
+  if(!list.length){box.hidden=true;box.innerHTML="";return}
+  box.hidden=false;
+  box.innerHTML=`<div class="hot-h"><h2>최근 이적</h2><small>최근 30일 · 매주 명단 갱신 때 확인</small></div>
+    <ol class="hot-list">${list.map(p=>{const t=MOVES[p.no];return `<li><button type="button" class="hot-item" data-no="${p.no}"><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span><span class="sub">${esc(t.from)}</span><span class="sub">→ <b>${esc(t.to)}</b></span></button></li>`}).join("")}</ol>`;
+}
 // 최근 24시간 기사 수 (3시간마다 갱신). 예전 데이터처럼 h24가 없으면 0
 const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24||0};
 // 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "실시간 화제" 상위 10명: 최근 24시간 기사 수, 같으면 7일 기사 수
@@ -859,7 +881,7 @@ function render(){
   if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||matchQ(p,q)));
-  renderHot();renderKGames();
+  renderHot();renderKGames();renderMoves();
   // 모바일 필터 버튼에 적용 중인 필터 개수
   $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
@@ -933,7 +955,7 @@ function openDetail(no){
   const p=BY_NO[no];if(!p)return;const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
   const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
-  $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p></div></div>
+  $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p>${MOVES[p.no]?`<p class="d-move">최근 이적: ${esc(MOVES[p.no].from)} → <b>${esc(MOVES[p.no].to)}</b> (${MOVES[p.no].date.slice(5).replace("-",".")})</p>`:""}</div></div>
   <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
@@ -1129,6 +1151,7 @@ $("favBar").addEventListener("click",e=>{
 $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"){st.club="";buildControls();save();render()}});
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
+$("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
   if(e.target.id==="hotAll"){st.sort="hot";buildControls();save();render();return}
   const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no);
