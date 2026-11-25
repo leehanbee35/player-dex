@@ -348,7 +348,7 @@ def main() -> None:
     for a in roster:
         club = ko.get(f"t:{a['club']}", a["club"])
         if a["id"] in cur_map:
-            overrides[cur_map[a["id"]]] = [club, a["league"], a["id"]]
+            overrides[cur_map[a["id"]]] = [club, a["league"], a["id"], a["num"]]
             continue
         players.append([
             ids[a["id"]],

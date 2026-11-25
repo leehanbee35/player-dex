@@ -402,7 +402,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
       <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <label>정렬 <select id="sort">
-        <option value="no">도감 번호</option><option value="hot">화제순 (실시간)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+        <option value="no">기본순</option><option value="hot">화제순 (실시간)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
       </select></label>
       <label>묶어보기 <span class="seg" id="grp">
         <button type="button" data-g="" aria-pressed="true">없음</button>
@@ -834,7 +834,7 @@ function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttr
 
 function card(p){
   return `<button type="button" class="card ${p.g}" data-no="${p.no}">
-    <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${isFavOf("player",p.no)?'<span class="fav-star" title="즐겨찾는 선수">★</span> ':""}${esc(p.kr)}</span></div>
+    <div class="c-head"><span class="c-no">${p.num?"#"+esc(p.num):""}</span><span class="c-name">${isFavOf("player",p.no)?'<span class="fav-star" title="즐겨찾는 선수">★</span> ':""}${esc(p.kr)}</span></div>
     <div class="c-art">${art(p)}</div>
     <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}${moveBadge(p)}</div>
     ${reactLine(p)}
@@ -1277,7 +1277,7 @@ fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
   FLAG_IMG=d.flag||{};TEAM_KO=d.teams||{};
   // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
-  Object.entries(d.curated||{}).forEach(([no,[club,league,espn]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
+  Object.entries(d.curated||{}).forEach(([no,[club,league,espn,num]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(num)p.num=num;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
   players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""})));
   DATA_AT=d.generated_at||"";
   reindex();

@@ -233,7 +233,7 @@ def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int
             d = info.get(p["title"], {})
             c = cur_by_name.get(p["kr"])
             if c and c.get("born") == d.get("born"):  # 직접 입력한 선수 (예: 조현우)
-                overrides[c["no"]] = [club, league, "w:" + p["title"]]
+                overrides[c["no"]] = [club, league, "w:" + p["title"], p["num"]]
                 continue
             key = "kw:" + p["title"]
             if key not in ids:
