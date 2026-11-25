@@ -235,7 +235,14 @@ def load_targets() -> list[dict]:
     for row in roster:
         no, kr, _en, _pos, nat, club, lg, _b, _h, num = row[:10]
         if lg == "K리그1":
-            continue  # K리그 선수 약 300명은 비용 때문에 아직 반응 수집 대상에서 뺌
+            # K리그는 등번호 1~30번만. 흔한 이름이 많아서 팀 지역명을 같이 검색 (예: "정승원" 서울)
+            if no in have or not str(num).isdigit() or not 1 <= int(num) <= 30 or "," in kr:
+                continue
+            area = next((t for t in club.split() if t.upper() != "FC" and not t.isdigit()), club)
+            auto.append({"no": no, "name": kr, "club": club, "auto": True, "korean": False,
+                         "query": f'"{kr}" {area}', "must_any": [],
+                         "exclude": ["배우", "드라마", "가수", "예능", "국회", "의원", "야구", "농구", "배구"]})
+            continue
         if no in have or not re.search(r"[가-힣]", kr) or len(kr) > 20 or "," in kr:
             continue  # 한글 이름이 아직 없으면 한국 기사 검색이 안 됨
         korean = nat in ("KOR", "KORS")
