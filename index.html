@@ -252,6 +252,21 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .stbl td{text-align:right;padding:6px;border-bottom:1px solid var(--line)}
 .stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
 .stbl tfoot td{font-weight:700;border-bottom:0}
+/* 첫 화면 한국 선수 경기 */
+.kgames{margin:0 0 20px}
+.kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.kg-cols h3{font-size:12px;color:var(--muted);font-weight:600;margin:0 0 6px}
+.kg{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.kg-it{width:100%;display:grid;grid-template-columns:54px 36px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit;text-align:left}
+.kg-it:hover{border-color:var(--muted)}
+.kg-it .kt{font-size:11.5px;color:var(--muted);line-height:1.3;font-variant-numeric:tabular-nums}
+.kg-it .kt b{color:var(--ink);font-size:14px}
+.kg-it .kt .live{color:var(--fw);font-size:12px}
+.kg-it .ph svg,.kg-it .ph img{width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:50% 18%;display:block}
+.kg-it .km{display:flex;flex-direction:column;gap:1px;font-size:13px;min-width:0}
+.kg-it .km small{font-size:11.5px;color:var(--muted)}
+.kg-it .km .gr{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:4px;font-size:10.5px;font-weight:700;color:#fff;background:var(--muted);vertical-align:1px}
+.kg-it .km .gr.w{background:var(--mf)} .kg-it .km .gr.l{background:var(--fw)}
 /* 다음 경기·최근 경기 */
 .games{margin-top:12px;display:flex;flex-direction:column;gap:8px}
 .ng{display:flex;flex-direction:column;gap:2px;background:var(--bg);border-radius:10px;padding:9px 11px}
@@ -388,6 +403,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 </header>
 
 <main class="wrap">
+  <section class="kgames" id="kgames" hidden></section>
   <section class="hot" id="hot" hidden></section>
   <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열림</div></div>
   <div id="out"></div>
@@ -801,6 +817,26 @@ function reactLine(p){
   const s=REACT.players[p.no].sentiment,t=s.pos+s.neu+s.neg||1,pc=k=>Math.round(s[k]/t*100);
   return `<div class="c-react" title="최근 ${REACT.window_days}일 기사 ${n}건 · 긍정 ${pc("pos")}% · 중립 ${pc("neu")}% · 부정 ${pc("neg")}%"><span class="mbar" aria-hidden="true"><i class="s-pos" style="width:${pc("pos")}%"></i><i class="s-neu" style="width:${pc("neu")}%"></i><i class="s-neg" style="width:${pc("neg")}%"></i></span><span>기사 <b>${n}</b></span></div>`;
 }
+// 첫 화면 "한국 선수 경기": data/games.json (3시간마다 갱신) — 48시간 안 경기와 36시간 안 결과
+let KGAMES=null;
+fetch("data/games.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{KGAMES=d;renderKGames()}).catch(()=>{});
+function renderKGames(){
+  const box=$("kgames");if(!box)return;
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group;
+  const nx=(KGAMES&&KGAMES.next||[]).filter(g=>BY_NO[g.no]&&new Date(g.date)>Date.now()-2*3600e3);
+  const ls=(KGAMES&&KGAMES.last||[]).filter(g=>BY_NO[g.no]);
+  if(!plain||(!nx.length&&!ls.length)){box.hidden=true;box.innerHTML="";return}
+  box.hidden=false;
+  const RES={W:["승","w"],D:["무","d"],L:["패","l"]};
+  const who=p=>`<span class="ph">${art(p)}</span>`;
+  box.innerHTML=`<div class="hot-h"><h2>한국 선수 경기</h2><small>해외 리그 · 한국 시간 기준</small></div>
+    <div class="kg-cols">
+      ${nx.length?`<div><h3>다가오는 경기</h3><ul class="kg">${nx.map(g=>{const p=BY_NO[g.no],t=kst(g.date),live=new Date(g.date)<=Date.now();
+        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${live?'<b class="live">진행 중</b>':`${t.md}<br><b>${t.hm}</b>`}</span>${who(p)}<span class="km"><b>${esc(p.kr)}</b>${esc(teamKo(g.home))} vs ${esc(teamKo(g.away))}<small>${esc(compKo(g.league))}</small></span></button></li>`}).join("")}</ul></div>`:""}
+      ${ls.length?`<div><h3>최근 결과</h3><ul class="kg">${ls.map(g=>{const p=BY_NO[g.no],t=kst(g.date),r=RES[g.result]||["",""];
+        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${t.md}</span>${who(p)}<span class="km"><b>${esc(p.kr)}</b><span><span class="gr ${r[1]}">${r[0]}</span> ${g.atVs==="@"?"원정":"홈"} ${esc(teamKo(g.opp))} ${esc(g.score)}</span><small>${/start/i.test(g.role)?"선발":/sub/i.test(g.role)?"교체":"출전 기록 없음"}${g.g?` · ${g.g}골`:""}${g.a?` · ${g.a}도움`:""}</small></span></button></li>`}).join("")}</ul></div>`:""}
+    </div>`;
+}
 // 최근 24시간 기사 수 (3시간마다 갱신). 예전 데이터처럼 h24가 없으면 0
 const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24||0};
 // 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "실시간 화제" 상위 10명: 최근 24시간 기사 수, 같으면 7일 기사 수
@@ -823,7 +859,7 @@ function render(){
   if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||matchQ(p,q)));
-  renderHot();
+  renderHot();renderKGames();
   // 모바일 필터 버튼에 적용 중인 필터 개수
   $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
@@ -1092,6 +1128,7 @@ $("favBar").addEventListener("click",e=>{
 });
 $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"){st.club="";buildControls();save();render()}});
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
+$("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
   if(e.target.id==="hotAll"){st.sort="hot";buildControls();save();render();return}
   const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no);

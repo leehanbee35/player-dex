@@ -7,7 +7,7 @@ on:
   # 화면 배포는 pages.yml이 따로 함 (수집을 기다리지 않게)
   push:
     branches: [main]
-    paths: ["reactions/collect.py", ".github/workflows/reactions.yml"]   # 수집기를 고치면 바로 한 번 실행해서 확인
+    paths: ["reactions/collect.py", "data/korean_games.py", ".github/workflows/reactions.yml"]   # 수집기를 고치면 바로 한 번 실행해서 확인
 
 permissions:
   contents: write
@@ -35,6 +35,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r reactions/requirements.txt
+      # 해외 리그 한국 선수의 다음 경기·최근 결과 (첫 화면 "오늘 뛰는 한국 선수"). 실패해도 반응 수집은 계속
+      - run: python -u data/korean_games.py
+        continue-on-error: true
       - run: python -u reactions/collect.py | tee "$RUNNER_TEMP/collect.log"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -53,6 +56,7 @@ jobs:
           git config user.name "reactions-bot"
           git config user.email "reactions-bot@users.noreply.github.com"
           git add reactions/reactions.json
+          if [ -f data/games.json ]; then git add data/games.json; fi
           git diff --cached --quiet || git commit -m "반응 데이터 갱신"
           # 다른 실행과 동시에 올리면 거절될 수 있어서 3번까지 다시 시도
           for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 10; done
