@@ -25,6 +25,7 @@ OUT = HERE / "players.json"
 IDS = HERE / "ids.json"
 KO = HERE / "ko.json"
 CURATED = HERE / "curated.json"
+NAMES = HERE / "names.json"  # 직접 고친 한글 이름
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5")
 API = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 UA = "player-dex/1.0 (+https://github.com)"
@@ -163,8 +164,19 @@ SCHEMA = {
 }
 
 
-def translate(todo: list[tuple[str, str]], ko: dict) -> None:
-    """todo: [(캐시 키, 설명 문자열)] → ko[키] = 한글"""
+TRANSLATE_HEAD = (
+    "각 줄은 '키<TAB>설명'입니다. 설명 맨 앞의 고유명사(선수 이름, 팀 이름, 나라 이름) 하나만 한글 표기로 바꿔 같은 키와 함께 돌려주십시오. "
+    "괄호 안 국적·소속은 참고용이니 넣지 마십시오. 예: '선수 Son Heung-min (Korea Republic, LAFC)' → '손흥민'.\n\n"
+)
+REVIEW_HEAD = (
+    "각 줄은 '키<TAB>영문 이름 (국적, 소속팀)<TAB>지금 한글 표기'입니다. 지금 한글 표기를 한국 스포츠 언론(네이버 스포츠, 스포티비 등)에서 "
+    "실제로 가장 많이 쓰는 표기와 비교해, 다르면 고친 표기를, 맞으면 지금 표기를 그대로 같은 키와 함께 돌려주십시오. "
+    "예: 'Iliman Ndiaye' 릴리만 은디아예 → 일리만 은디아예, 'Gerónimo Rulli' 헤로니모 훌리 → 헤로니모 룰리. 이름만, 설명 없이 넣으십시오.\n\n"
+)
+
+
+def translate(todo: list[tuple[str, str]], ko: dict, head: str = TRANSLATE_HEAD, done=None) -> None:
+    """todo: [(캐시 키, 설명 문자열)] → ko[키] = 한글. done(키 목록): 한 묶음을 마칠 때마다 호출"""
     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not todo:
         return
@@ -178,10 +190,7 @@ def translate(todo: list[tuple[str, str]], ko: dict) -> None:
     for i in range(0, len(todo), 120):
         batch = todo[i : i + 120]
         lines = "\n".join(f"{k}\t{desc}" for k, desc in batch)
-        prompt = (
-            "각 줄은 '키<TAB>설명'입니다. 설명 맨 앞의 고유명사(선수 이름, 팀 이름, 나라 이름) 하나만 한글 표기로 바꿔 같은 키와 함께 돌려주십시오. "
-            "괄호 안 국적·소속은 참고용이니 넣지 마십시오. 예: '선수 Son Heung-min (Korea Republic, LAFC)' → '손흥민'.\n\n" + lines
-        )
+        prompt = head + lines
         try:
             res = client.messages.create(
                 model=MODEL,
@@ -224,6 +233,8 @@ def translate(todo: list[tuple[str, str]], ko: dict) -> None:
                 ko[it["k"]] = v
                 got += 1
         fails = 0
+        if done:
+            done([k for k, _ in batch])
         print(f"[한글] {i + len(batch)}/{len(todo)} (이번 {got}개)")
         KO.write_text(json.dumps(ko, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
 
@@ -280,7 +291,26 @@ def main() -> None:
             todo.append((f"p:{a['id']}", f"선수 {a['en']} ({a['nat_en']}, {a['club']})"))
     print(f"[한글] 새로 만들 표기 {len(todo)}개")
     translate(todo, ko)
+
+    # 주요 선수 이름 재검수 (한 번 검수한 선수는 'r:번호'로 표시해 다시 안 함)
+    REVIEW_LEAGUES = {"프리미어리그", "라리가", "분데스리가", "세리에 A", "리그 1"}
+    review = [
+        ("p:" + a["id"], "%s (%s, %s)\t%s" % (a["en"], a["nat_en"], a["club"], ko["p:" + a["id"]]))
+        for a in roster
+        if a["id"] not in cur_map and f"p:{a['id']}" in ko and f"r:{a['id']}" not in ko
+        and (a["league"] in REVIEW_LEAGUES or a["nat"] == "KOR")
+    ]
+    print(f"[검수] 주요 선수 이름 {len(review)}개")
+
+    def mark(keys):
+        for k in keys:
+            ko["r:" + k[2:]] = "1"
+
+    translate(review, ko, REVIEW_HEAD, mark)
     KO.write_text(json.dumps(ko, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
+
+    # 직접 고친 이름(data/names.json: {"선수 번호": "한글 이름"})이 가장 우선
+    fixed = {int(k): v for k, v in load(NAMES, {}).items() if str(k).isdigit() and v}
 
     players = []
     overrides = {}
@@ -291,7 +321,7 @@ def main() -> None:
             continue
         players.append([
             ids[a["id"]],
-            ko.get(f"p:{a['id']}", a["en"]),
+            fixed.get(ids[a["id"]]) or ko.get(f"p:{a['id']}", a["en"]),
             a["en"], a["pos"], a["nat"], club, a["league"], a["born"], a["h"], a["num"],
         ])
     players.sort(key=lambda r: r[0])
