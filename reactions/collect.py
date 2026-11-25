@@ -41,12 +41,8 @@ PLAYERS_PATH = HERE / "players.json"
 OUT_PATH = HERE / "reactions.json"
 
 ROSTER_PATH = HERE.parent / "data" / "players.json"
-# 자동 수집 대상: 한국 국적 선수 전원 + 아래 팀의 등번호 1~35번 선수
-BIG_CLUBS = {
-    "레알 마드리드", "바르셀로나", "아틀레티코 마드리드", "맨체스터 시티", "아스널", "리버풀", "첼시",
-    "맨체스터 유나이티드", "토트넘 홋스퍼", "뉴캐슬 유나이티드", "바이에른 뮌헨", "도르트문트",
-    "바이어 레버쿠젠", "파리 생제르맹", "인테르", "AC 밀란", "유벤투스", "나폴리",
-}
+# 자동 수집 대상: 한국 국적 선수 전원 + 5대 리그 1군(등번호 1~35번) + K리그1 등번호 1~30번
+TOP5 = {"프리미어리그", "라리가", "분데스리가", "세리에 A", "리그 1"}
 
 KST = timezone(timedelta(hours=9))
 WINDOW_DAYS = 7
@@ -248,7 +244,8 @@ def load_targets() -> list[dict]:
         if no in have or not re.search(r"[가-힣]", kr) or len(kr) > 20 or "," in kr:
             continue  # 한글 이름이 아직 없으면 한국 기사 검색이 안 됨
         korean = nat in ("KOR", "KORS")
-        regular = club in BIG_CLUBS and str(num).isdigit() and 1 <= int(num) <= 35
+        # 5대 리그 모든 팀의 1군(등번호 1~35번) — 예전에는 주요 18개 팀만
+        regular = lg in TOP5 and str(num).isdigit() and 1 <= int(num) <= 35
         if not (korean or regular):
             continue
         auto.append({"no": no, "name": kr, "club": club, "auto": True, "korean": korean,
