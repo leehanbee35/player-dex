@@ -406,7 +406,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     </div>
     <div class="favline"><div class="favbar" id="favBar"></div>
       <div class="favline-r">
-        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스, K리그 제외). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
+        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스, K리그 제외). 이름으로 검색하면 항상 함께 나옵니다.">유스 <span class="seg" id="youth">
           <button type="button" data-y="0" aria-pressed="true">숨김</button>
           <button type="button" data-y="1" aria-pressed="false">포함</button>
         </span></label>
@@ -801,7 +801,7 @@ function syncFav(){
   [["favNat","nat"],["favLeague","league"],["favClub","club"]].forEach(([id,kind])=>{
     const b=$(id),v=st[kind],on=!!v&&isFavOf(kind,v);
     b.disabled=!v;b.setAttribute("aria-pressed",on);b.textContent=on?"★":"☆";
-    b.title=!v?"먼저 하나를 선택해 주세요":on?"즐겨찾기 해제":"즐겨찾기에 추가";
+    b.title=!v?"먼저 하나를 선택해 주세요.":on?"즐겨찾기 해제":"즐겨찾기에 추가";
   });
   const chips=[
     ...st.fav.nat.filter(k=>NAT[k]).map(k=>({kind:"nat",v:k,label:flag(k)+NAT[k]})),
@@ -887,7 +887,7 @@ function renderKGames(){
   const RES={W:["승","w"],D:["무","d"],L:["패","l"]};
   const who=g=>g.team?`<span class="ph tm">${esc(String(g.label).replace(/^(FC|AC|AS|SC|RC|CF)\s+/i,"").slice(0,2))}</span>`:`<span class="ph">${art(BY_NO[g.no])}</span>`;
   const name=g=>esc(g.label||BY_NO[g.no].kr);
-  const note=fav?"즐겨찾기한 선수·팀 · 한국 시간 기준":"즐겨찾기가 없어서 해외 리그 한국 선수 경기를 보여 줍니다. 선수 상세 화면이나 팀 옆 ☆로 추가해 보세요";
+  const note=fav?"즐겨찾기한 선수·팀 · 한국 시간 기준":"즐겨찾기가 없어서 해외 리그 한국 선수 경기를 보여 줍니다. 선수 상세 화면이나 팀 옆 ☆로 추가해 보세요.";
   box.innerHTML=`<div class="hot-h"><h2>즐겨찾기 경기</h2><small>${note}</small></div>
     ${fav&&!nx.length&&!ls.length?`<p class="thin">즐겨찾기한 선수·팀의 최근 7일 결과와 2주 안 경기가 없습니다.</p>`:""}
     <div class="kg-cols">
@@ -1064,10 +1064,12 @@ const SB={url:"https://zfpzsnjkqrkkcahrilrl.supabase.co/rest/v1",key:"sb_publish
 const SITE="https://leehanbee35.github.io/player-dex/";
 const BEST_UP=10;
 const cm={no:0,sort:"new",list:[]};
+// 화면에 보이는 문장은 마침표로 끝냄 (서버 오류 문구 등)
+const dot=s=>{s=String(s||"").trim();return !s||/[.!?…]$/.test(s)?s:s+"."};
 async function sb(path,body){
   const r=await fetch(SB.url+path,{method:body?"POST":"GET",headers:{apikey:SB.key,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
   const t=await r.text();const d=t?JSON.parse(t):null;
-  if(!r.ok)throw new Error((d&&d.message)||"잠시 후 다시 시도해 주세요");
+  if(!r.ok)throw new Error((d&&d.message)||"잠시 후 다시 시도해 주세요.");
   return d;
 }
 const fmtTime=s=>{const d=new Date(s);const p=n=>String(n).padStart(2,"0");return `${p(d.getMonth()+1)}.${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`};
@@ -1093,7 +1095,7 @@ async function loadComments(){
   try{
     cm.list=await sb(`/comments_public?player_no=eq.${no}&select=id,nick,body,ip_prefix,up,down,created_at,parent_id&order=created_at.desc&limit=200`);
     if(no===cm.no)drawComments();
-  }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했습니다. ${esc(e.message)}</li>`}
+  }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했습니다. ${esc(dot(e.message))}</li>`}
 }
 function drawComments(){
   const ul=$("cmList");if(!ul)return;
@@ -1130,16 +1132,16 @@ $("dBody").addEventListener("submit",async e=>{
   e.preventDefault();
   const nick=$("cmNick").value.trim(),pw=$("cmPw").value,body=$("cmBody").value.trim(),msg=$("cmMsg");
   msg.className="cm-msg";
-  if(!body){msg.textContent="내용을 입력해 주세요";return}
-  if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다";$("cmPw").focus();return}
+  if(!body){msg.textContent="내용을 입력해 주세요.";return}
+  if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다.";$("cmPw").focus();return}
   $("cmSend").disabled=true;msg.textContent="등록 중…";
   try{
     await sb("/rpc/post_comment",{p_player:cm.no,p_nick:nick,p_pw:pw,p_body:body});
     try{localStorage.setItem("dexNick",nick)}catch(e2){}
-    $("cmBody").value="";$("cmLen").textContent="0/300";msg.className="cm-msg ok";msg.textContent="등록했습니다";
+    $("cmBody").value="";$("cmLen").textContent="0/300";msg.className="cm-msg ok";msg.textContent="등록했습니다.";
     cm.sort="new";document.querySelectorAll("#cmSort button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s==="new"));
     await loadComments();
-  }catch(err){msg.textContent=err.message}
+  }catch(err){msg.textContent=dot(err.message)}
   finally{if($("cmSend"))$("cmSend").disabled=false}
 });
 $("dBody").addEventListener("click",async e=>{
@@ -1151,14 +1153,14 @@ $("dBody").addEventListener("click",async e=>{
     const f=rb.closest(".cm-rform"),parent=+f.closest(".cm-item").dataset.id,msg=f.querySelector(".r-msg");
     if(rb.dataset.ract==="cancel"){f.remove();return}
     const nick=f.querySelector(".r-nick").value.trim(),pw=f.querySelector(".r-pw").value,body=f.querySelector(".r-body").value.trim();
-    if(!body){msg.textContent="내용을 입력해 주세요";return}
-    if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다";f.querySelector(".r-pw").focus();return}
+    if(!body){msg.textContent="내용을 입력해 주세요.";return}
+    if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다.";f.querySelector(".r-pw").focus();return}
     rb.disabled=true;msg.textContent="등록 중…";
     try{
       await sb("/rpc/post_comment",{p_player:cm.no,p_nick:nick,p_pw:pw,p_body:body,p_parent:parent});
       try{localStorage.setItem("dexNick",nick)}catch(e2){}
       await loadComments();
-    }catch(err){msg.textContent=err.message;rb.disabled=false}
+    }catch(err){msg.textContent=dot(err.message);rb.disabled=false}
     return;
   }
   const b=e.target.closest(".cm-act button");if(!b)return;
@@ -1175,9 +1177,9 @@ $("dBody").addEventListener("click",async e=>{
       cm.list=cm.list.filter(x=>x.id!==id&&x.parent_id!==id);drawComments();return; // 원래 댓글을 지우면 답글도 함께 지워짐
     }
     const r=await sb("/rpc/vote_comment",{p_id:id,p_kind:act});
-    if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했습니다");return}
+    if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했습니다.");return}
     if(c){c.up=r.up;c.down=r.down}drawComments();
-  }catch(err){cmNote(li,err.message)}
+  }catch(err){cmNote(li,dot(err.message))}
 });
 
 // 화면 밝기: 기본 다크. 버튼을 누를 때마다 다크 ↔ 라이트
