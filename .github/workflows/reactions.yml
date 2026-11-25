@@ -4,9 +4,7 @@ on:
   schedule:
     - cron: "0 */3 * * *"  # 3시간마다 (실시간 화제용)
   workflow_dispatch: {}    # Actions 탭에서 수동 실행
-  push:
-    branches: [main]
-    paths: ["index.html", "photos/**"]   # 도감 페이지를 고치면 바로 다시 배포
+  # 화면 배포는 pages.yml이 따로 함 (수집을 기다리지 않게)
 
 permissions:
   contents: write
