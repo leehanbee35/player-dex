@@ -252,6 +252,17 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .stbl td{text-align:right;padding:6px;border-bottom:1px solid var(--line)}
 .stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
 .stbl tfoot td{font-weight:700;border-bottom:0}
+/* 다음 경기·최근 경기 */
+.games{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.ng{display:flex;flex-direction:column;gap:2px;background:var(--bg);border-radius:10px;padding:9px 11px}
+.ng .lab{font-size:11px;color:var(--muted)} .ng b{font-size:14px} .ng small{font-size:11.5px;color:var(--muted)}
+.glog{list-style:none;margin:0;padding:0;font-size:12.5px}
+.glog li{display:grid;grid-template-columns:auto auto 1fr auto;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.glog .gd{color:var(--muted);font-variant-numeric:tabular-nums;font-size:11.5px}
+.glog .gr{display:grid;place-items:center;width:20px;height:20px;border-radius:5px;font-size:11px;font-weight:700;color:#fff;background:var(--muted)}
+.glog .gr.w{background:var(--mf)} .glog .gr.l{background:var(--fw)}
+.glog .go{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.glog .gs{color:var(--muted);font-size:11.5px;white-space:nowrap}
 .stbl.car td:nth-child(2){text-align:left}
 .stbl.car th:nth-child(2){text-align:left}
 .stbl.car td:first-child{white-space:nowrap;color:var(--muted)}
@@ -603,6 +614,28 @@ const art=p=>PHOTO[p.no]?`<img src="${esc(thumb250(PHOTO[p.no].d))}" alt="${esc(
 const COMP_KO=[["Premier League","프리미어리그"],["LALIGA","라리가"],["LaLiga","라리가"],["Bundesliga","분데스리가"],["Serie A","세리에 A"],["Ligue 1","리그 1"],["Eredivisie","에레디비시"],["Primeira Liga","프리메이라리가"],["Champions League","챔피언스리그"],["Europa League","유로파리그"],["Conference League","컨퍼런스리그"],["Nations League","네이션스리그"],["Carabao Cup","카라바오컵"],["Community Shield","커뮤니티 실드"],["Super Cup","슈퍼컵"],["Club World Cup","클럽 월드컵"],["FA Cup","FA컵"],["Copa del Rey","코파 델 레이"],["DFB Pokal","DFB 포칼"],["Coppa Italia","코파 이탈리아"],["Coupe de France","쿠프 드 프랑스"],["International Friendly","A매치 친선"],["World Cup Qualifying","월드컵 예선"],["World Cup","월드컵"],["Championship","챔피언십"],["MLS","MLS"],["Saudi","사우디 프로리그"],["J.League","J1리그"],["Super Lig","쉬페르리그"]];
 const compKo=n=>{const s=n.replace(/^\d{4}(-\d{2})?\s+/,"");const m=COMP_KO.find(([e])=>s.includes(e));return m?m[1]:s};
 const STAT_CACHE={};
+// 다음 경기·최근 경기 (ESPN 개요 데이터). 팀 이름은 명단의 한글 팀 이름표로 바꿈
+let TEAM_KO={};
+const teamKo=n=>TEAM_KO[n]||n||"";
+const WD="일월화수목금토";
+const kst=s=>{const d=new Date(new Date(s).getTime()+9*3600e3);const p=n=>String(n).padStart(2,"0");return {md:`${d.getUTCMonth()+1}.${d.getUTCDate()}(${WD[d.getUTCDay()]})`,hm:`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}`}};
+function gamesHTML(d){
+  let html="";
+  const ev=d&&d.nextGame&&d.nextGame.league&&(d.nextGame.league.events||[])[0];
+  if(ev&&new Date(ev.date)>Date.now()-3*3600e3){
+    const cs=ev.competitors||[],h=cs.find(c=>c.homeAway==="home"),a=cs.find(c=>c.homeAway==="away"),t=kst(ev.date);
+    html+=`<div class="ng"><span class="lab">다음 경기</span><b>${esc(teamKo(h&&h.displayName))} vs ${esc(teamKo(a&&a.displayName))}</b><small>${t.md} ${t.hm} (한국 시간) · ${esc(compKo(d.nextGame.league.name||""))}</small></div>`;
+  }
+  const st=d&&d.gameLog&&d.gameLog.statistics&&d.gameLog.statistics[0],evs=d&&d.gameLog&&d.gameLog.events||{};
+  if(st&&st.events&&st.events.length){
+    const ix=n=>st.names.indexOf(n),RES={W:["승","w"],D:["무","d"],L:["패","l"]};
+    html+=`<ul class="glog">${st.events.slice(0,5).map(x=>{const e=evs[x.eventId];if(!e)return "";const t=kst(e.gameDate),r=RES[e.gameResult]||["",""];
+      const g=ix("totalGoals")>=0?+x.stats[ix("totalGoals")]||0:0,as=ix("goalAssists")>=0?+x.stats[ix("goalAssists")]||0:0,app=x.stats[ix("appearances")]||x.stats[0]||"";
+      const role=/start/i.test(app)?"선발":/sub/i.test(app)?"교체":"";
+      return `<li><span class="gd">${t.md}</span><span class="gr ${r[1]}">${r[0]}</span><span class="go">${e.atVs==="@"?"원정":"홈"} ${esc(teamKo(e.opponent&&e.opponent.displayName))} <b>${esc(e.score||"")}</b></span><span class="gs">${role}${g?` · ${g}골`:""}${as?` · ${as}도움`:""}</span></li>`}).join("")}</ul>`;
+  }
+  return html?`<div class="games">${html}</div>`:"";
+}
 // K리그 선수: 한국어 위키백과 선수 문서의 정보 상자에서 클럽별·국가대표 출전과 골을 읽음 (시즌별 기록은 없음)
 async function wikiCareer(p){
   const title=p.espn.slice(2);
@@ -629,7 +662,7 @@ async function seasonStats(p){
     const d=STAT_CACHE[p.espn]||(STAT_CACHE[p.espn]=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${p.espn}/overview`).then(r=>r.ok?r.json():null));
     if(!$("season")||openNo!==p.no)return;
     const s=d&&d.statistics,splits=(s&&s.splits||[]).filter(x=>x.stats.some(v=>+v>0));
-    if(!splits.length){$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">이번 시즌 출전 기록이 없습니다.</p>`;return}
+    if(!splits.length){$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">이번 시즌 출전 기록이 없습니다.</p>`+gamesHTML(d);return}
     const cols=p.g==="GK"?[["starts","선발"],["cleanSheet","무실점"],["saves","선방"],["goalsConceded","실점"]]
       :[["starts","선발"],["totalGoals","골"],["goalAssists","도움"],["totalShots","슈팅"],["yellowCards","경고"]];
     const val=(x,n)=>+(x.stats[s.names.indexOf(n)]||0);
@@ -637,7 +670,7 @@ async function seasonStats(p){
     $("season").innerHTML=`<h3>이번 시즌 기록<small>ESPN</small></h3>
       <table class="stbl"><thead><tr><th>대회</th>${cols.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead>
       <tbody>${splits.map(x=>`<tr><td>${esc(compKo(x.displayName))}</td>${cols.map(c=>`<td>${val(x,c[0])}</td>`).join("")}</tr>`).join("")}</tbody>
-      ${splits.length>1?`<tfoot><tr><td>합계</td>${cols.map(c=>`<td>${sum(c[0])}</td>`).join("")}</tr></tfoot>`:""}</table>`;
+      ${splits.length>1?`<tfoot><tr><td>합계</td>${cols.map(c=>`<td>${sum(c[0])}</td>`).join("")}</tr></tfoot>`:""}</table>`+gamesHTML(d);
   }catch(e){if($("season"))$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">기록을 불러오지 못했습니다.</p>`}
 }
 // 사진 촬영자·라이선스는 상세 화면을 열 때 위키미디어 공용에서 받아 표시
@@ -1082,7 +1115,7 @@ $("out").parentElement.addEventListener("click",e=>{if(e.target.closest("#moreBt
 fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.players))return;
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
-  FLAG_IMG=d.flag||{};
+  FLAG_IMG=d.flag||{};TEAM_KO=d.teams||{};
   // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
   Object.entries(d.curated||{}).forEach(([no,[club,league,espn]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
   players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""})));

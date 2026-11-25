@@ -355,6 +355,11 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "source": "ESPN",
         "leagues": [l for _, l in LEAGUES] + ["K리그1", "K리그2"],
+        # ESPN 영문 팀 이름 → 한글 (상세 화면의 다음 경기·최근 경기 상대 팀 표시용)
+        "teams": {
+            **{en: ko[f"c:{code}"] for code, en in nat_names.items() if f"c:{code}" in ko},  # 국가대표 경기 상대
+            **{k[2:]: v for k, v in ko.items() if k.startswith("t:") and re.search(r"[가-힣]", v)},
+        },
         "nat": nat,
         "flag": flags,
         "curated": overrides,
