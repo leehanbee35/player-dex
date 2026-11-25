@@ -163,6 +163,16 @@ main{padding-block:20px 48px}
 .cm-act .ghost{border-color:transparent;background:none;color:var(--muted)}
 .cm-act input{font:inherit;font-size:12px;width:110px;border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--surface);color:var(--ink)}
 .cm-act .note{font-size:11.5px;color:var(--muted);margin-left:4px}
+/* 답글 */
+.cm-replies{list-style:none;margin:8px 0 0;padding:0 0 0 14px;border-left:2px solid var(--line)}
+.cm-item.reply{padding:8px 0;border-bottom:0}
+.cm-item.reply+.cm-item.reply{border-top:1px dashed var(--line)}
+.cm-re{color:var(--muted);margin-right:2px}
+.cm-rform{margin-top:8px;padding:10px;border-radius:10px;background:var(--bg);display:flex;flex-direction:column;gap:6px}
+.cm-rform input,.cm-rform textarea{font:inherit;font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--surface);color:var(--ink);min-width:0}
+.cm-rform textarea{min-height:56px;resize:vertical}
+.cm-rform .cm-foot{gap:6px}
+.cm-rform .cm-foot .ghost{font:inherit;font-size:12px;border:0;background:none;color:var(--muted);cursor:pointer}
 .cm-empty{padding:14px 0;color:var(--muted);font-size:12.5px;text-align:center}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
@@ -848,22 +858,37 @@ function mountComments(p){
 async function loadComments(){
   const no=cm.no;
   try{
-    cm.list=await sb(`/comments_public?player_no=eq.${no}&select=id,nick,body,ip_prefix,up,down,created_at&order=created_at.desc&limit=200`);
+    cm.list=await sb(`/comments_public?player_no=eq.${no}&select=id,nick,body,ip_prefix,up,down,created_at,parent_id&order=created_at.desc&limit=200`);
     if(no===cm.no)drawComments();
   }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했습니다. ${esc(e.message)}</li>`}
 }
 function drawComments(){
   const ul=$("cmList");if(!ul)return;
   $("cmCount").textContent=cm.list.length?String(cm.list.length):"";
-  const best=cm.list.filter(c=>c.up>=BEST_UP).sort((a,b)=>b.up-a.up).slice(0,3);
-  const rest=cm.list.filter(c=>!best.includes(c));
+  // 답글(parent_id 있음)은 원래 댓글 아래에 오래된 순으로. BEST·정렬은 일반 댓글만
+  const tops=cm.list.filter(c=>!c.parent_id);
+  const kids={};cm.list.filter(c=>c.parent_id).forEach(c=>(kids[c.parent_id]??=[]).push(c));
+  Object.values(kids).forEach(a=>a.sort((x,y)=>x.id-y.id));
+  const best=tops.filter(c=>c.up>=BEST_UP).sort((a,b)=>b.up-a.up).slice(0,3);
+  const rest=tops.filter(c=>!best.includes(c));
   if(cm.sort==="best")rest.sort((a,b)=>(b.up-b.down)-(a.up-a.down)||b.id-a.id);
-  const item=(c,isBest)=>`<li class="cm-item${isBest?" best":""}" data-id="${c.id}">
-      <div class="cm-meta">${isBest?'<span class="cm-best">BEST</span>':""}<b>${esc(c.nick)}</b><span class="ip">${c.ip_prefix?`(${esc(c.ip_prefix)})`:""}</span><time datetime="${esc(c.created_at)}">${fmtTime(c.created_at)}</time></div>
+  const item=(c,isBest,isReply)=>`<li class="cm-item${isBest?" best":""}${isReply?" reply":""}" data-id="${c.id}">
+      <div class="cm-meta">${isReply?'<span class="cm-re" aria-hidden="true">↳</span>':""}${isBest?'<span class="cm-best">BEST</span>':""}<b>${esc(c.nick)}</b><span class="ip">${c.ip_prefix?`(${esc(c.ip_prefix)})`:""}</span><time datetime="${esc(c.created_at)}">${fmtTime(c.created_at)}</time></div>
       <p>${esc(c.body)}</p>
-      <div class="cm-act"><button type="button" class="up" data-act="up">추천 ${c.up}</button><button type="button" class="down" data-act="down">비추 ${c.down}</button><button type="button" class="ghost" data-act="del">삭제</button><button type="button" class="ghost" data-act="report">신고</button></div>
+      <div class="cm-act"><button type="button" class="up" data-act="up">추천 ${c.up}</button><button type="button" class="down" data-act="down">비추 ${c.down}</button>${isReply?"":`<button type="button" class="ghost" data-act="reply">답글${kids[c.id]?" "+kids[c.id].length:""}</button>`}<button type="button" class="ghost" data-act="del">삭제</button><button type="button" class="ghost" data-act="report">신고</button></div>
+      ${!isReply&&kids[c.id]?`<ul class="cm-replies">${kids[c.id].map(r=>item(r,false,true)).join("")}</ul>`:""}
     </li>`;
-  ul.innerHTML=cm.list.length?best.map(c=>item(c,true)).join("")+rest.map(c=>item(c,false)).join(""):`<li class="cm-empty">아직 댓글이 없습니다. 첫 댓글을 남겨 주세요.</li>`;
+  ul.innerHTML=tops.length?best.map(c=>item(c,true)).join("")+rest.map(c=>item(c,false)).join(""):`<li class="cm-empty">아직 댓글이 없습니다. 첫 댓글을 남겨 주세요.</li>`;
+}
+// 답글 쓰기 칸 (원래 댓글 아래에 펼침)
+function openReply(li){
+  document.querySelectorAll(".cm-rform").forEach(f=>f.remove());
+  let nick="";try{nick=localStorage.getItem("dexNick")||""}catch(e){}
+  li.querySelector(".cm-act").insertAdjacentHTML("afterend",`<div class="cm-rform">
+    <div class="cm-row"><input class="r-nick" maxlength="12" placeholder="ㅇㅇ" aria-label="닉네임 (비우면 ㅇㅇ)" value="${esc(nick)}"><input class="r-pw" type="password" maxlength="30" placeholder="비밀번호" aria-label="비밀번호 (삭제할 때 필요, 4자 이상)" autocomplete="new-password"></div>
+    <textarea class="r-body" maxlength="300" placeholder="답글" aria-label="답글 내용 (300자)"></textarea>
+    <div class="cm-foot"><span class="cm-msg r-msg" role="status"></span><button type="button" class="ghost" data-ract="cancel">취소</button><button type="button" class="cm-submit" data-ract="send">등록</button></div></div>`);
+  li.querySelector(".r-body").focus();
 }
 function cmNote(li,text){const a=li.querySelector(".cm-act");let n=a.querySelector(".note");if(!n){n=document.createElement("span");n.className="note";a.appendChild(n)}n.textContent=text}
 $("dBody").addEventListener("input",e=>{if(e.target.id==="cmBody")$("cmLen").textContent=`${e.target.value.length}/300`});
@@ -887,6 +912,22 @@ $("dBody").addEventListener("submit",async e=>{
 $("dBody").addEventListener("click",async e=>{
   const s=e.target.closest("#cmSort button");
   if(s){cm.sort=s.dataset.s;document.querySelectorAll("#cmSort button").forEach(b=>b.setAttribute("aria-pressed",b===s));drawComments();return}
+  // 답글 쓰기 칸의 등록·취소
+  const rb=e.target.closest(".cm-rform button");
+  if(rb){
+    const f=rb.closest(".cm-rform"),parent=+f.closest(".cm-item").dataset.id,msg=f.querySelector(".r-msg");
+    if(rb.dataset.ract==="cancel"){f.remove();return}
+    const nick=f.querySelector(".r-nick").value.trim(),pw=f.querySelector(".r-pw").value,body=f.querySelector(".r-body").value.trim();
+    if(!body){msg.textContent="내용을 입력해 주세요";return}
+    if(pw.length<4){msg.textContent="비밀번호는 4자 이상입니다";f.querySelector(".r-pw").focus();return}
+    rb.disabled=true;msg.textContent="등록 중…";
+    try{
+      await sb("/rpc/post_comment",{p_player:cm.no,p_nick:nick,p_pw:pw,p_body:body,p_parent:parent});
+      try{localStorage.setItem("dexNick",nick)}catch(e2){}
+      await loadComments();
+    }catch(err){msg.textContent=err.message;rb.disabled=false}
+    return;
+  }
   const b=e.target.closest(".cm-act button");if(!b)return;
   const li=b.closest(".cm-item"),id=+li.dataset.id,act=b.dataset.act,c=cm.list.find(x=>x.id===id);
   if(act==="del"){
@@ -894,10 +935,11 @@ $("dBody").addEventListener("click",async e=>{
     li.querySelector(".cm-act input").focus();return;
   }
   if(act==="cancel"){drawComments();return}
+  if(act==="reply"){openReply(li);return}
   try{
     if(act==="delok"){
       await sb("/rpc/delete_comment",{p_id:id,p_pw:li.querySelector(".cm-act input").value});
-      cm.list=cm.list.filter(x=>x.id!==id);drawComments();return;
+      cm.list=cm.list.filter(x=>x.id!==id&&x.parent_id!==id);drawComments();return; // 원래 댓글을 지우면 답글도 함께 지워짐
     }
     const r=await sb("/rpc/vote_comment",{p_id:id,p_kind:act});
     if(act==="report"){if(r.hidden){cm.list=cm.list.filter(x=>x.id!==id);drawComments()}else cmNote(li,"신고했습니다");return}

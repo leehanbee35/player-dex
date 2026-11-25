@@ -137,6 +137,36 @@ begin
   return json_build_object('up', r.up, 'down', r.down, 'hidden', r.hidden);
 end $$;
 
+-- ---------- 답글(대댓글): 2026-11-25 추가 ----------
+alter table public.comments add column if not exists parent_id bigint references public.comments (id) on delete cascade;
+create index if not exists comments_parent_idx on public.comments (parent_id);
+
+create or replace view public.comments_public as
+  select id, player_no, nick, body, ip_prefix, up, down, created_at, parent_id
+  from public.comments
+  where not hidden;
+grant select on public.comments_public to anon, authenticated;
+
+-- 답글 쓰기: p_parent가 있으면 같은 선수의 일반 댓글에만 달 수 있음 (답글의 답글은 안 됨)
+drop function if exists public.post_comment(int, text, text, text, bigint);
+create or replace function public.post_comment(p_player int, p_nick text, p_pw text, p_body text, p_parent bigint)
+returns bigint
+language plpgsql security definer set search_path = public, extensions as $$
+declare v_id bigint;
+begin
+  if p_parent is not null and not exists (
+    select 1 from comments c where c.id = p_parent and c.player_no = p_player and c.parent_id is null and not c.hidden
+  ) then
+    raise exception '답글을 달 댓글이 없습니다';
+  end if;
+  v_id := public.post_comment(p_player, p_nick, p_pw, p_body);
+  if p_parent is not null then
+    update comments set parent_id = p_parent where id = v_id;
+  end if;
+  return v_id;
+end $$;
+grant execute on function public.post_comment(int, text, text, text, bigint) to anon, authenticated;
+
 revoke all on function public._client_ip(), public._ip_prefix(text), public._ip_hash(text) from anon, authenticated, public;
 grant execute on function public.post_comment(int, text, text, text) to anon, authenticated;
 grant execute on function public.delete_comment(bigint, text) to anon, authenticated;
