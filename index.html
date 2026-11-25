@@ -253,6 +253,7 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
 .stbl tfoot td{font-weight:700;border-bottom:0}
 .bdg.move{background:#f5c542;color:#2a2000;border-color:transparent;font-weight:700}
+.d-top h2 .fav-btn{font-size:20px;vertical-align:4px;margin-left:6px}
 .d-move{font-size:12.5px!important;margin-top:4px!important;color:var(--muted)}
 .d-move b{color:var(--ink)}
 /* 첫 화면 한국 선수 경기 */
@@ -525,13 +526,13 @@ const chipColor={ALL:"#5b6680",GK:"#d99a1a",DF:"#2f6fd6",MF:"#21a05e",FW:"#e0533
 const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF",FW:p=>p.g==="FW"};
 
 // fav: 즐겨찾기한 나라·리그·팀 (이 브라우저에만 저장). club: 즐겨찾기 칩으로 고른 팀 필터
-const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,fav:{nat:[],league:[],club:[]}};
+const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false,fav:{nat:[],league:[],club:[],player:[]}};
 // 유스: 61번 이후 선수 중 등번호가 없거나 40번 이상 (직접 입력한 60명은 항상 표시)
 // K리그는 1군도 40~99번을 흔히 쓰고, 위키백과 명단 자체가 등록 선수라서 제외
 const isYouth=p=>p.no>60&&!/^K리그/.test(p.league)&&!(/^\d+$/.test(p.num)&&+p.num<40);
 // 목록·개수에 쓰는 선수 범위. 이름을 검색할 때는 유스도 포함
-const pool=()=>st.youth||st.q.trim()?players:players.filter(p=>!isYouth(p));
-const FAV_KINDS=["nat","league","club"];
+const pool=()=>st.youth||st.favOnly||st.q.trim()?players:players.filter(p=>!isYouth(p));
+const FAV_KINDS=["nat","league","club","player"];
 const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
 let CLUBS=[],LEAGUES=[];
@@ -600,7 +601,7 @@ try{const s=JSON.parse(localStorage.getItem("dexState")||"null");if(s)Object.ass
 st.open=0; // 열어 둔 선수 화면은 주소(#...-d-번호)로만 복원
 // 예전 버전(팀만 즐겨찾기, favs 배열)에서 넘어온 값 정리
 if(Array.isArray(st.favs)){st.fav={nat:[],league:[],club:st.favs};delete st.favs}
-st.fav=Object.assign({nat:[],league:[],club:[]},st.fav||{});
+st.fav=Object.assign({nat:[],league:[],club:[],player:[]},st.fav||{});
 FAV_KINDS.forEach(k=>{if(!Array.isArray(st.fav[k]))st.fav[k]=[]});
 if(!OK.o.includes(st.sort))st.sort="no";
 if(!OK.p.includes(st.chip))st.chip="ALL"; // 예전 세부 포지션 칩(CB 등)은 전체로
@@ -792,8 +793,12 @@ function syncFav(){
     ...st.fav.league.filter(k=>LEAGUES.includes(k)).map(k=>({kind:"league",v:k,label:esc(k)})),
     ...st.fav.club.filter(k=>CLUBS.includes(k)).map(k=>({kind:"club",v:k,label:esc(k)})),
   ];
+  // 즐겨찾는 선수: 칩 하나로 "그 선수들만 보기" 켜고 끔 (선수 추가·삭제는 상세 화면의 ☆)
+  const np=st.fav.player.filter(n=>BY_NO[n]).length;
+  if(!np)st.favOnly=false;
+  if(np)chips.unshift({kind:"favOnly",v:"1",label:`선수 ${np}명`});
   $("favBar").innerHTML=`<span>★ 즐겨찾기</span>`+(chips.length
-    ?chips.map(c=>`<button type="button" class="fchip" data-kind="${c.kind}" data-v="${esc(c.v)}" aria-pressed="${st[c.kind]===c.v}">${c.label}<span class="x" data-remove="1" title="즐겨찾기 삭제" aria-label="즐겨찾기 삭제">×</span></button>`).join("")
+    ?chips.map(c=>c.kind==="favOnly"?`<button type="button" class="fchip" data-kind="favOnly" aria-pressed="${st.favOnly}" title="즐겨찾는 선수만 보기">${c.label}</button>`:`<button type="button" class="fchip" data-kind="${c.kind}" data-v="${esc(c.v)}" aria-pressed="${st[c.kind]===c.v}">${c.label}<span class="x" data-remove="1" title="즐겨찾기 삭제" aria-label="즐겨찾기 삭제">×</span></button>`).join("")
     :`<em>나라·리그·팀 옆 ☆나 선수 상세 화면의 ☆로 추가</em>`);
 }
 function toggleFav(kind,v){
@@ -806,7 +811,7 @@ function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttr
 
 function card(p){
   return `<button type="button" class="card ${p.g}" data-no="${p.no}">
-    <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${esc(p.kr)}</span></div>
+    <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${isFavOf("player",p.no)?'<span class="fav-star" title="즐겨찾는 선수">★</span> ':""}${esc(p.kr)}</span></div>
     <div class="c-art">${art(p)}</div>
     <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}${moveBadge(p)}</div>
     ${reactLine(p)}
@@ -826,7 +831,7 @@ let KGAMES=null;
 fetch("data/games.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{KGAMES=d;renderKGames()}).catch(()=>{});
 function renderKGames(){
   const box=$("kgames");if(!box)return;
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group;
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly;
   const nx=(KGAMES&&KGAMES.next||[]).filter(g=>BY_NO[g.no]&&new Date(g.date)>Date.now()-2*3600e3);
   const ls=(KGAMES&&KGAMES.last||[]).filter(g=>BY_NO[g.no]);
   if(!plain||(!nx.length&&!ls.length)){box.hidden=true;box.innerHTML="";return}
@@ -850,7 +855,7 @@ fetch("data/transfers.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(a
 const moveBadge=p=>{const t=MOVES[p.no];return t?`<span class="bdg move" title="${esc(t.from)} → ${esc(t.to)} (${t.date})">이적</span>`:""};
 function renderMoves(){
   const box=$("moves");if(!box)return;
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group;
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly;
   // 사진이 있거나 반응을 수집하는 선수부터 (알려진 선수 위주)
   const known=p=>(PHOTO[p.no]||WPHOTO[p.no]?2:0)+(hotN(p)?1:0);
   const list=plain?MOVE_LIST.map(t=>BY_NO[t.no]).filter((p,i,a)=>p&&a.indexOf(p)===i).sort((a,b)=>known(b)-known(a)).slice(0,12):[];
@@ -864,7 +869,7 @@ const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24|
 // 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "실시간 화제" 상위 10명: 최근 24시간 기사 수, 같으면 7일 기사 수
 function renderHot(){
   const box=$("hot");
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&st.sort!=="hot";
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly&&st.sort!=="hot";
   const top=plain?players.filter(h24).sort((a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)).slice(0,10):[];
   if(!top.length){box.hidden=true;box.innerHTML="";return}
   box.hidden=false;
@@ -877,13 +882,13 @@ const PAGE=120;
 let shown=PAGE,lastKey="";
 function render(){
   const q=st.q.trim().toLowerCase();
-  const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,st.youth,players.length]);
+  const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,st.youth,st.favOnly,players.length]);
   if(key!==lastKey){shown=PAGE;lastKey=key}
-  let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
+  let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&(!st.favOnly||st.fav.player.includes(p.no))&&
     (!q||matchQ(p,q)));
   renderHot();renderKGames();renderMoves();
   // 모바일 필터 버튼에 적용 중인 필터 개수
-  $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth].filter(Boolean).length||"";
+  $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth,st.favOnly].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   if(q){const rk=new Map(list.map(p=>[p,qRank(p,q)]));list.sort((a,b)=>rk.get(a)-rk.get(b)||S[st.sort](a,b))}
   else list.sort(S[st.sort]);
@@ -955,7 +960,7 @@ function openDetail(no){
   const p=BY_NO[no];if(!p)return;const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
   const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
-  $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p>${MOVES[p.no]?`<p class="d-move">최근 이적: ${esc(MOVES[p.no].from)} → <b>${esc(MOVES[p.no].to)}</b> (${MOVES[p.no].date.slice(5).replace("-",".")})</p>`:""}</div></div>
+  $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}${favBtn("player",p.no)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p>${MOVES[p.no]?`<p class="d-move">최근 이적: ${esc(MOVES[p.no].from)} → <b>${esc(MOVES[p.no].to)}</b> (${MOVES[p.no].date.slice(5).replace("-",".")})</p>`:""}</div></div>
   <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
@@ -1133,7 +1138,7 @@ $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)r
 // 모바일: 필터·정렬 접기/펼치기
 $("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
 $("youth").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.youth=b.dataset.y==="1";buildControls();save();render()});
-$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false});buildControls();save();render()});
+$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false});buildControls();save();render()});
 $("nat").addEventListener("change",syncFav);
 $("league").addEventListener("change",syncFav);
 $("favNat").addEventListener("click",()=>{if(st.nat)toggleFav("nat",st.nat)});
@@ -1142,6 +1147,7 @@ $("favLeague").addEventListener("click",()=>{if(st.league)toggleFav("league",st.
 $("favBar").addEventListener("click",e=>{
   const c=e.target.closest(".fchip");if(!c)return;
   const {kind,v}=c.dataset;
+  if(kind==="favOnly"){st.favOnly=!st.favOnly;syncFav();save();render();return}
   if(e.target.closest("[data-remove]")){if(st[kind]===v)st[kind]="";toggleFav(kind,v);return}
   st[kind]=st[kind]===v?"":v;
   // 팀 칩을 누르면 리그도 그 팀의 리그로 맞춤 (다른 리그가 골라져 있으면 팀 목록에 없어서)
@@ -1160,11 +1166,11 @@ $("closeD").addEventListener("click",()=>$("dlg").close());
 // 상세 화면의 나라·클럽·리그 ☆ 버튼. 이 브라우저에만 저장됨
 let openNo=0;
 $("dBody").addEventListener("click",e=>{
-  const b=e.target.closest(".fav-btn");if(!b)return;
-  toggleFav(b.dataset.kind,b.dataset.v);
-  b.setAttribute("aria-pressed",isFavOf(b.dataset.kind,b.dataset.v));
-  b.textContent=isFavOf(b.dataset.kind,b.dataset.v)?"★":"☆";
-  b.title=isFavOf(b.dataset.kind,b.dataset.v)?"즐겨찾기 해제":"즐겨찾기에 추가";
+  const b=e.target.closest(".fav-btn");if(!b)return;const fv=b.dataset.kind==="player"?+b.dataset.v:b.dataset.v;
+  toggleFav(b.dataset.kind,fv);
+  b.setAttribute("aria-pressed",isFavOf(b.dataset.kind,fv));
+  b.textContent=isFavOf(b.dataset.kind,fv)?"★":"☆";
+  b.title=isFavOf(b.dataset.kind,fv)?"즐겨찾기 해제":"즐겨찾기에 추가";
 });
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("dlg").addEventListener("close",()=>{st.open=0;save()});
