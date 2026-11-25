@@ -49,6 +49,15 @@ header{background:var(--head);color:var(--head-ink)}
 .theme-btn:hover{background:rgba(255,255,255,.08)}
 .theme-btn:focus-visible{outline:2px solid var(--accent)}
 
+/* 헤더 고정: 스크롤해도 검색·필터가 위에 남음. 내려가면(.stuck) 즐겨찾기 줄을 접고 포지션 칩을 작게 */
+header{position:sticky;top:0;z-index:30;transition:box-shadow .2s}
+header.stuck{box-shadow:0 6px 18px rgba(0,0,0,.28)}
+header.stuck .top{padding-block:8px}
+header.stuck .rail{padding-block:6px 8px;gap:8px}
+header.stuck .favline{display:none}
+header.stuck .pos{flex-direction:row;gap:6px;padding:2px 6px}
+header.stuck .pos b{width:26px;height:26px;font-size:11px}
+header.stuck .pos-row{padding-top:2px;margin-top:0}
 .rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
 .pos-row{display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0;scrollbar-width:thin}
 .pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
@@ -304,7 +313,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .fcount{font-size:11px;font-weight:700;color:#0b1a12;background:var(--accent);border-radius:999px;padding:1px 7px}
   .fcount:empty{display:none}
   .filters{display:none;padding-bottom:12px}
-  .filters.open{display:block}
+  .filters.open{display:block;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
   .ctrls{display:grid;grid-template-columns:1fr;gap:8px}
   .ctrls>.pick+*, .ctrls>label+label{padding-left:0}
   .ctrls>.pick+*::before, .ctrls>label+label::before{display:none}
@@ -983,6 +992,9 @@ $("club").addEventListener("change",e=>{st.club=e.target.value;syncFav();save();
 $("favClub").addEventListener("click",()=>{if(st.club)toggleFav("club",st.club)});
 $("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
 $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
+// 헤더 고정: 조금 내려가면 헤더를 작게 (스크롤 위치에 따라 켜고 끔. 경계에서 깜빡이지 않게 여유를 둠)
+{const hd=document.querySelector("header");let on=false;
+ addEventListener("scroll",()=>{const y=scrollY;if(!on&&y>120){on=true;hd.classList.add("stuck")}else if(on&&y<40){on=false;hd.classList.remove("stuck")}},{passive:true});}
 // 모바일: 필터·정렬 접기/펼치기
 $("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
 $("youth").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.youth=b.dataset.y==="1";buildControls();save();render()});
