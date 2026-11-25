@@ -119,6 +119,7 @@ def fetch_all() -> list[dict]:
                     "club": team.get("displayName", ""),
                     "league": league,
                     "born": int(dob[:4]) if dob[:4].isdigit() else 0,
+                    "dob": dob[:10],
                     "h": round(h * 2.54) if h else 0,
                     "num": a.get("jersey") or "",
                 }
@@ -301,6 +302,11 @@ def main() -> None:
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"[완료] 선수 {len(players)}명 + 직접 입력 {len(overrides)}명 갱신 → {OUT.name}")
+
+    # 사진 (위키미디어 공용). 실패해도 명단은 그대로 저장됨
+    import photos
+
+    photos.save(photos.find_photos(roster, {**ids, **cur_map}))
 
 
 if __name__ == "__main__":

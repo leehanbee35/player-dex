@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
   push:
     branches: [main]
-    paths: ["data/build_players.py", "data/curated.json"]
+    paths: ["data/build_players.py", "data/photos.py", "data/curated.json"]
 
 permissions:
   contents: write
@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # 앞선 실행이 올린 한글 표기(ko.json)까지 받은 뒤 시작
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -35,6 +37,7 @@ jobs:
           git config user.name "players-bot"
           git config user.email "players-bot@users.noreply.github.com"
           git add data/players.json data/ids.json data/ko.json
+          if [ -f data/photos.json ]; then git add data/photos.json; fi
           git diff --cached --quiet || git commit -m "선수 명단 갱신"
           git pull --rebase origin main
           git push
