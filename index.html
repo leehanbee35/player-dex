@@ -426,6 +426,9 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .ctrls .dd-btn{width:100%;max-width:none;min-width:0}
   .ctrls .seg{flex:1;overflow-x:auto}
   .ctrls .seg button{flex:1;white-space:nowrap}
+  /* 라벨(나라·리그·팀·정렬·묶어보기)을 같은 폭으로 해서 오른쪽 상자들의 왼쪽 끝을 맞춤 */
+  .ctrls label{display:grid;grid-template-columns:58px minmax(0,1fr);align-items:center;gap:0}
+  .ctrls>label{padding-right:31px} /* ☆ 버튼이 없는 줄도 오른쪽 끝을 맞춤 */
   .favline{flex-direction:column;align-items:stretch;margin-top:10px;gap:10px}
   .favline-r{justify-content:space-between}
   /* 상세 팝업은 화면 전체 */
