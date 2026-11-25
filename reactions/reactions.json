@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T15:41+09:00",
+ "generated_at": "2026-11-25T16:17+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "tracked": [
@@ -2637,7 +2637,7 @@
  "players": {
   "1": {
    "n": 115,
-   "h24": 33,
+   "h24": 30,
    "sentiment": {
     "pos": 12,
     "neu": 54,
@@ -2829,7 +2829,7 @@
   },
   "3": {
    "n": 127,
-   "h24": 8,
+   "h24": 7,
    "sentiment": {
     "pos": 94,
     "neu": 23,
@@ -3117,7 +3117,7 @@
   },
   "6": {
    "n": 59,
-   "h24": 29,
+   "h24": 28,
    "sentiment": {
     "pos": 16,
     "neu": 40,
@@ -3212,10 +3212,10 @@
    }
   },
   "7": {
-   "n": 32,
+   "n": 33,
    "h24": 0,
    "sentiment": {
-    "pos": 19,
+    "pos": 20,
     "neu": 12,
     "neg": 1
    },
@@ -3234,7 +3234,7 @@
     },
     {
      "date": "2026-11-22",
-     "n": 24
+     "n": 25
     },
     {
      "date": "2026-11-23",
@@ -3494,10 +3494,10 @@
    ]
   },
   "11": {
-   "n": 24,
-   "h24": 17,
+   "n": 25,
+   "h24": 18,
    "sentiment": {
-    "pos": 20,
+    "pos": 21,
     "neu": 1,
     "neg": 3
    },
@@ -3528,7 +3528,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 17
+     "n": 18
     }
    ],
    "topics": [
@@ -3538,12 +3538,18 @@
    ],
    "keywords": [
     "멀티골",
-    "연승",
     "역전승",
+    "연승",
     "대승",
     "전승"
    ],
    "headlines": [
+    {
+     "title": "[챔피언스리그] '음바페 멀티골' 레알 마드리드, 에인트호번에 5-1 역전 대승…5연승 선두 질주",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5MWlNYdF91LUNXTkY1M21JWlJPT0huS2hjNjMtYzN2bmkwYUNCSmo3MTVObnY0Wlkyd3AzNVdseGJiY21EVGQwOEFnVW41QW81SmtnOdIBWEFVX3lxTFAyQnBDNHFDT2lNeGp1VTVpdndJYUYwb090eDEtUndYUVY5aXpsaTJKM01rbUpETGY4aW9lRFVZMnFzVWw3bnFndUI0WHJ6YVRleFkxa0pidjM?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
     {
      "title": "음바페, 5경기 연속골… R마드리드, 챔스리그 ‘5전 전승’",
      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBOeE5hd0Qwc0E5OEJQRW53d20zWXgxVy13SWxadVAydHJKWjVQSXExZDhaUXIwX04zUTlwY19Gb2hMSzhfQWJfTjNaUE9ybXBV?oc=5",
@@ -3553,12 +3559,6 @@
     {
      "title": "'음바페 멀티골' 레알 마드리드, 1골 내주더니 미친 화력 뽐냈다...PSV에인트호번에 5-1 대역전승",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5TNFY0TmlGLTJJYjhERXNGUGJKbTJkSGI4c1JMN1JBa0JvejRzd3lXYzgxMHMtTUtQbFczMTd5YVBmbzdmTGt1YlZ1WGhsMUs2WDZsbTlNY1NNVnhvXzV5MHMxMGZvS1QxV2IwS2pEQVg?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "pos"
-    },
-    {
-     "title": "무리뉴의 레알, 미친 10연승 행진! 음바페 멀티골로 챔스에서 PSV 5-1 대파",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5PMEVwZ1djcmR5SDBiX2Yxa19lVERka3JXOWIxVWgwN1JMc2NBeHNyd0RwRlNFR2tWOFRoaGhGSTNPcm9iM29mM25VODBmU3pPc1JPSHJwa09GdkFEaGxnZTdBOHZiVi1UMl9Jd01HZC0?oc=5",
      "date": "2026-11-25",
      "sentiment": "pos"
     }
@@ -3975,12 +3975,12 @@
    ]
   },
   "17": {
-   "n": 95,
+   "n": 96,
    "h24": 0,
    "sentiment": {
     "pos": 6,
     "neu": 17,
-    "neg": 72
+    "neg": 73
    },
    "daily": [
     {
@@ -3993,7 +3993,7 @@
     },
     {
      "date": "2026-11-21",
-     "n": 48
+     "n": 49
     },
     {
      "date": "2026-11-22",
@@ -6724,7 +6724,7 @@
   },
   "96": {
    "n": 7,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 2,
@@ -7945,6 +7945,61 @@
     }
    ]
   },
+  "349": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "선제골",
+    "득점",
+    "발리슛"
+   ],
+   "headlines": [
+    {
+     "title": "맨체스터 시티 1-1 풀럼, 호드리구 무니스 선제골·엘리엇 앤더슨 환상적인 발리슛 동점골",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9RUjNUYy01VFUtOTBTQzhZa3F6UzNYWHBXMFR1ZDBUUUQ4SUdPMm1SLVNpQU9vT1kzaGdFMzRRQ2RpbE1rSWhJUkxpdElqS3ZpS3V5aEFhamtXTUhIekpXMENnOEE?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
   "420": {
    "n": 1,
    "h24": 0,
@@ -8657,11 +8712,11 @@
    ]
   },
   "516": {
-   "n": 35,
-   "h24": 22,
+   "n": 37,
+   "h24": 24,
    "sentiment": {
     "pos": 7,
-    "neu": 14,
+    "neu": 16,
     "neg": 14
    },
    "daily": [
@@ -8691,7 +8746,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 20
+     "n": 22
     }
    ],
    "topics": [
@@ -8701,10 +8756,10 @@
    ],
    "keywords": [
     "퇴장",
-    "징계 철회",
     "퇴장 번복",
-    "퇴장 징계",
-    "항소 수용"
+    "징계 철회",
+    "출전 가능",
+    "퇴장 징계"
    ],
    "headlines": [
     {
@@ -9955,6 +10010,61 @@
     }
    ]
   },
+  "726": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "인터뷰"
+   ],
+   "keywords": [
+    "시메오네 감독",
+    "동행",
+    "이강인 영입"
+   ],
+   "headlines": [
+    {
+     "title": "‘이강인 아틀레티코 오게 한’ 코케, 시메오네 감독과의 동행에 입 열었다…“언젠가는 우리도 떠나야 한다, 우리는 영원하지 않다”",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5rMjB0N0M1b0d1LURWaDZPTEQ2UlRRT1M3M0RTZFU0em1DOGJ5NWhZMFpuTjhaX1NDTU9leThCMERUWG9OcUtDcFBSOXJHRU9HU3NXcUd5S2piMXV5YzZjQ3ZlQ0RJU2xZUUNwNzFTdmR2V3hM?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    }
+   ]
+  },
   "737": {
    "n": 9,
    "h24": 2,
@@ -10365,6 +10475,61 @@
      "title": "유망주 사비 에스파르트가 바르셀로나와 2030년까지 계약을 연장했습니다.",
      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPT0Fac2tRc3U5SllxZWwwNmNRNVNzV0pRSzRWemFVYWpEVTRySTNTaEZLSEs2RWFrM2M3ZTJtT2VRSUVsNmZTa1ExS2x1R3ZRRG96SXdfQ2xsZEQ5REUxSUl3RVBhZDdsSHVuUkZaZmNDNTJORFVPWjVKX2xSejJpTHhXUjVqYXRhTXNac2pR?oc=5",
      "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "781": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "은퇴",
+    "팬 박수",
+    "감동"
+   ],
+   "headlines": [
+    {
+     "title": "‘박주영 경쟁자’ 펄펄 날던 ‘라리가 레전드’ 아스파스, 은퇴 앞두고 레알 팬들 박수에 감동...“베르나베우가 나 같은 소년에게 박수를 보내다니!”",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5Od2pDbGo5a1VmQ2ZQR21nSmQzVjlOYkRNdXlrZFYxbmZZclZSU19aemt5ajJSOUZrdWxFUWJxU0VxaGpVZjljOHg0WWhlNWpxbzlqRFo2SFJGQjNVcnIwdG1XUFBJTmhwOUNuUmktcG80QQ?oc=5",
+     "date": "2026-11-23",
      "sentiment": "pos"
     }
    ]
@@ -14807,7 +14972,7 @@
   },
   "10938": {
    "n": 3,
-   "h24": 3,
+   "h24": 2,
    "sentiment": {
     "pos": 2,
     "neu": 1,
