@@ -261,6 +261,45 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
+/* ---------- 모바일(폭 640px 이하) ---------- */
+.filter-toggle{display:none}
+@media (max-width:640px){
+  .wrap{padding-inline:16px}
+  .top{flex-wrap:nowrap;gap:10px;padding-block:10px}
+  .logo{font-size:20px;white-space:nowrap}
+  .search{min-width:0;padding-left:12px}
+  .search span{display:none}
+  .theme-btn{width:32px;height:32px}
+  /* 포지션 칩은 한 줄 가로 스크롤 */
+  .pos-row{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+  .pos-row::-webkit-scrollbar{display:none}
+  /* 필터·정렬은 버튼으로 접고 펼침 */
+  .filter-toggle{display:flex;align-items:center;gap:6px;width:100%;height:36px;margin:2px 0 10px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:var(--chip);color:var(--head-ink);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+  .filter-toggle svg{width:12px;height:12px;margin-left:auto;transition:transform .15s}
+  .filter-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .fcount{font-size:11px;font-weight:700;color:#0b1a12;background:var(--accent);border-radius:999px;padding:1px 7px}
+  .fcount:empty{display:none}
+  .filters{display:none;padding-bottom:12px}
+  .filters.open{display:block}
+  .ctrls{display:grid;grid-template-columns:1fr;gap:8px}
+  .ctrls>.pick+*, .ctrls>label+label{padding-left:0}
+  .ctrls>.pick+*::before, .ctrls>label+label::before{display:none}
+  .ctrls label,.pick{display:flex;width:100%}
+  .ctrls label{justify-content:space-between}
+  .pick label{flex:1}
+  .ctrls .dd{flex:1;max-width:none}
+  .ctrls .dd-btn{width:100%;max-width:none;min-width:0}
+  .ctrls .seg{flex:1;overflow-x:auto}
+  .ctrls .seg button{flex:1;white-space:nowrap}
+  .favline{flex-direction:column;align-items:stretch;margin-top:10px;gap:10px}
+  .favline-r{justify-content:space-between}
+  /* 상세 팝업은 화면 전체 */
+  dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0}
+  .d-top{padding:16px 56px 12px 16px}
+  .d-top h2{font-size:22px}
+  .d-info{grid-template-columns:repeat(2,1fr)}
+  .meta>div:last-child{display:none}
+}
 </style>
 
 <header>
@@ -271,6 +310,8 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   </div>
   <div class="wrap rail">
     <div class="pos-row" id="posRow" role="group" aria-label="포지션"></div>
+    <button type="button" class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">필터·정렬<span class="fcount" id="filterCount"></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="filters" id="filters">
     <div class="ctrls">
       <span class="pick"><label>나라 <select id="nat"></select></label><button type="button" class="fav-toggle" id="favNat" aria-label="고른 나라 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
@@ -294,6 +335,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
         </span></label>
         <button class="reset" id="reset" type="button">필터 초기화</button>
       </div>
+    </div>
     </div>
   </div>
 </header>
@@ -648,6 +690,8 @@ function render(){
   let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
   renderHot();
+  // 모바일 필터 버튼에 적용 중인 필터 개수
+  $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   list.sort(S[st.sort]);
   $("count").textContent=list.length.toLocaleString();
@@ -842,6 +886,8 @@ $("club").addEventListener("change",e=>{st.club=e.target.value;syncFav();save();
 $("favClub").addEventListener("click",()=>{if(st.club)toggleFav("club",st.club)});
 $("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
 $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
+// 모바일: 필터·정렬 접기/펼치기
+$("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
 $("youth").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.youth=b.dataset.y==="1";buildControls();save();render()});
 $("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false});buildControls();save();render()});
 $("nat").addEventListener("change",syncFav);
