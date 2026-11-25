@@ -333,13 +333,18 @@ def main() -> None:
     nat_code = {v: k for k, v in nat.items()}
     nat_code["대한민국"] = "KOR"
     k_photos: dict[str, str] = {}
-    try:
-        k_rows, k_photos, k_over, nxt = kleague.fetch(ids, nat_code, curated, max([FIRST_NEW_NO - 1, *ids.values()]) + 1)
-        players.extend(k_rows)
-        overrides.update(k_over)
-        IDS.write_text(json.dumps(ids, indent=0, sort_keys=True), encoding="utf-8")
-    except Exception as e:  # noqa: BLE001
-        print(f"[K리그] 건너뜀: {e!r}")
+    for k_league in ("K리그1", "K리그2"):
+        try:
+            k_rows, k_ph, k_over, _ = kleague.fetch(ids, nat_code, curated, max([FIRST_NEW_NO - 1, *ids.values()]) + 1, k_league)
+            players.extend(k_rows)
+            k_photos.update(k_ph)
+            overrides.update(k_over)
+            IDS.write_text(json.dumps(ids, indent=0, sort_keys=True), encoding="utf-8")
+        except Exception as e:  # noqa: BLE001
+            print(f"[{k_league}] 건너뜀: {e!r}")
+    # 같은 선수가 두 리그 문서에 다 있으면(이적 직후 등) 하나만
+    seen_no: set[int] = set()
+    players = [r for r in players if not (r[0] in seen_no or seen_no.add(r[0]))]
     players.sort(key=lambda r: r[0])
     flags = {}
     for a in roster:
@@ -349,7 +354,7 @@ def main() -> None:
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "source": "ESPN",
-        "leagues": [l for _, l in LEAGUES] + ["K리그1"],
+        "leagues": [l for _, l in LEAGUES] + ["K리그1", "K리그2"],
         "nat": nat,
         "flag": flags,
         "curated": overrides,

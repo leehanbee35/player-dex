@@ -367,7 +367,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열림</div></div>
   <div id="out"></div>
 </main>
-<footer class="wrap">선수 명단: ESPN 공개 명단을 매주 자동으로 받아 옵니다<span id="dataAt"></span>. K리그1은 한국어 위키백과의 구단별 선수 명단을 씁니다. 1~60번은 직접 입력한 선수이며, 팀·리그는 최신 명단으로 갱신됩니다. 61번 이후 선수의 한글 이름은 자동 변환이라 언론 표기와 다를 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
+<footer class="wrap">선수 명단: ESPN 공개 명단을 매주 자동으로 받아 옵니다<span id="dataAt"></span>. K리그1·K리그2는 한국어 위키백과의 구단별 선수 명단을 씁니다. 1~60번은 직접 입력한 선수이며, 팀·리그는 최신 명단으로 갱신됩니다. 61번 이후 선수의 한글 이름은 자동 변환이라 언론 표기와 다를 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
 
 <dialog id="dlg"><div class="d-shell"><button class="close" id="closeD" aria-label="닫기" autofocus>×</button><div id="dBody"></div></div></dialog>
 
@@ -483,7 +483,7 @@ const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF"
 const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,fav:{nat:[],league:[],club:[]}};
 // 유스: 61번 이후 선수 중 등번호가 없거나 40번 이상 (직접 입력한 60명은 항상 표시)
 // K리그는 1군도 40~99번을 흔히 쓰고, 위키백과 명단 자체가 등록 선수라서 제외
-const isYouth=p=>p.no>60&&p.league!=="K리그1"&&!(/^\d+$/.test(p.num)&&+p.num<40);
+const isYouth=p=>p.no>60&&!/^K리그/.test(p.league)&&!(/^\d+$/.test(p.num)&&+p.num<40);
 // 목록·개수에 쓰는 선수 범위. 이름을 검색할 때는 유스도 포함
 const pool=()=>st.youth||st.q.trim()?players:players.filter(p=>!isYouth(p));
 const FAV_KINDS=["nat","league","club"];

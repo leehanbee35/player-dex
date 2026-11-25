@@ -1,4 +1,4 @@
-"""K리그1 선수 명단 (한국어 위키백과 → Wikidata)
+"""K리그1·K리그2 선수 명단 (한국어 위키백과 → Wikidata)
 
 ESPN에는 K리그가 없어서 한국어 위키백과의 'YYYY년 K리그1' 문서에서 참가 구단을,
 각 구단 문서의 '선수 명단'(클럽팀 선수명단 틀)에서 등번호·국적·포지션·한글 이름을 받음.
@@ -55,15 +55,17 @@ def first_link(s: str) -> tuple[str, str] | None:
     return None
 
 
-def clubs() -> list[tuple[str, str]]:
-    """[(구단 문서 제목, 화면 이름)] — 올해 시즌 문서가 없으면 작년 것"""
+def clubs(league: str = LEAGUE) -> list[tuple[str, str]]:
+    """[(구단 문서 제목, 화면 이름)] — 올해 시즌 문서가 없으면 작년 것.
+    '참가 구단' 아래 첫 표(class="wikitable")를 읽음. K리그2 문서는 지도가 먼저 나옴"""
     y = datetime.now().year
     for year in (y, y - 1):
-        r = wikitext(f"{year}년 K리그1")
+        r = wikitext(f"{year}년 {league}")
         if not r:
             continue
         w = r[1]
         i = w.find("참가 구단")
+        i = w.find('class="wikitable', i) if i >= 0 else -1
         if i < 0:
             continue
         table = w[i: w.find("|}", i)]
@@ -192,13 +194,13 @@ def photo_key(name: str) -> str | None:
     return f"{hashlib.md5(name.encode('utf-8')).hexdigest()[:2]}/{name}"
 
 
-def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int):
-    """K리그1 선수 행, 사진, 직접 입력 선수 갱신값, 다음 번호를 돌려줌.
+def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int, league: str = LEAGUE):
+    """K리그(1 또는 2) 선수 행, 사진, 직접 입력 선수 갱신값, 다음 번호를 돌려줌.
     ids: 번호 고정표 (키 'kw:문서 제목'), nat_code: 한글 나라 이름 → 나라 코드"""
     rows, photos, overrides = [], {}, {}
-    cl = clubs()
+    cl = clubs(league)
     if not cl:
-        print("[K리그] 참가 구단을 못 찾음, 건너뜀")
+        print(f"[{league}] 참가 구단을 못 찾음, 건너뜀")
         return rows, photos, overrides, next_no
     squads = []
     for title, shown in cl:
@@ -213,17 +215,17 @@ def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int
             d = info.get(p["title"], {})
             c = cur_by_name.get(p["kr"])
             if c and c.get("born") == d.get("born"):  # 직접 입력한 선수 (예: 조현우)
-                overrides[c["no"]] = [club, LEAGUE, ""]
+                overrides[c["no"]] = [club, league, ""]
                 continue
             key = "kw:" + p["title"]
             if key not in ids:
                 ids[key] = next_no
                 next_no += 1
             no = ids[key]
-            rows.append([no, p["kr"], d.get("en", ""), p["pos"], nat_code.get(p["nat_ko"], ""), club, LEAGUE,
+            rows.append([no, p["kr"], d.get("en", ""), p["pos"], nat_code.get(p["nat_ko"], ""), club, league,
                          d.get("born", 0), d.get("h", 0), p["num"], ""])
             k = photo_key(d.get("img", ""))
             if k:
                 photos[str(no)] = k
-    print(f"[K리그] 선수 {len(rows)}명, 사진 {len(photos)}명")
+    print(f"[{league}] 선수 {len(rows)}명, 사진 {len(photos)}명")
     return rows, photos, overrides, next_no

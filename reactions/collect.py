@@ -234,6 +234,8 @@ def load_targets() -> list[dict]:
     # [번호, 한글명, 영문명, 포지션, 나라, 팀, 리그, 출생연도, 키, 등번호]
     for row in roster:
         no, kr, _en, _pos, nat, club, lg, _b, _h, num = row[:10]
+        if lg == "K리그2":
+            continue  # K리그2는 비용 때문에 아직 반응 수집 대상이 아님
         if lg == "K리그1":
             # K리그는 등번호 1~30번만. 흔한 이름이 많아서 팀 지역명을 같이 검색 (예: "정승원" 서울)
             if no in have or not str(num).isdigit() or not 1 <= int(num) <= 30 or "," in kr:
