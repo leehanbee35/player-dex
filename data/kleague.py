@@ -87,7 +87,7 @@ def squad(club_title: str) -> list[dict]:
     s = w.find("{{클럽팀 선수명단 시작")
     e = w.find("{{클럽팀 선수명단 끝", s)
     if s < 0 or e < 0:
-        return []
+        return squad_table(w)  # 틀 대신 일반 표로 적힌 구단 (예: FC 서울)
     out = []
     for m in re.finditer(r"\{\{클럽팀 선수명단\s*\|(.*?)\}\}\s*(?=\n|$)", w[s:e], re.S):
         body = m.group(1)
@@ -103,6 +103,32 @@ def squad(club_title: str) -> list[dict]:
         out.append({"title": link[0], "kr": link[1], "num": re.sub(r"\D", "", f["번호"]),
                     "nat_ko": re.sub(r"\[\[|\]\]|\{\{.*?\}\}", "", f["국적"]).strip(),
                     "pos": pos if pos in ("GK", "DF", "MF", "FW") else "FW"})
+    return out
+
+
+POS_KO = {"골키퍼": "GK", "수비수": "DF", "미드필더": "MF", "공격수": "FW"}
+
+
+def squad_table(w: str) -> list[dict]:
+    """'선수 명단' 문단의 첫 표(배번·포지션·국적·이름)를 읽음"""
+    i = w.find("선수 명단")
+    s = w.find("{|", i) if i >= 0 else -1
+    e = w.find("\n|}", s)
+    if s < 0 or e < 0:
+        return []
+    out = []
+    for row in w[s:e].split("|-")[1:]:
+        cells = [c.strip() for c in re.split(r"\n\|(?!\})", "\n" + row.strip()) if c.strip()]
+        if len(cells) < 4:
+            continue
+        num = re.sub(r"<[^>]+>|\D", "", cells[0])
+        pm = re.search(r"\{\{(골키퍼|수비수|미드필더|공격수)\}\}", cells[1])
+        nm = re.search(r"\{\{국기그림\|([^}|]+)", cells[2]) or re.search(r"\[\[([^\]|]+)", cells[2])
+        link = first_link(cells[3])
+        if not link:
+            continue
+        out.append({"title": link[0], "kr": link[1], "num": num, "nat_ko": nm.group(1).strip() if nm else "",
+                    "pos": POS_KO.get(pm.group(1), "FW") if pm else "FW"})
     return out
 
 
