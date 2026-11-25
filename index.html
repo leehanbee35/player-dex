@@ -47,15 +47,9 @@ header{background:var(--head);color:var(--head-ink)}
 .theme-btn:hover{background:rgba(255,255,255,.08)}
 .theme-btn:focus-visible{outline:2px solid var(--accent)}
 
-/* 헤더 고정: 스크롤해도 검색·필터가 위에 남음. 내려가면(.stuck) 즐겨찾기 줄을 접고 포지션 칩을 작게 */
+/* 헤더 고정: 스크롤해도 검색·필터가 위에 남음. 내려가면(.stuck) 아래 내용과 구분되게 그림자만 */
 header{position:sticky;top:0;z-index:30;transition:box-shadow .2s}
 header.stuck{box-shadow:0 6px 18px rgba(0,0,0,.28)}
-header.stuck .top{padding-block:8px}
-header.stuck .rail{padding-block:6px 8px;gap:8px}
-header.stuck .favline{display:none}
-header.stuck .pos{flex-direction:row;gap:6px;padding:2px 6px}
-header.stuck .pos b{width:26px;height:26px;font-size:11px}
-header.stuck .pos-row{padding-top:2px;margin-top:0}
 .rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
 .pos-row{display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0;scrollbar-width:thin}
 .pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
@@ -340,6 +334,8 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
 /* ---------- 모바일(폭 640px 이하) ---------- */
 .filter-toggle{display:none}
+/* 조회조건 줄과 즐겨찾기 줄 사이 간격 */
+.filters{display:flex;flex-direction:column;gap:12px}
 @media (max-width:640px){
   .wrap{padding-inline:16px}
   .top{flex-wrap:nowrap;gap:10px;padding-block:10px}
@@ -357,7 +353,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .fcount{font-size:11px;font-weight:700;color:#0b1a12;background:var(--accent);border-radius:999px;padding:1px 7px}
   .fcount:empty{display:none}
   .filters{display:none;padding-bottom:12px}
-  .filters.open{display:block;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
+  .filters.open{display:flex;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
   .ctrls{display:grid;grid-template-columns:1fr;gap:8px}
   .ctrls>.pick+*, .ctrls>label+label{padding-left:0}
   .ctrls>.pick+*::before, .ctrls>label+label::before{display:none}
@@ -406,10 +402,6 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     </div>
     <div class="favline"><div class="favbar" id="favBar"></div>
       <div class="favline-r">
-        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스, K리그 제외). 이름으로 검색하면 항상 함께 나옵니다.">유스 <span class="seg" id="youth">
-          <button type="button" data-y="0" aria-pressed="true">숨김</button>
-          <button type="button" data-y="1" aria-pressed="false">포함</button>
-        </span></label>
         <button class="reset" id="reset" type="button">필터 초기화</button>
       </div>
     </div>
@@ -620,6 +612,7 @@ st.fav=Object.assign({nat:[],league:[],club:[],player:[]},st.fav||{});
 FAV_KINDS.forEach(k=>{if(!Array.isArray(st.fav[k]))st.fav[k]=[]});
 if(!OK.o.includes(st.sort))st.sort="no";
 if(!OK.p.includes(st.chip))st.chip="ALL"; // 예전 세부 포지션 칩(CB 등)은 전체로
+st.youth=false; // 유스 포함 버튼을 없앴으므로 항상 숨김 (이름 검색·즐겨찾기 선수 보기에서는 나옴)
 applyHash();
 const save=()=>{
   try{localStorage.setItem("dexState",JSON.stringify({...st,open:0}))}catch(e){}
@@ -1206,12 +1199,11 @@ $("club").addEventListener("change",e=>{st.club=e.target.value;syncFav();save();
 $("favClub").addEventListener("click",()=>{if(st.club)toggleFav("club",st.club)});
 $("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
 $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
-// 헤더 고정: 조금 내려가면 헤더를 작게 (스크롤 위치에 따라 켜고 끔. 경계에서 깜빡이지 않게 여유를 둠)
+// 헤더 고정: 조금 내려가면 헤더 아래에 그림자 (크기는 그대로)
 {const hd=document.querySelector("header");let on=false;
  addEventListener("scroll",()=>{const y=scrollY;if(!on&&y>120){on=true;hd.classList.add("stuck")}else if(on&&y<40){on=false;hd.classList.remove("stuck")}},{passive:true});}
 // 모바일: 필터·정렬 접기/펼치기
 $("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
-$("youth").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.youth=b.dataset.y==="1";buildControls();save();render()});
 $("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false});buildControls();save();render()});
 $("nat").addEventListener("change",syncFav);
 $("league").addEventListener("change",syncFav);
