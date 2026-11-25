@@ -279,6 +279,10 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
         <button type="button" data-g="league" aria-pressed="false">리그</button>
         <button type="button" data-g="club" aria-pressed="false">팀</button>
       </span></label>
+      <label title="등번호가 40번 이상이거나 없는 선수(주로 유스). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
+        <button type="button" data-y="0" aria-pressed="true">숨김</button>
+        <button type="button" data-y="1" aria-pressed="false">포함</button>
+      </span></label>
       <button class="reset" id="reset" type="button">필터 초기화</button>
     </div>
     <div class="favbar" id="favBar"></div>
@@ -403,7 +407,11 @@ const chipColor={ALL:"#5b6680",GK:"#d99a1a",DF:"#2f6fd6",MF:"#21a05e",FW:"#e0533
 const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF",FW:p=>p.g==="FW"};
 
 // fav: 즐겨찾기한 나라·리그·팀 (이 브라우저에만 저장). club: 즐겨찾기 칩으로 고른 팀 필터
-const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",fav:{nat:[],league:[],club:[]}};
+const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,fav:{nat:[],league:[],club:[]}};
+// 유스: 61번 이후 선수 중 등번호가 없거나 40번 이상 (직접 입력한 60명은 항상 표시)
+const isYouth=p=>p.no>60&&!(/^\d+$/.test(p.num)&&+p.num<40);
+// 목록·개수에 쓰는 선수 범위. 이름을 검색할 때는 유스도 포함
+const pool=()=>st.youth||st.q.trim()?players:players.filter(p=>!isYouth(p));
 const FAV_KINDS=["nat","league","club"];
 const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
@@ -427,13 +435,14 @@ function encodeHash(){
   if(st.nat)t.push("n",st.nat);
   if(st.league)t.push("l",encPart(st.league));
   if(st.club)t.push("c",encPart(st.club));
+  if(st.youth)t.push("y","1");
   if(st.open)t.push("d",st.open);
   return t.length?"v-"+t.join("-"):"";
 }
 function applyHash(){
   const h=location.hash.slice(1);
   if(!h.startsWith("v-"))return false;
-  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",open:0});
+  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,open:0});
   const a=h.slice(2).split("-");
   for(let i=0;i+1<a.length;i+=2){
     const k=a[i];let v=a[i+1];try{v=decodeURIComponent(v)}catch(e){}
@@ -444,6 +453,7 @@ function applyHash(){
     else if(k==="l")st.league=LEAGUES.includes(v)?v:/^\d+$/.test(v)&&LEAGUES[+v]||v;
     else if(k==="c")st.club=CLUBS.includes(v)?v:/^\d+$/.test(v)&&CLUBS[+v]||v;
     else if(k==="d"&&/^\d+$/.test(v))st.open=+v;
+    else if(k==="y")st.youth=v==="1";
   }
   return true;
 }
@@ -548,7 +558,7 @@ document.addEventListener("keydown",e=>{
 
 function buildControls(){
   $("posRow").innerHTML=POS_CHIPS.map(([k,l])=>`<button type="button" class="pos" data-k="${k}" style="color:${chipColor[k]}" aria-pressed="${st.chip===k}"><b style="background:${chipColor[k]}">${k==="ALL"?"ALL":k}</b><span style="color:inherit">${l}</span></button>`).join("");
-  const count=(key)=>players.reduce((m,p)=>(m[p[key]]=(m[p[key]]||0)+1,m),{});
+  const count=(key)=>pool().reduce((m,p)=>(m[p[key]]=(m[p[key]]||0)+1,m),{});
   const nc=count("nat"),lc=count("league");
   // 즐겨찾기한 나라·리그는 목록 맨 위에 ★와 함께
   const favFirst=(kind,cnt)=>(a,b)=>(isFavOf(kind,b)-isFavOf(kind,a))||cnt[b]-cnt[a]||a.localeCompare(b);
@@ -556,7 +566,7 @@ function buildControls(){
   $("nat").innerHTML=`<option value="">전체 나라</option>`+Object.keys(nc).filter(k=>k&&NAT[k]).sort(favFirst("nat",nc)).map(k=>`<option value="${k}">${star("nat",k)}${NAT[k]} (${nc[k]})</option>`).join("");
   $("league").innerHTML=`<option value="">전체 리그</option>`+Object.keys(lc).sort(favFirst("league",lc)).map(k=>`<option value="${esc(k)}">${star("league",k)}${esc(k)} (${lc[k]})</option>`).join("");
   // 팀: 리그를 고르면 그 리그 팀만, 안 고르면 전체 팀
-  const inLeague=st.league?players.filter(p=>p.league===st.league):players;
+  const inLeague=st.league?pool().filter(p=>p.league===st.league):pool();
   const cc=inLeague.reduce((m,p)=>(m[p.club]=(m[p.club]||0)+1,m),{});
   if(st.club&&!cc[st.club]&&st.league&&DATA_AT)st.club=""; // 전체 명단을 받기 전에는 지우지 않음
   const byName=(a,b)=>(isFavOf("club",b)-isFavOf("club",a))||a.localeCompare(b,"ko");
@@ -586,6 +596,7 @@ function toggleFav(kind,v){
   buildControls();save();render();
 }
 function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.g===st.group));
+  document.querySelectorAll("#youth button").forEach(b=>b.setAttribute("aria-pressed",(b.dataset.y==="1")===!!st.youth));
   document.querySelectorAll(".pos").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===st.chip));}
 
 function card(p){
@@ -623,9 +634,9 @@ const PAGE=120;
 let shown=PAGE,lastKey="";
 function render(){
   const q=st.q.trim().toLowerCase();
-  const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,players.length]);
+  const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,st.youth,players.length]);
   if(key!==lastKey){shown=PAGE;lastKey=key}
-  let list=players.filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
+  let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
   renderHot();
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
@@ -822,7 +833,8 @@ $("club").addEventListener("change",e=>{st.club=e.target.value;syncFav();save();
 $("favClub").addEventListener("click",()=>{if(st.club)toggleFav("club",st.club)});
 $("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()});
 $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
-$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:""});buildControls();save();render()});
+$("youth").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.youth=b.dataset.y==="1";buildControls();save();render()});
+$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false});buildControls();save();render()});
 $("nat").addEventListener("change",syncFav);
 $("league").addEventListener("change",syncFav);
 $("favNat").addEventListener("click",()=>{if(st.nat)toggleFav("nat",st.nat)});
