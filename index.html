@@ -195,7 +195,7 @@ main{padding-block:20px 48px}
 img.flag{object-fit:cover;background:var(--line)}
 
 /* 선수 상세 팝업: 넓은 화면은 왼쪽 정보·반응 | 오른쪽 댓글, 좁은 화면은 한 줄. 닫기 버튼은 고정, 내용만 스크롤 */
-dialog{border:0;border-radius:16px;padding:0;width:min(980px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 40px);background:var(--surface);color:var(--ink);overflow:hidden}
+dialog{border:0;border-radius:16px;padding:0;width:min(980px,calc(100vw - 32px));max-width:none;height:min(760px,calc(100dvh - 40px));max-height:calc(100dvh - 40px);background:var(--surface);color:var(--ink);overflow:hidden}
 dialog[open]{display:flex;flex-direction:column}
 dialog::backdrop{background:rgba(8,12,24,.6)}
 .d-shell{position:relative;display:flex;flex-direction:column;flex:1;min-height:0}
@@ -204,6 +204,7 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .d-main{display:flex;flex-direction:column;gap:14px;min-width:0;align-self:start}
 .d-grid .comments{border-top:0;padding-top:0;padding-left:22px;border-left:1px solid var(--line);min-width:0}
 @media (max-width:820px){
+  .d-info{grid-template-columns:repeat(3,minmax(0,1fr))}
   .d-grid{grid-template-columns:1fr;padding:0 16px 18px}
   .d-grid .comments{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:14px}
 }
@@ -211,7 +212,16 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .d-top svg{width:84px;height:84px;flex:0 0 auto}
 .d-top h2{font-family:var(--f-display);font-size:26px;margin:0;font-weight:400}
 .d-top p{margin:2px 0 0;color:var(--muted)}
-.d-info{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.d-info{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;padding:0 22px}
+/* 상세 팝업 탭 */
+.d-tabs{display:flex;gap:4px;padding:0 22px;margin-top:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1;overflow-x:auto;scrollbar-width:none}
+.d-tabs button{font:inherit;font-size:14px;font-weight:600;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:10px 12px;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
+.d-tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.d-tabs .tc{font-size:11px;font-weight:700;margin-left:5px;color:var(--muted)}
+.d-tabs .tc:empty{display:none}
+.d-pane{padding:16px 22px 24px;min-height:220px}
+.d-pane .season{margin-top:0}
+.d-pane .comments{border-top:0;padding-top:0}
 .d-info>div{background:var(--bg);border-radius:10px;padding:8px 10px;min-width:0}
 .d-info span{display:block;font-size:11px;color:var(--muted)} .d-info b{font-size:14px}
 .d-info .lab{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:2px}
@@ -370,7 +380,9 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;margin:0}
   .d-top{padding:16px 56px 12px 16px}
   .d-top h2{font-size:22px}
-  .d-info{grid-template-columns:repeat(2,1fr)}
+  .d-info{grid-template-columns:repeat(3,minmax(0,1fr));padding:0 16px}
+  .d-tabs{padding:0 12px}
+  .d-pane{padding:14px 16px 22px}
   .meta>div:last-child{display:none}
 }
 </style>
@@ -648,6 +660,8 @@ let TEAM_KO={};
 const teamKo=n=>TEAM_KO[n]||n||"";
 const WD="일월화수목금토";
 const kst=s=>{const d=new Date(new Date(s).getTime()+9*3600e3);const p=n=>String(n).padStart(2,"0");return {md:`${d.getUTCMonth()+1}.${d.getUTCDate()}(${WD[d.getUTCDay()]})`,hm:`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}`}};
+// 경기 탭: 다음 경기·최근 5경기 (기록과 같은 ESPN 데이터)
+function putGames(d){if($("games"))$("games").innerHTML=gamesHTML(d)||'<p class="thin">경기 정보가 없습니다.</p>'}
 function gamesHTML(d){
   let html="";
   const ev=d&&d.nextGame&&d.nextGame.league&&(d.nextGame.league.events||[])[0];
@@ -691,7 +705,7 @@ async function seasonStats(p){
     const d=STAT_CACHE[p.espn]||(STAT_CACHE[p.espn]=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${p.espn}/overview`).then(r=>r.ok?r.json():null));
     if(!$("season")||openNo!==p.no)return;
     const s=d&&d.statistics,splits=(s&&s.splits||[]).filter(x=>x.stats.some(v=>+v>0));
-    if(!splits.length){$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">이번 시즌 출전 기록이 없습니다.</p>`+gamesHTML(d);return}
+    if(!splits.length){$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">이번 시즌 출전 기록이 없습니다.</p>`;putGames(d);return}
     const cols=p.g==="GK"?[["starts","선발"],["cleanSheet","무실점"],["saves","선방"],["goalsConceded","실점"]]
       :[["starts","선발"],["totalGoals","골"],["goalAssists","도움"],["totalShots","슈팅"],["yellowCards","경고"]];
     const val=(x,n)=>+(x.stats[s.names.indexOf(n)]||0);
@@ -699,7 +713,7 @@ async function seasonStats(p){
     $("season").innerHTML=`<h3>이번 시즌 기록<small>ESPN</small></h3>
       <table class="stbl"><thead><tr><th>대회</th>${cols.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead>
       <tbody>${splits.map(x=>`<tr><td>${esc(compKo(x.displayName))}</td>${cols.map(c=>`<td>${val(x,c[0])}</td>`).join("")}</tr>`).join("")}</tbody>
-      ${splits.length>1?`<tfoot><tr><td>합계</td>${cols.map(c=>`<td>${sum(c[0])}</td>`).join("")}</tr></tfoot>`:""}</table>`+gamesHTML(d);
+      ${splits.length>1?`<tfoot><tr><td>합계</td>${cols.map(c=>`<td>${sum(c[0])}</td>`).join("")}</tr></tfoot>`:""}</table>`;putGames(d);
   }catch(e){if($("season"))$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">기록을 불러오지 못했습니다.</p>`}
 }
 // 사진 촬영자·라이선스는 상세 화면을 열 때 위키미디어 공용에서 받아 표시
@@ -1025,11 +1039,19 @@ function openDetail(no){
   const p=BY_NO[no];if(!p)return;const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
   const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
+  // 위: 사진·이름·기본 정보 / 아래: 탭(기록·경기·반응·댓글) 중 하나만 전체 폭으로
+  const espnStats=p.espn&&!p.espn.startsWith("w:");
+  const tabs=[["stats",p.espn&&p.espn.startsWith("w:")?"경력":"기록"],...(espnStats?[["games","경기"]]:[]),["react","반응"],["cm","댓글"]];
+  if(!tabs.some(t=>t[0]===dTab))dTab=tabs[0][0];
   $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}${favBtn("player",p.no)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p>${MOVES[p.no]?`<p class="d-move">최근 이적: ${esc(MOVES[p.no].from)} → <b>${esc(MOVES[p.no].to)}</b> (${MOVES[p.no].date.slice(5).replace("-",".")})</p>`:""}</div></div>
-  <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
-    ${p.espn?`<section class="season" id="season"><h3>${p.espn.startsWith("w:")?"경력 기록":"이번 시즌 기록"}</h3><p class="thin">불러오는 중…</p></section>`:""}
+  <div class="d-tabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-dt="${k}" aria-selected="${k===dTab}">${l}${k==="cm"?'<span class="tc" id="cmTabCount"></span>':""}</button>`).join("")}</div>
+  <div class="d-pane" data-pane="stats" ${dTab==="stats"?"":"hidden"}>
+    ${p.espn?`<section class="season" id="season"><h3>${p.espn.startsWith("w:")?"경력 기록":"이번 시즌 기록"}</h3><p class="thin">불러오는 중…</p></section>`:`<p class="thin">정리된 기록이 없습니다.</p>`}
+  </div>
+  ${espnStats?`<div class="d-pane" data-pane="games" ${dTab==="games"?"":"hidden"}><section id="games"><p class="thin">불러오는 중…</p></section></div>`:""}
+  <div class="d-pane" data-pane="react" ${dTab==="react"?"":"hidden"}>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
         <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스${EXT}</a>
@@ -1043,8 +1065,7 @@ function openDetail(no){
     ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`
       :WPHOTO[p.no]?`<p class="credit" id="wcredit">사진: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(WPHOTO[p.no].slice(3))}" target="_blank" rel="noopener">Wikimedia Commons</a></p>`:""}
   </div>
-  <section class="comments" id="comments"></section>
-  </div>`;
+  <div class="d-pane" data-pane="cm" ${dTab==="cm"?"":"hidden"}><section class="comments" id="comments"></section></div>`;
   // 새로 열 때는 항상 맨 위(선수 이름)부터, 열린 채로 다시 그릴 때는 보던 위치 유지
   if(!wasOpen){$("dlg").showModal();$("dBody").scrollTop=0}else $("dBody").scrollTop=y;
   st.open=no;save();
@@ -1091,6 +1112,7 @@ async function loadComments(){
   }catch(e){if($("cmList"))$("cmList").innerHTML=`<li class="cm-empty">댓글을 불러오지 못했습니다. ${esc(dot(e.message))}</li>`}
 }
 function drawComments(){
+  if($("cmTabCount"))$("cmTabCount").textContent=cm.list.length?String(cm.list.length):"";
   const ul=$("cmList");if(!ul)return;
   $("cmCount").textContent=cm.list.length?String(cm.list.length):"";
   // 답글(parent_id 있음)은 원래 댓글 아래에 오래된 순으로. BEST·정렬은 일반 댓글만
@@ -1232,6 +1254,11 @@ $("hot").addEventListener("click",e=>{
 $("closeD").addEventListener("click",()=>$("dlg").close());
 // 상세 화면의 나라·클럽·리그 ☆ 버튼. 이 브라우저에만 저장됨
 let openNo=0;
+// 상세 팝업 탭: 마지막으로 고른 탭을 다음 선수에도 그대로 (그 탭이 없는 선수면 첫 탭)
+let dTab="stats";
+$("dBody").addEventListener("click",e=>{const b=e.target.closest("[data-dt]");if(!b)return;dTab=b.dataset.dt;
+  document.querySelectorAll("#dBody [data-dt]").forEach(x=>x.setAttribute("aria-selected",x===b));
+  document.querySelectorAll("#dBody .d-pane").forEach(x=>x.hidden=x.dataset.pane!==dTab)});
 $("dBody").addEventListener("click",e=>{
   const b=e.target.closest(".fav-btn");if(!b)return;const fv=b.dataset.kind==="player"?+b.dataset.v:b.dataset.v;
   toggleFav(b.dataset.kind,fv);
