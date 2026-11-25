@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T14:12+09:00",
+ "generated_at": "2026-11-25T14:40+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "tracked": [
@@ -732,7 +732,7 @@
  "players": {
   "1": {
    "n": 114,
-   "h24": 33,
+   "h24": 32,
    "sentiment": {
     "pos": 12,
     "neu": 54,
@@ -1781,10 +1781,10 @@
    }
   },
   "13": {
-   "n": 26,
-   "h24": 17,
+   "n": 28,
+   "h24": 19,
    "sentiment": {
-    "pos": 19,
+    "pos": 21,
     "neu": 6,
     "neg": 1
    },
@@ -1815,7 +1815,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 16
+     "n": 18
     }
    ],
    "topics": [
@@ -1826,11 +1826,17 @@
    "keywords": [
     "연봉 인상",
     "재계약 임박",
+    "무리뉴 감독",
     "원더골",
-    "역전골",
-    "주급 인상"
+    "역전골"
    ],
    "headlines": [
+    {
+     "title": "벨링엄, 자신의 경기력 향상 비결 묻자 단 한마디 \"무리뉴, 그뿐이다\"...완전히 빠졌다",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9OR25NdWR6Q2pGOEZiWUJGWFJybmdWa3ViNmFKcGd3QWZFZXZUcFl5S1hDejJLcE1ZN0tYdlM4Rm42c0xvbnZFS2ppMjk3cUpuWURudQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
     {
      "title": "레알 마드리드 폭발: 무리뉴의 분노와 벨링엄의 천재성.",
      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTTh4eWdRcHJUWmxsNzN1TnZaenJTa2lkM1BzVGlmY29USTk2c09ISlpneVZiYTZpd1N6MFYzV0kzZldpRGl4NmR6RUw0ZTF3clhUMkl1TFViZXFuVmFQNFFuQWRmMkVkeXJkV2lWMmgyTmdzZnB1dFVNbEdpQTFidVRIWkIza2JvOU5LUXJVOVg?oc=5",
@@ -1842,12 +1848,6 @@
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPeExBSHpld0hPMGdPaUQ5T2dGVmo3ZGtvX096ZldFT3M3RFlrVzZJQW1fOHBFRHdFdS1ZeDJBRTFTcWxZeEEtUVliNGpncGQ2VWU2UzJHaXIyQjRmQ0R6MUlCMWxpV25tazV2RUpZSDBXZ25uWlRoU1dRRzE2a1pkWjV4eVBPZw?oc=5",
      "date": "2026-11-25",
      "sentiment": "neg"
-    },
-    {
-     "title": "교체 투입 15분 만에 ‘헤이 주드’ 떼창 부른 환상 발리슛…벨링엄 “공이 좋게 튀어 올라 그냥 때렸다”",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9yY3NCMXZyUXpzQTEwNVVWT2lIa25EQ0VQOWNKbDFKbk8xMmJyWU5oWkFHTkd5RnNDMmMxTVVTOGdGQ09Dc3NGUDEzTHZZR2dGNEtvY0d4U2dKRzg?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "pos"
     }
    ],
    "comm": {
@@ -3133,7 +3133,7 @@
   },
   "34": {
    "n": 80,
-   "h24": 6,
+   "h24": 5,
    "sentiment": {
     "pos": 22,
     "neu": 31,
@@ -9333,7 +9333,7 @@
   },
   "2863": {
    "n": 35,
-   "h24": 3,
+   "h24": 2,
    "sentiment": {
     "pos": 2,
     "neu": 3,
@@ -11247,7 +11247,7 @@
   },
   "10778": {
    "n": 27,
-   "h24": 12,
+   "h24": 9,
    "sentiment": {
     "pos": 27,
     "neu": 0,
