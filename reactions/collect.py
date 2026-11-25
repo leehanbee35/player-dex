@@ -158,7 +158,8 @@ def load_targets() -> list[dict]:
     have = {p["no"] for p in players}
     auto = []
     # [번호, 한글명, 영문명, 포지션, 나라, 팀, 리그, 출생연도, 키, 등번호]
-    for no, kr, en, _pos, nat, club, _lg, _b, _h, num in roster:
+    for row in roster:
+        no, kr, _en, _pos, nat, club, _lg, _b, _h, num = row[:10]
         if no in have or not re.search(r"[가-힣]", kr) or len(kr) > 20 or "," in kr:
             continue  # 한글 이름이 아직 없으면 한국 기사 검색이 안 됨
         korean = nat in ("KOR", "KORS")

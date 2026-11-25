@@ -317,12 +317,13 @@ def main() -> None:
     for a in roster:
         club = ko.get(f"t:{a['club']}", a["club"])
         if a["id"] in cur_map:
-            overrides[cur_map[a["id"]]] = [club, a["league"]]
+            overrides[cur_map[a["id"]]] = [club, a["league"], a["id"]]
             continue
         players.append([
             ids[a["id"]],
             fixed.get(ids[a["id"]]) or ko.get(f"p:{a['id']}", a["en"]),
             a["en"], a["pos"], a["nat"], club, a["league"], a["born"], a["h"], a["num"],
+            a["id"],  # ESPN 선수 번호: 상세 화면에서 이번 시즌 기록을 받을 때 씀
         ])
     players.sort(key=lambda r: r[0])
     nat = {code: ko.get(f"c:{code}", name) for code, name in nat_names.items()}

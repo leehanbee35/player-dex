@@ -221,6 +221,15 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .sbar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--bg)}
 .sbar i{display:block}
 .s-pos{background:var(--mf)} .s-neu{background:var(--muted);opacity:.45} .s-neg{background:var(--fw)}
+/* 상세 화면 이번 시즌 기록 표 */
+.season{margin-top:14px}
+.season h3{font-size:14px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.season h3 small{font-size:11px;font-weight:400;color:var(--muted)}
+.stbl{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+.stbl th{font-weight:500;color:var(--muted);font-size:11px;text-align:right;padding:4px 6px;border-bottom:1px solid var(--line)}
+.stbl td{text-align:right;padding:6px;border-bottom:1px solid var(--line)}
+.stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
+.stbl tfoot td{font-weight:700;border-bottom:0}
 /* 카드 아래 반응 막대: 최근 7일 기사의 긍정·중립·부정 비율 */
 .c-react{display:flex;align-items:center;gap:7px;padding:0 10px 9px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 .c-react .mbar{flex:1;display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--line)}
@@ -541,6 +550,27 @@ const wthumb=k=>{const h=k.slice(0,2),e=encodeURIComponent(k.slice(3));return `h
 const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" decoding="async">`
   :WPHOTO[p.no]?`<img src="${wthumb(WPHOTO[p.no])}" alt="${esc(p.kr)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="${esc(jersey(p))}" onerror="this.outerHTML=this.dataset.fb">`
   :jersey(p);
+// 이번 시즌 대회별 기록: 상세 화면을 열 때 ESPN에서 바로 받음 (같은 선수는 한 번만)
+const COMP_KO=[["Premier League","프리미어리그"],["LALIGA","라리가"],["LaLiga","라리가"],["Bundesliga","분데스리가"],["Serie A","세리에 A"],["Ligue 1","리그 1"],["Eredivisie","에레디비시"],["Primeira Liga","프리메이라리가"],["Champions League","챔피언스리그"],["Europa League","유로파리그"],["Conference League","컨퍼런스리그"],["Nations League","네이션스리그"],["Carabao Cup","카라바오컵"],["Community Shield","커뮤니티 실드"],["Super Cup","슈퍼컵"],["Club World Cup","클럽 월드컵"],["FA Cup","FA컵"],["Copa del Rey","코파 델 레이"],["DFB Pokal","DFB 포칼"],["Coppa Italia","코파 이탈리아"],["Coupe de France","쿠프 드 프랑스"],["International Friendly","A매치 친선"],["World Cup Qualifying","월드컵 예선"],["World Cup","월드컵"],["Championship","챔피언십"],["MLS","MLS"],["Saudi","사우디 프로리그"],["J.League","J1리그"],["Super Lig","쉬페르리그"]];
+const compKo=n=>{const s=n.replace(/^\d{4}(-\d{2})?\s+/,"");const m=COMP_KO.find(([e])=>s.includes(e));return m?m[1]:s};
+const STAT_CACHE={};
+async function seasonStats(p){
+  const box=$("season");if(!box||!p.espn)return;
+  try{
+    const d=STAT_CACHE[p.espn]||(STAT_CACHE[p.espn]=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${p.espn}/overview`).then(r=>r.ok?r.json():null));
+    if(!$("season")||openNo!==p.no)return;
+    const s=d&&d.statistics,splits=(s&&s.splits||[]).filter(x=>x.stats.some(v=>+v>0));
+    if(!splits.length){$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">이번 시즌 출전 기록이 없습니다.</p>`;return}
+    const cols=p.g==="GK"?[["starts","선발"],["cleanSheet","무실점"],["saves","선방"],["goalsConceded","실점"]]
+      :[["starts","선발"],["totalGoals","골"],["goalAssists","도움"],["totalShots","슈팅"],["yellowCards","경고"]];
+    const val=(x,n)=>+(x.stats[s.names.indexOf(n)]||0);
+    const sum=n=>splits.reduce((t,x)=>t+val(x,n),0);
+    $("season").innerHTML=`<h3>이번 시즌 기록<small>ESPN</small></h3>
+      <table class="stbl"><thead><tr><th>대회</th>${cols.map(c=>`<th>${c[1]}</th>`).join("")}</tr></thead>
+      <tbody>${splits.map(x=>`<tr><td>${esc(compKo(x.displayName))}</td>${cols.map(c=>`<td>${val(x,c[0])}</td>`).join("")}</tr>`).join("")}</tbody>
+      ${splits.length>1?`<tfoot><tr><td>합계</td>${cols.map(c=>`<td>${sum(c[0])}</td>`).join("")}</tr></tfoot>`:""}</table>`;
+  }catch(e){if($("season"))$("season").innerHTML=`<h3>이번 시즌 기록</h3><p class="thin">기록을 불러오지 못했습니다.</p>`}
+}
 // 사진 촬영자·라이선스는 상세 화면을 열 때 위키미디어 공용에서 받아 표시
 async function wcredit(p){
   const k=WPHOTO[p.no],el=$("wcredit");if(!k||!el)return;
@@ -753,6 +783,7 @@ function openDetail(no){
   <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
+    ${p.espn?`<section class="season" id="season"><h3>이번 시즌 기록</h3><p class="thin">불러오는 중…</p></section>`:""}
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
         <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스${EXT}</a>
@@ -769,7 +800,7 @@ function openDetail(no){
   // 새로 열 때는 항상 맨 위(선수 이름)부터, 열린 채로 다시 그릴 때는 보던 위치 유지
   if(!wasOpen){$("dlg").showModal();$("dBody").scrollTop=0}else $("dBody").scrollTop=y;
   st.open=no;save();
-  mountComments(p);wcredit(p);
+  mountComments(p);wcredit(p);seasonStats(p);
 }
 // 댓글: 디씨 스타일 익명 댓글. 저장은 Supabase(comments 테이블). 쓰기·삭제·추천은 서버 함수(rpc)로만 가능
 // 닉네임(비우면 ㅇㅇ) + 비밀번호(삭제용), IP 앞 두 자리 표시, 추천 10개 이상 베스트, 금지어·30초 도배 제한은 서버에서 검사
@@ -930,8 +961,8 @@ fetch("data/players.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
   FLAG_IMG=d.flag||{};
   // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
-  Object.entries(d.curated||{}).forEach(([no,[club,league]])=>{const p=BY_NO[no];if(p&&/[가-힣]/.test(club)){p.club=club;p.league=league}});
-  players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],foot:""})));
+  Object.entries(d.curated||{}).forEach(([no,[club,league,espn]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
+  players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""})));
   DATA_AT=d.generated_at||"";
   reindex();
   if(location.hash.startsWith("#v-"))applyHash();
