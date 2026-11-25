@@ -223,7 +223,9 @@ def load_targets() -> list[dict]:
     auto = []
     # [번호, 한글명, 영문명, 포지션, 나라, 팀, 리그, 출생연도, 키, 등번호]
     for row in roster:
-        no, kr, _en, _pos, nat, club, _lg, _b, _h, num = row[:10]
+        no, kr, _en, _pos, nat, club, lg, _b, _h, num = row[:10]
+        if lg == "K리그1":
+            continue  # K리그 선수 약 300명은 비용 때문에 아직 반응 수집 대상에서 뺌
         if no in have or not re.search(r"[가-힣]", kr) or len(kr) > 20 or "," in kr:
             continue  # 한글 이름이 아직 없으면 한국 기사 검색이 안 됨
         korean = nat in ("KOR", "KORS")

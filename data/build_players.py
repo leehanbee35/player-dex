@@ -325,8 +325,22 @@ def main() -> None:
             a["en"], a["pos"], a["nat"], club, a["league"], a["born"], a["h"], a["num"],
             a["id"],  # ESPN 선수 번호: 상세 화면에서 이번 시즌 기록을 받을 때 씀
         ])
-    players.sort(key=lambda r: r[0])
     nat = {code: ko.get(f"c:{code}", name) for code, name in nat_names.items()}
+
+    # K리그1 (ESPN에 없어서 한국어 위키백과·Wikidata에서). 실패해도 나머지 명단은 그대로
+    import kleague
+
+    nat_code = {v: k for k, v in nat.items()}
+    nat_code["대한민국"] = "KOR"
+    k_photos: dict[str, str] = {}
+    try:
+        k_rows, k_photos, k_over, nxt = kleague.fetch(ids, nat_code, curated, max([FIRST_NEW_NO - 1, *ids.values()]) + 1)
+        players.extend(k_rows)
+        overrides.update(k_over)
+        IDS.write_text(json.dumps(ids, indent=0, sort_keys=True), encoding="utf-8")
+    except Exception as e:  # noqa: BLE001
+        print(f"[K리그] 건너뜀: {e!r}")
+    players.sort(key=lambda r: r[0])
     flags = {}
     for a in roster:
         m = re.search(r"/countries/500/([a-z0-9]+)\.png", a["flag"] or "")
@@ -335,7 +349,7 @@ def main() -> None:
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "source": "ESPN",
-        "leagues": [l for _, l in LEAGUES],
+        "leagues": [l for _, l in LEAGUES] + ["K리그1"],
         "nat": nat,
         "flag": flags,
         "curated": overrides,
@@ -347,7 +361,10 @@ def main() -> None:
     # 사진 (위키미디어 공용). 실패해도 명단은 그대로 저장됨
     import photos
 
-    photos.save(photos.find_photos(roster, {**ids, **cur_map}))
+    found = photos.find_photos(roster, {**ids, **cur_map})
+    if found is not None:
+        found.update(k_photos)  # K리그 선수 사진 (Wikidata)
+    photos.save(found)
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
   push:
     branches: [main]
-    paths: ["data/build_players.py", "data/photos.py", "data/curated.json", "data/names.json"]
+    paths: ["data/build_players.py", "data/photos.py", "data/kleague.py", "data/curated.json", "data/names.json"]
 
 permissions:
   contents: write
