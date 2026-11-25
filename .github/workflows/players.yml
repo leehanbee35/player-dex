@@ -14,7 +14,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: reactions        # 반응 수집과 겹치지 않게 차례로 실행
+  group: players          # 반응 수집과 따로 (같은 대기열이면 하나가 취소됨)
   cancel-in-progress: false
 
 jobs:
