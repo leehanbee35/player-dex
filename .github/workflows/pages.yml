@@ -17,16 +17,23 @@ concurrency:
   cancel-in-progress: true   # 연달아 올리면 마지막 것만 배포
 
 jobs:
-  deploy:
+  # 1) 페이지 파일 묶기
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
+  # 2) 묶은 파일을 Pages에 배포 (같은 단계에서 하면 묶음을 못 찾는 문제가 있어 분리)
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
