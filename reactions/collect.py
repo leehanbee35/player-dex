@@ -148,9 +148,73 @@ def passes_rules(player: dict, title: str, text: str, source: str) -> bool:
     return not must or any(word in text for word in must)
 
 
+def yt_get(path: str, params: dict) -> dict:
+    params = {**params, "key": os.environ.get("YOUTUBE_API_KEY", "").strip()}
+    url = f"https://www.googleapis.com/youtube/v3/{path}?" + urllib.parse.urlencode(params)
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=20) as res:
+        return json.load(res)
+
+
+def collect_youtube(db: sqlite3.Connection, players: list[dict], limit: int = 40) -> int:
+    """유튜브 커뮤니티 반응: 하루 한 번, 화제 선수 영상 3개의 인기 댓글 10개씩.
+    YOUTUBE_API_KEY가 없으면 건너뜀. 무료 할당량(하루 10,000)에 맞춰 선수 수를 제한함 (검색 1번 = 100)."""
+    if not os.environ.get("YOUTUBE_API_KEY", "").strip():
+        return 0
+    stamp = now_kst().isoformat()
+    since = (datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # 최근 7일 기사가 많은 선수부터 (한국 선수는 항상 포함)
+    counts = dict(db.execute(
+        "SELECT player_no, COUNT(*) FROM mentions WHERE source != 'youtube' AND published_at >= ? GROUP BY player_no",
+        ((now_kst() - timedelta(days=WINDOW_DAYS)).isoformat(),)).fetchall())
+    korean = [p for p in players if p.get("korean")]
+    ranked = sorted((p for p in players if not p.get("korean")), key=lambda p: -counts.get(p["no"], 0))
+    targets = (korean + ranked)[:limit]
+    added = 0
+    for p in targets:
+        try:
+            vids = yt_get("search", {"part": "snippet", "q": p["name"], "type": "video", "order": "relevance",
+                                     "publishedAfter": since, "maxResults": 3, "relevanceLanguage": "ko", "regionCode": "KR"})
+        except Exception as e:  # noqa: BLE001
+            print(f"[유튜브 실패] {p['name']}: {e}")
+            if "403" in str(e):  # 할당량 초과 등
+                break
+            continue
+        kept = 0
+        for v in vids.get("items", []):
+            vid, vtitle = v["id"].get("videoId"), clean(v["snippet"].get("title"))
+            if not vid:
+                continue
+            try:
+                cs = yt_get("commentThreads", {"part": "snippet", "videoId": vid, "order": "relevance",
+                                               "maxResults": 10, "textFormat": "plainText"})
+            except Exception:  # noqa: BLE001  댓글이 막힌 영상
+                continue
+            for c in cs.get("items", []):
+                top = c["snippet"]["topLevelComment"]
+                s = top["snippet"]
+                text = clean(s.get("textDisplay") or s.get("textOriginal"))[:200]
+                if not text:
+                    continue
+                try:
+                    pub = datetime.fromisoformat(s["publishedAt"].replace("Z", "+00:00")).astimezone(KST)
+                except (KeyError, ValueError):
+                    continue
+                mid = hashlib.sha1(f"{p['no']}|yt|{top['id']}".encode()).hexdigest()[:16]
+                cur = db.execute("INSERT OR IGNORE INTO mentions VALUES(?,?,?,?,?,?,?,?)",
+                                 (mid, p["no"], "youtube", f"https://www.youtube.com/watch?v={vid}&lc={top['id']}",
+                                  text, f"유튜브 댓글: {vtitle}", pub.isoformat(), stamp))
+                kept += cur.rowcount
+        added += kept
+        print(f"[유튜브] {p['name']}: 댓글 {kept}건 새로 저장")
+    db.commit()
+    return added
+
+
 def load_targets() -> list[dict]:
     """직접 고른 60명(players.json) + 전체 명단(data/players.json)에서 자동으로 고른 선수"""
     players = json.loads(PLAYERS_PATH.read_text(encoding="utf-8"))
+    for p in players:
+        p["korean"] = p["no"] <= 9  # 직접 고른 60명 중 1~9번이 한국 선수
     try:
         roster = json.loads(ROSTER_PATH.read_text(encoding="utf-8"))["players"]
     except (OSError, ValueError, KeyError):
@@ -166,7 +230,7 @@ def load_targets() -> list[dict]:
         regular = club in BIG_CLUBS and str(num).isdigit() and 1 <= int(num) <= 35
         if not (korean or regular):
             continue
-        auto.append({"no": no, "name": kr, "club": club, "auto": True,
+        auto.append({"no": no, "name": kr, "club": club, "auto": True, "korean": korean,
                      # 한국 선수는 흔한 이름이 많아 '축구'를 붙여 검색
                      "query": f'"{kr}" 축구' if korean else f'"{kr}"',
                      "must_any": [], "exclude": ["배우", "드라마", "가수", "예능", "국회", "의원"] if korean else []})
@@ -231,6 +295,8 @@ SYSTEM = f"""너는 한국 축구 기사 헤드라인을 선수 한 명 기준�
   애매하면 neu.
 - topics: {", ".join(TOPICS)} 중 0~2개.
 - keywords: 내용을 나타내는 짧은 한국어 명사 1~3개. 선수 이름과 소속 클럽 이름은 빼라.
+summary가 "유튜브 댓글"로 시작하면 title은 그 영상에 달린 팬 댓글이다. 이때 relevant는 댓글이 이 선수에 대한 말인지,
+sentiment는 댓글 쓴 사람이 이 선수를 어떻게 보는지(칭찬 pos, 비판·조롱 neg)로 판단한다.
 입력의 모든 id에 대해 하나씩 답한다."""
 
 SCHEMA = {
@@ -367,9 +433,26 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
             """SELECT m.title, m.url, m.published_at, l.sentiment, l.topics, l.keywords
                FROM mentions m JOIN labels l ON l.mention_id = m.id
                WHERE m.player_no = ? AND l.relevant = 1 AND substr(m.published_at,1,10) >= ?
+                 AND m.source != 'youtube'
                ORDER BY m.published_at DESC""",
             (p["no"], since),
         ).fetchall()
+        # 커뮤니티(유튜브 댓글) 반응은 따로
+        crow = db.execute(
+            """SELECT m.title, m.url, l.sentiment FROM mentions m JOIN labels l ON l.mention_id = m.id
+               WHERE m.player_no = ? AND l.relevant = 1 AND m.source = 'youtube' AND substr(m.published_at,1,10) >= ?
+               ORDER BY m.published_at DESC""",
+            (p["no"], since),
+        ).fetchall()
+        comm = None
+        if crow:
+            cs = Counter(r[2] for r in crow)
+            comm = {"n": len(crow), "sentiment": {k: cs.get(k, 0) for k in ("pos", "neu", "neg")},
+                    "top": [{"text": r[0], "url": r[1], "sentiment": r[2]} for r in crow[:3]]}
+        if not rows and comm:
+            out["players"][str(p["no"])] = {"n": 0, "h24": 0, "sentiment": {"pos": 0, "neu": 0, "neg": 0},
+                                            "daily": [], "topics": [], "keywords": [], "headlines": [], "comm": comm}
+            continue
         if not rows and p.get("auto"):
             continue  # 자동 대상은 기사가 있을 때만 파일에 넣어 크기를 줄임
         per_day = Counter(r[2][:10] for r in rows)
@@ -387,6 +470,8 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
             "keywords": [k for k, _ in keywords.most_common(5)],
             "headlines": [{"title": r[0], "url": r[1], "date": r[2][:10], "sentiment": r[3]} for r in rows[:3]],
         }
+        if comm:
+            out["players"][str(p["no"])]["comm"] = comm
     OUT_PATH.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"[집계] {OUT_PATH.name} 저장 ({len(players)}명)")
     return out
@@ -405,6 +490,10 @@ def main() -> None:
         return
     added = collect(db, players)
     print(f"새 기사 {added}건")
+    # 유튜브 댓글은 하루 한 번만 (마지막 수집 뒤 20시간이 지났을 때)
+    last = db.execute("SELECT MAX(collected_at) FROM mentions WHERE source = 'youtube'").fetchone()[0]
+    if not last or datetime.fromisoformat(last) < now_kst() - timedelta(hours=20):
+        print(f"유튜브 댓글 {collect_youtube(db, players)}건")
     if args.no_llm:
         return
     classify(db, players)

@@ -39,6 +39,8 @@ jobs:
           # 선택: 네이버 검색 API 키가 있으면 네이버 뉴스도 함께 수집
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          # 선택: 유튜브 Data API 키가 있으면 하루 한 번 유튜브 인기 댓글(커뮤니티 반응)도 수집
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - id: check
         name: 크레딧 확인
         run: |
