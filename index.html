@@ -349,7 +349,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     </div>
     <div class="favline"><div class="favbar" id="favBar"></div>
       <div class="favline-r">
-        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
+        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스, K리그 제외). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
           <button type="button" data-y="0" aria-pressed="true">숨김</button>
           <button type="button" data-y="1" aria-pressed="false">포함</button>
         </span></label>
@@ -480,7 +480,8 @@ const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF"
 // fav: 즐겨찾기한 나라·리그·팀 (이 브라우저에만 저장). club: 즐겨찾기 칩으로 고른 팀 필터
 const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,fav:{nat:[],league:[],club:[]}};
 // 유스: 61번 이후 선수 중 등번호가 없거나 40번 이상 (직접 입력한 60명은 항상 표시)
-const isYouth=p=>p.no>60&&!(/^\d+$/.test(p.num)&&+p.num<40);
+// K리그는 1군도 40~99번을 흔히 쓰고, 위키백과 명단 자체가 등록 선수라서 제외
+const isYouth=p=>p.no>60&&p.league!=="K리그1"&&!(/^\d+$/.test(p.num)&&+p.num<40);
 // 목록·개수에 쓰는 선수 범위. 이름을 검색할 때는 유스도 포함
 const pool=()=>st.youth||st.q.trim()?players:players.filter(p=>!isYouth(p));
 const FAV_KINDS=["nat","league","club"];
