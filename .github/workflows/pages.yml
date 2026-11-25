@@ -32,6 +32,10 @@ jobs:
 
   # 2) 묶은 파일을 Pages에 배포 (같은 단계에서 하면 묶음을 못 찾는 문제가 있어 분리)
   deploy:
+    # 사이트 배포는 세 작업이 같은 줄에 서서 하나씩 (동시에 배포하면 하나가 실패함)
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     needs: build
     runs-on: ubuntu-latest
     environment:

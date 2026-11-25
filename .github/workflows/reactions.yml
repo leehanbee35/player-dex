@@ -74,6 +74,10 @@ jobs:
 
   # 묶은 페이지를 GitHub Pages에 배포 (수집이 끝난 뒤 별도 단계로)
   deploy:
+    # 사이트 배포는 세 작업이 같은 줄에 서서 하나씩 (동시에 배포하면 하나가 실패함)
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     needs: collect
     runs-on: ubuntu-latest
     environment:
