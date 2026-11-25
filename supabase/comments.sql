@@ -83,16 +83,16 @@ declare
   v_id bigint;
 begin
   if p_player is null or p_player < 1 or p_player > 99999 then raise exception '선수 번호가 올바르지 않습니다'; end if;
-  if char_length(v_body) = 0 then raise exception '내용을 입력해 주십시오'; end if;
+  if char_length(v_body) = 0 then raise exception '내용을 입력해 주세요'; end if;
   if char_length(v_body) > 300 then raise exception '댓글은 300자까지 쓸 수 있습니다'; end if;
   if char_length(v_nick) > 12 then raise exception '닉네임은 12자까지입니다'; end if;
   if char_length(coalesce(p_pw, '')) < 4 then raise exception '비밀번호는 4자 이상입니다'; end if;
   v_flat := lower(regexp_replace(v_nick || v_body, '[\s\.\-_~!*]+', '', 'g'));
   if exists (select 1 from banned_words b where position(b.word in v_flat) > 0) then
-    raise exception '금지어가 포함되어 있습니다. 표현을 바꿔 주십시오';
+    raise exception '금지어가 포함되어 있습니다. 표현을 바꿔 주세요';
   end if;
   if exists (select 1 from comments c where c.ip_hash = v_hash and c.created_at > now() - interval '30 seconds') then
-    raise exception '도배 방지: 30초 후에 다시 작성해 주십시오';
+    raise exception '도배 방지: 30초 후에 다시 작성해 주세요';
   end if;
   insert into comments (player_no, nick, body, pw_hash, ip_prefix, ip_hash)
   values (p_player, v_nick, v_body, extensions.crypt(p_pw, extensions.gen_salt('bf')), _ip_prefix(v_ip), v_hash)
