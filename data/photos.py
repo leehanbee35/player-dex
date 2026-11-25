@@ -74,7 +74,8 @@ def find_photos(roster: list[dict], no_of: dict[str, int]) -> dict[str, str] | N
         q = (
             "SELECT ?en ?b ?img WHERE { ?p wdt:P106 wd:Q937857 ; wdt:P18 ?img ; wdt:P569 ?b . "
             f'FILTER(?b >= "{y}-01-01T00:00:00Z"^^xsd:dateTime && ?b < "{y + 2}-01-01T00:00:00Z"^^xsd:dateTime) '
-            '?p rdfs:label ?en . FILTER(LANG(?en) IN ("en", "mul")) }'
+            # 대표 이름 + 다른 이름(별칭)까지: ESPN은 애칭, Wikidata는 본명인 경우가 많음
+            '?p rdfs:label|skos:altLabel ?en . FILTER(LANG(?en) IN ("en", "mul")) }'
         )
         rows = sparql(q)
         if rows is None:
@@ -95,6 +96,8 @@ def find_photos(roster: list[dict], no_of: dict[str, int]) -> dict[str, str] | N
         files = {k for tt, k in cands if tt == t}
         if not files:  # 이름 일부만 같은 경우 (예: 브라질 선수 애칭)
             files = {k for tt, k in cands if t and (t <= tt or tt <= t)}
+        if not files:  # 생년월일이 같고 3글자 이상 이름 단어(주로 성)가 겹치는 선수가 딱 한 명일 때
+            files = {k for tt, k in cands if any(len(w) >= 3 for w in t & tt)}
         if len(files) == 1:
             out[str(no)] = files.pop()
     print(f"[사진] 이름·생년월일로 {len(out) - n0}명 → 모두 {len(out)}명")
