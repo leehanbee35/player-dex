@@ -4,7 +4,7 @@ name: 도감 페이지 배포
 on:
   push:
     branches: [main]
-    paths: ["index.html", "photos/**", "data/**", "reactions/reactions.json", ".github/workflows/pages.yml"]
+    paths: ["index.html", "privacy.html", "google*.html", "photos/**", "data/**", "reactions/reactions.json", ".github/workflows/pages.yml"]
   workflow_dispatch: {}
 
 permissions:
