@@ -46,8 +46,8 @@ jobs:
           git config user.email "reactions-bot@users.noreply.github.com"
           git add reactions/reactions.db reactions/reactions.json
           git diff --cached --quiet || git commit -m "반응 데이터 갱신"
-          git pull --rebase origin main
-          git push
+          # 다른 실행과 동시에 올리면 거절될 수 있어서 3번까지 다시 시도
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 10; done
       # 도감 페이지(index.html + 최신 reactions.json)를 Pages용으로 묶기
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

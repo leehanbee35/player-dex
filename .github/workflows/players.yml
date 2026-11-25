@@ -39,8 +39,8 @@ jobs:
           git add data/players.json data/ids.json data/ko.json
           if [ -f data/photos.json ]; then git add data/photos.json; fi
           git diff --cached --quiet || git commit -m "선수 명단 갱신"
-          git pull --rebase origin main
-          git push
+          # 다른 실행과 동시에 올리면 거절될 수 있어서 3번까지 다시 시도
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 10; done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -288,7 +288,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 
 <main class="wrap">
   <section class="hot" id="hot" hidden></section>
-  <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열립니다</div></div>
+  <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열림</div></div>
   <div id="out"></div>
 </main>
 <footer class="wrap">선수 명단: ESPN 공개 명단을 매주 자동으로 받아 옵니다<span id="dataAt"></span>. 1~60번은 직접 입력한 선수이며, 팀·리그는 최신 명단으로 갱신됩니다. 61번 이후 선수의 한글 이름은 자동 변환이라 언론 표기와 다를 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
@@ -658,7 +658,7 @@ const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
   if(p.no>60&&!r&&!(REACT&&REACT.tracked&&REACT.tracked.includes(p.no))){
-    return `<h3>뉴스 · 커뮤니티 반응</h3><p>이 선수는 아직 반응 수집 대상이 아닙니다. 아래 바로가기로 최신 기사와 커뮤니티 글을 확인할 수 있습니다.</p>`;
+    return `<h3>뉴스 · 커뮤니티 반응</h3><p>이 선수는 아직 반응 수집 대상이 아닙니다. 기사 분류에 비용이 들어서 한국 선수 전원과 주요 18개 팀(레알·바르셀로나·맨시티·토트넘·바이에른·PSG 등)의 등번호 1~35번 선수만 수집합니다.</p>`;
   }
   if(!r||!r.n){
     return `<h3>뉴스 · 커뮤니티 반응</h3><p>${REACT?"최근 "+REACT.window_days+"일 동안 수집된 기사가 없습니다.":"아직 연결된 반응 데이터가 없습니다. 수집기가 실행되면 긍정·부정 비율, 언급량 추이, 키워드, 대표 헤드라인이 여기에 표시됩니다."} 지금은 바로가기로 확인할 수 있습니다.</p>`;
