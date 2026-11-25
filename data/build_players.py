@@ -273,6 +273,8 @@ def main() -> None:
     ids: dict[str, int] = load(IDS, {})
     ko: dict[str, str] = load(KO, {})
     ko = {k: clean_ko(v) for k, v in ko.items() if clean_ko(v)}  # 예전에 설명째 저장된 표기 정리
+    # names.json의 "t:영문 팀 이름": "표기"로 팀 이름도 직접 고칠 수 있음 (예: "t:LAFC": "LAFC")
+    ko.update({k: v for k, v in load(NAMES, {}).items() if str(k).startswith("t:") and v})
 
     roster = fetch_all()
     if len(roster) < 1000:
