@@ -167,6 +167,24 @@ def wikidata(titles: list[str]) -> dict[str, dict]:
         except (KeyError, IndexError, TypeError):
             return None
 
+    # Wikidata에 사진이 없으면 위키백과 문서의 대표 사진 (위키미디어 공용 = 자유 라이선스인 것만)
+    page_img: dict[str, str] = {}
+    for i in range(0, len(titles), 50):
+        d = api(WIKI, {"action": "query", "prop": "pageimages", "piprop": "name|thumbnail", "pithumbsize": 250,
+                       "redirects": 1, "titles": "|".join(titles[i: i + 50])})
+        if not d:
+            continue
+        q = d.get("query", {})
+        back = {x["to"]: x["from"] for x in q.get("redirects", []) + q.get("normalized", [])}
+        for p in q.get("pages", []):
+            src = (p.get("thumbnail") or {}).get("source", "")
+            if p.get("pageimage") and "/wikipedia/commons/" in src:
+                page_img[back.get(p["title"], p["title"])] = p["pageimage"]
+        time.sleep(0.5)
+
+    for t in titles:
+        if t not in qid and t in page_img:
+            info[t] = {"en": "", "born": 0, "h": 0, "img": page_img[t]}
     for t, q in qid.items():
         e = ent.get(q)
         if not e:
@@ -182,7 +200,7 @@ def wikidata(titles: list[str]) -> dict[str, dict]:
             "en": e.get("labels", {}).get("en", {}).get("value", ""),
             "born": int(born["time"][1:5]) if isinstance(born, dict) and born.get("time", "")[1:5].isdigit() else 0,
             "h": hv if 140 <= hv <= 215 else 0,
-            "img": img if isinstance(img, str) else "",
+            "img": img if isinstance(img, str) else page_img.get(t, ""),
         }
     return info
 
@@ -215,7 +233,7 @@ def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int
             d = info.get(p["title"], {})
             c = cur_by_name.get(p["kr"])
             if c and c.get("born") == d.get("born"):  # 직접 입력한 선수 (예: 조현우)
-                overrides[c["no"]] = [club, league, ""]
+                overrides[c["no"]] = [club, league, "w:" + p["title"]]
                 continue
             key = "kw:" + p["title"]
             if key not in ids:
@@ -223,7 +241,7 @@ def fetch(ids: dict, nat_code: dict[str, str], curated: list[dict], next_no: int
                 next_no += 1
             no = ids[key]
             rows.append([no, p["kr"], d.get("en", ""), p["pos"], nat_code.get(p["nat_ko"], ""), club, league,
-                         d.get("born", 0), d.get("h", 0), p["num"], ""])
+                         d.get("born", 0), d.get("h", 0), p["num"], "w:" + p["title"]])  # w:위키백과 문서 → 상세 화면 경력 기록
             k = photo_key(d.get("img", ""))
             if k:
                 photos[str(no)] = k

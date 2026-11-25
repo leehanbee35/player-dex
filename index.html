@@ -252,6 +252,11 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .stbl td{text-align:right;padding:6px;border-bottom:1px solid var(--line)}
 .stbl th:first-child,.stbl td:first-child{text-align:left;padding-left:0}
 .stbl tfoot td{font-weight:700;border-bottom:0}
+.stbl.car td:nth-child(2){text-align:left}
+.stbl.car th:nth-child(2){text-align:left}
+.stbl.car td:first-child{white-space:nowrap;color:var(--muted)}
+.stbl tr.sub td{font-size:11px;color:var(--muted);font-weight:600;padding-top:10px;text-align:left}
+.season h3 small a{color:inherit}
 /* 카드 아래 반응 막대: 최근 7일 기사의 긍정·중립·부정 비율 */
 .c-react{display:flex;align-items:center;gap:7px;padding:0 10px 9px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 .c-react .mbar{flex:1;display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--line)}
@@ -598,8 +603,28 @@ const art=p=>PHOTO[p.no]?`<img src="${esc(thumb250(PHOTO[p.no].d))}" alt="${esc(
 const COMP_KO=[["Premier League","프리미어리그"],["LALIGA","라리가"],["LaLiga","라리가"],["Bundesliga","분데스리가"],["Serie A","세리에 A"],["Ligue 1","리그 1"],["Eredivisie","에레디비시"],["Primeira Liga","프리메이라리가"],["Champions League","챔피언스리그"],["Europa League","유로파리그"],["Conference League","컨퍼런스리그"],["Nations League","네이션스리그"],["Carabao Cup","카라바오컵"],["Community Shield","커뮤니티 실드"],["Super Cup","슈퍼컵"],["Club World Cup","클럽 월드컵"],["FA Cup","FA컵"],["Copa del Rey","코파 델 레이"],["DFB Pokal","DFB 포칼"],["Coppa Italia","코파 이탈리아"],["Coupe de France","쿠프 드 프랑스"],["International Friendly","A매치 친선"],["World Cup Qualifying","월드컵 예선"],["World Cup","월드컵"],["Championship","챔피언십"],["MLS","MLS"],["Saudi","사우디 프로리그"],["J.League","J1리그"],["Super Lig","쉬페르리그"]];
 const compKo=n=>{const s=n.replace(/^\d{4}(-\d{2})?\s+/,"");const m=COMP_KO.find(([e])=>s.includes(e));return m?m[1]:s};
 const STAT_CACHE={};
+// K리그 선수: 한국어 위키백과 선수 문서의 정보 상자에서 클럽별·국가대표 출전과 골을 읽음 (시즌별 기록은 없음)
+async function wikiCareer(p){
+  const title=p.espn.slice(2);
+  try{
+    const d=STAT_CACHE[p.espn]||(STAT_CACHE[p.espn]=await fetch(`https://ko.wikipedia.org/w/api.php?action=parse&format=json&formatversion=2&origin=*&prop=wikitext&section=0&redirects=1&page=${encodeURIComponent(title)}`).then(r=>r.ok?r.json():null));
+    if(!$("season")||openNo!==p.no)return;
+    const w=(d&&d.parse&&d.parse.wikitext)||"";
+    const f=k=>{const m=w.match(new RegExp("\\|\\s*"+k+"\\s*=\\s*((?:\\[\\[[^\\]]*\\]\\]|\\{\\{[^}]*\\}\\}|[^\\n|])*)"));return m?m[1].trim():""};
+    const plain=s=>s.replace(/\{\{[^{}]*\}\}/g,"").replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g,"$1").replace(/<[^>]+>|'''?/g,"").trim();
+    const club=[];for(let i=1;i<=20;i++){const c=plain(f("클럽"+i));if(c)club.push({y:plain(f("연도"+i)),club:c,app:plain(f("출전"+i)),g:plain(f("골"+i))})}
+    const nat=[];for(let i=1;i<=10;i++){const c=plain(f("국가대표팀"+i));if(c)nat.push({y:plain(f("국가대표팀 연도"+i)),club:c,app:plain(f("국가대표팀 출전"+i)),g:plain(f("국가대표팀 골"+i))})}
+    if(!club.length&&!nat.length){$("season").innerHTML=`<h3>경력 기록</h3><p class="thin">위키백과에 정리된 기록이 없습니다.</p>`;return}
+    const upd=plain(f("클럽팀 최신 업데이트 날짜"));
+    const tr=x=>`<tr><td>${esc(x.y)}</td><td>${esc(x.club)}</td><td>${esc(x.app||"-")}</td><td>${esc(x.g||"-")}</td></tr>`;
+    $("season").innerHTML=`<h3>경력 기록<small><a href="https://ko.wikipedia.org/wiki/${encodeURIComponent(title)}" target="_blank" rel="noopener">위키백과</a>${upd?` · ${esc(upd)} 기준`:""}</small></h3>
+      <table class="stbl car"><thead><tr><th>기간</th><th>팀</th><th>출전</th><th>골</th></tr></thead>
+      <tbody>${club.map(tr).join("")}${nat.length?`<tr class="sub"><td colspan="4">국가대표</td></tr>`+nat.map(tr).join(""):""}</tbody></table>`;
+  }catch(e){if($("season"))$("season").innerHTML=`<h3>경력 기록</h3><p class="thin">기록을 불러오지 못했습니다.</p>`}
+}
 async function seasonStats(p){
   const box=$("season");if(!box||!p.espn)return;
+  if(p.espn.startsWith("w:"))return wikiCareer(p);
   try{
     const d=STAT_CACHE[p.espn]||(STAT_CACHE[p.espn]=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${p.espn}/overview`).then(r=>r.ok?r.json():null));
     if(!$("season")||openNo!==p.no)return;
@@ -843,7 +868,7 @@ function openDetail(no){
   <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
-    ${p.espn?`<section class="season" id="season"><h3>이번 시즌 기록</h3><p class="thin">불러오는 중…</p></section>`:""}
+    ${p.espn?`<section class="season" id="season"><h3>${p.espn.startsWith("w:")?"경력 기록":"이번 시즌 기록"}</h3><p class="thin">불러오는 중…</p></section>`:""}
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
         <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스${EXT}</a>
