@@ -270,7 +270,8 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .kgames{margin:0 0 20px}
 .kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
 .kg-cols h3{font-size:12px;color:var(--muted);font-weight:600;margin:0 0 6px}
-.kg{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.kg{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:6px;max-height:292px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.kg-it .ph.tm{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
 .kg-it{width:100%;display:grid;grid-template-columns:54px 36px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit;text-align:left}
 .kg-it:hover{border-color:var(--muted)}
 .kg-it .kt{font-size:11.5px;color:var(--muted);line-height:1.3;font-variant-numeric:tabular-nums}
@@ -818,6 +819,7 @@ function syncFav(){
 function toggleFav(kind,v){
   st.fav[kind]=isFavOf(kind,v)?st.fav[kind].filter(x=>x!==v):[...st.fav[kind],v];
   buildControls();save();render();
+  if(kind==="player"||kind==="club")loadFavGames();
 }
 function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.g===st.group));
   document.querySelectorAll("#youth button").forEach(b=>b.setAttribute("aria-pressed",(b.dataset.y==="1")===!!st.youth));
@@ -840,24 +842,60 @@ function reactLine(p){
   const s=REACT.players[p.no].sentiment,t=s.pos+s.neu+s.neg||1,pc=k=>Math.round(s[k]/t*100);
   return `<div class="c-react" title="최근 ${REACT.window_days}일 기사 ${n}건 · 긍정 ${pc("pos")}% · 중립 ${pc("neu")}% · 부정 ${pc("neg")}%"><span class="mbar" aria-hidden="true"><i class="s-pos" style="width:${pc("pos")}%"></i><i class="s-neu" style="width:${pc("neu")}%"></i><i class="s-neg" style="width:${pc("neg")}%"></i></span><span>기사 <b>${n}</b></span></div>`;
 }
-// 첫 화면 "한국 선수 경기": data/games.json (3시간마다 갱신) — 48시간 안 경기와 36시간 안 결과
-let KGAMES=null;
+// 첫 화면 "즐겨찾기 경기": 즐겨찾기한 선수·팀의 다음 경기와 최근 결과 (ESPN 선수 개요를 바로 받음)
+// 팀은 그 팀 선수 한 명의 개요로 팀 경기를 알아냄. 즐겨찾기가 없으면 data/games.json의 한국 선수 경기를 보여 줌
+let KGAMES=null,FAVG=null,favgKey="";
 fetch("data/games.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{KGAMES=d;renderKGames();syncFeed()}).catch(()=>{});
+const espnOf=p=>p&&p.espn&&!p.espn.startsWith("w:")?p.espn:"";
+async function loadFavGames(){
+  const favP=st.fav.player.map(n=>BY_NO[n]).filter(espnOf);
+  const favC=st.fav.club.map(c=>({club:c,p:players.find(x=>x.club===c&&espnOf(x)&&!isYouth(x))})).filter(x=>x.p);
+  const key=JSON.stringify([favP.map(p=>p.no),favC.map(x=>x.club)]);
+  if(key===favgKey)return;favgKey=key;
+  if(!favP.length&&!favC.length){FAVG=null;renderKGames();syncFeed();return}
+  const targets=[...favP.slice(0,20).map(p=>({p,label:p.kr,team:false})),...favC.slice(0,10).map(x=>({p:x.p,label:x.club,team:true}))];
+  const now=Date.now(),next=[],last=[],seen=new Set();
+  await Promise.all(targets.map(async t=>{
+    try{
+      const id=espnOf(t.p);
+      const d=STAT_CACHE[id]||(STAT_CACHE[id]=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/soccer/athletes/${id}/overview`).then(r=>r.ok?r.json():null));
+      const lg=d&&d.nextGame&&d.nextGame.league,ev=lg&&(lg.events||[])[0];
+      if(ev&&new Date(ev.date)>now-2*3600e3&&new Date(ev.date)<now+14*864e5){
+        const cs=ev.competitors||[],h=cs.find(c=>c.homeAway==="home"),a=cs.find(c=>c.homeAway==="away");
+        const k=(t.team?"T":"P")+ev.id+t.label;if(!seen.has(k)){seen.add(k);next.push({no:t.p.no,label:t.label,team:t.team,date:ev.date,home:h&&h.displayName,away:a&&a.displayName,league:lg.name||""})}
+      }
+      const stt=d&&d.gameLog&&d.gameLog.statistics&&d.gameLog.statistics[0],evs=d&&d.gameLog&&d.gameLog.events||{};
+      const x=stt&&stt.events&&stt.events[0],e=x&&evs[x.eventId];
+      if(e&&now-new Date(e.gameDate)<7*864e5){
+        const ix=n=>stt.names.indexOf(n),v=n=>ix(n)>=0?+x.stats[ix(n)]||0:0;
+        last.push({no:t.p.no,label:t.label,team:t.team,date:e.gameDate,opp:e.opponent&&e.opponent.displayName,atVs:e.atVs,score:e.score,result:e.gameResult,league:e.leagueName,
+          g:t.team?0:v("totalGoals"),a:t.team?0:v("goalAssists"),role:t.team?"":(x.stats[ix("appearances")]||"")});
+      }
+    }catch(err){}
+  }));
+  next.sort((a,b)=>new Date(a.date)-new Date(b.date));last.sort((a,b)=>new Date(b.date)-new Date(a.date));
+  FAVG={next,last};renderKGames();syncFeed();
+}
 function renderKGames(){
   const box=$("kgames");if(!box)return;
   const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly;
-  const nx=(KGAMES&&KGAMES.next||[]).filter(g=>BY_NO[g.no]&&new Date(g.date)>Date.now()-2*3600e3);
-  const ls=(KGAMES&&KGAMES.last||[]).filter(g=>BY_NO[g.no]);
-  if(!plain||(!nx.length&&!ls.length)){box.hidden=true;box.innerHTML="";return}
+  const fav=!!FAVG,src=fav?FAVG:KGAMES;
+  const nx=(src&&src.next||[]).filter(g=>BY_NO[g.no]&&new Date(g.date)>Date.now()-2*3600e3);
+  const ls=(src&&src.last||[]).filter(g=>BY_NO[g.no]);
+  if(!plain||(!fav&&!nx.length&&!ls.length)){box.hidden=true;box.innerHTML="";return}
   box.hidden=false;
   const RES={W:["승","w"],D:["무","d"],L:["패","l"]};
-  const who=p=>`<span class="ph">${art(p)}</span>`;
-  box.innerHTML=`<div class="hot-h"><h2>한국 선수 경기</h2><small>해외 리그 · 한국 시간 기준</small></div>
+  const who=g=>g.team?`<span class="ph tm">${esc(String(g.label).replace(/^(FC|AC|AS|SC|RC|CF)\s+/i,"").slice(0,2))}</span>`:`<span class="ph">${art(BY_NO[g.no])}</span>`;
+  const name=g=>esc(g.label||BY_NO[g.no].kr);
+  const note=fav?"즐겨찾기한 선수·팀 · 한국 시간 기준":"즐겨찾기가 없어서 해외 리그 한국 선수 경기를 보여 줍니다. 선수 상세 화면이나 팀 옆 ☆로 추가해 보세요";
+  box.innerHTML=`<div class="hot-h"><h2>즐겨찾기 경기</h2><small>${note}</small></div>
+    ${fav&&!nx.length&&!ls.length?`<p class="thin">즐겨찾기한 선수·팀의 최근 7일 결과와 2주 안 경기가 없습니다.</p>`:""}
     <div class="kg-cols">
-      ${nx.length?`<div><h3>다가오는 경기</h3><ul class="kg">${nx.map(g=>{const p=BY_NO[g.no],t=kst(g.date),live=new Date(g.date)<=Date.now();
-        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${live?'<b class="live">진행 중</b>':`${t.md}<br><b>${t.hm}</b>`}</span>${who(p)}<span class="km"><b>${esc(p.kr)}</b>${esc(teamKo(g.home))} vs ${esc(teamKo(g.away))}<small>${esc(compKo(g.league))}</small></span></button></li>`}).join("")}</ul></div>`:""}
-      ${ls.length?`<div><h3>최근 결과</h3><ul class="kg">${ls.map(g=>{const p=BY_NO[g.no],t=kst(g.date),r=RES[g.result]||["",""];
-        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${t.md}</span>${who(p)}<span class="km"><b>${esc(p.kr)}</b><span><span class="gr ${r[1]}">${r[0]}</span> ${g.atVs==="@"?"원정":"홈"} ${esc(teamKo(g.opp))} ${esc(g.score)}</span><small>${/start/i.test(g.role)?"선발":/sub/i.test(g.role)?"교체":"출전 기록 없음"}${g.g?` · ${g.g}골`:""}${g.a?` · ${g.a}도움`:""}</small></span></button></li>`}).join("")}</ul></div>`:""}
+      ${nx.length?`<div><h3>다가오는 경기</h3><ul class="kg">${nx.map(g=>{const t=kst(g.date),live=new Date(g.date)<=Date.now();
+        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${live?'<b class="live">진행 중</b>':`${t.md}<br><b>${t.hm}</b>`}</span>${who(g)}<span class="km"><b>${name(g)}</b>${esc(teamKo(g.home))} vs ${esc(teamKo(g.away))}<small>${esc(compKo(g.league))}</small></span></button></li>`}).join("")}</ul></div>`:""}
+      ${ls.length?`<div><h3>최근 결과</h3><ul class="kg">${ls.map(g=>{const t=kst(g.date),r=RES[g.result]||["",""];
+        const sub=g.team?esc(compKo(g.league||"")):`${/start/i.test(g.role)?"선발":/sub/i.test(g.role)?"교체":"출전 기록 없음"}${g.g?` · ${g.g}골`:""}${g.a?` · ${g.a}도움`:""}`;
+        return `<li><button type="button" class="kg-it" data-no="${g.no}"><span class="kt">${t.md}</span>${who(g)}<span class="km"><b>${name(g)}</b><span><span class="gr ${r[1]}">${r[0]}</span> ${g.atVs==="@"?"원정":"홈"} ${esc(teamKo(g.opp))} ${esc(g.score)}</span><small>${sub}</small></span></button></li>`}).join("")}</ul></div>`:""}
     </div>`;
 }
 // 최근 이적: data/transfers.json (매주 명단 갱신 때 팀이 바뀐 선수). 30일 안 이적은 카드에 "이적" 배지
@@ -887,7 +925,7 @@ function checkStale(){
   $("stale").textContent=msgs.length?`⚠ ${msgs.join(", ")}. 자동 갱신이 잠시 멈췄을 수 있습니다.`:"";
 }
 // 첫 화면 위쪽 섹션(한국 선수 경기·실시간 화제·최근 이적)을 탭으로 묶어 하나만 보여 줌. 고른 탭은 이 브라우저에 기억
-const FEED=[["kgames","한국 선수 경기"],["hot","실시간 화제"],["moves","최근 이적"]];
+const FEED=[["hot","실시간 화제"],["kgames","즐겨찾기 경기"],["moves","최근 이적"]];
 let feedTab="";try{feedTab=localStorage.getItem("dexFeed")||""}catch(e){}
 function syncFeed(){
   const avail=FEED.filter(([id])=>$(id).innerHTML.trim());
@@ -1225,7 +1263,7 @@ fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
   if(location.hash.startsWith("#v-"))applyHash();
   buildControls();render();
   $("dataAt").textContent=DATA_AT?`(마지막 갱신 ${DATA_AT.slice(0,10)})`:"";
-  checkStale();
+  checkStale();loadFavGames();
   return photosReq.then(ph=>{
     if(!ph)return;WPHOTO=ph;render();
     if(st.open&&$("dlg").open)openDetail(st.open);
