@@ -336,7 +336,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 <header>
   <div class="wrap top">
     <div class="logo">풋볼 도감</div>
-    <label class="search"><span>선수 검색</span><input id="q" type="search" placeholder="이름·팀 입력" autocomplete="off"></label>
+    <label class="search"><span>선수 검색</span><input id="q" type="search" placeholder="이름·팀·초성(ㅅㅎㅁ)" autocomplete="off"></label>
     <button type="button" class="theme-btn" id="themeBtn"></button>
   </div>
   <div class="wrap rail">
@@ -500,6 +500,26 @@ const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
 let CLUBS=[],LEAGUES=[];
 const OK={o:["no","hot","young","old","tall","name"],g:["pos","nat","league","club"],p:POS_CHIPS.map(c=>c[0]),n:[]};
+// 검색: 띄어쓰기·대소문자·악센트(é→e) 무시, 초성 검색(ㅅㅎㅁ → 손흥민), 여러 단어는 모두 들어 있어야 함(예: "토트넘 손")
+const CHO="ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ";
+const normS=s=>String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").normalize("NFC").toLowerCase().replace(/[\s.\-·'’]/g,"");
+const choOf=s=>[...String(s||"")].map(ch=>{const c=ch.charCodeAt(0)-0xAC00;return c>=0&&c<11172?CHO[Math.floor(c/588)]:ch}).join("").replace(/\s/g,"");
+const IS_CHO=/^[ㄱ-ㅎ]+$/;
+// 초성은 이름·팀 이름의 첫머리나 단어 첫머리부터 맞아야 함 (중간 글자에 우연히 맞는 것 제외)
+const choKeys=s=>{const w=String(s||"").split(/\s+/).filter(Boolean);return [choOf(w.join("")),...w.map(choOf)]};
+// 팀 줄임말로도 찾기 (예: 맨시티, 맨유, 바르사, PSG)
+const CLUB_ALIAS={"맨체스터 시티":"맨시티 mancity","맨체스터 유나이티드":"맨유 manutd","바르셀로나":"바르사 barca","레알 마드리드":"레알","바이에른 뮌헨":"뮌헨 바뮌 bayern","파리 생제르맹":"파리 psg","토트넘 홋스퍼":"토트넘 spurs","아틀레티코 마드리드":"아틀레티코 atm","보루시아 도르트문트":"도르트문트 bvb","도르트문트":"bvb","인테르":"인테르밀란 inter","AC 밀란":"밀란 milan","뉴캐슬 유나이티드":"뉴캐슬","울버햄튼 원더러스":"울브스 울버햄튼","울산 HD":"울산현대","전북 현대 모터스":"전북현대"};
+function prep(p){if(p._s===undefined){p._s=normS([p.kr,p.en,p.club,CLUB_ALIAS[p.club],NAT[p.nat],p.league].join(" "));p._c=[...choKeys(p.kr),...choKeys(p.club)];p._n=normS(p.kr)+"|"+normS(p.en);p._w=[...String(p.kr).split(/\s+/),...String(p.en).split(/\s+/)].map(normS)}}
+function matchQ(p,q){
+  prep(p);
+  return q.split(/\s+/).filter(Boolean).every(t=>IS_CHO.test(t)?p._c.some(c=>c.startsWith(t)):p._s.includes(normS(t)));
+}
+// 검색어가 이름과 바로 맞는 선수를 맨 앞으로
+// (0: 이름의 한 단어와 같음, 1: 이름이 검색어로 시작, 2: 이름에 포함, 3: 팀·나라 등에서만)
+function qRank(p,q){
+  const t=normS(q);if(IS_CHO.test(q.replace(/\s/g,"")))return p._c[0].startsWith(q.replace(/\s/g,""))?0:1;
+  const n=p._n.split("|");return p._w.includes(t)?0:n.some(x=>x.startsWith(t))?1:n.some(x=>x.includes(t))?2:3;
+}
 function reindex(){
   BY_NO={};players.forEach(p=>BY_NO[p.no]=p);
   CLUBS=[...new Set(players.map(p=>p.club))];
@@ -744,12 +764,13 @@ function render(){
   const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,st.youth,players.length]);
   if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
-    (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
+    (!q||matchQ(p,q)));
   renderHot();
   // 모바일 필터 버튼에 적용 중인 필터 개수
   $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
-  list.sort(S[st.sort]);
+  if(q){const rk=new Map(list.map(p=>[p,qRank(p,q)]));list.sort((a,b)=>rk.get(a)-rk.get(b)||S[st.sort](a,b))}
+  else list.sort(S[st.sort]);
   $("count").textContent=list.length.toLocaleString();
   $("clubNote").innerHTML="";
   if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없습니다. 필터를 하나 해제해 보세요.</div>`;return}
