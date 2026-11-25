@@ -264,47 +264,65 @@ def collect(db: sqlite3.Connection, players: list[dict]) -> int:
     stamp = now_kst().isoformat()
     cutoff = now_kst() - timedelta(days=WINDOW_DAYS)
     fails = 0
-    for p in players:
-        name_keys = {p["name"].split()[-1], p["query"].split()[0].strip('"')}
+
+    # 검색은 6개씩 동시에 (예전에는 한 명씩 차례로 해서 725명에 15분 넘게 걸림). 저장은 아래에서 하나씩
+    def fetch_all(p):
+        out = []
         for source, fetch in SOURCES.items():
             try:
-                items = fetch(p["query"])
+                out.append((source, fetch(p["query"]), None))
+            except Exception as e:  # noqa: BLE001  한 선수·한 출처가 실패해도 나머지는 계속
+                out.append((source, None, e))
+            time.sleep(0.3)
+        return p, out
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        results = pool.map(fetch_all, players)
+        for p, per_source in results:
+            name_keys = {p["name"].split()[-1], p["query"].split()[0].strip('"')}
+            for source, items, err in per_source:
+                if err is not None:
+                    print(f"[수집 실패] {p['name']} / {source}: {err}")
+                    fails += 1
+                    if fails >= 15:  # 연달아 막히면(구글이 잠시 차단) 잠깐 쉬었다가 계속
+                        print("[대기] 연속 실패, 60초 쉼")
+                        time.sleep(60)
+                        fails = 0
+                    continue
                 fails = 0
-            except Exception as e:  # 한 선수·한 출처가 실패해도 나머지는 계속
-                print(f"[수집 실패] {p['name']} / {source}: {e}")
-                fails += 1
-                if fails >= 5:  # 연달아 막히면 잠깐 쉬었다가 계속
-                    print("[대기] 연속 실패, 60초 쉼")
-                    time.sleep(60)
-                    fails = 0
-                continue
-            kept = 0
-            for it in items:
-                title, snippet = it["title"], it["snippet"]
-                if not it["url"] or not any(k in title + snippet for k in name_keys):
-                    continue
-                if not passes_rules(p, title, title + " " + snippet, source):
-                    continue
-                try:
-                    published_dt = parsedate_to_datetime(it["pubDate"]).astimezone(KST)
-                except (TypeError, ValueError):
-                    continue
-                if published_dt < cutoff:
-                    continue
-                # 같은 기사가 두 출처에 다 나오면 제목으로 한 번만 저장
-                title_key = re.sub(r"\W+", "", title)
-                mid = hashlib.sha1(f"{p['no']}|{title_key}".encode()).hexdigest()[:16]
-                cur = db.execute(
-                    "INSERT OR IGNORE INTO mentions VALUES(?,?,?,?,?,?,?,?)",
-                    (mid, p["no"], source, it["url"], title, snippet, published_dt.isoformat(), stamp),
-                )
-                kept += cur.rowcount
-            added += kept
-            if items:
-                print(f"[수집] {p['name']} / {source}: 받은 기사 {len(items)}건, 새로 저장 {kept}건")
-            time.sleep(1)
+                added += _store(db, p, source, items, name_keys, cutoff, stamp)
     db.commit()
     return added
+
+
+def _store(db, p, source, items, name_keys, cutoff, stamp) -> int:
+    """받은 기사 중 조건에 맞는 것만 저장하고 새로 저장한 개수를 돌려줌"""
+    kept = 0
+    for it in items:
+        title, snippet = it["title"], it["snippet"]
+        if not it["url"] or not any(k in title + snippet for k in name_keys):
+            continue
+        if not passes_rules(p, title, title + " " + snippet, source):
+            continue
+        try:
+            published_dt = parsedate_to_datetime(it["pubDate"]).astimezone(KST)
+        except (TypeError, ValueError):
+            continue
+        if published_dt < cutoff:
+            continue
+        # 같은 기사가 두 출처에 다 나오면 제목으로 한 번만 저장
+        title_key = re.sub(r"\W+", "", title)
+        mid = hashlib.sha1(f"{p['no']}|{title_key}".encode()).hexdigest()[:16]
+        cur = db.execute(
+            "INSERT OR IGNORE INTO mentions VALUES(?,?,?,?,?,?,?,?)",
+            (mid, p["no"], source, it["url"], title, snippet, published_dt.isoformat(), stamp),
+        )
+        kept += cur.rowcount
+    if items:
+        print(f"[수집] {p['name']} / {source}: 받은 기사 {len(items)}건, 새로 저장 {kept}건")
+    return kept
 
 
 # ---------- 2. 분류 ----------
@@ -367,6 +385,7 @@ def classify(db: sqlite3.Connection, players: list[dict]) -> int:
 
     labeled = 0
     fails = 0
+    jobs = []  # (선수, 기사 묶음, 프롬프트)
     for no, items in groups.items():
         p = by_no.get(no)
         if not p:
@@ -374,29 +393,42 @@ def classify(db: sqlite3.Connection, players: list[dict]) -> int:
         for i in range(0, len(items), BATCH_SIZE):
             batch = items[i : i + BATCH_SIZE]
             payload = "\n".join(json.dumps({"id": r[0], "title": r[2], "summary": r[3]}, ensure_ascii=False) for r in batch)
-            prompt = f"선수: {p['name']} (소속 {p['club']})\n기사 목록(JSON Lines):\n{payload}"
-            result = call_claude(client, prompt)
-            if result is None:
-                fails += 1
-                if fails >= 3:
-                    print("[분류 중단] 3번 연속 실패해서 멈춰요. 남은 기사는 다음 실행 때 분류해요.")
-                    return labeled
-                continue
-            fails = 0
-            valid_ids = {r[0] for r in batch}
-            stamp = now_kst().isoformat()
-            for it in result.get("items", []):
-                if it["id"] not in valid_ids:
-                    continue
-                db.execute(
-                    "INSERT OR REPLACE INTO labels VALUES(?,?,?,?,?,?,?)",
-                    (it["id"], int(it["relevant"]), it["sentiment"],
-                     json.dumps(it["topics"], ensure_ascii=False),
-                     json.dumps(it["keywords"][:3], ensure_ascii=False), MODEL, stamp),
-                )
-                labeled += 1
-            db.commit()
-            print(f"[분류] {p['name']}: {len(batch)}건")
+            jobs.append((p, batch, f"선수: {p['name']} (소속 {p['club']})\n기사 목록(JSON Lines):\n{payload}"))
+
+    # Claude 요청은 4개씩 동시에. 8개 묶음마다 결과를 저장하고, 연달아 실패하면(크레딧 부족 등) 멈춤
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        for c in range(0, len(jobs), 8):
+            chunk = jobs[c : c + 8]
+            results = list(pool.map(lambda j: call_claude(client, j[2]), chunk))
+            for (p, batch, _), result in zip(chunk, results):
+                labeled += _save_labels(db, p, batch, result)
+                fails = 0 if result is not None else fails + 1
+            if fails >= 3:
+                print("[분류 중단] 연달아 실패해서 멈춰요. 남은 기사는 다음 실행 때 분류해요.")
+                return labeled
+    return labeled
+
+
+def _save_labels(db, p, batch, result) -> int:
+    if result is None:
+        return 0
+    labeled = 0
+    valid_ids = {r[0] for r in batch}
+    stamp = now_kst().isoformat()
+    for it in result.get("items", []):
+        if it["id"] not in valid_ids:
+            continue
+        db.execute(
+            "INSERT OR REPLACE INTO labels VALUES(?,?,?,?,?,?,?)",
+            (it["id"], int(it["relevant"]), it["sentiment"],
+             json.dumps(it["topics"], ensure_ascii=False),
+             json.dumps(it["keywords"][:3], ensure_ascii=False), MODEL, stamp),
+        )
+        labeled += 1
+    db.commit()
+    print(f"[분류] {p['name']}: {len(batch)}건")
     return labeled
 
 
