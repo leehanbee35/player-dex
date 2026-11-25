@@ -409,6 +409,8 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .filter-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
   .fcount{font-size:11px;font-weight:700;color:#0b1a12;background:var(--accent);border-radius:999px;padding:1px 7px}
   .fcount:empty{display:none}
+  header{transition:transform .22s ease,box-shadow .2s}
+  header.hide{transform:translateY(-100%)}
   .filters{display:none;padding-bottom:12px}
   /* 폰: 즐겨찾기 경기 목록을 짧게 (카드 목록이 너무 밀리지 않게) */
   .kg{max-height:200px}
@@ -1285,7 +1287,11 @@ $("sort").addEventListener("change",e=>{st.sort=e.target.value;save();render()})
 $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;st.group=b.dataset.g;syncSeg();save();render()});
 // 헤더 고정: 조금 내려가면 헤더 아래에 그림자 (크기는 그대로)
 {const hd=document.querySelector("header");let on=false;
- addEventListener("scroll",()=>{const y=scrollY;if(!on&&y>120){on=true;hd.classList.add("stuck")}else if(on&&y<40){on=false;hd.classList.remove("stuck")}},{passive:true});}
+  addEventListener("scroll",()=>{const y=scrollY;if(!on&&y>120){on=true;hd.classList.add("stuck")}else if(on&&y<40){on=false;hd.classList.remove("stuck")}},{passive:true});
+  // 폰: 내릴 때는 헤더를 숨겨 화면을 넓게, 조금이라도 올리면 다시 보임 (필터를 펼친 동안은 항상 보임)
+  let lastY=scrollY;
+  addEventListener("scroll",()=>{const y=scrollY,d=y-lastY;if(Math.abs(d)<6)return;lastY=y;
+    const hide=innerWidth<=640&&d>0&&y>260&&!$("filters").classList.contains("open");hd.classList.toggle("hide",hide)},{passive:true});}
 // 모바일: 필터·정렬 접기/펼치기
 $("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
 $("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false});buildControls();save();render()});
