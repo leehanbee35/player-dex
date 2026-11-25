@@ -79,6 +79,8 @@ select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);
 .seg button[aria-pressed="true"]{background:var(--accent);color:#0b1a12;font-weight:700}
 .favline{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .favline .favbar{flex:1;min-width:0}
+.favline-r{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.favline-r label{font-size:11px;color:var(--head-muted);display:flex;align-items:center;gap:6px}
 .reset{flex:0 0 auto;font:inherit;font-size:12px;background:none;border:1px solid rgba(255,255,255,.2);color:var(--head-muted);border-radius:8px;padding:5px 10px;cursor:pointer}
 
 main{padding-block:20px 48px}
@@ -281,12 +283,16 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
         <button type="button" data-g="league" aria-pressed="false">리그</button>
         <button type="button" data-g="club" aria-pressed="false">팀</button>
       </span></label>
-      <label title="등번호가 40번 이상이거나 없는 선수(주로 유스). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
-        <button type="button" data-y="0" aria-pressed="true">숨김</button>
-        <button type="button" data-y="1" aria-pressed="false">포함</button>
-      </span></label>
     </div>
-    <div class="favline"><div class="favbar" id="favBar"></div><button class="reset" id="reset" type="button">필터 초기화</button></div>
+    <div class="favline"><div class="favbar" id="favBar"></div>
+      <div class="favline-r">
+        <label title="등번호가 40번 이상이거나 없는 선수(주로 유스). 이름으로 검색하면 항상 함께 나옵니다">유스 <span class="seg" id="youth">
+          <button type="button" data-y="0" aria-pressed="true">숨김</button>
+          <button type="button" data-y="1" aria-pressed="false">포함</button>
+        </span></label>
+        <button class="reset" id="reset" type="button">필터 초기화</button>
+      </div>
+    </div>
   </div>
 </header>
 
