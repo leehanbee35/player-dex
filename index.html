@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>풋볼 도감</title>
+<link rel="preload" href="data/players.json" as="fetch" crossorigin>
+<link rel="preconnect" href="https://upload.wikimedia.org">
 <script>/* 기본은 다크 모드. 헤더의 ☀/☾ 버튼으로 바꾸면 이 브라우저에 기억 */try{document.documentElement.dataset.theme=localStorage.getItem("dexTheme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
@@ -553,13 +555,14 @@ function jersey(p,size){
   return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M34 12 L20 18 L6 34 L18 46 L26 40 L26 90 L74 90 L74 40 L82 46 L94 34 L80 18 L66 12 Q50 24 34 12Z" fill="${c}" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/><path d="M34 12 Q50 24 66 12" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="3"/><text x="50" y="68" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="28" fill="#fff">${ini}</text></svg>`;
 }
 
-// 사진: 위키미디어 공용 사진을 200px로 줄여 한 파일(photos/bundle.json)로 묶음. 요청 1번으로 전부 받음
-// 없는 선수는 유니폼 그림으로 대신함
+// 사진: 1~60번은 photos/web.json(사진 주소·촬영자·라이선스, 19KB). 예전의 사진 묶음(456KB) 대신
+// 다른 선수처럼 위키미디어 250px 썸네일을 화면에 보일 때만 받음. 없는 선수는 유니폼 그림으로 대신함
 let PHOTO={};
+const thumb250=u=>u.replace("://thumb.wikimedia.org","://upload.wikimedia.org").replace(/\/\d+px-/,"/250px-");
 // 61번 이후 선수: data/photos.json(Wikidata에서 찾은 위키미디어 사진)의 250px 썸네일을 화면에 보일 때만 받음. 못 받으면 유니폼 그림
 let WPHOTO={};
 const wthumb=k=>{const h=k.slice(0,2),e=encodeURIComponent(k.slice(3));return `https://upload.wikimedia.org/wikipedia/commons/thumb/${h[0]}/${h}/${e}/250px-${e}`};
-const art=p=>PHOTO[p.no]?`<img src="${PHOTO[p.no].d}" alt="${esc(p.kr)}" decoding="async">`
+const art=p=>PHOTO[p.no]?`<img src="${esc(thumb250(PHOTO[p.no].d))}" alt="${esc(p.kr)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="${esc(jersey(p))}" onerror="this.outerHTML=this.dataset.fb">`
   :WPHOTO[p.no]?`<img src="${wthumb(WPHOTO[p.no])}" alt="${esc(p.kr)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fb="${esc(jersey(p))}" onerror="this.outerHTML=this.dataset.fb">`
   :jersey(p);
 // 이번 시즌 대회별 기록: 상세 화면을 열 때 ESPN에서 바로 받음 (같은 선수는 한 번만)
@@ -595,7 +598,9 @@ async function wcredit(p){
     $("wcredit").innerHTML=`사진: <a href="${page}" target="_blank" rel="noopener">${esc(text(m.Artist&&m.Artist.value).slice(0,80)||"작성자 정보 없음")}</a> · ${esc(text(m.LicenseShortName&&m.LicenseShortName.value)||"라이선스 정보 없음")} · Wikimedia Commons`;
   }catch(e){}
 }
-fetch("photos/bundle.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+fetch("photos/web.json").then(r=>r.ok?r.json():{}).then(d=>{PHOTO=d||{};render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+// 61번 이후 사진 목록은 명단과 동시에 받기 시작 (예전에는 명단을 다 받은 뒤에 받았음)
+const photosReq=fetch("data/photos.json").then(r=>r.ok?r.json():null).catch(()=>null);
 
 // 커스텀 드롭다운: 원래 <select>는 숨겨 두고 값만 보관. 나라에는 국기, 즐겨찾기는 ★, 선수 수는 오른쪽 숫자로 표시
 const CHEV=`<svg class="dd-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -783,13 +788,17 @@ function reactionHTML(p){
     <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>${commHTML(r)}`;
 }
 // 커뮤니티 반응: 유튜브 영상의 인기 댓글을 같은 방식(긍정·중립·부정)으로 분류한 결과
+// 대표 댓글에서 욕설·비하 표현이 든 댓글은 뺌 (수집기에서도 걸러 내지만 예전에 모은 것까지)
+const BANNED=["씨발","시발","씨팔","ㅅㅂ","ㅆㅂ","병신","ㅂㅅ","ㅄ","개새끼","새끼","좆","지랄","니애미","느금","애미","애비","엠창","창녀","짱깨","쪽바리","깜둥이","흑돼지","한남충","김치녀","꺼져","닥쳐","fuck","shit"];
+const isClean=t=>{const f=String(t).replace(/[\s.\-_~!*]+/g,"").toLowerCase();return !BANNED.some(w=>f.includes(w))};
 function commHTML(r){
   const c=r&&r.comm;if(!c||!c.n)return "";
+  const top=(c.top||[]).filter(h=>isClean(h.text));
   const s=c.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   return `<div class="comm"><div class="r-head"><h3>커뮤니티 반응</h3><small>유튜브 인기 댓글 ${c.n}건</small></div>
     <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
     <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
-    <ul class="hl">${c.top.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>“${esc(h.text)}”</span></a></li>`).join("")}</ul></div>`;
+    <ul class="hl">${top.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>“${esc(h.text)}”</span></a></li>`).join("")}</ul></div>`;
 }
 
 // 새 창 바로가기 아이콘(↗)
@@ -1011,7 +1020,8 @@ $("dlg").addEventListener("close",()=>{st.open=0;save()});
 $("out").parentElement.addEventListener("click",e=>{if(e.target.closest("#moreBtn"))showMore()});
 // 전체 명단(data/players.json, 매주 GitHub Actions가 ESPN 명단으로 갱신)을 받아 60명 뒤에 붙임
 // [번호, 한글명, 영문명, 포지션(GK/DF/MF/FW), 나라 코드, 클럽, 리그, 출생연도, 키, 등번호]
-fetch("data/players.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{
+// 명단은 매주 바뀌어서 브라우저 캐시를 그대로 씀 (GitHub Pages는 10분 뒤 새로 확인)
+fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.players))return;
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
   FLAG_IMG=d.flag||{};
@@ -1023,7 +1033,7 @@ fetch("data/players.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d
   if(location.hash.startsWith("#v-"))applyHash();
   buildControls();render();
   $("dataAt").textContent=DATA_AT?`(마지막 갱신 ${DATA_AT.slice(0,10)})`:"";
-  return fetch("data/photos.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(ph=>{
+  return photosReq.then(ph=>{
     if(!ph)return;WPHOTO=ph;render();
     if(st.open&&$("dlg").open)openDetail(st.open);
   });

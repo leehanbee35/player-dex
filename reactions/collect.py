@@ -148,6 +148,16 @@ def passes_rules(player: dict, title: str, text: str, source: str) -> bool:
     return not must or any(word in text for word in must)
 
 
+# 욕설·비하 표현이 든 유튜브 댓글은 저장하지 않음 (사이트 댓글 금지어와 같은 목록)
+BANNED = ["씨발", "시발", "씨팔", "ㅅㅂ", "ㅆㅂ", "병신", "ㅂㅅ", "ㅄ", "개새끼", "새끼", "좆", "지랄", "니애미", "느금",
+          "애미", "애비", "엠창", "창녀", "짱깨", "쪽바리", "깜둥이", "흑돼지", "한남충", "김치녀", "꺼져", "닥쳐", "fuck", "shit"]
+
+
+def is_clean(text: str) -> bool:
+    flat = re.sub(r"[\s.\-_~!*]+", "", text).lower()
+    return not any(w in flat for w in BANNED)
+
+
 def yt_get(path: str, params: dict) -> dict:
     params = {**params, "key": os.environ.get("YOUTUBE_API_KEY", "").strip()}
     url = f"https://www.googleapis.com/youtube/v3/{path}?" + urllib.parse.urlencode(params)
@@ -193,7 +203,7 @@ def collect_youtube(db: sqlite3.Connection, players: list[dict], limit: int = 40
                 top = c["snippet"]["topLevelComment"]
                 s = top["snippet"]
                 text = clean(s.get("textDisplay") or s.get("textOriginal"))[:200]
-                if not text:
+                if not text or not is_clean(text):
                     continue
                 try:
                     pub = datetime.fromisoformat(s["publishedAt"].replace("Z", "+00:00")).astimezone(KST)
@@ -450,7 +460,7 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
         if crow:
             cs = Counter(r[2] for r in crow)
             comm = {"n": len(crow), "sentiment": {k: cs.get(k, 0) for k in ("pos", "neu", "neg")},
-                    "top": [{"text": r[0], "url": r[1], "sentiment": r[2]} for r in crow[:3]]}
+                    "top": [{"text": r[0], "url": r[1], "sentiment": r[2]} for r in crow if is_clean(r[0])][:3]}
         if not rows and comm:
             out["players"][str(p["no"])] = {"n": 0, "h24": 0, "sentiment": {"pos": 0, "neu": 0, "neg": 0},
                                             "daily": [], "topics": [], "keywords": [], "headlines": [], "comm": comm}
