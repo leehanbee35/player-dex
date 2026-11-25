@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>풋볼 도감</title>
-<link rel="preload" href="data/players.json" as="fetch" crossorigin>
+<link rel="preload" href="data/players-a.json" as="fetch" crossorigin>
 <link rel="preconnect" href="https://upload.wikimedia.org">
 <script>/* 기본은 다크 모드. 헤더의 ☀/☾ 버튼으로 바꾸면 이 브라우저에 기억 */try{document.documentElement.dataset.theme=localStorage.getItem("dexTheme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1332,23 +1332,34 @@ $("out").parentElement.addEventListener("click",e=>{if(e.target.closest("#moreBt
 // 전체 명단(data/players.json, 매주 GitHub Actions가 ESPN 명단으로 갱신)을 받아 60명 뒤에 붙임
 // [번호, 한글명, 영문명, 포지션(GK/DF/MF/FW), 나라 코드, 클럽, 리그, 출생연도, 키, 등번호]
 // 명단은 매주 바뀌어서 브라우저 캐시를 그대로 씀 (GitHub Pages는 10분 뒤 새로 확인)
-fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
-  if(!d||!Array.isArray(d.players))return;
+// 두 번에 나눠 받음: players-a(5대 리그·한국 선수·K리그1 + 나라·팀 이름표)를 먼저 그리고, players-b(나머지)를 이어 붙임
+// 나눈 파일이 아직 없으면(예전 배포) players.json 하나를 받음
+const rowToPlayer=r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""});
+function addPlayers(rows){
+  players=players.concat(rows.map(rowToPlayer));
+  reindex();
+  if(location.hash.startsWith("#v-"))applyHash();
+  buildControls();render();
+}
+function setupMeta(d){
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
   FLAG_IMG=d.flag||{};TEAM_KO=d.teams||{};LEAGUE_ORDER=d.leagues||[];
   // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
   Object.entries(d.curated||{}).forEach(([no,[club,league,espn,num]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(num)p.num=num;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
-  players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""})));
   DATA_AT=d.generated_at||"";
-  reindex();
-  if(location.hash.startsWith("#v-"))applyHash();
-  buildControls();render();
   $("dataAt").textContent=DATA_AT?`(마지막 갱신 ${DATA_AT.slice(0,10)})`:"";
-  checkStale();loadFavGames();
-  return photosReq.then(ph=>{
-    if(!ph)return;WPHOTO=ph;render();
-    if(st.open&&$("dlg").open)openDetail(st.open);
-  });
+}
+const getJSON=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
+getJSON("data/players-a.json").then(async a=>{
+  if(a&&Array.isArray(a.players)){
+    setupMeta(a);addPlayers(a.players);checkStale();loadFavGames();
+    const b=await getJSON("data/players-b.json");if(b&&Array.isArray(b.players))addPlayers(b.players);
+  }else{
+    const d=await getJSON("data/players.json");if(!d||!Array.isArray(d.players))return;
+    setupMeta(d);addPlayers(d.players);checkStale();loadFavGames();
+  }
+  const ph=await photosReq;
+  if(ph){WPHOTO=ph;render();if(st.open&&$("dlg").open)openDetail(st.open)}
 }).catch(()=>{}).finally(()=>{if(st.open&&BY_NO[st.open]&&!$("dlg").open)openDetail(st.open)});
 // 주소에 선수 번호가 있으면(공유 링크) 그 선수 화면을 바로 열기. 61번 이후는 명단을 받은 뒤 열림
 if(st.open&&BY_NO[st.open])openDetail(st.open);

@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "players-bot"
           git config user.email "players-bot@users.noreply.github.com"
-          git add data/players.json data/ids.json data/ko.json
+          git add data/players.json data/players-a.json data/players-b.json data/ids.json data/ko.json
           if [ -f data/transfers.json ]; then git add data/transfers.json; fi
           if [ -f data/photos.json ]; then git add data/photos.json; fi
           git diff --cached --quiet || git commit -m "선수 명단 갱신"

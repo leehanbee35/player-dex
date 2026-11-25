@@ -398,6 +398,11 @@ def main() -> None:
     }
     record_transfers(players, overrides)
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # 첫 화면을 빨리 띄우려고 나눠서도 저장: a = 5대 리그·한국 선수·K리그1(먼저 받음), b = 나머지(이어서 받음)
+    first = {"프리미어리그", "라리가", "분데스리가", "세리에 A", "리그 1", "K리그1"}
+    in_a = lambda r: r[6] in first or r[4] == "KOR"
+    (HERE / "players-a.json").write_text(json.dumps({**out, "players": [r for r in players if in_a(r)]}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (HERE / "players-b.json").write_text(json.dumps({"players": [r for r in players if not in_a(r)]}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"[완료] 선수 {len(players)}명 + 직접 입력 {len(overrides)}명 갱신 → {OUT.name}")
 
     # 사진 (위키미디어 공용). 실패해도 명단은 그대로 저장됨
