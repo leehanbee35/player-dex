@@ -2,8 +2,7 @@ name: 선수 반응 수집
 
 on:
   schedule:
-    - cron: "0 21 * * *"   # 매일 06:00 KST
-    - cron: "0 9 * * *"    # 매일 18:00 KST
+    - cron: "0 */3 * * *"  # 3시간마다 (실시간 화제용)
   workflow_dispatch: {}    # Actions 탭에서 수동 실행
   push:
     branches: [main]
@@ -25,6 +24,12 @@ jobs:
       credit_low: ${{ steps.check.outputs.low }}
     steps:
       - uses: actions/checkout@v4
+      # 기사 저장 파일(reactions.db)은 3시간마다 바뀌어서 저장소 대신 캐시에 보관 (저장소가 커지지 않게)
+      - uses: actions/cache@v4
+        with:
+          path: reactions/reactions.db
+          key: reactions-db-${{ github.run_id }}
+          restore-keys: reactions-db-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -44,7 +49,7 @@ jobs:
         run: |
           git config user.name "reactions-bot"
           git config user.email "reactions-bot@users.noreply.github.com"
-          git add reactions/reactions.db reactions/reactions.json
+          git add reactions/reactions.json
           git diff --cached --quiet || git commit -m "반응 데이터 갱신"
           # 다른 실행과 동시에 올리면 거절될 수 있어서 3번까지 다시 시도
           for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 10; done

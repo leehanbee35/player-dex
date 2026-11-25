@@ -38,7 +38,8 @@ header{background:var(--head);color:var(--head-ink)}
 .logo{font-family:var(--f-display);font-size:26px;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
 .search{flex:1;min-width:200px;max-width:520px;display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px 6px 4px 16px}
 .search input{flex:1;border:0;outline:0;font:inherit;font-size:14px;color:#18223a;background:transparent;padding:6px 0;min-width:0}
-.search span{font-size:11px;color:#5b6680;margin-right:8px;white-space:nowrap}
+.search span{font-size:11px;color:#5b6680;margin-right:10px;padding-right:10px;white-space:nowrap;position:relative}
+.search span::after{content:"";position:absolute;right:0;top:50%;height:12px;margin-top:-6px;border-left:1px solid #c9d0dd}
 .search:focus-within{box-shadow:0 0 0 3px var(--accent)}
 .theme-btn{margin-left:auto;width:36px;height:36px;flex:0 0 auto;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:none;color:var(--head-ink);font-size:16px;line-height:1;cursor:pointer}
 .theme-btn:hover{background:rgba(255,255,255,.08)}
@@ -233,6 +234,8 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .hot-item .nm{font-weight:700;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .hot-item .sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .hot-item .c-react{padding:0;width:100%}
+.hot-item .sub b{color:var(--ink)}
+.hot-item .c-react>span:last-child{display:none} /* 화제 줄에서는 7일 기사 수 대신 24시간 기사 수만 */
 .slegend{display:flex;gap:12px;font-size:12px;margin:6px 0 12px;font-variant-numeric:tabular-nums}
 .slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
 .slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
@@ -267,7 +270,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
       <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <label>정렬 <select id="sort">
-        <option value="no">도감 번호</option><option value="hot">화제순 (최근 7일 기사)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+        <option value="no">도감 번호</option><option value="hot">화제순 (실시간)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
       </select></label>
       <label>묶어보기 <span class="seg" id="grp">
         <button type="button" data-g="" aria-pressed="true">없음</button>
@@ -602,15 +605,18 @@ function reactLine(p){
   const s=REACT.players[p.no].sentiment,t=s.pos+s.neu+s.neg||1,pc=k=>Math.round(s[k]/t*100);
   return `<div class="c-react" title="최근 ${REACT.window_days}일 기사 ${n}건 · 긍정 ${pc("pos")}% · 중립 ${pc("neu")}% · 부정 ${pc("neg")}%"><span class="mbar" aria-hidden="true"><i class="s-pos" style="width:${pc("pos")}%"></i><i class="s-neu" style="width:${pc("neu")}%"></i><i class="s-neg" style="width:${pc("neg")}%"></i></span><span>기사 <b>${n}</b></span></div>`;
 }
-// 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "이번 주 화제" 상위 10명
+// 최근 24시간 기사 수 (3시간마다 갱신). 예전 데이터처럼 h24가 없으면 0
+const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24||0};
+// 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "실시간 화제" 상위 10명: 최근 24시간 기사 수, 같으면 7일 기사 수
 function renderHot(){
   const box=$("hot");
   const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&st.sort!=="hot";
-  const top=plain?players.filter(hotN).sort((a,b)=>hotN(b)-hotN(a)).slice(0,10):[];
+  const top=plain?players.filter(h24).sort((a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)).slice(0,10):[];
   if(!top.length){box.hidden=true;box.innerHTML="";return}
   box.hidden=false;
-  box.innerHTML=`<div class="hot-h"><h2>이번 주 화제</h2><small>최근 ${REACT.window_days}일 기사 수 기준 · <button type="button" id="hotAll">화제순으로 전체 보기</button></small></div>
-    <ol class="hot-list">${top.map((p,i)=>`<li><button type="button" class="hot-item" data-no="${p.no}"><span class="rk">${i+1}</span><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span><span class="sub">${esc(p.club)}</span>${reactLine(p)}</button></li>`).join("")}</ol>`;
+  const at=REACT.generated_at.slice(5,16).replace("-",".").replace("T"," ");
+  box.innerHTML=`<div class="hot-h"><h2>실시간 화제</h2><small>최근 24시간 기사 수 · ${esc(at)} 기준 · <button type="button" id="hotAll">화제순으로 전체 보기</button></small></div>
+    <ol class="hot-list">${top.map((p,i)=>`<li><button type="button" class="hot-item" data-no="${p.no}"><span class="rk">${i+1}</span><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span><span class="sub">${esc(p.club)}</span><span class="sub">24시간 기사 <b>${h24(p)}</b>건</span>${reactLine(p)}</button></li>`).join("")}</ol>`;
 }
 // 선수가 수천 명이라 120명씩 그리고, 맨 아래에 닿으면(또는 더 보기를 누르면) 이어서 그림
 const PAGE=120;
@@ -622,7 +628,7 @@ function render(){
   let list=players.filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
   renderHot();
-  const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
+  const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   list.sort(S[st.sort]);
   $("count").textContent=list.length.toLocaleString();
   $("clubNote").innerHTML="";

@@ -372,11 +372,14 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
         if not rows and p.get("auto"):
             continue  # 자동 대상은 기사가 있을 때만 파일에 넣어 크기를 줄임
         per_day = Counter(r[2][:10] for r in rows)
+        since24 = now_kst() - timedelta(hours=24)
+        h24 = sum(1 for r in rows if datetime.fromisoformat(r[2]) >= since24)
         senti = Counter(r[3] for r in rows)
         topics = Counter(t for r in rows for t in json.loads(r[4]))
         keywords = Counter(k for r in rows for k in json.loads(r[5]))
         out["players"][str(p["no"])] = {
             "n": len(rows),
+            "h24": h24,  # 최근 24시간 기사 수 (실시간 화제 순위용)
             "sentiment": {k: senti.get(k, 0) for k in ("pos", "neu", "neg")},
             "daily": [{"date": d, "n": per_day.get(d, 0)} for d in days],
             "topics": [t for t, _ in topics.most_common(3)],
