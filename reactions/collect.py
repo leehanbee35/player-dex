@@ -40,6 +40,14 @@ DB_PATH = HERE / "reactions.db"
 PLAYERS_PATH = HERE / "players.json"
 OUT_PATH = HERE / "reactions.json"
 
+ROSTER_PATH = HERE.parent / "data" / "players.json"
+# 자동 수집 대상: 한국 국적 선수 전원 + 아래 팀의 등번호 1~35번 선수
+BIG_CLUBS = {
+    "레알 마드리드", "바르셀로나", "아틀레티코 마드리드", "맨체스터 시티", "아스널", "리버풀", "첼시",
+    "맨체스터 유나이티드", "토트넘 홋스퍼", "뉴캐슬 유나이티드", "바이에른 뮌헨", "도르트문트",
+    "바이어 레버쿠젠", "파리 생제르맹", "인테르", "AC 밀란", "유벤투스", "나폴리",
+}
+
 KST = timezone(timedelta(hours=9))
 WINDOW_DAYS = 7
 BATCH_SIZE = 20
@@ -140,17 +148,49 @@ def passes_rules(player: dict, title: str, text: str, source: str) -> bool:
     return not must or any(word in text for word in must)
 
 
+def load_targets() -> list[dict]:
+    """직접 고른 60명(players.json) + 전체 명단(data/players.json)에서 자동으로 고른 선수"""
+    players = json.loads(PLAYERS_PATH.read_text(encoding="utf-8"))
+    try:
+        roster = json.loads(ROSTER_PATH.read_text(encoding="utf-8"))["players"]
+    except (OSError, ValueError, KeyError):
+        return players
+    have = {p["no"] for p in players}
+    auto = []
+    # [번호, 한글명, 영문명, 포지션, 나라, 팀, 리그, 출생연도, 키, 등번호]
+    for no, kr, en, _pos, nat, club, _lg, _b, _h, num in roster:
+        if no in have or not re.search(r"[가-힣]", kr) or len(kr) > 20 or "," in kr:
+            continue  # 한글 이름이 아직 없으면 한국 기사 검색이 안 됨
+        korean = nat in ("KOR", "KORS")
+        regular = club in BIG_CLUBS and str(num).isdigit() and 1 <= int(num) <= 35
+        if not (korean or regular):
+            continue
+        auto.append({"no": no, "name": kr, "club": club, "auto": True,
+                     # 한국 선수는 흔한 이름이 많아 '축구'를 붙여 검색
+                     "query": f'"{kr}" 축구' if korean else f'"{kr}"',
+                     "must_any": [], "exclude": ["배우", "드라마", "가수", "예능", "국회", "의원"] if korean else []})
+    print(f"[대상] 직접 고른 {len(players)}명 + 자동 {len(auto)}명")
+    return players + auto
+
+
 def collect(db: sqlite3.Connection, players: list[dict]) -> int:
     added = 0
     stamp = now_kst().isoformat()
     cutoff = now_kst() - timedelta(days=WINDOW_DAYS)
+    fails = 0
     for p in players:
-        name_keys = {p["name"].split()[-1], p["query"].split()[0]}
+        name_keys = {p["name"].split()[-1], p["query"].split()[0].strip('"')}
         for source, fetch in SOURCES.items():
             try:
                 items = fetch(p["query"])
+                fails = 0
             except Exception as e:  # 한 선수·한 출처가 실패해도 나머지는 계속
                 print(f"[수집 실패] {p['name']} / {source}: {e}")
+                fails += 1
+                if fails >= 5:  # 연달아 막히면 잠깐 쉬었다가 계속
+                    print("[대기] 연속 실패, 60초 쉼")
+                    time.sleep(60)
+                    fails = 0
                 continue
             kept = 0
             for it in items:
@@ -318,6 +358,7 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
     since = days[0]
     out = {"generated_at": now_kst().isoformat(timespec="minutes"), "window_days": WINDOW_DAYS,
            "source": "구글 뉴스" + (" · 네이버 뉴스" if os.environ.get("NAVER_CLIENT_ID") else ""),
+           "tracked": sorted(p["no"] for p in players),  # 수집 대상 번호 (기사가 0건이어도 대상임을 표시)
            "players": {}}
 
     for p in players:
@@ -328,6 +369,8 @@ def aggregate(db: sqlite3.Connection, players: list[dict]) -> dict:
                ORDER BY m.published_at DESC""",
             (p["no"], since),
         ).fetchall()
+        if not rows and p.get("auto"):
+            continue  # 자동 대상은 기사가 있을 때만 파일에 넣어 크기를 줄임
         per_day = Counter(r[2][:10] for r in rows)
         senti = Counter(r[3] for r in rows)
         topics = Counter(t for r in rows for t in json.loads(r[4]))
@@ -351,7 +394,7 @@ def main() -> None:
     ap.add_argument("--aggregate", action="store_true", help="집계만 다시 실행")
     args = ap.parse_args()
 
-    players = json.loads(PLAYERS_PATH.read_text(encoding="utf-8"))
+    players = load_targets()
     db = open_db()
     if args.aggregate:
         aggregate(db, players)

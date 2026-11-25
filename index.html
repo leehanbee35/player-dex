@@ -657,7 +657,7 @@ fetch("reactions/reactions.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null)
 const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
-  if(p.no>60&&!r){
+  if(p.no>60&&!r&&!(REACT&&REACT.tracked&&REACT.tracked.includes(p.no))){
     return `<h3>뉴스 · 커뮤니티 반응</h3><p>이 선수는 아직 반응 수집 대상이 아닙니다. 아래 바로가기로 최신 기사와 커뮤니티 글을 확인할 수 있습니다.</p>`;
   }
   if(!r||!r.n){

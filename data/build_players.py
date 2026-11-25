@@ -49,6 +49,14 @@ LEAGUES = [
     ("arg.1", "아르헨티나 리가"),
 ]
 FIRST_NEW_NO = 61
+# ESPN 나라 코드 중 페이지(직접 입력 60명)와 다른 것 → 같은 코드로 맞춤
+NAT_ALIAS = {"KORS": "KOR", "MOR": "MAR"}
+
+
+def clean_ko(v: str) -> str:
+    """'선수 정우영, 대한민국, 우니온 베를린'처럼 설명째 돌아온 표기에서 이름만 남김"""
+    v = re.sub(r"^(선수|축구팀|나라)\s+", "", v.strip())
+    return re.split(r"\s*[,(]", v)[0].strip()
 
 
 def get(url: str, tries: int = 4):
@@ -108,6 +116,7 @@ def fetch_all() -> list[dict]:
                     continue
                 dob = a.get("dateOfBirth") or ""
                 cc = (a.get("citizenshipCountry") or {}).get("abbreviation") or ""
+                cc = NAT_ALIAS.get(cc.upper(), cc)
                 h = a.get("height") or 0
                 seen[aid] = {
                     "id": aid,
@@ -170,8 +179,8 @@ def translate(todo: list[tuple[str, str]], ko: dict) -> None:
         batch = todo[i : i + 120]
         lines = "\n".join(f"{k}\t{desc}" for k, desc in batch)
         prompt = (
-            "각 줄은 '키<TAB>설명'입니다. 설명의 고유명사를 한글 표기로 바꿔 같은 키와 함께 돌려주십시오. "
-            "모든 키를 빠짐없이, 한글 표기만(괄호·설명 없이) 넣으십시오.\n\n" + lines
+            "각 줄은 '키<TAB>설명'입니다. 설명 맨 앞의 고유명사(선수 이름, 팀 이름, 나라 이름) 하나만 한글 표기로 바꿔 같은 키와 함께 돌려주십시오. "
+            "괄호 안 국적·소속은 참고용이니 넣지 마십시오. 예: '선수 Son Heung-min (Korea Republic, LAFC)' → '손흥민'.\n\n" + lines
         )
         try:
             res = client.messages.create(
@@ -210,7 +219,7 @@ def translate(todo: list[tuple[str, str]], ko: dict) -> None:
         want = {k for k, _ in batch}
         got = 0
         for it in items:
-            v = it["ko"].strip()
+            v = clean_ko(it["ko"])
             if it["k"] in want and v and re.search(r"[가-힣]", v) and len(v) <= 40:
                 ko[it["k"]] = v
                 got += 1
@@ -223,6 +232,7 @@ def main() -> None:
     curated = load(CURATED, [])
     ids: dict[str, int] = load(IDS, {})
     ko: dict[str, str] = load(KO, {})
+    ko = {k: clean_ko(v) for k, v in ko.items() if clean_ko(v)}  # 예전에 설명째 저장된 표기 정리
 
     roster = fetch_all()
     if len(roster) < 1000:
