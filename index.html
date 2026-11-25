@@ -167,6 +167,11 @@ main{padding-block:20px 48px}
 .stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 10px 10px;border-top:1px dashed var(--line);font-size:12px}
 .stats dt{color:var(--muted)} .stats dd{margin:0;font-weight:500;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
 .empty{padding:60px 0;text-align:center;color:var(--muted)}
+.more{display:flex;justify-content:center;padding:24px 0 8px}
+.more button{font:inherit;font-weight:600;font-size:14px;padding:10px 22px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.more button:hover{border-color:var(--muted)}
+.more small{color:var(--muted);font-weight:500;margin-left:6px;font-family:var(--f-num)}
+img.flag{object-fit:cover;background:var(--line)}
 
 /* 선수 상세 팝업: 넓은 화면은 왼쪽 정보·반응 | 오른쪽 댓글, 좁은 화면은 한 줄. 닫기 버튼은 고정, 내용만 스크롤 */
 dialog{border:0;border-radius:16px;padding:0;width:min(980px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 40px);background:var(--surface);color:var(--ink);overflow:hidden}
@@ -264,12 +269,12 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열립니다</div></div>
   <div id="out"></div>
 </main>
-<footer class="wrap">예시 데이터: 2025-26 시즌 기준으로 직접 입력한 60명입니다. 이후 이적은 반영되지 않았을 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
+<footer class="wrap">선수 명단: ESPN 공개 명단을 매주 자동으로 받아 옵니다<span id="dataAt"></span>. 1~60번은 직접 입력한 선수이며, 클럽·리그는 최신 명단으로 갱신됩니다. 61번 이후 선수의 한글 이름은 자동 변환이라 언론 표기와 다를 수 있습니다. 선수 사진은 위키미디어 공용(Wikimedia Commons)의 자유 라이선스 사진이며, 촬영자와 라이선스는 각 선수 상세 화면에 있습니다. 사진이 없는 선수는 포지션 색 유니폼으로 표시합니다.</footer>
 
 <dialog id="dlg"><div class="d-shell"><button class="close" id="closeD" aria-label="닫기" autofocus>×</button><div id="dBody"></div></div></dialog>
 
 <script>
-const POS = {GK:["GK","골키퍼"],CB:["DF","센터백"],LB:["DF","레프트백"],RB:["DF","라이트백"],DM:["MF","수비형 미드"],CM:["MF","중앙 미드"],AM:["MF","공격형 미드"],LW:["FW","왼쪽 윙"],RW:["FW","오른쪽 윙"],ST:["FW","스트라이커"]};
+const POS = {GK:["GK","골키퍼"],CB:["DF","센터백"],LB:["DF","레프트백"],RB:["DF","라이트백"],DM:["MF","수비형 미드"],CM:["MF","중앙 미드"],AM:["MF","공격형 미드"],LW:["FW","왼쪽 윙"],RW:["FW","오른쪽 윙"],ST:["FW","스트라이커"],DF:["DF","수비수"],MF:["MF","미드필더"],FW:["FW","공격수"]};
 const GROUP_NAME={GK:"골키퍼",DF:"수비수",MF:"미드필더",FW:"공격수"};
 const NAT={KOR:"대한민국",JPN:"일본",ENG:"잉글랜드",FRA:"프랑스",ESP:"스페인",GER:"독일",POR:"포르투갈",BRA:"브라질",ARG:"아르헨티나",NED:"네덜란드",BEL:"벨기에",ITA:"이탈리아",CRO:"크로아티아",NOR:"노르웨이",SWE:"스웨덴",EGY:"이집트",MAR:"모로코",URU:"우루과이",GEO:"조지아",NGA:"나이지리아",USA:"미국",ECU:"에콰도르",HUN:"헝가리",SCO:"스코틀랜드"};
 // 국기: Windows는 국기 이모지를 그리지 않아서 30×20 SVG로 직접 그림 (단순화한 모양)
@@ -299,7 +304,10 @@ const FLAG_SVG={
   MAR:R(0,0,30,20,"#C1272D")+`<polygon points="15,5 17.94,14.05 10.25,8.45 19.75,8.45 12.06,14.05" fill="none" stroke="#006233" stroke-width="1"/>`,
   GEO:R(0,0,30,20,"#fff")+R(13,0,4,20,"#FF0000")+R(0,8,30,4,"#FF0000")+[[6.5,4],[23.5,4],[6.5,16],[23.5,16]].map(([x,y])=>R(x-.6,y-2,1.2,4,"#FF0000")+R(x-2,y-.6,4,1.2,"#FF0000")).join(""),
 };
-const flag=k=>FLAG_SVG[k]?`<svg class="flag" viewBox="0 0 30 20" role="img" aria-label="${NAT[k]} 국기">${FLAG_SVG[k]}</svg>`:"";
+// 직접 그린 국기가 없는 나라는 ESPN 국기 이미지
+let FLAG_IMG={};
+const flag=k=>FLAG_SVG[k]?`<svg class="flag" viewBox="0 0 30 20" role="img" aria-label="${NAT[k]} 국기">${FLAG_SVG[k]}</svg>`
+  :FLAG_IMG[k]?`<img class="flag" src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/countries/500/${FLAG_IMG[k]}.png&w=40&h=40" alt="" loading="lazy" decoding="async">`:"";
 // [한글명, 영문명, 포지션, 국적, 클럽, 리그, 출생연도, 키, 주발]
 const RAW=[
 ["손흥민","Son Heung-min","LW","KOR","LAFC","MLS",1992,183,"오른발"],
@@ -364,46 +372,57 @@ const RAW=[
 ["스콧 맥토미니","Scott McTominay","CM","SCO","나폴리","세리에 A",1996,191,"오른발"],
 ];
 const YEAR=2026;
-const players=RAW.map((r,i)=>({no:i+1,kr:r[0],en:r[1],pos:r[2],g:POS[r[2]][0],nat:r[3],club:r[4],league:r[5],born:r[6],h:r[7],foot:r[8]}));
+// 직접 입력한 60명(1~60번) + data/players.json의 전체 명단(61번부터, 매주 자동 갱신)
+let players=RAW.map((r,i)=>({no:i+1,kr:r[0],en:r[1],pos:r[2],g:POS[r[2]][0],nat:r[3],club:r[4],league:r[5],born:r[6],h:r[7],foot:r[8]}));
+let BY_NO={};players.forEach(p=>BY_NO[p.no]=p);
+let DATA_AT="";
 const COLOR={GK:"var(--gk)",DF:"var(--df)",MF:"var(--mf)",FW:"var(--fw)"};
-const POS_CHIPS=[["ALL","전체"],["GK","골키퍼"],["CB","센터백"],["FB","풀백"],["DM","수비형"],["CM","중앙"],["AM","공격형"],["W","윙어"],["ST","스트라이커"]];
-const chipColor={ALL:"#5b6680",GK:"#d99a1a",CB:"#2f6fd6",FB:"#4f8be6",DM:"#1b8a50",CM:"#21a05e",AM:"#4bbd7f",W:"#ee7a5f",ST:"#e0533d"};
-const chipMatch={ALL:()=>true,GK:p=>p.pos==="GK",CB:p=>p.pos==="CB",FB:p=>p.pos==="LB"||p.pos==="RB",DM:p=>p.pos==="DM",CM:p=>p.pos==="CM",AM:p=>p.pos==="AM",W:p=>p.pos==="LW"||p.pos==="RW",ST:p=>p.pos==="ST"};
+const POS_CHIPS=[["ALL","전체"],["GK","골키퍼"],["DF","수비수"],["MF","미드필더"],["FW","공격수"]];
+const chipColor={ALL:"#5b6680",GK:"#d99a1a",DF:"#2f6fd6",MF:"#21a05e",FW:"#e0533d"};
+const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF",FW:p=>p.g==="FW"};
 
 // fav: 즐겨찾기한 나라·리그·팀 (이 브라우저에만 저장). club: 즐겨찾기 칩으로 고른 팀 필터
 const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",fav:{nat:[],league:[],club:[]}};
 const FAV_KINDS=["nat","league","club"];
 const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
-const CLUBS=[...new Set(RAW.map(r=>r[4]))];
-// 필터·정렬 유지: 브라우저 저장소 + 주소의 #(예: #v-o-young-g-nat-p-ST). 저장소가 막힌 화면에서도 새로고침하면 유지되고, 링크를 공유하면 같은 화면이 열림
-const LEAGUES=[...new Set(players.map(p=>p.league))];
-const OK={o:["no","young","old","tall","name"],g:["pos","nat","league"],p:POS_CHIPS.map(c=>c[0]),n:Object.keys(NAT)};
+let CLUBS=[],LEAGUES=[];
+const OK={o:["no","young","old","tall","name"],g:["pos","nat","league"],p:POS_CHIPS.map(c=>c[0]),n:[]};
+function reindex(){
+  BY_NO={};players.forEach(p=>BY_NO[p.no]=p);
+  CLUBS=[...new Set(players.map(p=>p.club))];
+  LEAGUES=[...new Set(players.map(p=>p.league))];
+  OK.n=Object.keys(NAT);
+}
+reindex();
+// 필터·정렬 유지: 브라우저 저장소 + 주소의 #(예: #v-o-young-g-nat-p-FW-l-라리가). 링크를 공유하면 같은 화면이 열림
+// 리그·팀 이름은 글자 그대로 넣음(-는 %2D로)
+const encPart=s=>encodeURIComponent(s).replace(/-/g,"%2D");
 function encodeHash(){
   const t=[];
   if(st.sort!=="no")t.push("o",st.sort);
   if(st.group)t.push("g",st.group);
   if(st.chip!=="ALL")t.push("p",st.chip);
   if(st.nat)t.push("n",st.nat);
-  if(st.league&&LEAGUES.includes(st.league))t.push("l",LEAGUES.indexOf(st.league));
-  if(st.club&&CLUBS.includes(st.club))t.push("c",CLUBS.indexOf(st.club));
+  if(st.league)t.push("l",encPart(st.league));
+  if(st.club)t.push("c",encPart(st.club));
   if(st.open)t.push("d",st.open);
   return t.length?"v-"+t.join("-"):"";
 }
 function applyHash(){
-  const h=decodeURIComponent(location.hash.slice(1));
+  const h=location.hash.slice(1);
   if(!h.startsWith("v-"))return false;
   Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",open:0});
   const a=h.slice(2).split("-");
   for(let i=0;i+1<a.length;i+=2){
-    const [k,v]=[a[i],a[i+1]];
+    const k=a[i];let v=a[i+1];try{v=decodeURIComponent(v)}catch(e){}
     if(k==="o"&&OK.o.includes(v))st.sort=v;
     else if(k==="g"&&OK.g.includes(v))st.group=v;
     else if(k==="p"&&OK.p.includes(v))st.chip=v;
     else if(k==="n"&&OK.n.includes(v))st.nat=v;
-    else if(k==="l"&&LEAGUES[+v])st.league=LEAGUES[+v];
-    else if(k==="c"&&CLUBS[+v])st.club=CLUBS[+v];
-    else if(k==="d"&&players[+v-1])st.open=+v;
+    else if(k==="l")st.league=LEAGUES.includes(v)?v:/^\d+$/.test(v)&&LEAGUES[+v]||v;
+    else if(k==="c")st.club=CLUBS.includes(v)?v:/^\d+$/.test(v)&&CLUBS[+v]||v;
+    else if(k==="d"&&/^\d+$/.test(v))st.open=+v;
   }
   return true;
 }
@@ -414,6 +433,7 @@ if(Array.isArray(st.favs)){st.fav={nat:[],league:[],club:st.favs};delete st.favs
 st.fav=Object.assign({nat:[],league:[],club:[]},st.fav||{});
 FAV_KINDS.forEach(k=>{if(!Array.isArray(st.fav[k]))st.fav[k]=[]});
 if(!OK.o.includes(st.sort))st.sort="no";
+if(!OK.p.includes(st.chip))st.chip="ALL"; // 예전 세부 포지션 칩(CB 등)은 전체로
 applyHash();
 const save=()=>{
   try{localStorage.setItem("dexState",JSON.stringify({...st,open:0}))}catch(e){}
@@ -425,7 +445,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function jersey(p,size){
-  const ini=p.en.split(/[\s-]+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+  const ini=(p.en||"?").split(/[\s-]+/).filter(Boolean).map(w=>w[0]).join("").slice(0,2).toUpperCase();
   const c=COLOR[p.g];
   return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M34 12 L20 18 L6 34 L18 46 L26 40 L26 90 L74 90 L74 40 L82 46 L94 34 L80 18 L66 12 Q50 24 34 12Z" fill="${c}" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/><path d="M34 12 Q50 24 66 12" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="3"/><text x="50" y="68" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="28" fill="#fff">${ini}</text></svg>`;
 }
@@ -529,34 +549,53 @@ function card(p){
     <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${esc(p.kr)}</span></div>
     <div class="c-art">${art(p)}</div>
     <div class="badges"><span class="bdg">${p.pos}</span><span class="bdg ghost">${flag(p.nat)}${NAT[p.nat]}</span></div>
-    <dl class="stats"><dt>클럽</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born}년 (${YEAR-p.born}세)</dd><dt>키 · 주발</dt><dd>${p.h}cm · ${p.foot}</dd></dl>
+    <dl class="stats"><dt>클럽</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born?`${p.born}년 (${YEAR-p.born}세)`:"-"}</dd><dt>${p.foot?"키 · 주발":"키"}</dt><dd>${p.h?p.h+"cm":"-"}${p.foot?" · "+p.foot:""}</dd></dl>
   </button>`;
 }
 
+// 선수가 수천 명이라 120명씩 그리고, 맨 아래에 닿으면(또는 더 보기를 누르면) 이어서 그림
+const PAGE=120;
+let shown=PAGE,lastKey="";
 function render(){
   const q=st.q.trim().toLowerCase();
+  const key=JSON.stringify([q,st.chip,st.nat,st.league,st.club,st.sort,st.group,players.length]);
+  if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=players.filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
-    (!q||(p.kr+p.en+p.club+NAT[p.nat]).toLowerCase().includes(q)));
-  const S={no:(a,b)=>a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>a.born-b.born,tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
+    (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
+  const S={no:(a,b)=>a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   list.sort(S[st.sort]);
-  $("count").textContent=list.length;
+  $("count").textContent=list.length.toLocaleString();
   $("clubNote").innerHTML=st.club?` · <b>${esc(st.club)}</b> 선수만 보는 중 <button type="button" class="clear" id="clearClub">해제</button>`:"";
   if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없습니다. 필터를 하나 해제해 보십시오.</div>`;return}
-  if(!st.group){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`;return}
+  const total=list.length;list=list.slice(0,shown);
+  const more=total>list.length?`<div class="more"><button type="button" id="moreBtn">더 보기 <small>${list.length.toLocaleString()} / ${total.toLocaleString()}</small></button></div>`:"";
+  if(!st.group){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`+more;watchMore();return}
   const keyOf={pos:p=>p.g,nat:p=>p.nat,league:p=>p.league}[st.group];
-  const label={pos:k=>GROUP_NAME[k],nat:k=>NAT[k],league:k=>k}[st.group];
+  const label={pos:k=>GROUP_NAME[k],nat:k=>NAT[k]||k,league:k=>k}[st.group];
   const order={pos:["GK","DF","MF","FW"]}[st.group];
   const groups={};list.forEach(p=>(groups[keyOf(p)]??=[]).push(p));
   const keys=order?order.filter(k=>groups[k]):Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length);
-  $("out").innerHTML=keys.map(k=>`<h2 class="group-h">${st.group==="nat"?flag(k):""}${esc(label(k))}<small>${groups[k].length}명</small></h2><div class="grid">${groups[k].map(card).join("")}</div>`).join("");
+  $("out").innerHTML=keys.map(k=>`<h2 class="group-h">${st.group==="nat"?flag(k):""}${esc(label(k))}<small>${groups[k].length}명</small></h2><div class="grid">${groups[k].map(card).join("")}</div>`).join("")+more;
+  watchMore();
+}
+function showMore(){shown+=PAGE;const y=scrollY;render();scrollTo(0,y)}
+let moreObs=null;
+function watchMore(){
+  if(moreObs)moreObs.disconnect();
+  const b=$("moreBtn");if(!b||!("IntersectionObserver" in window))return;
+  moreObs=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){moreObs.disconnect();showMore()}},{rootMargin:"600px"});
+  moreObs.observe(b);
 }
 
 // 반응 데이터: 수집기(reactions/collect.py)가 만든 reactions.json을 페이지 옆에 두면 읽음
 let REACT=null;
-fetch("reactions/reactions.json", {cache: "no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d;if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+fetch("reactions/reactions.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d;if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
 const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
+  if(p.no>60&&!r){
+    return `<h3>뉴스 · 커뮤니티 반응</h3><p>이 선수는 아직 반응 수집 대상이 아닙니다. 아래 바로가기로 최신 기사와 커뮤니티 글을 확인할 수 있습니다.</p>`;
+  }
   if(!r||!r.n){
     return `<h3>뉴스 · 커뮤니티 반응</h3><p>${REACT?"최근 "+REACT.window_days+"일 동안 수집된 기사가 없습니다.":"아직 연결된 반응 데이터가 없습니다. 수집기가 실행되면 긍정·부정 비율, 언급량 추이, 키워드, 대표 헤드라인이 여기에 표시됩니다."} 지금은 바로가기로 확인할 수 있습니다.</p>`;
   }
@@ -577,13 +616,13 @@ const EXT=`<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2
 const favBtn=(kind,v)=>`<button type="button" class="fav-btn" data-kind="${kind}" data-v="${esc(v)}" aria-pressed="${isFavOf(kind,v)}" aria-label="즐겨찾기" title="${isFavOf(kind,v)?"즐겨찾기 해제":"즐겨찾기에 추가"}">${isFavOf(kind,v)?"★":"☆"}</button>`;
 function openDetail(no){
   openNo=no;
-  const p=players[no-1];const q=encodeURIComponent(p.kr);
+  const p=BY_NO[no];if(!p)return;const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
   const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
   $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p></div></div>
   <div class="d-grid"><div class="d-main">
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${NAT[p.nat]}</b></div><div><span class="lab">클럽${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
-    <div><span>출생</span><b>${p.born}년</b></div><div><span>키</span><b>${p.h}cm</b></div><div><span>주발</span><b>${p.foot}</b></div></div>
+    <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
         <a href="https://search.naver.com/search.naver?where=news&query=${q}" target="_blank" rel="noopener">네이버 뉴스${EXT}</a>
@@ -741,6 +780,22 @@ $("dBody").addEventListener("click",e=>{
 });
 $("dlg").addEventListener("click",e=>{if(e.target===$("dlg"))$("dlg").close()});
 $("dlg").addEventListener("close",()=>{st.open=0;save()});
-// 주소에 선수 번호가 있으면(공유 링크, GitHub 로그인 후 돌아왔을 때) 그 선수 화면을 바로 열기
-if(st.open)openDetail(st.open);
+$("out").parentElement.addEventListener("click",e=>{if(e.target.closest("#moreBtn"))showMore()});
+// 전체 명단(data/players.json, 매주 GitHub Actions가 ESPN 명단으로 갱신)을 받아 60명 뒤에 붙임
+// [번호, 한글명, 영문명, 포지션(GK/DF/MF/FW), 나라 코드, 클럽, 리그, 출생연도, 키, 등번호]
+fetch("data/players.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{
+  if(!d||!Array.isArray(d.players))return;
+  Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
+  FLAG_IMG=d.flag||{};
+  // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
+  Object.entries(d.curated||{}).forEach(([no,[club,league]])=>{const p=BY_NO[no];if(p&&/[가-힣]/.test(club)){p.club=club;p.league=league}});
+  players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],foot:""})));
+  DATA_AT=d.generated_at||"";
+  reindex();
+  if(location.hash.startsWith("#v-"))applyHash();
+  buildControls();render();
+  $("dataAt").textContent=DATA_AT?`(마지막 갱신 ${DATA_AT.slice(0,10)})`:"";
+}).catch(()=>{}).finally(()=>{if(st.open&&BY_NO[st.open]&&!$("dlg").open)openDetail(st.open)});
+// 주소에 선수 번호가 있으면(공유 링크) 그 선수 화면을 바로 열기. 61번 이후는 명단을 받은 뒤 열림
+if(st.open&&BY_NO[st.open])openDetail(st.open);
 </script>

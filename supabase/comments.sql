@@ -6,7 +6,7 @@ create extension if not exists pgcrypto with schema extensions;
 
 create table if not exists public.comments (
   id bigint generated always as identity primary key,
-  player_no int not null check (player_no between 1 and 999),
+  player_no int not null check (player_no between 1 and 99999),
   nick text not null default 'ㅇㅇ',
   body text not null,
   pw_hash text not null,
@@ -82,7 +82,7 @@ declare
   v_flat text;
   v_id bigint;
 begin
-  if p_player is null or p_player < 1 or p_player > 999 then raise exception '선수 번호가 올바르지 않습니다'; end if;
+  if p_player is null or p_player < 1 or p_player > 99999 then raise exception '선수 번호가 올바르지 않습니다'; end if;
   if char_length(v_body) = 0 then raise exception '내용을 입력해 주십시오'; end if;
   if char_length(v_body) > 300 then raise exception '댓글은 300자까지 쓸 수 있습니다'; end if;
   if char_length(v_nick) > 12 then raise exception '닉네임은 12자까지입니다'; end if;
