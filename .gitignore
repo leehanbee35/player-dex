@@ -1,1 +1,4 @@
 reactions/reactions.db
+# 배포할 때 만드는 검색 엔진용 파일 (data/build_pages.py)
+p/
+sitemap.xml

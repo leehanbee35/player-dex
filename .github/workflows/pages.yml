@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # 검색 엔진용 선수 페이지·sitemap.xml 만들기 (저장소에는 안 올림)
+      - run: python3 -u data/build_pages.py
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

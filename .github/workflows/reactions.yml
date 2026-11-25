@@ -65,6 +65,9 @@ jobs:
           ok=0; for i in 1 2 3; do git pull --rebase -X theirs origin main && git push && ok=1 && break; git rebase --abort 2>/dev/null || true; sleep 10; done; [ "$ok" = 1 ]
       # 도감 페이지(index.html + 최신 reactions.json)를 Pages용으로 묶기
       - uses: actions/configure-pages@v5
+      # 검색 엔진용 선수 페이지·sitemap.xml 만들기 (저장소에는 안 올림)
+      - run: python3 -u data/build_pages.py
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
