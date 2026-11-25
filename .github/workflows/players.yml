@@ -41,7 +41,8 @@ jobs:
           if [ -f data/photos.json ]; then git add data/photos.json; fi
           git diff --cached --quiet || git commit -m "선수 명단 갱신"
           # 다른 실행과 동시에 올리면 거절될 수 있어서 3번까지 다시 시도
-          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 10; done
+          # 자동으로 만든 데이터 파일끼리 충돌하면 방금 만든 쪽(-X theirs)을 씀. 3번 다 실패하면 실행을 실패로 표시
+          ok=0; for i in 1 2 3; do git pull --rebase -X theirs origin main && git push && ok=1 && break; git rebase --abort 2>/dev/null || true; sleep 10; done; [ "$ok" = 1 ]
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
