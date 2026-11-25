@@ -215,6 +215,25 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .sbar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--bg)}
 .sbar i{display:block}
 .s-pos{background:var(--mf)} .s-neu{background:var(--muted);opacity:.45} .s-neg{background:var(--fw)}
+/* 카드 아래 반응 막대: 최근 7일 기사의 긍정·중립·부정 비율 */
+.c-react{display:flex;align-items:center;gap:7px;padding:0 10px 9px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.c-react .mbar{flex:1;display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--line)}
+.c-react .mbar i{display:block;height:100%}
+.c-react b{color:var(--ink);font-weight:600}
+/* 첫 화면 "이번 주 화제" 줄 */
+.hot{margin:0 0 20px}
+.hot-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
+.hot-h h2{font-family:var(--f-display);font-weight:400;font-size:20px;margin:0}
+.hot-h small{color:var(--muted);font-size:12px}
+.hot-h button{font:inherit;font-size:12px;background:none;border:0;color:var(--df);cursor:pointer;padding:0;text-decoration:underline}
+.hot-list{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:10px;overflow-x:auto;padding:2px 2px 8px;margin:0;list-style:none;scrollbar-width:thin}
+.hot-item{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 10px 10px;cursor:pointer;font:inherit;color:inherit;text-align:center;width:100%;position:relative}
+.hot-item:hover{border-color:var(--muted)}
+.hot-item .rk{position:absolute;top:8px;left:10px;font-family:var(--f-num);font-weight:700;font-size:15px;color:var(--muted)}
+.hot-item .ph svg,.hot-item .ph img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 18%}
+.hot-item .nm{font-weight:700;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.hot-item .sub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.hot-item .c-react{padding:0;width:100%}
 .slegend{display:flex;gap:12px;font-size:12px;margin:6px 0 12px;font-variant-numeric:tabular-nums}
 .slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
 .slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
@@ -252,7 +271,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
       <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <label>정렬 <select id="sort">
-        <option value="no">도감 번호</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+        <option value="no">도감 번호</option><option value="hot">화제순 (최근 7일 기사)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
       </select></label>
       <label>묶어보기 <span class="seg" id="grp">
         <button type="button" data-g="" aria-pressed="true">없음</button>
@@ -268,6 +287,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 </header>
 
 <main class="wrap">
+  <section class="hot" id="hot" hidden></section>
   <div class="meta"><div><strong id="count">0</strong> 명 표시 중<span id="clubNote"></span></div><div>카드를 누르면 상세·반응 패널이 열립니다</div></div>
   <div id="out"></div>
 </main>
@@ -389,7 +409,7 @@ const FAV_KINDS=["nat","league","club"];
 const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
 let CLUBS=[],LEAGUES=[];
-const OK={o:["no","young","old","tall","name"],g:["pos","nat","league","club"],p:POS_CHIPS.map(c=>c[0]),n:[]};
+const OK={o:["no","hot","young","old","tall","name"],g:["pos","nat","league","club"],p:POS_CHIPS.map(c=>c[0]),n:[]};
 function reindex(){
   BY_NO={};players.forEach(p=>BY_NO[p.no]=p);
   CLUBS=[...new Set(players.map(p=>p.club))];
@@ -534,14 +554,14 @@ function buildControls(){
   // 즐겨찾기한 나라·리그는 목록 맨 위에 ★와 함께
   const favFirst=(kind,cnt)=>(a,b)=>(isFavOf(kind,b)-isFavOf(kind,a))||cnt[b]-cnt[a]||a.localeCompare(b);
   const star=(kind,k)=>isFavOf(kind,k)?"★ ":"";
-  $("nat").innerHTML=`<option value="">전체 나라</option>`+Object.keys(nc).sort(favFirst("nat",nc)).map(k=>`<option value="${k}">${star("nat",k)}${NAT[k]} (${nc[k]})</option>`).join("");
+  $("nat").innerHTML=`<option value="">전체 나라</option>`+Object.keys(nc).filter(k=>k&&NAT[k]).sort(favFirst("nat",nc)).map(k=>`<option value="${k}">${star("nat",k)}${NAT[k]} (${nc[k]})</option>`).join("");
   $("league").innerHTML=`<option value="">전체 리그</option>`+Object.keys(lc).sort(favFirst("league",lc)).map(k=>`<option value="${esc(k)}">${star("league",k)}${esc(k)} (${lc[k]})</option>`).join("");
   // 팀: 리그를 고르면 그 리그 팀만, 안 고르면 전체 팀
   const inLeague=st.league?players.filter(p=>p.league===st.league):players;
   const cc=inLeague.reduce((m,p)=>(m[p.club]=(m[p.club]||0)+1,m),{});
   if(st.club&&!cc[st.club]&&st.league&&DATA_AT)st.club=""; // 전체 명단을 받기 전에는 지우지 않음
   const byName=(a,b)=>(isFavOf("club",b)-isFavOf("club",a))||a.localeCompare(b,"ko");
-  $("club").innerHTML=`<option value="">${st.league?"전체 팀":"전체 팀 (리그를 먼저 고르면 편합니다)"}</option>`+Object.keys(cc).sort(byName).map(k=>`<option value="${esc(k)}">${star("club",k)}${esc(k)} (${cc[k]})</option>`).join("");
+  $("club").innerHTML=`<option value="">전체 팀</option>`+Object.keys(cc).sort(byName).map(k=>`<option value="${esc(k)}">${star("club",k)}${esc(k)} (${cc[k]})</option>`).join("");
   $("nat").value=st.nat;$("league").value=st.league;$("club").value=st.club;$("sort").value=st.sort;$("q").value=st.q;
   syncSeg();syncFav();
   ["nat","league","club","sort"].forEach(id=>syncDD($(id)));
@@ -573,11 +593,29 @@ function card(p){
   return `<button type="button" class="card ${p.g}" data-no="${p.no}">
     <div class="c-head"><span class="c-no">No.${String(p.no).padStart(3,"0")}</span><span class="c-name">${esc(p.kr)}</span></div>
     <div class="c-art">${art(p)}</div>
-    <div class="badges"><span class="bdg">${p.pos}</span><span class="bdg ghost">${flag(p.nat)}${NAT[p.nat]}</span></div>
+    <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}</div>
+    ${reactLine(p)}
     <dl class="stats"><dt>팀</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born?`${p.born}년 (${YEAR-p.born}세)`:"-"}</dd><dt>${p.foot?"키 · 주발":"키"}</dt><dd>${p.h?p.h+"cm":"-"}${p.foot?" · "+p.foot:""}</dd></dl>
   </button>`;
 }
 
+// 반응: 최근 7일 기사 수와 긍정·중립·부정 비율 (수집 대상 선수만)
+const hotN=p=>{const r=typeof REACT!=="undefined"&&REACT&&REACT.players&&REACT.players[p.no];return r&&r.n||0};
+function reactLine(p){
+  const n=hotN(p);if(!n)return "";
+  const s=REACT.players[p.no].sentiment,t=s.pos+s.neu+s.neg||1,pc=k=>Math.round(s[k]/t*100);
+  return `<div class="c-react" title="최근 ${REACT.window_days}일 기사 ${n}건 · 긍정 ${pc("pos")}% · 중립 ${pc("neu")}% · 부정 ${pc("neg")}%"><span class="mbar" aria-hidden="true"><i class="s-pos" style="width:${pc("pos")}%"></i><i class="s-neu" style="width:${pc("neu")}%"></i><i class="s-neg" style="width:${pc("neg")}%"></i></span><span>기사 <b>${n}</b></span></div>`;
+}
+// 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "이번 주 화제" 상위 10명
+function renderHot(){
+  const box=$("hot");
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&st.sort!=="hot";
+  const top=plain?players.filter(hotN).sort((a,b)=>hotN(b)-hotN(a)).slice(0,10):[];
+  if(!top.length){box.hidden=true;box.innerHTML="";return}
+  box.hidden=false;
+  box.innerHTML=`<div class="hot-h"><h2>이번 주 화제</h2><small>최근 ${REACT.window_days}일 기사 수 기준 · <button type="button" id="hotAll">화제순으로 전체 보기</button></small></div>
+    <ol class="hot-list">${top.map((p,i)=>`<li><button type="button" class="hot-item" data-no="${p.no}"><span class="rk">${i+1}</span><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span><span class="sub">${esc(p.club)}</span>${reactLine(p)}</button></li>`).join("")}</ol>`;
+}
 // 선수가 수천 명이라 120명씩 그리고, 맨 아래에 닿으면(또는 더 보기를 누르면) 이어서 그림
 const PAGE=120;
 let shown=PAGE,lastKey="";
@@ -587,7 +625,8 @@ function render(){
   if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=players.filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&
     (!q||(p.kr+" "+p.en+" "+p.club+" "+(NAT[p.nat]||"")).toLowerCase().includes(q)));
-  const S={no:(a,b)=>a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
+  renderHot();
+  const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   list.sort(S[st.sort]);
   $("count").textContent=list.length.toLocaleString();
   $("clubNote").innerHTML="";
@@ -614,7 +653,7 @@ function watchMore(){
 
 // 반응 데이터: 수집기(reactions/collect.py)가 만든 reactions.json을 페이지 옆에 두면 읽음
 let REACT=null;
-fetch("reactions/reactions.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d;if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
+fetch("reactions/reactions.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).then(d=>{REACT=d;render();if(st.open&&$("dlg").open)openDetail(st.open)}).catch(()=>{});
 const S_LABEL={pos:"긍정",neu:"중립",neg:"부정"};
 function reactionHTML(p){
   const r=REACT&&REACT.players&&REACT.players[p.no];
@@ -646,7 +685,7 @@ function openDetail(no){
   const wasOpen=$("dlg").open,y=$("dBody").scrollTop;
   $("dBody").innerHTML=`<div class="d-top">${art(p)}<div><h2>${esc(p.kr)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p></div></div>
   <div class="d-grid"><div class="d-main">
-    <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${NAT[p.nat]}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
+    <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
@@ -798,6 +837,10 @@ $("favBar").addEventListener("click",e=>{
 });
 $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"){st.club="";buildControls();save();render()}});
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
+$("hot").addEventListener("click",e=>{
+  if(e.target.id==="hotAll"){st.sort="hot";buildControls();save();render();return}
+  const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no);
+});
 $("closeD").addEventListener("click",()=>$("dlg").close());
 // 상세 화면의 나라·클럽·리그 ☆ 버튼. 이 브라우저에만 저장됨
 let openNo=0;
