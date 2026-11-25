@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T13:15+09:00",
+ "generated_at": "2026-11-25T14:12+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "tracked": [
@@ -469,16 +469,274 @@
   8202,
   8296,
   8345,
-  8355
+  8355,
+  10639,
+  10640,
+  10641,
+  10642,
+  10643,
+  10644,
+  10645,
+  10646,
+  10647,
+  10648,
+  10649,
+  10650,
+  10651,
+  10652,
+  10653,
+  10654,
+  10655,
+  10656,
+  10657,
+  10658,
+  10659,
+  10660,
+  10661,
+  10662,
+  10663,
+  10685,
+  10686,
+  10687,
+  10688,
+  10689,
+  10690,
+  10691,
+  10692,
+  10693,
+  10694,
+  10695,
+  10696,
+  10697,
+  10698,
+  10699,
+  10700,
+  10701,
+  10702,
+  10703,
+  10704,
+  10705,
+  10706,
+  10707,
+  10708,
+  10722,
+  10723,
+  10724,
+  10725,
+  10726,
+  10727,
+  10764,
+  10765,
+  10766,
+  10767,
+  10768,
+  10769,
+  10770,
+  10771,
+  10772,
+  10773,
+  10774,
+  10775,
+  10776,
+  10777,
+  10778,
+  10779,
+  10780,
+  10781,
+  10782,
+  10783,
+  10784,
+  10785,
+  10786,
+  10799,
+  10800,
+  10801,
+  10802,
+  10803,
+  10804,
+  10805,
+  10806,
+  10807,
+  10808,
+  10809,
+  10810,
+  10811,
+  10812,
+  10813,
+  10814,
+  10815,
+  10816,
+  10817,
+  10818,
+  10819,
+  10820,
+  10821,
+  10822,
+  10833,
+  10834,
+  10835,
+  10836,
+  10837,
+  10838,
+  10839,
+  10840,
+  10841,
+  10842,
+  10843,
+  10844,
+  10845,
+  10846,
+  10847,
+  10848,
+  10849,
+  10850,
+  10851,
+  10852,
+  10853,
+  10854,
+  10855,
+  10856,
+  10866,
+  10867,
+  10868,
+  10869,
+  10870,
+  10871,
+  10872,
+  10873,
+  10874,
+  10875,
+  10876,
+  10877,
+  10878,
+  10879,
+  10880,
+  10881,
+  10882,
+  10883,
+  10884,
+  10885,
+  10898,
+  10899,
+  10900,
+  10901,
+  10902,
+  10903,
+  10904,
+  10905,
+  10906,
+  10907,
+  10908,
+  10909,
+  10910,
+  10911,
+  10912,
+  10913,
+  10914,
+  10915,
+  10916,
+  10917,
+  10918,
+  10919,
+  10920,
+  10921,
+  10922,
+  10934,
+  10935,
+  10936,
+  10937,
+  10938,
+  10939,
+  10940,
+  10941,
+  10942,
+  10943,
+  10944,
+  10945,
+  10946,
+  10947,
+  10948,
+  10949,
+  10950,
+  10951,
+  10952,
+  10953,
+  10954,
+  10955,
+  10956,
+  10957,
+  10958,
+  10989,
+  10990,
+  10991,
+  10992,
+  10993,
+  10994,
+  10995,
+  10996,
+  10997,
+  10998,
+  10999,
+  11000,
+  11001,
+  11002,
+  11003,
+  11004,
+  11005,
+  11006,
+  11007,
+  11019,
+  11020,
+  11021,
+  11022,
+  11023,
+  11024,
+  11025,
+  11026,
+  11027,
+  11028,
+  11029,
+  11030,
+  11031,
+  11032,
+  11033,
+  11034,
+  11035,
+  11036,
+  11037,
+  11038,
+  11039,
+  11052,
+  11053,
+  11054,
+  11055,
+  11056,
+  11057,
+  11058,
+  11059,
+  11060,
+  11061,
+  11062,
+  11063,
+  11064,
+  11065,
+  11066,
+  11067,
+  11068,
+  11069,
+  11070,
+  11071,
+  11072,
+  11073
  ],
  "players": {
   "1": {
-   "n": 112,
-   "h24": 41,
+   "n": 114,
+   "h24": 33,
    "sentiment": {
     "pos": 12,
-    "neu": 53,
-    "neg": 47
+    "neu": 54,
+    "neg": 48
    },
    "daily": [
     {
@@ -503,11 +761,11 @@
     },
     {
      "date": "2026-11-24",
-     "n": 58
+     "n": 59
     },
     {
      "date": "2026-11-25",
-     "n": 10
+     "n": 11
     }
    ],
    "topics": [
@@ -536,8 +794,8 @@
      "sentiment": "neu"
     },
     {
-     "title": "메시·손흥민 나란히 침묵…정상빈, '나홀로' 활약",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBoWkpxMGJuc2UzeG9QZXY1MjFTa1pkQmEzNElKelhwYkxQaEtvYnAtTGk0VW9sTlAwNEJrNzRheWhSV21nb2hjbzB4ZGFCVmN6a3prclVVRjJQVDJYSDF0a2ZmeWY3Q0s1YUpoWg?oc=5",
+     "title": "손흥민의 '절대 위기'",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOTEZpa2tsSk5DV3dhdmZhdFJCcEJNa09PQ2VOUkktUGtKajFMOWNOTDJjYWdiNVZVck93REV6b2I3RXYxNFhRbmNJbVNaOEVYZnhCT204N194R2V0a1lHQjJ4dldyXzU4SXVRLTNRd3pxUnZJUlY5TGFwVzZ4MHRsNtIBgAFBVV95cUxOTEZpa2tsSk5DV3dhdmZhdFJCcEJNa09PQ2VOUkktUGtKajFMOWNOTDJjYWdiNVZVck93REV6b2I3RXYxNFhRbmNJbVNaOEVYZnhCT204N194R2V0a1lHQjJ4dldyXzU4SXVRLTNRd3pxUnZJUlY5TGFwVzZ4MHRsNg?oc=5",
      "date": "2026-11-25",
      "sentiment": "neg"
     }
@@ -570,7 +828,7 @@
   },
   "2": {
    "n": 104,
-   "h24": 10,
+   "h24": 9,
    "sentiment": {
     "pos": 17,
     "neu": 64,
@@ -953,11 +1211,11 @@
    }
   },
   "6": {
-   "n": 57,
-   "h24": 27,
+   "n": 58,
+   "h24": 28,
    "sentiment": {
     "pos": 15,
-    "neu": 39,
+    "neu": 40,
     "neg": 3
    },
    "daily": [
@@ -987,7 +1245,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 26
+     "n": 27
     }
    ],
    "topics": [
@@ -1004,6 +1262,12 @@
    ],
    "headlines": [
     {
+     "title": "'황인범 떠나고 어쩌다 이렇게 됐나!'…친정팀 페예노르트의 끝없는 추락, 황인범과의 재회서도 0-1 패배→챔스 32위 굴욕",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE11NE9mZVB6VUI1cjdEdmxaNHFsdWF4TFFtc2V0YURIMmk4T0FwMEtOZk9zUHZMZnJtM3JDdE11Z0JFU3pRSGNQbWlNdVNOZGpsVkJtT2xfNFdZQ1NnWTdsWmFQWkVCbkZFV3FEd0JfamFPdw?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
      "title": "포르투의 황인범, 친정팀 페예노르트와 UCL서 맞대결…팀 승리에 힘 보태",
      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5IOWxHQlhxV0NSejFRN1JFTkpiTjExYkVwc0VQRXlIYVNnV3NyLUpYVnJvLWtXb1ZJbzRwMDI5SEJQaS1MXy1MSk5MWmhsemxSUWcyM2ZRRURmSDc1al9MVldB?oc=5",
      "date": "2026-11-25",
@@ -1014,12 +1278,6 @@
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1iRmpaQXB6Q2pPNUdtcEVoVW9QWnZCeGhqVDFiUE9jcDNyVXFGLTJCWDJmaGRYX3QzMU1oSU42VkRCUnNHb1lXSlhxTnQ0eWlGSmxSSlpqWkx3X2JQbVN2QXZ5Y09aLXgxUEE3MFZ6OVF4Zw?oc=5",
      "date": "2026-11-25",
      "sentiment": "pos"
-    },
-    {
-     "title": "'친정팀과 첫 맞대결' 황인범, 페예노르트전 교체 출전...포르투, UCL 1-0 신승으로 2연승",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5lOHRzQTZHa1hSeDVGc1FIU0hPbWpyb1gyeEJZS21jaTNPQmZyZHZrRTluUkV2V3VKN2x6T2VKbTJrXzlrUUlBaTc1UGU2TVZKSlZxNG9ZUEE1cUk5dGtIekppaTdlV3NaaWtCNkN4eDBmWXQ3c2xEbzVJMA?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neu"
     }
    ],
    "comm": {
@@ -1049,11 +1307,11 @@
    }
   },
   "7": {
-   "n": 31,
+   "n": 32,
    "h24": 0,
    "sentiment": {
     "pos": 19,
-    "neu": 11,
+    "neu": 12,
     "neg": 1
    },
    "daily": [
@@ -1071,7 +1329,7 @@
     },
     {
      "date": "2026-11-22",
-     "n": 23
+     "n": 24
     },
     {
      "date": "2026-11-23",
@@ -1331,10 +1589,10 @@
    ]
   },
   "11": {
-   "n": 23,
-   "h24": 16,
+   "n": 24,
+   "h24": 17,
    "sentiment": {
-    "pos": 19,
+    "pos": 20,
     "neu": 1,
     "neg": 3
    },
@@ -1365,7 +1623,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 16
+     "n": 17
     }
    ],
    "topics": [
@@ -1523,12 +1781,12 @@
    }
   },
   "13": {
-   "n": 23,
-   "h24": 14,
+   "n": 26,
+   "h24": 17,
    "sentiment": {
-    "pos": 17,
+    "pos": 19,
     "neu": 6,
-    "neg": 0
+    "neg": 1
    },
    "daily": [
     {
@@ -1557,37 +1815,37 @@
     },
     {
      "date": "2026-11-25",
-     "n": 13
+     "n": 16
     }
    ],
    "topics": [
     "경기력",
     "이적",
-    "기타"
+    "인터뷰"
    ],
    "keywords": [
     "연봉 인상",
     "재계약 임박",
     "원더골",
-    "주급 인상",
-    "계약 연장"
+    "역전골",
+    "주급 인상"
    ],
    "headlines": [
     {
-     "title": "교체 투입 15분 만에 ‘헤이 주드’ 떼창 부른 환상 발리슛…벨링엄 “공이 좋게 튀어 올라 그냥 때렸다”",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9yY3NCMXZyUXpzQTEwNVVWT2lIa25EQ0VQOWNKbDFKbk8xMmJyWU5oWkFHTkd5RnNDMmMxTVVTOGdGQ09Dc3NGUDEzTHZZR2dGNEtvY0d4U2dKRzg?oc=5",
+     "title": "레알 마드리드 폭발: 무리뉴의 분노와 벨링엄의 천재성.",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOTTh4eWdRcHJUWmxsNzN1TnZaenJTa2lkM1BzVGlmY29USTk2c09ISlpneVZiYTZpd1N6MFYzV0kzZldpRGl4NmR6RUw0ZTF3clhUMkl1TFViZXFuVmFQNFFuQWRmMkVkeXJkV2lWMmgyTmdzZnB1dFVNbEdpQTFidVRIWkIza2JvOU5LUXJVOVg?oc=5",
      "date": "2026-11-25",
      "sentiment": "pos"
     },
     {
-     "title": "이르면 금주 안으로 ‘오피셜’ 공식발표 나온다! ‘연봉 대폭 인상 약속’ 레알 마드리드, 벨링엄과 장기 재계약 체결 임박",
-     "url": "https://news.google.com/rss/articles/CBMi3wtBVV95cUxQTG8xM3JrWU44U0RtYzNFcUlncGNoWkdJSUhDbnU4em8zX1oyY0dYREVQbXp5cUN1MERzbmdCaGNOWl9oTHVOemszcFZoaHJucjMyYV9xaWY5RGJIem1FN1lVS1N5SE9kMEdwRHE5RVF3bEFNVmFPMkZSaHBCS0JGVkI5WDJwd2x5M1luUjdnZVN5ZXp2c2ZjOE1TVHJoc01FTUFHOHBTbGJoSWdoVkpIV1JDdXJydzkzMWZqZnR5Q2lxZkphZFI2Z2ZrSi1jcVNFTW8zUTluWkRDVHVibUUwZmpTUURDRm5EbFdUMlZUOXllbURQcE9QUU1PN0tNU1RIZmhPQ0pTZGtNVzBfbHhlel8yU0o2ajJuS0J3UnVKd3d0V3NxVkI1Z0QxbmNOdXFXcFhXcjJwOXhDVHd6dkpHcTNUR0NUUGRmOV81VnhyaHRhMGZ1bEtFWXl3bER5SHNTNjdvWHp1WVRsX09QOHlWcDNGX3Rod3NDMUttRzl0YldKNVdKcGJoRlVBcVRGVm81Uy1yR0hKUERkRVZFT3RJamZXdDBHQmt0bURTaGVnSTFnOHppQnNoYTFTSDRkVmt3dUN1UHJYaXMwenZLcXQwZzlrRWFIWHJrdG5WeWlnOG9aZVJNZ0JWbWs0eDhmRy16OUY4bTg4N3dpR0p3enF4NzhOVzJQZk12S1N3QldiM2o5V0Q2OFJJRmRfYjFVRnZiaGs0TFRFWGd3NXhSMEtyTlNsZHdFNE1DdlR3UlM2N01aYWNGWnBJY1BBYURoQkdBaUZfeGdXYktIZ19ub1d0WTdDWFhIUHpUNVBXdmp3NE8wTE84NmNZU2gza015dGFiQ2pISjdwdlNFZVNhMWxGX1M2Nkpqc19JLTgtSkw2V0loNDIwSWJPTzRibkJVN09HTWJXVlhkb25jQ1lVOHNDY3lDYmhLNXo0STBMb2NJaTFhbzVERVFxNUswQjZZSVg2WnpqcTNKRnA0YUVucjVaVmZhQ0doNGdDcElxQWVOeUxmSjZ1QV9vYl9lU3BidVlxTlhMQTRHUlpQMmFwU243RUVCVFkxY01ER0pBdld6dUtqZEJrTEJBb3hyN0VzWEJsbWJZSXNIQlhUaXhidDVZSnNDbUJINGdmTGlnSkdvUmZTSEI1Tml3WGNPNjNJWDJqZnZlWmhMNWRCaE5DNXRMMTR4ZWNSM1E2TDhMVlQwcU9NZmVELW1fOXRGSF9QVmVjVmxRQktDTWx6aGg5ZFNiWGhLOVpBNFE3S0FfcEdLTFRDT1otMXRKaVlRTTg1Sm1zNzMyR2F0Q2IwVV80SGtyazNuZVJJXzg0OFhWRmpXR0kyVExzRnZacWhFR0t6b0hoVzJHbkRWX2NBcERNcDFleklNUVhNYmdRMkNHbnRYV092bUN4Rk1pUDFfdnNGSHg2dUpTTnlha2Q4R0VyTS1yU2VyQUlMMWVIQTdOOHZmTVI5ZkwxU2dkNW83SS1lemRFdlV5N0R6cWRHOHhKYWFtTGpJOWtNRmFrUGp4ZW5nUHl4czVDSWhSS3dXWHZTRGpFN1V3U2MtLVJmd2VFZkhGb0RxdXFSVEpxaXZkdXpSU2ZRUFo3eWtYeGNwVTQ2d3FoU092NS1ybU9kcVZzQW9GaGxzdXZfMEJrSmVCUmJhbDBtcXBtTm9RZ3FLTU5JYW96OFE2bzZSaFhtTG5wZHRJdDM3OUgtMm9pdTltcVNaRVVlZzJHakhITVI3bTlta3VPakp0MEZrX0ZCUjVISlpOMm1pUi1iOTZ5RGM3V2FiNmZ5M2hUazNHdlUwVmx1VE5Hb25qWVpqa2w4NzNmeVk5STBIejZEdktaRHBLVWtiT25QZUU5Mmg4dTBZVEM2LV9WQTdXdG1QclU0alFVam11dmZSajJfTkR2QVU4NkFSaDR4Y2Q1WTVTaV9UOXhSbnlvZHJ1RDFKM3l1X2FDS2pjS01FcDl6aHJSYjRjZm9sYXJiN3ZIUEhqUlBZUWFNOWs?oc=5",
+     "title": "조세 무리뉴: \"벨링엄을 선발에서 제외한 것은 내 실수였다.\"",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPeExBSHpld0hPMGdPaUQ5T2dGVmo3ZGtvX096ZldFT3M3RFlrVzZJQW1fOHBFRHdFdS1ZeDJBRTFTcWxZeEEtUVliNGpncGQ2VWU2UzJHaXIyQjRmQ0R6MUlCMWxpV25tazV2RUpZSDBXZ25uWlRoU1dRRzE2a1pkWjV4eVBPZw?oc=5",
      "date": "2026-11-25",
-     "sentiment": "neu"
+     "sentiment": "neg"
     },
     {
-     "title": "이래서 손흥민도 믿고 따랐나…원더골 벨링엄 “내가 더 잘하는 이유? 감독이 무리뉴여서”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9wUnJ5MERvWTdqUW9TVXg5ZVQxTll1dnM0NkZCczlQNm13ZmZBd1dSZmM0TmlPd2NXb2ZkbEJpb3lmX3BWTzZIVzMyTm85NHhmcHZqUURpa19KQmI3X21ER0Y2anBHeXpYUk5Semg2am1vdw?oc=5",
+     "title": "교체 투입 15분 만에 ‘헤이 주드’ 떼창 부른 환상 발리슛…벨링엄 “공이 좋게 튀어 올라 그냥 때렸다”",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9yY3NCMXZyUXpzQTEwNVVWT2lIa25EQ0VQOWNKbDFKbk8xMmJyWU5oWkFHTkd5RnNDMmMxTVVTOGdGQ09Dc3NGUDEzTHZZR2dGNEtvY0d4U2dKRzg?oc=5",
      "date": "2026-11-25",
      "sentiment": "pos"
     }
@@ -1661,11 +1919,11 @@
    "headlines": []
   },
   "15": {
-   "n": 13,
-   "h24": 1,
+   "n": 14,
+   "h24": 2,
    "sentiment": {
     "pos": 3,
-    "neu": 6,
+    "neu": 7,
     "neg": 4
    },
    "daily": [
@@ -1695,7 +1953,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 1
+     "n": 2
     }
    ],
    "topics": [
@@ -1704,11 +1962,11 @@
     "부상"
    ],
    "keywords": [
+    "경기 예측",
+    "결장",
     "챔피언스 리그",
     "임신 세리머니",
-    "동료 반응",
-    "페널티킥 실축",
-    "역전승"
+    "동료 반응"
    ],
    "headlines": [
     {
@@ -1718,14 +1976,14 @@
      "sentiment": "neg"
     },
     {
-     "title": "바르셀로나는 사바 FK와의 경기에서 야말 없이 경기를 치르게 될 것입니다.",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5nR1dSQk9idVRmdk9uclFyTS01VUl4TUFSdW0yc3ZadENoTVlPRWMyejlmc0JRbEhOSEItWHhnUlJLeXB2cEQ0OVFucjRnNlFjOVMzbmpOOEpuelF3UjdIZThjaTJmQmpKZjZ2NjZiM1FRcGp3RnhieU5vRQ?oc=5",
-     "date": "2026-11-24",
+     "title": "사바 vs 바르셀로나 경기 예측 (11월 26일): 라민 야말이 결장하는 가운데, 바르셀로나는 어려움을 겪을까요?",
+     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPTUV1TlU4dDFVak0xbDlzck10ODJvY2VzdThieElyUlNDeHJXTlpid1V4cW0xN1BPakUyTzJ6TmNoVFk5NVhPc0FCUzFVMlNBRzcxWHpsTW1ITFU5NXZ2VmJFaFpNbExROC1FU2R3cTBmOVVXQUZfc1duOTlNUk54T2loUHRPemF3YW9adGU0a3llaWtlWVNQbHQtWlRSQXhu?oc=5",
+     "date": "2026-11-25",
      "sentiment": "neu"
     },
     {
-     "title": "챔피언스 리그 : 엔겔 부상, 라미네 야말은 바르셀로나가 사바 FK에 침입하지 못하게한다.",
-     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQbHhWdl9wcUNmdWM1dXlVY2dUNnJsRFpKbVhJZEstVHZXYnh6aVA4RnRBTzRndUZGWG9DaEJJZUZuRmZMa2tyYm1xblRYRFMyT2NieWJHVG5HcWxBbUdyMUZJRno0UDFLRzVBU3EyM09CSmt5bmlLeGJrQ2xZTG8tS2hOWXpXUFV2Ti1mVXptN2REY3FNeTg1NHZZSmtraXZTSy0tMDFrbkc3VDYzaTdmeC02dGU?oc=5",
+     "title": "바르셀로나는 사바 FK와의 경기에서 야말 없이 경기를 치르게 될 것입니다.",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5nR1dSQk9idVRmdk9uclFyTS01VUl4TUFSdW0yc3ZadENoTVlPRWMyejlmc0JRbEhOSEItWHhnUlJLeXB2cEQ0OVFucjRnNlFjOVMzbmpOOEpuelF3UjdIZThjaTJmQmpKZjZ2NjZiM1FRcGp3RnhieU5vRQ?oc=5",
      "date": "2026-11-24",
      "sentiment": "neu"
     }
@@ -1908,12 +2166,12 @@
    }
   },
   "18": {
-   "n": 18,
-   "h24": 6,
+   "n": 19,
+   "h24": 7,
    "sentiment": {
     "pos": 0,
     "neu": 5,
-    "neg": 13
+    "neg": 14
    },
    "daily": [
     {
@@ -1942,7 +2200,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 5
+     "n": 6
     }
    ],
    "topics": [
@@ -1951,11 +2209,11 @@
     "이적"
    ],
    "keywords": [
+    "건강 이상",
+    "연봉 재협상",
     "선수협 성명",
     "연봉 재검토",
-    "구단 발언",
-    "건강 이상",
-    "연봉 재협상"
+    "구단 발언"
    ],
    "headlines": [
     {
@@ -1965,16 +2223,16 @@
      "sentiment": "neg"
     },
     {
-     "title": "나흘 만에 두 번 쓰러진 23세 천재, 이제 연봉까지 문제 삼나...무시알라 건강 이상에 고위층 재협상 거론→선수협 분노",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE93Wjk2bHhWZDIyaFF2bzAwTjM3S1A0Qmt3MEloWkdmbDZFTGVoUU9UaEJQSzkzalZTT0lmWF80UEkxMmwwTlUtQm1IQjRTMVFCS0Rz?oc=5",
+     "title": "나흘 만에 두 번 쓰러진 23세 천재, 이제 연봉까지 문제 삼나...무시알라 건강 이상에 고위층 재협상 거론→선수협 분노 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1QZW1uUGtiNUtBZWl5b0U2UjlmRV9zR0hjQVBFOUVEby1TMzZnOGZDTHpydUJBR0V4bGFXZXlKNHNrelVzR0t1V0NHUGY2YjlQSDZxdi1lLWNUSUtMWFl0Zm0tQW9mR3RrWDBNaDUwWdIBb0FVX3lxTE1QZW1uUGtiNUtBZWl5b0U2UjlmRV9zR0hjQVBFOUVEby1TMzZnOGZDTHpydUJBR0V4bGFXZXlKNHNrelVzR0t1V0NHUGY2YjlQSDZxdi1lLWNUSUtMWFl0Zm0tQW9mR3RrWDBNaDUwWQ?oc=5",
      "date": "2026-11-25",
      "sentiment": "neg"
     },
     {
-     "title": "“부상이 계약 파기 근거 될 수 없어” 국제선수협회 맹비난에 한발 물러선 뮌헨…무시알라 측과 긴급 회동",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE82X2RPejYtRjFjMTZTMDZpZFZsdDBxQldNNlJnalZJMkdOYWJOV29ZcjVkZGVDcV9hdl9mWjg1VWZZeWhzdTR4NE5yQnVmUGVZeTF1dWdGcVBhaVk?oc=5",
+     "title": "나흘 만에 두 번 쓰러진 23세 천재, 이제 연봉까지 문제 삼나...무시알라 건강 이상에 고위층 재협상 거론→선수협 분노",
+     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE93Wjk2bHhWZDIyaFF2bzAwTjM3S1A0Qmt3MEloWkdmbDZFTGVoUU9UaEJQSzkzalZTT0lmWF80UEkxMmwwTlUtQm1IQjRTMVFCS0Rz?oc=5",
      "date": "2026-11-25",
-     "sentiment": "neu"
+     "sentiment": "neg"
     }
    ],
    "comm": {
@@ -2970,10 +3228,10 @@
    }
   },
   "35": {
-   "n": 42,
-   "h24": 12,
+   "n": 43,
+   "h24": 13,
    "sentiment": {
-    "pos": 13,
+    "pos": 14,
     "neu": 16,
     "neg": 13
    },
@@ -3004,13 +3262,13 @@
     },
     {
      "date": "2026-11-25",
-     "n": 10
+     "n": 11
     }
    ],
    "topics": [
     "경기력",
-    "논란",
-    "기록"
+    "기록",
+    "논란"
    ],
    "keywords": [
     "득점",
@@ -3021,6 +3279,12 @@
    ],
    "headlines": [
     {
+     "title": "호날두는 통산 1,000골이라는 대기록 달성까지 단 13골만 더 넣으면 된다.",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcDBqV3N3VWlCSUlKVWJfRFNFN0JpeWQ2N3kxTktZNDdNLUticmMzRG5NS2NsaUd1NVNxZDFjVTFiQTFKZk9lcHVrZVZmb3ZoaGl2Yk1qT0swOVRZYVBDZEFwd1FqSjljNHYtY0JJX3R0YUY4MVU5VC00NHk5TkEtb0VGYXhHUjEzVWIyZHFwSXBoY0tlUG1NNVJXb1pPTm5DLUE?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
      "title": "호날두는 1,000골이라는 대기록 달성에 거의 근접했다.",
      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQ3R6eVc3d2Q4ZktQcTZ4UDF1d09FdV9yT2x2NTJiYXM0LVJiUFNlQXRWMUNuRHVnQVJBV2p3cjhEU0tYakVfRFZmSTFKRVZxN1NjMUxxLWZmYlVsZmw2b1VVb1haUjctUEZBUGtGemZVamo4eGhKMzZzU1hfQ1ZoVkhKUGpkLWRXUmRv?oc=5",
      "date": "2026-11-25",
@@ -3029,12 +3293,6 @@
     {
      "title": "호날두는 3경기에서 5골을 기록하며 1,000골 달성을 향해 빠르게 나아가고 있다.",
      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQN3VzQjczZFR1akIyUlFVVlNDdzBtMGhYLXhjYVRuZV8wWFd4QTVtdi1GTU8ydTNMUU15UWNQSXBaRnlGdXJnNHdaN3prUXdDRGtzZG1HMlZZV2owU1FCQVhBRUV4RkNKYkc5eDJqM1Fnc2hpSHUtcXdQRllfTnlzRXd2UktPazUyT05SUzBKUE1DWkNBb0gxLWZR?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "pos"
-    },
-    {
-     "title": "호날두 통산 987호 골·펠릭스 환상 오버헤드킥, 알나스르 3연승",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1GWTFTakkxalctdmdCdDBUNVZKNU5HLWVMYkF5Z2JrTHBta3ZlbC1lekgxMXdBcG9hd2F2c1N1U0plNkpHTE55cW5vTmtsTWk2TklhTg?oc=5",
      "date": "2026-11-25",
      "sentiment": "pos"
     }
@@ -3228,7 +3486,7 @@
   },
   "39": {
    "n": 29,
-   "h24": 6,
+   "h24": 5,
    "sentiment": {
     "pos": 3,
     "neu": 20,
@@ -4348,7 +4606,7 @@
   },
   "59": {
    "n": 20,
-   "h24": 8,
+   "h24": 6,
    "sentiment": {
     "pos": 13,
     "neu": 4,
@@ -5884,11 +6142,11 @@
    ]
   },
   "516": {
-   "n": 31,
-   "h24": 18,
+   "n": 34,
+   "h24": 21,
    "sentiment": {
     "pos": 7,
-    "neu": 10,
+    "neu": 13,
     "neg": 14
    },
    "daily": [
@@ -5918,7 +6176,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 16
+     "n": 19
     }
    ],
    "topics": [
@@ -5935,22 +6193,22 @@
    ],
    "headlines": [
     {
+     "title": "[오피셜] '데뷔전 0-4 대패' 포체티노는 억울하다...레니 요로 '전반전 퇴장' 징계 철회→다음 경기 출전 가능",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QM3RwbEdoNVRTVTNSdzJVTjNtYjBfNDhDNlR0eUZnUXNDTUpRUEpreWszdURaWHJlaVNybHdjdm04VEg5TzYtSkdWUWloNy1ac09pWWxYckp6N0ZnakhVREhHYVJBcDB1U29RRkFudmI?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
      "title": "포체티노 맨유 데뷔전서 퇴장당한 요로…오심으로 징계 철회",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB2dWlvR3FzeUZxUk4xUkNJa0lmZ1dJYm1hR3JpOHRkeGEyQnh0R3g2RjlXa3BFWUFRblozV2xleTZnWkRfQlc2Y09JUE0tdURIcUxmSWlhWVpXeUs5djNlcNIBeEFVX3lxTE9Nd1Zfc25ZNnF1aXRsUlM4aklNM0JmZkxkMVJUVGJjU3ZwMjFvSkRWLU05RFFfd0djNzBFTFF3cjJsTmVkeE90SEhrS0Rwa05DWmE3WV9KU2RHNHVhSDFMRXNkaWkyWWx4WXNGWEJoXzRXQ1dyN3FVYQ?oc=5",
      "date": "2026-11-25",
      "sentiment": "neg"
     },
     {
-     "title": "맨유, 리버풀전 요로 퇴장 징계 철회⋯포체티노 VAR 작심 비판",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5uRVZHQWlzX21WTklJS3VKaElZOF90MzZKNDctYkJyRm9IYUdMRmZQRVdncVpxNnlIVUNGRUpITFJkWHVRUmN3UEp4eEVVSy02d3V1Rg?oc=5",
+     "title": "포체티노 감독은 요로의 레드카드가 취소되자 격분했다.",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQQ1YzQ1g5YlJFZGFBQjFVaXAzSG04Zlo1aHd0dERGazNsSnp2WkV4Q0FHLUlxbU1GNHU2MjJNRjQ0VmROWGtxZV81ZDN6VVFoYlBuVDNQVmdmYm5Ha2UxN1l5emdaSVlHYlNBWFhuTGhQOGhXUTRKZGtNNFNDVDcxM0tpUQ?oc=5",
      "date": "2026-11-25",
-     "sentiment": "neg"
-    },
-    {
-     "title": "[오피셜] '19위 맨유 항소 통했다!'…'리버풀전 8분 퇴장' 요로 징계 철회→브렌트퍼드전 출전 가능",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1YWGYtZS1XZktJUmNIUS1BcElfNXR4OV9FUUdkTE85RVE3bUhzX05Mc0ctc0F1RTBhdWdLV2Fsenc2Qi01T083QXlka2JUQkFBTzlxZXBBRWN0VHBOaUVjczNaYw?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "pos"
+     "sentiment": "neu"
     }
    ],
    "comm": {
@@ -8091,11 +8349,11 @@
    ]
   },
   "1356": {
-   "n": 3,
-   "h24": 1,
+   "n": 4,
+   "h24": 2,
    "sentiment": {
     "pos": 1,
-    "neu": 0,
+    "neu": 1,
     "neg": 2
    },
    "daily": [
@@ -8125,22 +8383,28 @@
     },
     {
      "date": "2026-11-25",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
     "논란",
-    "부상",
-    "대표팀"
+    "기타",
+    "부상"
    ],
    "keywords": [
     "사생활",
+    "사임",
+    "보도",
     "재활 치료",
-    "이혼",
-    "외도 의혹",
-    "월드컵 주전"
+    "이혼"
    ],
    "headlines": [
+    {
+     "title": "독일 신문이 노이어의 사임에 대한 자세한 내용을 공개했다.",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9hT3hQWjZPYjNvcGVxaVo3cjZLRXRKZGxsSXZqVzBTU091TUZlSTA4c2RxMlh5c045ckh1S2NQSVRDTXRHOEl3Ti1EUkJZdjh2d3VIY0gxZURxdU1rQURCalFSOE1RUXk2d3Y5TWpodkxwNWc?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
     {
      "title": "\"둘째 아이 출산 후 이혼\" 여자는 막지 못했다, 김민재 뛰고 있는 뮌헨의 철벽 골키퍼 노이어 “재활 치료 중 신원미상의 여성과 휴가 보내”",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE4wNXpUQUVscWU5U2RtTWhiMnZsWGsxV0VOUWFXcnpIQUp1dUlFSmVmQkhXUmQ2bVlOZXJlTGhVSnFhU19ZOEt0aTI1WElSV25KUnF3MnF4WkxPSngwbEpLazdvOXo0TWZCQXRIbDgtTFo?oc=5",
@@ -8152,12 +8416,6 @@
      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1tbnAwM1JrdVFhZlJCQ2I5c3l6VmtQUFQyeS0zeGRoWEdTcnVfU3ROcmYzTzRhZXM1U0JTSTdkRWZsRDVPNHp5NWxXOUxsd0pKT0JfOFVnMUVwSTg4ajA2TkRTX1EybmxnRlJqVm5QZzdEbGdWTFl6Wi0zRUcwZw?oc=5",
      "date": "2026-11-24",
      "sentiment": "neg"
-    },
-    {
-     "title": "뢰브: 2018년 월드컵 마누엘 노이어를 주전으로 택했을 때 마르크안드레 테어 슈테겐에게 말하기 힘들었다",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE53SDlITTVXNWhhN1FjazRzNVAwQjBDZ2NmS0VvMWFsQWVwOU91clZyWW5zd2hyMFd6NG5MQ09LaTNqanBZd1QyOXVwRjFQNDE1R2NxNmg4S0FSWllnUGFCeTAzWm55dw?oc=5",
-     "date": "2026-11-19",
-     "sentiment": "pos"
     }
    ]
   },
@@ -10250,6 +10508,2489 @@
      }
     ]
    }
+  },
+  "10643": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "이적"
+   ],
+   "keywords": [
+    "FA 이적",
+    "제주행"
+   ],
+   "headlines": [
+    {
+     "title": "[단독]'전 국대 MF' 강원 김동현, FA로 제주행...코스타 감독 꾸준히 원했다",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE95UU52WEk1NzlhNEtLQ0trZ1ZwTENJLVJ1SVJYQnRGRmdnSXNQdjJKTDZTcDA4RXZIcmVCU0RiVXhsWE1uOW1SS0JuVWdsZXgwSHNDdFlJY3pyemROWW5XT1ZWdmtSbHdxbW1tcXVOalLSAXRBVV95cUxNR0FFNVRUQmhfZHRsSGhDRjBkLUI3ODlHSFNqTEZGYTNfQXBkNUdhY1hkNlFYTTdLT3VjWndQOGs2ZFFKYUlieXZoLVdIUUdyZ091S0twYk5yY0ZTV2ViNjZjeXcyUlNKU3FVdTlZbmFtYkFXMg?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10649": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 0,
+    "neg": 1
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "논란",
+    "대표팀"
+   ],
+   "keywords": [
+    "병역 발언",
+    "태극마크 책임감"
+   ],
+   "headlines": [
+    {
+     "title": "‘병역 발언 논란’ 이기혁에 정경호 감독 “태극마크 책임감 되새겨야” [쿠키 현장]",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9Vd2VyWkp0TVpnVld1R0NQOWVPSHFuNGxaaldPQTlUREFmcDFuRVFrazN4d3dyUzNGbXI3NXhjYWZiM1gwdGRHWHdJeFZTdjdQTzhSTEl0bDQ0c3RESXZoa2ljbw?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neg"
+    }
+   ]
+  },
+  "10662": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 1
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "패스",
+    "태클",
+    "평점"
+   ],
+   "headlines": [
+    {
+     "title": "골도 없는데 '결승골' 김지호보다 평점 높았다... '양민혁보다 일찍 강원 데뷔' 최재혁, 미친 패스에 태클 7회",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9Mcldud01XMGw4S0dEY3RMTXFvWXJEcUc1akt5X1ktVFYzOExtd0IxendFM29TVllsYnpoTU42VFVra25WMS1Peko5NE4zcFhjR0hZVk1MQjFhZGs4d1RVR2lsaTlZaVgwMEYtcmlfMkM1TXJPZ2c?oc=5",
+     "date": "2026-11-20",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10694": {
+   "n": 2,
+   "h24": 1,
+   "sentiment": {
+    "pos": 2,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 2
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기록"
+   ],
+   "keywords": [
+    "베스트11",
+    "라운드 선정"
+   ],
+   "headlines": [
+    {
+     "title": "광주FC 프리드욘슨·두현석, K리그1 36라운드 베스트11",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE84V1RQdy1kOFRJNGhtRTY0QjV4TzlIZmRGSERCMXJGU01lemw2Z25KOU05aGlucWJ0RENoRi1GYTlnZi1tam92X3VOdE56dXlqSlhqNnM2X3lOQUZ4Q0Qxc0xRTzJFdDdxSGM2X9IBcEFVX3lxTE1kWkw5QmFVSTZuRlEtQlQzakhGU210aTdEVDE1QkpERUJFNC1oZ1NEeVAyclpENjB6ckpLNGFhUXlrZUtUNDRNczc1enhtVTBGaVRDNlBXTEZfZllQSW8wMXBJdkpHbHdkeXB4Q2dYd0E?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "광주FC 두현석·프리드욘슨, K리그1 36라운드 베스트11 선정",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1tcTkxdTJuWFpuWXFtd0x6Z1ZZTzZFRDNzUDdtbmc4ZlRacTF1RXVMZkxaZE5FS0RGLW56cmN0WmtnRVlCTnBwcWYtR3pQWmZEaFhaQ18tby1Vc2dTcE02T0ZSYlNlOTJMdXF0Z3J4bw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10695": {
+   "n": 12,
+   "h24": 2,
+   "sentiment": {
+    "pos": 11,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 7
+    },
+    {
+     "date": "2026-11-23",
+     "n": 2
+    },
+    {
+     "date": "2026-11-24",
+     "n": 3
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "인터뷰",
+    "부상"
+   ],
+   "keywords": [
+    "1골 1도움",
+    "베스트11",
+    "복귀",
+    "라운드 최우수",
+    "군 전역"
+   ],
+   "headlines": [
+    {
+     "title": "광주FC 프리드욘슨·두현석, K리그1 36라운드 베스트11",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE84V1RQdy1kOFRJNGhtRTY0QjV4TzlIZmRGSERCMXJGU01lemw2Z25KOU05aGlucWJ0RENoRi1GYTlnZi1tam92X3VOdE56dXlqSlhqNnM2X3lOQUZ4Q0Qxc0xRTzJFdDdxSGM2X9IBcEFVX3lxTE1kWkw5QmFVSTZuRlEtQlQzakhGU210aTdEVDE1QkpERUJFNC1oZ1NEeVAyclpENjB6ckpLNGFhUXlrZUtUNDRNczc1enhtVTBGaVRDNlBXTEZfZllQSW8wMXBJdkpHbHdkeXB4Q2dYd0E?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[K리그 포커스] 승강 PO 앞둔 광주FC의 희소식, 두현석-박태준 군 전역자 복귀에 화색",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOMS1qTUs2QVNXbkVQd21Zc3F0VEs4WEltdlpGUGNscmNicnNKNUFUbjlSdHVhOXJoVTdtbUZ1bU5HNV9rTEI0Q2pkNkFKNHFVbG1mM2ZNcjF3NUhKWE5jRUpIejhJRU00cGtVRTZGN2R3SEVzdEF6NVI1cm1SRTZlT3Zn?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "광주FC 두현석·프리드욘슨, K리그1 36라운드 베스트11 선정",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1tcTkxdTJuWFpuWXFtd0x6Z1ZZTzZFRDNzUDdtbmc4ZlRacTF1RXVMZkxaZE5FS0RGLW56cmN0WmtnRVlCTnBwcWYtR3pQWmZEaFhaQ18tby1Vc2dTcE02T0ZSYlNlOTJMdXF0Z3J4bw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10722": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "원정 승리",
+    "전역 고별전",
+    "PK 결승골"
+   ],
+   "headlines": [
+    {
+     "title": "‘김신진 PK결승포’ 제주, 김천 원정서 1-0 신승 ‘7위 굳히기 돌입’…11기 김인균·박진성·민경현 등 7인 전역 앞두고 고별전",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wd1hqOWczUmFaZXZCS3FSZ2FPZFoyWWlfanhSS190ai1NWUhyQ0V6UWlMZVFzeDg4eVpZbXVkTGlOOWNxT2tfOVkyanlNbkx0Qmw0YWFKc2I?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10727": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "전역 고별전",
+    "원정 승리",
+    "PK 결승골"
+   ],
+   "headlines": [
+    {
+     "title": "‘김신진 PK결승포’ 제주, 김천 원정서 1-0 신승 ‘7위 굳히기 돌입’…11기 김인균·박진성·민경현 등 7인 전역 앞두고 고별전",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wd1hqOWczUmFaZXZCS3FSZ2FPZFoyWWlfanhSS190ai1NWUhyQ0V6UWlMZVFzeDg4eVpZbXVkTGlOOWNxT2tfOVkyanlNbkx0Qmw0YWFKc2I?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10770": {
+   "n": 9,
+   "h24": 7,
+   "sentiment": {
+    "pos": 5,
+    "neu": 4,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 8
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기타",
+    "기록"
+   ],
+   "keywords": [
+    "ACLE 승리",
+    "득점",
+    "경기 프리뷰",
+    "2경기 연속골",
+    "예술적 움직임"
+   ],
+   "headlines": [
+    {
+     "title": "[ACLE 스타] '2경기 연속골' 마사가 있어야 대전이 빛난다…차이 만드는 예술적 움직임",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9sUmpGRjhnSGw4QjcwV0NMZ3J0My1wUkNXWk1SaHFLVC13bEE0UzI5LVpvRVBZVTJxWVkyY0VGRk5hLTd1czhRWWVuSkZTZXdOekt0aGZUSjV3NzJrM1FXNURWSm05d0RYaG5LUzRxVTE2aFJ6N1hmNQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'마사 결승골' 대전, ACLE서 베이징 3-2 제압…포항은 교토에 패배",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5hY3pqbFhiOUV4a1pUcGZIT1haQzRUUmZEZ1h3QndqMjVpQjNvZWNQOFVqcUd4ajdJdF9lNDdSbWVrZkRTWlJnOHZ0bkNEemNfSkctdQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[GOAL 현장] ‘대전 화력 과시’ 엄원상-주앙 빅토르-마사 골, 안방에서 베이징 3-2 제압...ACLE 순위 상승 불발",
+     "url": "https://news.google.com/rss/articles/CBMirAlBVV95cUxOT0FRWUUwdEhCNmJ3YkVFRllZTGtQa05qMkZJN3FoWjZncE9KdlV5bXFaVk5vRkF2b25aemtvYURja2puRS1ka1ZnQVAtZzlyZllrQXJBRXdmSHZxMnZZcmZRd2tCMVRDQW9ZWmdkbWEtXzdpUk1xTlFwZmIzZG5iT05xdUNVSUVoeUFFWmVaY0tHdXJkVGNuekxrc3R4V1ZnMVg3X0hiY1VjV3l0R1JUVmRpU2tGQkg5QVhaYUo1SHBib2tIZjEtVWlwbUUxd0UxTTNHVVQ3bDVtXzBqQ2YyLV8yNHVrLXRnU29BY0JpckllUzFEUVNnemZnckY5YTNkVmlBYVlGWFVLQ0Q3Y2tLVDlpVDkxZWszWlNJeTE1a04xZW9TNVZwdm1WNjN1MXoxRmhfN3NXNnk0M0dHRWsweXFCT0N6bXMyWEZzUXFPZzBZb3FteDZRb3pLMGFUU1Q1RkJSeUJxcmJpX2ljUlpEajB0LWpFUlRhdERyUEwtd1pOUFdjQ25Vb1BOb1d3Qm5RVWhfYmZaMnh0U0hHamZ6RGJhaFEzeFEzQ2M0eEZXM3F5YUJoMW9WLUpPN0FLeDUxUEd3N19aX2NlVF9jNHhGWlg5MlMyYzdOUVRYMm9HM3R0LTJlS3NBd0s3T1ZUc3Zkb0JnRDBQVzZNc0FERlFVcUJlaDg3R3hTdDFKaWxBenVuYWxDN1ZUME5kNnh3azVZQmM5M3Fsd0hGY05QdkRxSmZJcm1QQnNRQ3luYXNCTk9fQWhDS0IzZHd3Q1dSVlZQWWlxM002VktHMGJaMGJDWjJIbGpTNEY5cTNZdWszWFdBX2NKUUgyd19uWkVTWmp0TFZLSUNuNnpFbGotdXg5UXhUcHZFd1J3c2tyUG5JVDNuNDFkMlhKd0VUX3MzRHJxc05uWXR1c0xvcklOYkJKOWdCeXBsbzJncDlENlEtN2JXUjB5a3p0WXJZcTNWbC1DZTdpaUZnZTlYOGlfUjRWRHFJN08wV0JNaGUyRFkwUGdqN2VyQ09oNmlwQzFTUkFRQm9qVlpKNnJaRmZhNFI0S1F1eFQ3WjlvMzM4ODJQT3p6YWQ3d0QzTDY3eUMyMzhLRW9PaHNXR3dmaURpWG5sLXU0NEROZlVBbFJrRW9RRFFtVm14dWZTcXNGeGVMcnp4ajItVDBwWUctRjdHaWRHdkdNTXQySnhVVjR1aDRJSUUtUkhCVTlLR1NmQ1FJa0lvai1VVHl6TE1fN3ZPSm9UWWItd2Nyd3VLWHlsSWlLSnRoWWtkSV81ckdteHB5bjg0QmN4a19WRHBJcUJDMF81VkRlb1VFY1FnVjZZeGhvdUxRUTVpeFY4djFLVXdTMTBlbjNRQmlwQURSSk5FS0pmdVF6c00wQUdFRjBHa1FLd2NrWTFoSjdKWEJMY18xaURyTUs5VTFvSkdwdlJqdnNUdE5ZTkFjVEFpUElUWGZURnBIRTVBc3ZOdzFqek85SzdtZUJvdUNkYXc4cktiUVBndDN0bmVTc2dsTEh1SG5HdVNsaDlPU3hERnNpdmtSRk9mS3Jhems0ZU9aY1BBZEZGbUxrV1NWcGZmbEtIWA?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10771": {
+   "n": 4,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 3,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 2
+    },
+    {
+     "date": "2026-11-24",
+     "n": 2
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타",
+    "부상",
+    "인터뷰"
+   ],
+   "keywords": [
+    "복귀",
+    "선발 명단",
+    "경기 프리뷰",
+    "부상 복귀",
+    "아쉬움"
+   ],
+   "headlines": [
+    {
+     "title": "[ACLE 라인업] 마사-밥신 나란히 선발 복귀...연패 끊으려는 대전, '中 대표 클럽' 베이징전 명단 공개",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1mTVVBZTEwMy13dXFhdldBcGprV3QtTzVTLTZlQWpjM0ZOcWs4d2FCTk1ha04ybWRfVG5saEVlS3JqczVkb0FpaHpwSnRaclBJb0kxc1cxTWdOZ09tb05Vd2ttWnpHTzd2NWpqdTFlVHZjYUta?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[ACLE 프리뷰] 마사-밥신 돌아온 대전, 무조건 이겨야 한다'....김민재 뛰었던 베이징과 대결! 연패 끊고 16강 바라본다",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE83d2ZzV0tLUVl0UC1tbWF4VFZIMFlWWDY5dGdHWS1iZGRNdkJMNHlkck1XTVRXeTJpQ09IazR6ampPam5OeGxoTXh2YmJ3by1rdHE0WUxVWnBNRkYxeDY0clpRM1RPQnljSk9DSVlqWmU4RnJS?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[ACLE 인터뷰] 돌아온 밥신 \"부상으로 빠져 3경기 못 뛰어 아쉽, 16강에 오르기 위해 베이징전 이겨야\"",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5SNExESnZhOFo0VUN5QXZCYjduTy1zenhPaEMydGFTSEpRdk4xTThheTQ5ZDVoSXkyUmJGcWdLalEwSnlvTXAxMVp4RWpzNEdaa2FsS2d3?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10773": {
+   "n": 2,
+   "h24": 2,
+   "sentiment": {
+    "pos": 1,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "경기력",
+    "인터뷰"
+   ],
+   "keywords": [
+    "간절함",
+    "다짐",
+    "승리",
+    "선발 배치",
+    "ACLE"
+   ],
+   "headlines": [
+    {
+     "title": "\"무조건 이겨야 한다는 간절함에서 우리가 앞섰다\"…中 베이징 꺾은 대전 주민규의 굳은 다짐 \"다음 경기도 무조건 이길 것\"",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1YX3Q0Q2VKX2dNbXloVWtNT0ZPbUY0cUgtOHBaOVg5ckFXT0lLWUFNaWpEMzhZbEJzNGpFc3pfemxKd28wSldNaTl4UDRZcUtTZ3RiRVZUUWM2NjN3WmNlN29SUk5kT3RERVdyNU9hbmZhUQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[GOAL 현장] ‘ACLE 16강 진출 마지노선 안착 조준’ 대전, 베이징 상대 ‘주민규-주앙 빅토르-엄원상-마사 공격 배치’",
+     "url": "https://news.google.com/rss/articles/CBMi_glBVV95cUxQREJBZmpQdWdibEpXdEpJek9sRFFNZDFkeERfYU1hWVVuYXRUMmwtRUlHcGhlV3NBRGZoM0RFX1ZXTVBjS0lLamlEQVVMaVhGemlCS3ROV2R6S2k2ZGhBQXhBajVVQUlzLVBEdk84RjZPZ0ZHSURERl9ULUtESUVKVzNHSndOOFRXSkhaMzgyODQzUXk4cWNTYU84LS1ZRERMalU1RHFxU1dBd2tiUXVSYlJ3dXNySEdBa2lQRzlGd2tJQ3Z2Ulluc0VZa3MxVHIwZDROaGg4TEszcENWNnEtZTQzX0Mxa2VsY3M0cC1jXzhGd0N3YVVqT1hlSm1XeTcxTUlJczMwWUhaWlhQaU9lVHZjN0R3bEFTbzNnTngxell6cHNEamR0a0RTeFRQM0dnUkUyTTNkTmREeGI3Q2ZpSjhLVWU0NDVlZGNhNTRiMjZKS0ptZ2hkTElXVTNfcEMyU3kwUEt3V1ctVS1IWUJ5WktmZnhKWWJ4aUhIMkpRaExfQm1rcHRsNTJSU2RrVGFrd3RtQWsyZ2JWZEF4anFuam9vLVM1WUlJbkk3bGNyTVJNVkpKeUtfMm04NURlNXV4REJDOWpnUlVtMjZ1alZvN3YzVXB5NDRKMmZaTkkwUjN1Q1FtcDRxYmI3NUF3aGZMWTJjYkpPX2h4QnZSRk9aMjR5ZTFxYTBBcFNZNGxZYzh2R29LbkxzWGFrX0hwUkZ0TkNpRVJzVzY4UW8tN3hXRW5wT01fQjYydjE3cTBUMDRRN2xURElEYUZFSmx4djhIMUd4Qlg0d2lJWnFVOWNQY0kxWTA1bTZDUFlfSXBFMFhlWldLajhiLXF3UERIcTVrb0FRSUZjT3FkVk8wX0gxa3hURVBxU1JnRzBJeG5LdldjNVF2aFA4YnBISU9iUW5zRG82cGd1WndqZlFWNnkwemZhbnRpbEZ5SFc1cmc0UGJfTlhkaEQydUZMVDB0djVKTGt2U1JmQ0RLeWpyVDF5dGtQdmYybHROMXBTQ2lpalI1WlI1SUNhZWh2SGhFY0ZQZnRDdEdZTl8ybUpqejNWQmxuWUlHaWl6OGlFYXBqeTRCWkNVZ0c2WURuTmVSSS1jeFRHcTJLZmRaU0hWZXVXTnlyOFEzSkJMbjlxdGpsMGxlaDlYU04wZDg3OE0xZ3BIdUlELXJoYjl2OUFMeGd4RlZINjdfbEFhNktGZC1wV3ZWMTExaDZIWkJZZDQyLUNPbXNrOTVqTERjREFtX3dYWl9kVV8xcDBrVlE0dkRJQWtVUmczdU5rcEkxaG9Pc0xjejJkRmMyVHlsNFR0UnR1YjFmbkRyLS1CN0otbHRxTlBNcWxYSWJSVkZJZHdfUTBERk5UQTR2Vm00X2hPUzVPLTNJaEx0SGEyMERCYjA3eHcwM1RKdW11YnRZVDNEMGR1eFk4VVNKR0M0bGluTFY5dnRWd21MYTZqSDlqcV9QbkpwdXktZWR0U2czbDdMTEQ5a2ROeTZfZGhoVGZESk9qQ3QtdXRxVHkxUnZzVHd4ZmhYd25vY1BqaWloZnduQjNnYlJjcWZodkI2WjVsZWpvTnJHREJxYWgtbkxQVnp1b1haM2NZT2pFQkJpd2VUcnBsYmhpOWxEblRUTXNyMzdzSC1SazMyNWNUVGt6TEo2QmZhTEtneEYtRm9uODVLQ1l2MTQzRjJfcW5iVS1WOEE?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10774": {
+   "n": 8,
+   "h24": 8,
+   "sentiment": {
+    "pos": 6,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 5
+    },
+    {
+     "date": "2026-11-25",
+     "n": 3
+    }
+   ],
+   "topics": [
+    "경기력",
+    "인터뷰"
+   ],
+   "keywords": [
+    "득점",
+    "승리",
+    "축포",
+    "반성",
+    "팀 사과"
+   ],
+   "headlines": [
+    {
+     "title": "마음의 짐 덜어낸 엄원상·주앙 빅토르 ‘나란히 축포’… 대전, 베이징 제압",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBjNW5odm5BZTZIYlQzLVljd1RzV2xKMkh3S1NlekpGSXVQeVZOZGgwUGVVeWVXSUZUNm9iQXN3ZzBIWXhOSDVidDgxbG96dFhSWkJEZzlBRGpwUy05bU9WYkdNNU90R0dzMnhXQkt30gFuQVVfeXFMUGM1bmh2bkFlNkhiVDMtWWN3VHNXbEoySHdLU2V6SkZJdVB5Vk5kaDBQZVV5ZVdJRlQ2b2JBc3dnMEhZeE5INWJ0ODFsb3p0WFJaQkRnOUFEanBTLTltT1ZiR001T3RHR3MyeFdCS3c?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[ACLE 라이브] 골 넣고도 고개 숙인 엄원상 \"반성한다, 죄송하다! 나 때문에 팀 어려워졌음에도 믿어줘 감사하기도 해\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5qOTd5Mm1zM2Q0RkdwM0x0SUdnOVo5MHMtNnRKQm8tMVV3QTRfWnEtcW1xLVNyWE9uaGw5YlRRNmpIUkxFSXNBcnVhLWJXdGZ1SmoyQ0VDa05hOXN5UlJsNE5BR2JsMjV4VXNsTXNUQ1dMVlVU?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
+     "title": "'엄살라가 돌아왔다' 엄원상, 베이징 측면 초토화",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA0em9KS2s1cFNmQVBrei12VTZKbzh3Yy1LSlVBMlhzZENGYUM1VW5NQmFwNnZnVW9QMElCZGxTRjBxazBsQ0hDWE00eGd3UVEtU3pYcHM0TmJKZWpaUDJ6SlBxWmhRTTVncFN3UTQ2TnFab1c2cE02Vl8xdlRXdw?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10777": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "ACLE",
+    "베이징전",
+    "선발 명단"
+   ],
+   "headlines": [
+    {
+     "title": "'최근 리그 10경기 7승 3무' 대전, ACLE 베이징전 총력전···'마사·이명재·김문환 등 최정예 선발' [MK현장]",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1vbUZQZ3YteEhIcVdla3FlU0Z5MjlCV0tWWWt6bmREWlpzTF9lcWtsM1B5eG9iaW82OEpoU2drVzd1SThrMGRGZ25sZUo1NE1YTE5yeDFTUTFQYkpRM2NCNzlWUU1SUUtJNlhlTVpOQmU0anNpWVlsRQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10778": {
+   "n": 27,
+   "h24": 12,
+   "sentiment": {
+    "pos": 27,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 25
+    },
+    {
+     "date": "2026-11-25",
+     "n": 2
+    }
+   ],
+   "topics": [
+    "기록",
+    "경기력"
+   ],
+   "keywords": [
+    "라운드 MVP",
+    "역전골",
+    "무패 행진",
+    "결승골",
+    "수상"
+   ],
+   "headlines": [
+    {
+     "title": "[오피셜] '환상 결승골' 대전 루빅손, K리그1 36R MVP 선정…K리그2 33R MVP는 수원 우승 이끈 루이스",
+     "url": "https://news.google.com/rss/articles/CBMiiAhBVV95cUxPTkNiN3NYXzVUR05LNWs0M2pDc25EdkN3TnJBM1F5enZ3TEg3eUdlb2drQWJCc2ZqZ3JzY2ttUHR0cmtOZFo0VXNFbm9IRlN1cmtlMER4bGJXX19MaUYzNGJlYkNadExBTy1yWDlQa3otNGVxTkhpYU5ZcnQzdXVrX2xOcV9Bd1FqZTlLSjZOVWVweXc5dDlNdXROVjJ4UHRnVUdqQmRRVy1mc21oMFlFUGpnUGNYMnZBMkVwRWladG96N0ZlcEItTXR6ZVo4aWhqeXRVaHpUT3Vlby1yVWt1Y19JdTFHU0diOW5QR2ZscHBSTEN3dTg2VmlOWmx4bm53Nm54MnJJN2Z6TDFYTXNOZF9qOE5EUzVFSE5fNmRwazVKMWl6RnBBYnlvUWNDdXJhc3pianNBWFZmaGpZSHVKeDRuRy1pSFk3OUkydEhhbHE1eloyanFrRmd5aFo5RUR4dTB6UzhLb1JYVHo0dE9IOUYwNnpBSkh2TGNIQ2gyYkVsYXNta3BZTHZuMHZZQm16ZDl5UExUOURZZUJVYlFLYWZ5MzhCdXZocjJ3ckIwbmlmaHQ5WFJFbVBfNzJVbUt6aTA2UWxfeUlYR0E2NkhYLUh5Qzl6NkZqZ0djUlZQRFZ0NTdPMXpHM0NNeG90MXV0TkFHLVhlSEQzNUpEdGtHRl9NaEtOOGZJeTVLck5NRHk1Yk9wLTZ6dmN3bU5Sa0tMWG9zZGFyLW9JTm8zMk9EUXFZaE02aS1PYkpRSzZPaWNwenllS3pLTlVvcE1oV05UaTQwVE5WVWZXMWhIU1BTTzNOekZzMDR4bkZSeWVpNS1ycVBIWkdOeVotTUhYbDlUbVFPdGdqM1FjSkNaYUNZV1o4Tm9KYVRwOWpQMWpMdWpudDRhNDNPRHliX1hnYkJNZTc1eHEtbWR4UHlEaGhhNFNFS3oyMmxCU1hBaFBxUkZmMEVDTDBxZU5uWGFDMEMzVFp1T3dBR3RmUnZNdFUtb3hqazlSaFBOYkF4SEJKd1FzNzFxMDVHWm0tRHpOV1h3X04wNm9vNTJnd0N0Vk53QTdRMnZnY3pBMkk2S0trb1JUajVsZ1Z0cmZYVldrVEVqd254bjduSUtYV3RZUGZtZFZ2cWZLMUZoUzV0VlMzZzFvaU1GT1ZUWkxJUXZmNmpMZk5majFCS3E0aTNuSlFkVHFGLVEyY3puSVN2Y2xiWU1LX2czSl83WFRNaVY5a1ZnWGczR1JnN2hWZEZOOEJ6TjBHMHRKXy0wMEpMUk0zeHhna3BkNzVHb3IyOXlCUkxuSUU1aDBsQTZya0o0RlBNek44cU5Wbmp1di1EUFNXOU1BS1Awb3NiNkphaTgxOEIwUnZyMlZsNzQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "루빅손(대전), K리그1 36라운드 MVP 선정",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9SVWxxeTZEZkR4Q0lsVHlON3BGUWxJenY4UkdRbTUzQlBuOGpXRVJocTRWZ3NIVE9kcVBYOG9XQmJ6NTJyV3VlaVZ3TGZMOE56U0ZpTXNMNi1MQQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'결승골' 대전 루빅손, K리그1 36라운드 '별 중의 별'...K리그2 33라운드 MVP는 수원의 루이스",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVVNzTm9FVW94emlQS0V4aDlBMFZPc21halIzOHNPX2ZoU3lUWFJYYnlONmVBcTJPZTRXREN6T1d1NC1EU1N4anNaUmpWeGFkSmR2UjRHSHFvYlg4WTFhQzU4S0RNY0VVN2dNSVhNWDloS1NHRGh3WC1ueldPSU5uamwyRQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10808": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 0,
+    "neg": 1
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "이적",
+    "논란"
+   ],
+   "keywords": [
+    "높은 연봉 요구",
+    "이적설"
+   ],
+   "headlines": [
+    {
+     "title": "부천FC1995 갈레고 높은 연봉 요구하며 이적?",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1lSHBfMnpfekdsOTR6MlpiX2Nrbk5LS0o3VUtRRndValZUOVdLeU1IcWw4LUs0cUliMU8zSWFxT0gyY05rUk9vZTUxbXljUkZBakdzWDljNzdPMk9TdkpwdW1Udy1EWFo4WkFN?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neg"
+    }
+   ]
+  },
+  "10833": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "경기력"
+   ],
+   "keywords": [
+    "트로야크 슈팅",
+    "수비 신뢰"
+   ],
+   "headlines": [
+    {
+     "title": "'아찔했던 트로야크 슈팅' 당시 장면 돌아본 인천 김동헌 \"뒤에 수비수를 믿어야 했죠\"",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1TZEZFMTNfamxVc3hiV0duMzhlSm5sdm5mQ3FfdUg0b1JSOUNLNEMtNGpGNENYWVJqdFNqcGZWeWJQS09mQjlHQVFSZmYybHY2VkFwOEFDNVVIVVFLWE95bjA2eWdPeXdxcUE?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10836": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "대표팀"
+   ],
+   "keywords": [
+    "A매치 명단",
+    "포메이션"
+   ],
+   "headlines": [
+    {
+     "title": "모레노 감독 “4-4-2 포메이션 쓰겠다”…김건희·박태준·김민수 최초 발탁된 9~10월 A매치 4연전 명단 발표 [쿠키 현장]",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5pd3pudG1WQUlWdl9fYktQbFFxb1VKNDdDVjA4SHYwU25VSjAzbUVoLVpITG0zaFFNdmhfS0Z2UktEN1h0WnJfaE5TQW91QnM1bmkwYmFLeXRSVnBiWE1DTGc4NA?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10841": {
+   "n": 7,
+   "h24": 0,
+   "sentiment": {
+    "pos": 7,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 4
+    },
+    {
+     "date": "2026-11-22",
+     "n": 3
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기록"
+   ],
+   "keywords": [
+    "연속골",
+    "울산 상대 득점",
+    "대기록",
+    "결승골 도움",
+    "베테랑 헌신"
+   ],
+   "headlines": [
+    {
+     "title": "인천 무고사, 울산 HD 상대 16경기 16골",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9XM0o0Z1NBUmo3RG56OVlNVU1zc25NaF9vcXhQbzhvTG5rdnpBdDRkaS1xSkw5VVh2XzdLOER6LW5aMmRkOURHMlZwRzNRcnN2bHo5cVJUQ1p3UWd3V2RILWJXbFdCX2ZkSE9wSDFVQUlxWTJxUWNFSHJsTUF6UQ?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[SPO 현장] '무고사 결승골 도운' 이주용 \"훈련 때 준비했던 장면 그대로 나왔다\"…베테랑들의 헌신이 만든 결과물에 \"형들 따라 하면 된다\"",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QM3M3TlBSU2RLOUFlNU50VGZUNlAyU0YzSHNKVGR0cWFCS2V3XzZkZDN2R0Q0TmtrN2R6RWFtNkUtMjdMVDlicmxrQlhQZmVqRVVLdmV4U2N0d3BYT2w3c1BKTm5fUm1YcWdfblktcXo?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[if.review] 34세에도 여전한 득점력! ‘슈팅 4회→15호골’ 무고사, 야고-클리말라 바짝 ‘추격’",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1fVWxuTWo3X1I2QU1IbUd5SDJOMUtwUzBpWTVqREZ2OFBhVWhQcFJUTzJmX1pzRW9WRmN5NE5ERGd4V1hvNVJFQlJjcTVtVjlDWDZpOWRLa2hZZzJVU3FKN0FJeWo2d0NLdE9UQkEwVGlWQQ?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10843": {
+   "n": 4,
+   "h24": 0,
+   "sentiment": {
+    "pos": 4,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 4
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "연속골",
+    "4위 도약",
+    "울산 격파",
+    "안방 승리",
+    "연속 득점"
+   ],
+   "headlines": [
+    {
+     "title": "무고사·제르소 연속골 앞세워 울산 잡은 인천유나이티드, 4위 도약과 함께 ACL 진출 가능성 ↑",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9zNVJXdE5Wb3R2NWZqMG54aHFvdm1jQXJVeklQeUxJUFg1NTlVTkN4aGhzOXI2R2lyOHNQX0NHeDZUOTRCX0NCS0xKVXhYckJzLWc2b0RYRUM0cHByTDg1b2ptcHRlUXJueDVpMkhWeUs?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[GOAL 현장] '무고사·제르소 연속골' 인천, 안방서 울산 2-1 제압…강원·전북 제치고 4위 도약",
+     "url": "https://news.google.com/rss/articles/CBMirAhBVV95cUxQbXd3NVczejV1a04wSGozUTBhcXJPMzlYRXhPcXFWYU9sVjRBQ1JPbHpnVnU5QzVYTG1CZm1WbmJicU12dkJZMElhZ2djT0ZKS0MzSkZSazREUy1RT2JoeXBmOWdzVm9ZVHlmcEhiVkVJS2dKejRPOTFPTmZ0dDJJSzRBY0xqeTZZRnBFMzI2N3VLTHJLZEJKZnBRc3J2M1ZFVlIxSE1yemNhZmdyaXpNaFpLbTF6bl9iM25nYy1JOUI3RHZ6WUlLRDg1T3RfaTNIY0U0bTRCdF9BYjV0ZE9KdEpnVG4zakRXeVBfU1k1VjAxUVdsQ0V5MjNwdnkwWUx3NC1KR1Nyajl5NWUwT0pfMnA4NFMzSEFaLTktLXRiQzhiYThTLTViaGllWGdMVC1hRUxoS2VvLTV5b1Z6b2lJZ2wyaGxPZUd6bTluNjZZdUN3SEdCU2xfXzdhUWdyWGtZOU4yaVRxY2otaEVsVVpwZmJRQWZIZVJJYmMxSDRrRFlTS2RZQ2VzRDhteHpLQUZraXdFVkQyTXhVMzR2VFNRZkR3eGNMY3RhTUxVSFNQbFQzeWdnaWFpcVdIQ25sdUNRdHQ4TTlRZmpUaHZqdXVCSzJtMGRubnFCLUdRYlMwbXU3cHNkR3MwR3owZmR1NTQzcGpiSzFYSW43eGJRY2QwempWQmItVmtuZ3RnYkgzaEVSamJERTR1MDhiTGZjNWJnQmc5b2c4enVsc2Z4MDdZSWdkT3d2SU1QWFV5MzlMMFNRYXRWQTE2OTc3VHdKSWNYS01BdGRZaWhnQ1ZGUDJacEJ0R0x3MVY3azZjd243eEo3RW5pZG1tQ3dLRFEySlkzUG5VOWVJbjRqRFZYYmY4UU1NeGM5WU1iLVlPTUNjc3JxeFhQcWIwT3JVUER3NVB4eWg0anZjWERhQlNmTDR4aGpMZ1VmaXdYQWNnQ3pnV3JoRDFjR1JIRmxqb3MyVFZDalRKU0JYR3ZWQU9zR0YxaWtSd2kwRnpiSnUyTTE4VFdNWUI2RTJBck0wUGNzVGk3LUFGLTgzc2dFamFETGd1a2NRZFo2VEpqUkhLSGtUZkNKNXNjbW9OU1BUM0tQN2Y5dlhNWlJJVGt0dHNsN1MxWGRFdGVFOWFBTzRhbjY1eWM3YnZOME16YkRJM2VvT0tqUXJWMzcyNUFFZm5lOGtkYU1vU2V1RjZLcGxjMGQ0Sjd4V3NobW05eWxGMVd1b2s2dndjaTVEV0ZGY3RublAtUENUZ2UzU3g0X1lOLXZhY3F5aDR6QnVvejZqOFZjMUR3UTBERHlIUGdENjJKZTNLaXVwakhMOWhkcWV3Q0p1U0cyRnFRY1FPeXNHUXN1ZGFzc3I2Wm85R3JLdzVOaVBTVHI3UTdTMzc0MDBEM3hiMnd0anU5NTU1YnNVWFE?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'무고사, 제르소 연속 득점' 인천, 접전 끝 울산에 2-1 승리 '4위로 껑충'",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFAyVXJmTWsyd3RMa3dubWFadmk5dXhJT1h2YTNuX0Z5TkhZX3JESmhDT0FaendsdjdHdEk5N2Rpam5NM0Q2aElEQXB2cTNLaWszX2RDa1JLWXB4NUYtMk1SMk1tc04yNVpOdEHSAW5BVV95cUxNbkNjcm0yNDBoeEVnQWk2a0FHVVA5YWtScDVSREYxYTlwVmEtZ3Rla0tjWnNvS19uQUt3WkV4MG9xb3V4cEpUM0NEb1NiaTZtQk9XWTk1aXZWTktWd1pDVlp3ZElFR1Rka080cTdEQQ?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10846": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "대표팀"
+   ],
+   "keywords": [
+    "미드필더",
+    "활약",
+    "태극마크"
+   ],
+   "headlines": [
+    {
+     "title": "[GOAL 인천] K리그1 첫 시즌에 정상급 미드필더로 '우뚝'…인천 서재민의 시선은 이제 '태극 마크'로 향한다",
+     "url": "https://news.google.com/rss/articles/CBMi0glBVV95cUxPSV9ZSzI1MjUzTkFoY18zSzNUZnJOcEc2UWswMnVuWWI2dVB0SGNpMWNqWEhCM2VlM282dVBCS1djYzJIYVQ1UWZfQkV5emxjUHRpRldyQldEUk8zdjdDakNnTGR2SkttYUhaLWJnc2U3dWstZ0JZOHA5aW9KU3BidElhTXpNSHR2bGxZbFZSSjlXQkl6Sm43b1VQa3NOaGdwc0s0STBVcXVaRkxyQzJhS0NqZ2hlSDhISUZhZ21zbnpvaE40ejgzTjRqTFRmblE2aEVuQW5JR1ROVUk2eVkyczJKcy1QMDhNNEEwT19TY1Bfb2YtczFvdFRQejFBdGxEZ2F5R3Eyam42SUthdXU0dGJKOUN6RmtTWWdia2V5ZUFxYnZJMERKdnBxcG1PV3d2TXYzT0N5b0QwcUdldmEyMTZiMFpVRWhlQ0NWTkdDdGtVVjkxN3VyM2ZyQVg2Q2hGdkRMeTBJRzJxdFNud21GSG5MTGwzbjR2dEFCWEhlUkxsRmZaUHZBME1xYUpweGZfQy16QmMydWszTTRKckhyLXUzZ2lYc0NyNXloSld5Ui0tdkEzLXRFblkwQXF4T1JHN1N2SkFTVzdkM0wwN3VEX0U1UDVOMFVUMktmaVFQaGQzSGdyWGRPMWhCcF9iS2Z1WlJMS0JtMk4xOHFzc3AyeUZ2WUdMaWQtc05Objg5c091RG91ZGtzdlMzTl9JUGphZ044bklfSVZodXFFNV9PYlRETHB4dVUzTEpQaGRuY3p4Z0xDRDM0em9IMVNmZVc4ZDZ6UmxtelhZOHpVeVpNajRDOGNEZ3pxS3R4ZldOeThZb2xBZEtWOEs2c0RSa1ZPV1NwZ3ZtS2xsczNCeUdkTlFidndRdFk3cmUtZ0s0SlhoYUx1bWZXam5uVHplZjZqWW5vek1seExZQ1h3eWJlVlUxdnRaT3d3d25tVm92VFhzcjRlLXZYaDR1QjU3eUs0Y25fU0lhRUNIU2taZ045dTVRQ1BhU0x3dGJqd09QN1JoVDhYNEoxMUVkajUwbUhZTnJTTldNNHFZVmxoSFBqS0JqV3B1LXJUVDZ6WFhQaFN1bnNjS0ZrR0VRN3ZpTkYxVFZLY1hON3ZvMUpFbDBqWk5JbFpEMFJpbWpjWHV6Y2FNejJJdURmcXdMQ2tCR3Y4aUxLNzVHWWVkRGo0Z2ViWXAxZ29lTUhvbVItTTZzbzlHUjF4ZHZGdXljaHdpSWJnQjFyb2d0bnFta0ZVbmVpYXZCaXVFOGl3T202WkVJN05iSWFKcm0zdUo0aEJyRzlWajZIOHpvejQwcjlOaFNzT1RiMm9ZRk84OUJRY0pfV1JKRlc5UUU5R044Ykl5RFdOMm5vYTJaVUROdFBqaTdyaHJXbzlNd0tmZnpJT2kzZmRCZ2ZhT3JKc2JDQ19yUGZ5ZXFCX0l6dEViWUVCN0pxNmNRY2ZUMG9OcUw3c2RSM0t1MUU1SHU2TzNDMDVUNnVwUWZKNjlRMk9yMmFiN2ExNVRrbVBrcnAtdE5aVWRoeGZrS05hS09LaHhzaW1Uc1JXWFctUF93R084djFxcFFqRkVLdlI4Y1lRemJ2ak1YT0RGWGJCeUdZXy0wZk1sYzFEVmkzTXhZX2hKSDJzV0J6SnBB?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10869": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰"
+   ],
+   "keywords": [
+    "슈팅 장면",
+    "골키퍼 회고"
+   ],
+   "headlines": [
+    {
+     "title": "'아찔했던 보야니치 슈팅' 당시 장면 돌아본 인천 김동헌 \"뒤에 수비수를 믿어야 했죠\"",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5qazY1V2dscEdRbENDbzFrQmZWalMyMUhGYkxUUGJ1OEdMbEMydlhTS2t1V1k2UDVVcm1ibzhMdUNmTzdRd3RQMG9JZVhIVHlOTkNiTFJMS2tqdWhWU1pKR0tmekM4WElpOHJV?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10872": {
+   "n": 8,
+   "h24": 1,
+   "sentiment": {
+    "pos": 6,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 1
+    },
+    {
+     "date": "2026-11-20",
+     "n": 4
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기록",
+    "인터뷰"
+   ],
+   "keywords": [
+    "공격포인트",
+    "구단 데이터",
+    "팀 분석",
+    "더비 각오",
+    "승리 의지"
+   ],
+   "headlines": [
+    {
+     "title": "새삼 느끼는 이동경 조현우 그리고 김현석의 위엄, ‘울산 자체 DB’ 확인해보니",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB1ajVqQUpzRXhWUnp4YzdFOEFIU2dFSU5hVndNZUlHMXJBbzBhSFgzOEt3VEItczlSaEcyX1BaN2pZN0U4SzZKZ2l3SDBQVXVVbFBLVThCd0NOSkNfRjkzWFhFYk1NVzFYdWRsc3FnbmlCQQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[GOAL 인천] '현대가 더비' 앞두고 전의 불태운 울산 이동경 \"김현석 감독님 위해 반드시 승리하겠다\"",
+     "url": "https://news.google.com/rss/articles/CBMi2AlBVV95cUxNaE9pSkFmT3VHeWcweHpVMlZzS20xX3gwaGFnb2tmb1E4czczUUU4OGlBRS1RMWZ5QlRHLVZKZWxwOVZ0SjVaUTIwck14TWIwMmVoRjdMWV81Sy12UURzdjZSeElfVFQ5eFNMUlFCOTNicUZyeGZmZUJiZENsa2dLZTNhbTE3dmNGTDd5WjllSlEyMXdFd2ozMk8xSEVaQV9SUkFSWlg5Z2FnSFd2c1I0M2lGR3dTWkNHdF9UZW5iUlY2T2pKWG5hem1xemVmcG0yUTNkWnktYmFJNk5rY2NKQjFaUEVuVG5PWEM4RGxYNURZam0wWFB1S2NYZ0o4QTVxR2U3YVhma0NrWno3Mm1aTFdtNEhNYUN1MUkxczh4M29lYko4bnRVV2kzcFJLYk04WndfV2tVN0ZoNVl1YkluNkNZbGpaY21sV3Zxd0xsYm16cXNDeFdHaVY2NkNSUlZHSTIyTDRiYTh3VkZOanB3Y1JYM2Fja1pWRzlIZVVxZXI3QlJMRDctNTJmTTdPRE1CYkw5RUVPT2h5VXdmazlCMWcySEtyb3o1b1ZMVXVWOUhUZU0tM3BLY3ZOeWhKaEFoUmhQMUlqQ1pITHhqNjB3MDl2NERVUlVsNXhDZlFZTnFyZTQ0MFA1UlVKeUY3aE8yVWdOdnN0c0FRY2ZpOWI3SkozYmFoX2JwQ3RuNl9jSjJVNlJ2bTdfQjlBWlNvQVRTLUdhQWxBN2N2VV9YeWdDc0sxaXNyYVJFQUdZT0s3Z1dXRWtjaVlmaVFiWXR4Q3N6ZDMwVjlmWmF3VXowdERLR0ZZSEZFQnJwNzh1SHNJS2pYU2JTYWROOGd2QkRVYzVndDBGY3JhNEpMcExjeXVMWlNJc0luSUZHUUNGYXVhM3ExZlN6bVBHSlRNRDZDaXhYQW1Jb0EwLUhKbjlsZ3hVUGhYa2NTc0Z2MDVkR3FNZnltb1JGcFhNWnd4Umo2NUx6akZucGJhN3hvMW9WQ2pqd1lLOUduSklISDA2Y1BVM09iX0I1eVFhYVBGbno4allaM1FzZ3c1d0M3VXVHMVJNeXFVNlV4SEdQQkNyTk1ZUVdRTzFsYm9vM21DTzlWb3Bsd0VDRjU5VUIwNkdNMC1fTk05b1RteWRtajB3N3lEX01HbFJPeTBvektuUWZKekdmdUt6MV9pendCeTZKTkR5UU9Kb3lUdmpwZW55SVMycUVxX2JzSU5DTV9lS01LMFpZOHkxWUd4bUlTb1hRc3EzUWhqckE5V2d3Rl9uenc1eV9LT1FQWGxaQ1VzV0paZjRRZWljNWMyNHhGWVl2YkF0UUtwa1FjTW9xUHRBUWU0R1lKZlEzVnJrU2JvNGZnRkJRY3dIaW5sZjlocDZwRnVwT1dLQUZ3NlFwYm5sbWVuY1ljMS1WN3R2blo3eVc1N1JJQV9ZXzBnVUlvc1Bxbngta1ZGZEMyVUpQYkUwXzI5TTY0eExhQXVqdE1QMWFRODY0UGRRa1VfSHUza1hSbXpFNDdVeEZ3bmFUVUJZUWpreHBTTnFQNXEtbGN0ZUJtSFpScW5yOVVndThPWGM1dnZhem1wS3RwMFZxdWhpNWdweXZOQWZ6UGZmRG5oeEU0YVhDZWNzMEdQcHVwMEEwLUpqaWp6ODd5dVFz?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "울산 이동경 \"'15-15'기록 욕심 없냐고? 신경 쓸 틈도 없이 수비하느라 바빴어\"",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5aMzJlZ2puLUNQa29jNnBlNUJhOTc5QjdRUHpDLWdSOHJfc0lMdHVDaEY4akgwMDN3Y1V5a1hpLTFNYzVrdFVzM2RKUThuc3hELVVFR3FuMFM3RFVFQzZrT0hmbGp6dUt4Q2c?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10903": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기록"
+   ],
+   "keywords": [
+    "극장골",
+    "승점"
+   ],
+   "headlines": [
+    {
+     "title": "FC 안양의 마테우스, 극적인 극장(13호)골로 '값진 승점'",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBQQVV5V0ljQnhWLXcyMTZyTGs2TE10X2ZnZWRqZS1hdXQzRlVGMl9kMGlsbEQwYV9NMVYtTnRmWFI2eTBnU1JOQWR2eFBMeklYME5DM3d5SkxCWnJ4RXRuWHRsSHlqV21lZXBubQ?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10918": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "유소년 육성",
+    "축구교실 투자"
+   ],
+   "headlines": [
+    {
+     "title": "박진섭·김보경, 유소년 축구 육성에 힘 보탠다…축구교실 공동 투자",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5yX0tlYlVHUnVBRDJFb3lFMDc5RVpqUXFWa0Z4bThNeFJvMEp0cGdRSlVMUENWM3c3dFM3S2Q5aS1IUmJRQ2RDZzRYNEFCWDBzaFNoSUhFWGhjdDQ?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10938": {
+   "n": 3,
+   "h24": 3,
+   "sentiment": {
+    "pos": 2,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 3
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰"
+   ],
+   "keywords": [
+    "원정",
+    "좋은 기억",
+    "추억",
+    "가시마",
+    "승리 다짐"
+   ],
+   "headlines": [
+    {
+     "title": "“모따만? 전북엔 다른 좋은 선수도 많아” 박지수, 7년 전 추억 품고 가시마 원정길",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE12UmVSMldDaXhsbkpIcUhpTDgzOEkzTncyVjRSSVFpNEhuVTZaV3VrSnRKakEyTkpjYVo4Yzdia2JYUnI0X0RuUElZQ0N4WFBIczRwbk5KODdtTk90a1dhSzRWVmxKWF8zQVJyV0dTa2pPdw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[acle.interview] 전북 베테랑 박지수 \"19년도 가시마 원정 때 좋은 기억, 내일도 되살려 승리하겠다\"",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1SdUNUaE85WGJXQW5WTGFNXzgtcjMwVHBScEZOX2NTejUzY3VTWEE3OWM5aDN0RDY3cW9Fc29ycEhZMWRJN1hlWEk2ZHgwWEVGOEdIdzdmekZEdUs3TkZPRWkzMEp4NzFRMm5SazBKOHNYQQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "전북 박지수 \"가시마는 좋은 기억, 2019년 광저우 소속으로 여기서 결과 얻었어\"",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4tUGZMck9TVnZhSkdyRTQ1YndBZXYxU19tY01EYm42TUVRNUpjajEzcHdDQXd0Vk01U3Foak10TXA4aWpWb0Y4NFBWdF9RalF0amdJdkhxdnJfUktfNEpBcDNDM0k0ZGJ5bmc?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10941": {
+   "n": 2,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 2
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "선발 출전",
+    "ACLE 경쟁",
+    "K리그1 경기",
+    "선발 라인업",
+    "현장 라인업"
+   ],
+   "headlines": [
+    {
+     "title": "[GOAL 현장] ‘전북의 ACLE 출전권 조준’ K리그1 우승 확정 서울과 격돌, ‘티아고-이탈로 선봉’",
+     "url": "https://news.google.com/rss/articles/CBMilghBVV95cUxQcmhKZUI2TTM5YnNuRnZqOXQyS09rYjdtOXAzYzB6LTNCQ1hJLV9XMHR0R0M0NDhxUThWejdKdGM5SlhHb1BBSUxxdEJXbGVoaEZ0N1hOcEQtOFZxenJiX1JtNHhyWHlnUHpxbWVMYXhSX296MXJvWERSWDlaay1WSlNsTm5EWTRkMjVrUDdtd3VwQ19UMG9aNXpmdUdmZUtONE0wc1RLdElzc3loRjF1SlNHWmlKX0VTZHJfVUVkNEZqU3Z2TEdyX09jcFRadWN6VExUSDdUWWo0Z2o1S2FwNWpXOThjTDZCaTN2c0RXSzZOVVhBYkFQb2RnRzlVX255VFVIMDlCNlFIU3Q4THdhSndJS01mSXVDR2tmdmRkeDdnUm5BVmp6RmhqTElvVV9DOWFEWktQLTRfODZlSl9SS3ZkdXF5bnNnX3FoOGk4aGtqUHNmQ2R0aHR6UHFySHRvOWcxblRHSzNJeUk1NnpXZEk5NW51d1Q5VHRNa3lPRVdEdTVMc3RpblhLeHlJQTNYamx3Y3d2OVVFZHNYcUJkdlFkZjhDc3BjdTNwRHlvd05jU2FjbE93VGxhcmRqOHpWVTBmeVBqY3YxWUFQV0tUcVE3ZkJScWNvSXk1akFaMWllRk52R0RIcXIzU3ZBbnQyWElFQmVIanBBelYtU2tIZWV2NDVMU3RISFBhcUd3OUcycUxlV1VMYjlVaDJaMXVoaWNhZkNLWktZNGNzVU9VYUU3ckxvdklhcUNSNTg1c2RFb1VWWkIzQUlDZWFrMVJDQUVHLVdRemF5ZGZsYjNYcWVDQzU1WkdMV0dlR1JkT1d3SUhNTnQxNXF0UjRnMEJ6cTI5RURvRFJzWUZfQW9oNk03SkM0WmcybWt1QkhVZmtoUlJUY3pJRHRFV19QTktPUWhoZWNzX0lhZ3BBSXJXV3lEVGVnV0RybWpuMS16bk9hWUdraDNaWUhuTHJCakdpeGxHSFNDc1NhYW0xdEVpdmdPNVlPZjM5OW14ZTZYZ2hCVVZtQURTMURGRmZkblpUbF9iLXZ5VjdFS0Q2T1hkclp2V0k3RG5PdzV0NVhXSjBKV24yOWdId3E5Y202bFpDelJvbVNtZC1zVHRXVEFWUmp4QUFEbTJYWnZGdTUybTV3bDdnaEJDdno2Q0pwMjZOajZCZ0Nyd2RuazdNR21DejBvZjI4RGZEdnoxd2tYQ2RtdkRJbC1GYnMxeU9lM3lIUnY4TDJHQ2xxRG9PTTdCMEdPYkw1amlwQzRJOGVxVF93TDZ4T3ZrLTNBOHhaYkJFeWNuZmlMTXg2NEZGYV81eG9pQ3p1aVdKLWZ1Ri1NSVBrZnhMdS11RUVfWEc0aTlYeHVOMzZ4M3dfanZSbXlSVXgwWjN0QQ?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    },
+    {
+     "title": "5위 전북, 이승우 벤치+티아고∙이탈로 선발 출격…챔피언 서울은 '국대' 최준∙손정범 벤치 [현장라인업]",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKMzgxVkhCVmg2TkROZmdZVmZPUGt6UG92SnhwZk8zeDVKRHhXSVhXcFk3YTRnRndrS3pFcFVDNk5GUVMzNWxKX2ZXZ3dCdnE2TDk0SndR?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10942": {
+   "n": 3,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 2,
+    "neg": 1
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 1
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 2
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "인터뷰"
+   ],
+   "keywords": [
+    "교체 출전",
+    "팀 패배",
+    "ACLE 진출",
+    "벤치",
+    "선발 라인업"
+   ],
+   "headlines": [
+    {
+     "title": "'이승우 교체 출전' 전북, 희미해지는 ACLE 자력 진출…'안데르손 원더골→왕관 세리머니' 서울에 0-1 패배 [현장리뷰]",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBWNlIweHU4d29NbUdZdXBTaXhjZGJ0MVNEUFNiZGZzRlVkaTRkNDFoUDlkV2t4Sk5qSDNVRDVycE1VeERlanN5YklJZ0tkMUh2bnl3RA?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    },
+    {
+     "title": "5위 전북, 이승우 벤치+티아고∙이탈로 선발 출격…챔피언 서울은 '국대' 최준∙손정범 벤치 [현장라인업]",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKMzgxVkhCVmg2TkROZmdZVmZPUGt6UG92SnhwZk8zeDVKRHhXSVhXcFk3YTRnRndrS3pFcFVDNk5GUVMzNWxKX2ZXZ3dCdnE2TDk0SndR?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[GOAL 인터뷰] ‘전북 챔피언 타이틀 방어 무산’ 이승우의 “실패한 시즌” 냉정한 진단에도 “K리그에 이만한 팀 없어” 애정 과시",
+     "url": "https://news.google.com/rss/articles/CBMitwtBVV95cUxNZVI4Smtnc3lGVGVpM2pzY0dES2dxck1LMGNUUjVqMFlrRDVET0ROVFdJLVpHM1cwMTYzM05jaVMtUWJidjd6d3VIY1FyS1FPMm9qVFJMZ2MwLXdWUm9pR3RLSDhsb0JpT0tpaDZqeGZBbEdocXpiaXR5MVNKbXBDLUxjcjRpQkNSRGlnWlBxSEpHOWVaS0NpUEdEc1VtdFFZd3ZLcThGVE5lN1RjSXlNQ1N1MHFxOTh3SG5pQzZYZXFyRUZOZFpkWXNremNrZ3Z6WXlrQncxVHF3YnM1MEhCeGJ3dFdPdVpaNWxQc1FWcmwxYjI4V1lvMWJXNW9sSVhPUDBMTS1XTUxBeDZxbE0wX0FuZWtqdHl2S0pkT0lNNF92bVVVeF9kY29RT1hGX1RQelBsaU9UQkNMWHQ1UjZGVk9EZHlSUmx3dUp5bEZWa0FUdjVnVlJnWFNrQ3E1STBnNXlQcXRsQl9QaV9pZlh0UTQ5WGhuTUJaN1BOX2F0QTdCV0NPWnJqM2hPM0RPSENYQnVvTlk4bVpWN2wtUEJna3FocERnaEMwNWo0a0ZLRGZxR0RVZ1BYOUNPdE5WRjlBVERMbVcwbTJkak9vSWRMZ0M0Y2RqUFpQM2xURU81MWF3QllYM29YTmoyOWdUQjE1NFJDTFh6WmVIWjN1bDRPeXlVSkRKcFJtTlU2ZVBPcWNIam1rY3RBTjFLVHFGeGlNUTdleWtCRkI1MjJGS1hEdklYcXJra2dITkRjR3o4UlVmX2JiUzFDd2tHNGsxZDE2bzJKejE5X2N5MDh4ZzVpUktldzcwM0NmU1VORE13blUwbHFvRTR1dTBPU0xhdGx5V1UyYVhyQ2o5cUxldjh0VVBzWnBuWWRJcTF1eXRERElOREkycV9iZjk4cXV1ckNZMHJSTnF3R3R3YlVaY2RlN1VCcWJQY0w0YjRhZlB4REtBbjBFV1RmbnVzbWg1Z0lvYlVPSHR0bTFnN3NKWXc0a0VWVUhiMUJ5YTdObDhHbTdfVDB5bmpXS05EcVNldzVKMG41RGdMek5IeDFhTVpoR2Z1YVhDOEpkRC1YcjREbUpNOFBUaGZPWVVZdUc0aDljTjVPTmZ0VnE1THlPbFI5YXh6V2pXRUpIamxVN1cxSmNLWW1FT3RYNjA1ZXlVM3BwazZ2bFZRRDZfek9fNEtSMU5KdlJrLVljeVdNVnEzaU1yWS1TOFZaMVlzaXZzOUd4VnRpQktaRUVXbXROY3VuNGIwdHYxc3c1aFUzVVJZckVlTS1nZFVDZDhGVTJZeU9FZ3gxOTJfWmlYSkh4cjJFMDNQS3Q1dDZ3Y1dYTF96dmFRZ2hHOHROb2VEQ25fNi1qVE5fSzRRcXRKemMtTVllWldEWHVrcEowOVRpLVo4b1VtQXdzQnQ2eDE0cjR1T2JaNWh2RUpocm84MkVhZkVXM2V2MEZrcS1jejZmeUR4YVNRQU9BUmRidW5IcVdrek1WOU1fRUo4X2NRSEFsbzdRN2FaeFZfQUc4VU83ZExjVnV0cHdyQzdLYkJ0S09jb1l2Z01MS2dLU2RIZjBIYzY3Q1FkNUc0N1d0QjlObzBVaFFqMUVmT2p2OHdzc2xZMXV0WEs2LVRyS3NTZ1Vxc2VCM2V0UmstX3ZvTl9MOFgxWmIyanZkOVJHaUFMR3VkaC1fRVRDOUNSNTBPSnd4dEVES2M1cks5XzlySlZwck16Y2tScE1EZUdmcDRNelRNOUdtdHdqMVhrUUN4SUwxQTdhdUFfQzVaaDdLUHBtZ0t3NlNJWC1HTHdLTUJYOVlaWnh4T3ZfeGtlREN5bm85QVY1bXVEVTdqakZWRGxhUU9RcDhYcVhUMU1RZXNUb2tMMldEbGx5N1dKSFQxSS1nQy1rU3BGVTZGWTNMc2dRRlZ3RUx1d3NXcDJiODZrd19QYlZLZ3FtMTRfRQ?oc=5",
+     "date": "2026-11-19",
+     "sentiment": "neg"
+    }
+   ]
+  },
+  "10945": {
+   "n": 2,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 2
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "경기력"
+   ],
+   "keywords": [
+    "아쉬움",
+    "골대 강타",
+    "경기 패배",
+    "골대",
+    "패배"
+   ],
+   "headlines": [
+    {
+     "title": "'골대 두 번 때리고도 서울에 0-1 패배' 전북 전병관의 아쉬움...\"경기력은 원하는 대로 흘러갔는데...\" [현장 인터뷰]",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPQ1Z4NFNZQ0VrdEFyWjZWMWp3VWFvOFFzeGlXV1lvQjVzNUZuN1pVYkduY2s0YkFrT3l1UjlpX0FGX2RqV1RfOHkxQ24zdDg1VlJLVlNkd3Z5V1FZZjVPczUwSGVRUU5DZjM0aDIwX25ZSDQtWF9ZQWFNMmF3bjRmOThPcktNdFRqSXFyY0lTMV95VUNmV25R0gGXAUFVX3lxTE9DVng0U1lDRWt0QXJaNlYxandVYW84UXN4aVdXWW9CNXM1Rm43WlViR25jazRiQWtPeXVSOWlfQUZfZGpXVF84eTFDbjN0ODVWUktWU2R3dnlXUVlmNU9zNTBIZVFRTkNmMzRoMjBfbllINC1YX1lBYU0yYXduNGY5OE9yS010VGpJcXJjSVMxX3lVQ2ZXblE?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    },
+    {
+     "title": "'골대 두 번 때리고도 서울에 0-1 패배' 전북 전병관의 아쉬움...\"경기력은 원하는 대로 흘러갔는데...\" [현장 인터뷰] - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9mdWhIbUtmd1Vqb2JUcmdvZU9jMnJySXlsTXZUdFBTcXVEWl9PUVFuUkVYVHZfLVRrMXQ4LUpuRmwwMFVVV0xXNldsMDEyVHdTYW1WZTZaTlVjdHBuZDc3eWthb1lrYzJhNEHSAW9BVV95cUxNeDhPZHNxR0RJd2R5YzB3OTVNWXRaSUowczZTZzh6ektxSFRRLWwzbGM5UDlDOWd6OWl6NDFKYVJLNGZja21RNTJZRXBycVBOMDQyUkFyYjZmYW0wdDhHcEtkUzVjM2hpd21SVmsxaTg?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "10993": {
+   "n": 2,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 2
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "부상"
+   ],
+   "keywords": [
+    "감독 인터뷰",
+    "전술 준비",
+    "복귀",
+    "필승 각오"
+   ],
+   "headlines": [
+    {
+     "title": "[현장인터뷰]주승진 김천 감독 \"구조 바꾸면서 준비\" vs 코스타 제주 감독 \"이탈로, 팀 도울 준비가 됐다\"",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZjl5UjdJMFBheWdsLW00RWFwTlZBQkVXZHU5bXBORUU5Yk1DNTg4RURLdUxCNDdvU0hrQ3hTOXJxRWlQSTFyUGpBQ3k1dW1sSF9seE9EOUR3Zy00X3lIYWJJaDY1blQ3a2lIQV9yMmJoaVZxMGdYT2hmZzdKanJEYW9ncw?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[현장목소리] \"승점 3점보다 큰 손실이었다\" 제주SK 코스타 감독, 43일 만의 이탈로 복귀에 반색…김천전 필승 각오",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa3BmQzJTeUlzSGZUNFk3RGplNVpvaXVoT1dCZS1tNmJIcWZseTF0Tl9Gc0FjdjBjV29OcTZ1djlxNlN3ekI4Vlk2YzlqN3FGT0gyVDFxUFBzYUFYa19DTHhZRjdERGRrNVFxMi1wOG9MbFN2a2Y5VmNSWFdwSzRrVjd3?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "10998": {
+   "n": 6,
+   "h24": 0,
+   "sentiment": {
+    "pos": 5,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 2
+    },
+    {
+     "date": "2026-11-20",
+     "n": 2
+    },
+    {
+     "date": "2026-11-21",
+     "n": 2
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기록",
+    "경기력"
+   ],
+   "keywords": [
+    "이달의 골",
+    "바이시클킥",
+    "기록 도전",
+    "100경기",
+    "시즌 득점"
+   ],
+   "headlines": [
+    {
+     "title": "제주 이건희, 서울전 바이시클킥으로 10월 K리그 '이달의 골' 수상",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBTUDM5c0toV2ZOTUtMOFNUOE9vbEdha2F3cGNqanhvUy16WTh2Q3V2c1ptSU1WSVR1c2ZqSG13R3BMc2NKNzJqQktlb0xkV0R0dENZVktDWjJUT0sxVDhGUmx1VkdFUnNSM1FfTjJ3?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    },
+    {
+     "title": "제주SK 이건희, 환상의 바이시클킥 이어 김천전서 기록 사냥",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EWVNzeFBHQk1tNmRDLUFLNHYxZDBEX0ZjNGlya2RCNzNsYTA2cmhXbWFJYThnbjRIUDVmWWxzNk4tWjhEUnRhY0FTVV9QcV9EcUw1VGhjTEN4VTJISElsWk9UM1hBMHBreHdV?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    },
+    {
+     "title": "바이시클킥으로 ‘이달의 골’... 이건희, 친정 김천서 100경기·시즌 7골 도전",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5QNkVMc0p4a1dSNVMzYjlYRDREcXBTcGpGUXhkMkw5dndJVFY4MUhCTWU5WEdFUmt3QXNvWVB5TUNUbFREeFFNOEY2clBDLU1lSTVaRE5pdDduMzUybFl0cEdKVm5uWkFLSjc1VUxxSQ?oc=5",
+     "date": "2026-11-20",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11002": {
+   "n": 6,
+   "h24": 0,
+   "sentiment": {
+    "pos": 6,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 6
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "PK 결승골",
+    "PK골",
+    "원정승리",
+    "PK결승포",
+    "7위 굳히기"
+   ],
+   "headlines": [
+    {
+     "title": "‘김신진 PK골’ 제주, 김천상무와 원정경기서 1-0 신승",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBvUFRwWXh1UzBVOGF0UjBvOUpZem9nT2pWLTNubnV5YnpKdEdfcXhoOEhoX3hFREczdl9Ib20xRFpFV2psbnJPaHZBSk5lQ0FCaUp3dHctNHFPNjQ1SVNMSW5BZ1g5RXRFOGpJUWQ2bw?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "‘김신진 PK결승포’ 제주, 김천 원정서 1-0 신승 ‘7위 굳히기 돌입’…11기 김인균·박진성·민경현 등 7인 전역 앞두고 고별전",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0wd1hqOWczUmFaZXZCS3FSZ2FPZFoyWWlfanhSS190ai1NWUhyQ0V6UWlMZVFzeDg4eVpZbXVkTGlOOWNxT2tfOVkyanlNbkx0Qmw0YWFKc2I?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'김신진 PK 결승골' K리그 제주, 김천 꺾고 6경기 만에 승리",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5iZWJYUXhuRWNjMzk2dXZzUHdha2FaMWE2Ym4yYWlsNkRtRy1EcFdiS1lISnZtOVRfUjhGUkJOTnRCa1o5ZVZ4d3A3c0ZYRmpPZXV6QQ?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11031": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰"
+   ],
+   "keywords": [
+    "팬 응원",
+    "팀 격려"
+   ],
+   "headlines": [
+    {
+     "title": "'다시 시작된 팬들의 응원' 포항 김동진 \"서로 믿고 의지하면 언젠가 밝은 날 올 것\"",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1wNHVMV1hrOE1RTlhRWkd2OHhqZ2RDaXUxMFRueGduUFR6aHNXYWRzSVNmMWNNbkxvazJFckJvMVB2cEN3T3NBRVFlWjhhVzV5eHFKZXBycGVScUtxQ0pCcXhZaUQwRHY1SkQ0?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11032": {
+   "n": 3,
+   "h24": 1,
+   "sentiment": {
+    "pos": 2,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 3
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "대표팀"
+   ],
+   "keywords": [
+    "K리그 강점",
+    "포항다운 축구",
+    "일본 원정",
+    "교토전 각오",
+    "일본 축구"
+   ],
+   "headlines": [
+    {
+     "title": "포항 조상혁 \"끝까지 따라가려는 것이 포항다운 축구, K리그만의 강점 살릴 것\"",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1XaWNzTEV5bEp6V2gwekJfbEloV0szcTRkeThmNGdNR0FOWE5MSTJzQ3hYajhFemh5M1NldlpuTXFlQjNOS0xFZDlNeWo3RFJINDVHaVp3SkFid1Z1azBMM05UdThLbDZUbGc?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "[acle.interview] ‘일본 원정’ 떠난 포항 조상혁, “K리그도 우리만의 강점이 있다”",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1NUVh0WGNMVElsMDgzRjZTYXZmZTJIdGdmQWxWQlJwZ2txekg4Q0JOQlJWeEY3elhIS0RPYVJxNk16MWxkYkJEUUttWVY1cEhVMHdrdW4ySEVmSHJ2WFVkdUg5Ri1seXVsWlVrOVl6Nm80UQ?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
+    },
+    {
+     "title": "“일본 축구 수준 높아져… 감바전처럼 포항다운 축구해야” 조상혁의 교토전 각오",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBjMkNTNTRFSGxRWjlyVHQzOWNZdXplMEkxYTM0Unh6bC1KMHJrY0N4QjgyVDdMLU5fRnVlOS1mZmxBNXJNcFRRSllFSVlUMWRzVjFqeUhJZ0lGMC1IVC1rTktYcEtOVEltZHB3YzRYVG9qZw?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "11033": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 1
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "경기 일정",
+    "기념 시상식"
+   ],
+   "headlines": [
+    {
+     "title": "포항, 김성재 체제 첫 승 도전…21일 안양전서 박찬용 100경기 시상식도 진행",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4zR2tlRWVOTFBMOFhITEpYRFo0bWlPV3llNXVORmZvZW1iMGZPSFdNbHNxNmNheXloQXZoeV9XQVo2Wl9oNm1FZXdleUlTTjRsa2RQRFVUN0FxZW8?oc=5",
+     "date": "2026-11-20",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "11053": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "인터뷰"
+   ],
+   "keywords": [
+    "복귀",
+    "자신감",
+    "클리어"
+   ],
+   "headlines": [
+    {
+     "title": "\"경기력? 아직 만족 못 한다\" 3년 가까이 그라운드 떠났던 이상민의 자신감...전북전 클리어 8개로 존재감 증명 [현장 인터뷰] - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB6bFVOQU8zVXNpLWlSY2pBYmJtVWlVTmFvVEpMYUpmLTM4QWhYclVZVjZpUXlMb3lITmRtUnVxT216cjJId0lCekpxaVlfSXJnc19HWUFURldvRDZqWDItVWdZcnNtNTBIUVHSAW9BVV95cUxORm5WTVVGdTZuSmdybVd0ZlBzUVl4aEpkNW05R0M1WXFkazhJaXlibEVRZnRWa2l3Wmh0amZwZmN1OVlEZkVqMDRkNENQb2hCZHJ0SDRZZUtUcWczY3JLQWt0ZHZDUzVjRkN3SHFLUXM?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11056": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "포지션 경쟁",
+    "대표팀 경쟁"
+   ],
+   "headlines": [
+    {
+     "title": "‘정승원 vs 이동경’…역대급 피 터지는 한국축구 ‘이 경쟁’에 축구팬들 이목 확 쏠렸다",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE96MGt5bHU1azJYYjhlbGMza0RBS1FRaEFhSEU0WUhzQzhrTmVMdllnaURpYjZlNGJQS0U5MUNDdzdfd2o4LVdyRUZ0VGk1eWdwWExKd19n?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "11058": {
+   "n": 2,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 1
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "기록",
+    "인터뷰",
+    "경기력"
+   ],
+   "keywords": [
+    "10월의 선수",
+    "팬 투표",
+    "우승 주역",
+    "자신감"
+   ],
+   "headlines": [
+    {
+     "title": "[공식발표] FC서울 우승 주역 문선민, 구성윤·야잔·클리말라 제쳤다...팬 투표 70%로 10월의 선수 선정",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcGQxZjVmb3ZINzlWb2NrY1J1eTc3OUFuNlA3R3F1R0FBWGxHdUtyUFJWcE1PRWQ0M1VHRUVQeno4YlRxYWRZTHdMSnhMVzgtN3NQaTZ2VUhqTkx1cVZtY0Qta25rLVc0UHJPWGpvc3V6SWdBRVp6cTBfc2MzaUJqWXRpMjVnbGlyMWZYc3VjU3V2UDAxaTYw0gGXAUFVX3lxTFBwZDFmNWZvdkg3OVZvY2tjUnV5Nzc5QW42UDdHcXVHQUFYbEd1S3JQUlZwTU9FZDQzVUdFRVB6ejhiVHFhZFlMd0xKeExXOC03c1BpNnZVSGpOTHVxVm1jRC1rbmstVzRQck9Yam9zdXpJZ0FFWnpxMF9zYzNpQmpZdGkyNWdsaXIxZlhzdWNTdXZQMDFpNjA?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[사커피플] 실패의 상처 딛고 서울의 우승 주역으로 우뚝 선 클리말라, \"득점왕? MVP? 이미 난 모든 것을 가진 남자\"",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE02NjRFQldrQjZXUFpjX3ZoSDJfb1VaZWdJUmJXWUNfaUgtZnZxVmZnLThCNW1sX1lBT0tFVVZ1QS1GWWx6blVqbGxXZzNOMDFmQWJsNDN3?oc=5",
+     "date": "2026-11-19",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11059": {
+   "n": 11,
+   "h24": 0,
+   "sentiment": {
+    "pos": 11,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 10
+    },
+    {
+     "date": "2026-11-22",
+     "n": 1
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기록"
+   ],
+   "keywords": [
+    "결승골",
+    "무승 탈출",
+    "승리",
+    "원정승",
+    "연패 탈출"
+   ],
+   "headlines": [
+    {
+     "title": "FC서울, 안데르손 결승골로 전북 1-0 제압…5경기 만에 승리",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40YUp6VVNIU0Vqcm9EQ2dnT2hrb3U5YjhiVXJrSktzaXlVZW52bHE4Nkd4TU9hWGt1TGxYby1CMG1JQTNrNi1mQ3paa2RTZzk3UXFwWE1aVnRzUlZ3YTJOcjZVX0Rsa2d6UjdzTHV3?oc=5",
+     "date": "2026-11-22",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'우승 확정 뒤 첫 승' 서울, 전북 원정서 안데르손 결승골로 1-0 승리...이번 시즌 전북전 3승 1무",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBOaHFQVjcySXpRYnhwRzNNdXN5V2tMM1FhaUl4dEUxMTVVNHdfRjBudUZNS3Y2QW02RmpmcXNIVHl2Y21oaXhhS3VMVEpfWXhIdUNKZGRBeUlZbFJBMG9zTHltTGVYRkFPcTZzQXprRHJRNkYwNzNXekRwYw?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'K리그1 우승팀' 서울, 전북 꺾고 2연패 탈출…안데르손 결승골",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9NSTBmLTJTNXV5bXo0SjFDUmNYM216bHVGVzhPS05sblh6RnMzVW1RMi1iUW5LWi1aZTJySzVvTFFMVzl6S1Y0S1A3TW91MnRKWHdGcw?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11062": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "선발 라인업",
+    "벤치"
+   ],
+   "headlines": [
+    {
+     "title": "5위 전북, 이승우 벤치+티아고∙이탈로 선발 출격…챔피언 서울은 '국대' 최준∙손정범 벤치 [현장라인업]",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKMzgxVkhCVmg2TkROZmdZVmZPUGt6UG92SnhwZk8zeDVKRHhXSVhXcFk3YTRnRndrS3pFcFVDNk5GUVMzNWxKX2ZXZ3dCdnE2TDk0SndR?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "11071": {
+   "n": 3,
+   "h24": 2,
+   "sentiment": {
+    "pos": 1,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 1
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 2
+    }
+   ],
+   "topics": [
+    "기록",
+    "경기력"
+   ],
+   "keywords": [
+    "10월의 선수",
+    "팬 투표",
+    "후보 경쟁",
+    "이달의 세이브",
+    "선방"
+   ],
+   "headlines": [
+    {
+     "title": "[공식발표] FC서울 우승 주역 문선민, 구성윤·야잔·클리말라 제쳤다...팬 투표 70%로 10월의 선수 선정 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFAyUk4wLXQwSWRSaXoyQ1BKbU5oclotZVdxZnByVTlCNkNaQ2xnai1fd04tOW15VXBwQmJJTDc1U1hDQXZ0Tm9Mcjd0dXNQbkZ0aTFPektobmtlT1dDUjN0NVM5NGVRY29zX2dRQ2NFVdIBb0FVX3lxTFAyUk4wLXQwSWRSaXoyQ1BKbU5oclotZVdxZnByVTlCNkNaQ2xnai1fd04tOW15VXBwQmJJTDc1U1hDQXZ0Tm9Mcjd0dXNQbkZ0aTFPektobmtlT1dDUjN0NVM5NGVRY29zX2dRQ2NFVQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
+     "title": "[공식발표] FC서울 우승 주역 문선민, 구성윤·야잔·클리말라 제쳤다...팬 투표 70%로 10월의 선수 선정",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcGQxZjVmb3ZINzlWb2NrY1J1eTc3OUFuNlA3R3F1R0FBWGxHdUtyUFJWcE1PRWQ0M1VHRUVQeno4YlRxYWRZTHdMSnhMVzgtN3NQaTZ2VUhqTkx1cVZtY0Qta25rLVc0UHJPWGpvc3V6SWdBRVp6cTBfc2MzaUJqWXRpMjVnbGlyMWZYc3VjU3V2UDAxaTYw0gGXAUFVX3lxTFBwZDFmNWZvdkg3OVZvY2tjUnV5Nzc5QW42UDdHcXVHQUFYbEd1S3JQUlZwTU9FZDQzVUdFRVB6ejhiVHFhZFlMd0xKeExXOC03c1BpNnZVSGpOTHVxVm1jRC1rbmstVzRQck9Yam9zdXpJZ0FFWnpxMF9zYzNpQmpZdGkyNWdsaXIxZlhzdWNTdXZQMDFpNjA?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "neu"
+    },
+    {
+     "title": "서울 우승 확정 경기 빛낸 구성윤의 선방… 10월 K리그 '이달의 세이브' 선정",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5WN2hEZEFITnZ4TkVaRUtfMFhPMmdCSG9WMW9sUk41S0hydTJidnNzWXdUcC1nb0dKMC0tX29EU2w5MmxPRFUwdzFjbEVDc2lYb2pqYXNHMDhXWWFaa2lMUVNtYWluYUFhSmhlMDJB?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "11073": {
+   "n": 5,
+   "h24": 5,
+   "sentiment": {
+    "pos": 5,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-19",
+     "n": 0
+    },
+    {
+     "date": "2026-11-20",
+     "n": 0
+    },
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 4
+    }
+   ],
+   "topics": [
+    "기타",
+    "경기력"
+   ],
+   "keywords": [
+    "팬 투표",
+    "10월의 선수상",
+    "득표율",
+    "10월 MVP",
+    "물오른 활약"
+   ],
+   "headlines": [
+    {
+     "title": "70%의 '압도적인 득표율' 기록했다… FC 서울 문선민, 팬들이 선정한 ‘HS효성더클래스 10월의 선수상’ 수상",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9nMk9VWTlMRElvdTNZbGZtczl4UXl5UGJnZUN6TmZ6V3FiWG9kclhBSGhjTFAwZTZzT0lFVGF5MGJWM0hLdS0zMlEwT2lVcU1YOFZxMWx0LXgwcVFnbEgyYU1VN29WbVNIWVQzYjd3?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "물오른 문선민, FC서울 팬 선정 10월 MVP 등극…70% 득표",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9UZWRLOFhpcW5oR2x6SlExVXZkRlQ4Vlk2bWtzMWJoQUVURThoRFFHVzByaUxBWnJHQW1URDBIelFId1NUZTFXZVRNdldPd2dBNmFGZVVJSzE3SGRrUXZLZ1JnVEc2OERMclBEM2o1MmVqdw?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    },
+    {
+     "title": "FC서울 문선민, 팬 투표 70% 득표…10월 최고의 선수 선정",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE04aWNmN3drbExwX0RjdExTUDR1aWpzWUFyTDdwV29hcDFHbjhkVG9KOGx4UHhhVk9MQmFKVkhILTloUjZlU3gxVjhaMjdvUndTMzgxLdIBVEFVX3lxTE04aWNmN3drbExwX0RjdExTUDR1aWpzWUFyTDdwV29hcDFHbjhkVG9KOGx4UHhhVk9MQmFKVkhILTloUjZlU3gxVjhaMjdvUndTMzgxLQ?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    }
+   ]
   }
  }
 }
