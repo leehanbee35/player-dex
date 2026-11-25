@@ -407,6 +407,9 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .fcount{font-size:11px;font-weight:700;color:#0b1a12;background:var(--accent);border-radius:999px;padding:1px 7px}
   .fcount:empty{display:none}
   .filters{display:none;padding-bottom:12px}
+  /* 폰: 즐겨찾기 경기 목록을 짧게 (카드 목록이 너무 밀리지 않게) */
+  .kg{max-height:200px}
+  .kg-cols{gap:10px}
   .filters.open{display:flex;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
   .ctrls{display:grid;grid-template-columns:1fr;gap:8px}
   .ctrls>.pick+*, .ctrls>label+label{padding-left:0}
@@ -700,7 +703,7 @@ const COMP_KO=[["Premier League","프리미어리그"],["LALIGA","라리가"],["
 const compKo=n=>{const s=n.replace(/^\d{4}(-\d{2})?\s+/,"");const m=COMP_KO.find(([e])=>s.includes(e));return m?m[1]:s};
 const STAT_CACHE={};
 // 다음 경기·최근 경기 (ESPN 개요 데이터). 팀 이름은 명단의 한글 팀 이름표로 바꿈
-let TEAM_KO={};
+let TEAM_KO={},LEAGUE_ORDER=[];
 const teamKo=n=>TEAM_KO[n]||n||"";
 const WD="일월화수목금토";
 const kst=s=>{const d=new Date(new Date(s).getTime()+9*3600e3);const p=n=>String(n).padStart(2,"0");return {md:`${d.getUTCMonth()+1}.${d.getUTCDate()}(${WD[d.getUTCDay()]})`,hm:`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}`}};
@@ -1021,15 +1024,24 @@ function render(){
   $("count").textContent=list.length.toLocaleString();
   $("clubNote").innerHTML="";
   if(!list.length){$("out").innerHTML=`<div class="empty">조건에 맞는 선수가 없습니다. 필터를 하나 해제해 보세요.</div>`;return}
-  const total=list.length;list=list.slice(0,shown);
+  const total=list.length;
+  const keyOf=st.group&&{pos:p=>p.g,nat:p=>p.nat,league:p=>p.league,club:p=>p.club}[st.group];
+  // 묶어보기: 전체 인원으로 그룹 순서를 정하고 그 순서대로 이어 보여 줌 (그룹 제목의 인원도 전체 기준)
+  const fullCnt={};
+  if(keyOf){
+    list.forEach(p=>{const k=keyOf(p);fullCnt[k]=(fullCnt[k]||0)+1});
+    const order={pos:["GK","DF","MF","FW"]}[st.group];
+    // 리그는 사이트의 리그 순서(프리미어리그·라리가 …), 나머지는 인원 많은 순
+    const lo=k=>{const i=LEAGUE_ORDER.indexOf(k);return i<0?999:i};
+    const rank=k=>order?order.indexOf(k):st.group==="league"?lo(k)*1e5-fullCnt[k]:-fullCnt[k];
+    list=list.map((p,i)=>[p,i]).sort((a,b)=>rank(keyOf(a[0]))-rank(keyOf(b[0]))||String(keyOf(a[0])).localeCompare(String(keyOf(b[0])))||a[1]-b[1]).map(x=>x[0]);
+  }
+  list=list.slice(0,shown);
   const more=total>list.length?`<div class="more"><button type="button" id="moreBtn">더 보기 <small>${list.length.toLocaleString()} / ${total.toLocaleString()}</small></button></div>`:"";
-  if(!st.group){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`+more;watchMore();return}
-  const keyOf={pos:p=>p.g,nat:p=>p.nat,league:p=>p.league,club:p=>p.club}[st.group];
+  if(!keyOf){$("out").innerHTML=`<div class="grid">${list.map(card).join("")}</div>`+more;watchMore();return}
   const label={pos:k=>GROUP_NAME[k],nat:k=>NAT[k]||k,league:k=>k,club:k=>k}[st.group];
-  const order={pos:["GK","DF","MF","FW"]}[st.group];
-  const groups={};list.forEach(p=>(groups[keyOf(p)]??=[]).push(p));
-  const keys=order?order.filter(k=>groups[k]):Object.keys(groups).sort((a,b)=>groups[b].length-groups[a].length);
-  $("out").innerHTML=keys.map(k=>`<h2 class="group-h">${st.group==="nat"?flag(k):""}${esc(label(k))}<small>${groups[k].length}명</small></h2><div class="grid">${groups[k].map(card).join("")}</div>`).join("")+more;
+  const groups={},keys=[];list.forEach(p=>{const k=keyOf(p);if(!groups[k]){groups[k]=[];keys.push(k)}groups[k].push(p)});
+  $("out").innerHTML=keys.map(k=>`<h2 class="group-h">${st.group==="nat"?flag(k):""}${esc(label(k))}<small>${fullCnt[k].toLocaleString()}명</small></h2><div class="grid">${groups[k].map(card).join("")}</div>`).join("")+more;
   watchMore();
 }
 function showMore(){shown+=PAGE;const y=scrollY;render();scrollTo(0,y)}
@@ -1322,7 +1334,7 @@ $("out").parentElement.addEventListener("click",e=>{if(e.target.closest("#moreBt
 fetch("data/players.json").then(r=>r.ok?r.json():null).then(d=>{
   if(!d||!Array.isArray(d.players))return;
   Object.entries(d.nat||{}).forEach(([k,v])=>{if(!NAT[k])NAT[k]=v});
-  FLAG_IMG=d.flag||{};TEAM_KO=d.teams||{};
+  FLAG_IMG=d.flag||{};TEAM_KO=d.teams||{};LEAGUE_ORDER=d.leagues||[];
   // 직접 입력한 60명도 이적하면 최신 클럽·리그로 (한글 팀명이 있을 때만)
   Object.entries(d.curated||{}).forEach(([no,[club,league,espn,num]])=>{const p=BY_NO[no];if(!p)return;if(espn)p.espn=espn;if(num)p.num=num;if(/[가-힣]/.test(club)){p.club=club;p.league=league}});
   players=players.concat(d.players.map(r=>({no:r[0],kr:r[1],en:r[2],pos:POS[r[3]]?r[3]:"FW",g:(POS[r[3]]||POS.FW)[0],nat:r[4],club:r[5],league:r[6],born:r[7],h:r[8],num:r[9],espn:r[10]||"",foot:""})));
