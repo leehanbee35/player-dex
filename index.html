@@ -140,8 +140,8 @@ main{padding-block:20px 48px}
 .pick{display:inline-flex;align-items:center;gap:2px}
 /* 나라 | 리그 | 정렬 | 묶어보기 사이 세로 구분선 */
 .ctrls{column-gap:12px}
-.ctrls>.pick+*, .ctrls>label+label, .ctrls>.pos-slot+.pick{position:relative;padding-left:12px}
-.ctrls>.pos-slot+.pick::before, .ctrls>.pick+*::before, .ctrls>label+label::before{content:"";position:absolute;left:0;top:50%;height:12px;margin-top:-6px;border-left:1px solid rgba(255,255,255,.28)}
+.ctrls>.pick+*, .ctrls>label+label, .ctrls>.pos-slot+label{position:relative;padding-left:12px}
+.ctrls>.pos-slot+label::before, .ctrls>.pick+*::before, .ctrls>label+label::before{content:"";position:absolute;left:0;top:50%;height:12px;margin-top:-6px;border-left:1px solid rgba(255,255,255,.28)}
 .fav-toggle{font:inherit;font-size:17px;line-height:1;background:none;border:0;color:var(--head-muted);cursor:pointer;padding:0 6px;border-radius:6px;display:inline-flex;align-items:center}
 .fav-toggle[aria-pressed="true"]{color:#f5c542}
 .fav-toggle:disabled{opacity:.3;cursor:default}
@@ -494,6 +494,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   .kg-cols{gap:10px}
   .filters.open{display:flex;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
   .ctrls{display:grid;grid-template-columns:1fr;gap:8px;position:relative}
+  .ctrls>.grp-l{order:9}
   .ctrls .reset{position:absolute;right:0;bottom:0;width:29px;margin:0}
   .ctrls>.pick+*, .ctrls>label+label{padding-left:0}
   .ctrls>.pick+*::before, .ctrls>label+label::before{display:none}
@@ -530,20 +531,20 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     <div class="filters" id="filters">
     <div class="ctrls">
       <span class="pos-slot" id="posSlot"><span class="pos-lab">포지션</span></span>
-      <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
-      <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
-      <span class="pick"><label>나라 <select id="nat"></select></label><button type="button" class="fav-toggle" id="favNat" aria-label="고른 나라 즐겨찾기" aria-pressed="false">☆</button></span>
-      <span class="ctrl-br" aria-hidden="true"></span>
-      <label>정렬 <select id="sort">
-        <option value="no">기본순</option><option value="hot">실시간 화제순</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
-      </select></label>
-      <label>묶어보기 <span class="seg" id="grp">
+      <label class="grp-l">묶어보기 <span class="seg" id="grp">
         <button type="button" data-g="" aria-pressed="true">없음</button>
         <button type="button" data-g="pos" aria-pressed="false">포지션</button>
         <button type="button" data-g="nat" aria-pressed="false">나라</button>
         <button type="button" data-g="league" aria-pressed="false">리그</button>
         <button type="button" data-g="club" aria-pressed="false">팀</button>
       </span></label>
+      <span class="ctrl-br" aria-hidden="true"></span>
+      <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
+      <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
+      <span class="pick"><label>나라 <select id="nat"></select></label><button type="button" class="fav-toggle" id="favNat" aria-label="고른 나라 즐겨찾기" aria-pressed="false">☆</button></span>
+      <label>정렬 <select id="sort">
+        <option value="no">기본순</option><option value="hot">실시간 화제순</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+      </select></label>
       <button class="reset" id="reset" type="button" title="필터 초기화" aria-label="필터 초기화"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
     </div>
     <div class="favline"><div class="favbar" id="favBar"></div>
@@ -977,7 +978,7 @@ function syncFav(){
   if(np)chips.unshift({kind:"favOnly",v:"1",label:`선수 ${np}명`});
   $("favBar").innerHTML=`<span>★ 즐겨찾기</span>`+(chips.length
     ?chips.map(c=>c.kind==="favOnly"?`<button type="button" class="fchip" data-kind="favOnly" aria-pressed="${st.favOnly}" title="즐겨찾는 선수만 보기">${c.label}</button>`:`<button type="button" class="fchip" data-kind="${c.kind}" data-v="${esc(c.v)}" aria-pressed="${st[c.kind]===c.v}">${c.label}<span class="x" data-remove="1" title="즐겨찾기 삭제" aria-label="즐겨찾기 삭제">×</span></button>`).join("")
-    :`<em>나라·리그·팀 옆 ☆나 선수 상세 화면의 ☆로 추가</em>`);
+    :`<em>리그·팀·나라 옆 ☆나 선수 상세 화면의 ☆로 추가</em>`);
 }
 function toggleFav(kind,v){
   st.fav[kind]=isFavOf(kind,v)?st.fav[kind].filter(x=>x!==v):[...st.fav[kind],v];
