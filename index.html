@@ -69,7 +69,8 @@ header.stuck{box-shadow:0 6px 18px rgba(0,0,0,.28)}
 @media (min-width:641px){
   header{display:contents}
   header>.top{position:sticky;top:0;z-index:30;background:var(--head);color:var(--head-ink);box-shadow:0 0 0 100vmax var(--head);clip-path:inset(0 -100vmax);transition:none}
-  header.stuck>.top{clip-path:inset(0 -100vmax -24px -100vmax);box-shadow:0 0 0 100vmax var(--head),0 6px 18px rgba(0,0,0,.28)}
+  header>.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(255,255,255,.12);box-shadow:0 0 0 100vmax rgba(255,255,255,.12);clip-path:inset(0 -100vmax);opacity:0;transition:opacity .2s}
+  header.stuck>.top::after{opacity:1}
   header>.rail{position:relative;z-index:29;color:var(--head-ink)}
   header>.rail::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--head);box-shadow:0 0 0 100vmax var(--head);clip-path:inset(0 -100vmax)}
 }
