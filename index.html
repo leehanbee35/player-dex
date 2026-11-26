@@ -85,7 +85,14 @@ select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);
 .dd-val .cnt{display:none}
 .dd-chev{width:12px;height:12px;flex:0 0 auto;opacity:.7;transition:transform .15s}
 .dd-btn[aria-expanded="true"] .dd-chev{transform:rotate(180deg)}
-.dd-list{position:absolute;top:calc(100% + 6px);left:0;z-index:30;min-width:100%;width:max-content;max-width:280px;max-height:320px;overflow-y:auto;margin:0;padding:4px;list-style:none;background:var(--head);border:1px solid rgba(255,255,255,.14);border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.dd-pop{position:absolute;top:calc(100% + 6px);left:0;z-index:30;min-width:max(100%,220px);width:max-content;max-width:300px;padding:4px;background:var(--head);border:1px solid rgba(255,255,255,.14);border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.dd-pop[hidden]{display:none}
+.dd-list{max-height:300px;overflow-y:auto;margin:0;padding:0;list-style:none}
+.dd-q{display:block;width:100%;box-sizing:border-box;height:32px;margin:0 0 4px;padding:0 10px;font:inherit;font-size:13px;color:var(--head-ink);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:7px;outline:none}
+.dd-q::placeholder{color:var(--head-muted)}
+.dd-q:focus{border-color:var(--accent)}
+.dd-opt[hidden]{display:none}
+.dd-empty{margin:0;padding:10px;font-size:12.5px;color:var(--head-muted)}
 .dd-opt{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;color:var(--head-ink);white-space:nowrap;cursor:pointer}
 .dd-opt:hover,.dd-opt.active{background:rgba(255,255,255,.08)}
 .dd-opt[aria-selected="true"]{color:var(--accent);font-weight:700}
@@ -809,25 +816,48 @@ function ddLabel(sel,o){
   const fl=sel.id==="nat"&&o.value?flag(o.value):"";
   return `${m[1]?'<span class="star">★</span>':""}${fl}<span class="txt">${esc(m[2])}</span>${m[3]?`<span class="cnt">${m[3]}</span>`:""}`;
 }
+// 리그·팀·나라 목록 위에는 검색 칸 (이름 일부, 초성, 팀 줄임말, 나라 코드로 찾기)
+const DD_SEARCH={league:"리그 검색",club:"팀 검색 (예: 맨시티, ㅌㅌㄴ)",nat:"나라 검색"};
 function syncDD(sel){
   let dd=sel.nextElementSibling;
   if(!dd||!dd.classList.contains("dd")){
-    dd=document.createElement("div");dd.className="dd";
-    dd.innerHTML=`<button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button><ul class="dd-list" role="listbox" hidden></ul>`;
+    dd=document.createElement("div");dd.className="dd";const ph=DD_SEARCH[sel.id];
+    dd.innerHTML=`<button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false"></button><div class="dd-pop" hidden>${ph?`<input class="dd-q" type="search" placeholder="${ph}" aria-label="${ph}" autocomplete="off" spellcheck="false">`:""}<ul class="dd-list" role="listbox"></ul><p class="dd-empty" hidden>찾는 항목이 없습니다.</p></div>`;
     sel.after(dd);sel.classList.add("sr-only");sel.tabIndex=-1;
   }
   const cur=sel.options[sel.selectedIndex]||sel.options[0];
   dd.querySelector(".dd-btn").innerHTML=`<span class="dd-val">${ddLabel(sel,cur)}</span>${CHEV}`;
-  dd.querySelector(".dd-list").innerHTML=[...sel.options].map((o,i)=>`<li role="option" class="dd-opt" data-i="${i}" aria-selected="${o.selected}">${ddLabel(sel,o)}</li>`).join("");
+  const key=o=>{const t=o.textContent.replace(/^★ /,"").replace(/ \(\d+\)$/,"");return o.value?normS([t,o.value,CLUB_ALIAS[o.value]||""].join(" ")):""};
+  const cho=o=>o.value?choKeys(o.textContent.replace(/^★ /,"").replace(/ \(\d+\)$/,"")).join("|"):"";
+  dd.querySelector(".dd-list").innerHTML=[...sel.options].map((o,i)=>`<li role="option" class="dd-opt" data-i="${i}" data-s="${esc(key(o))}" data-c="${esc(cho(o))}" aria-selected="${o.selected}">${ddLabel(sel,o)}</li>`).join("");
+  if(ddOpen===dd)filterDD(dd);
+}
+// 목록 안에서만 스크롤 (scrollIntoView는 바깥 필터 칸까지 움직여서 검색 칸이 가려짐)
+function ddScroll(el){const l=el.parentElement,t=el.offsetTop-l.offsetTop;if(t<l.scrollTop)l.scrollTop=t;else if(t+el.offsetHeight>l.scrollTop+l.clientHeight)l.scrollTop=t+el.offsetHeight-l.clientHeight}
+function filterDD(dd){
+  const inp=dd.querySelector(".dd-q");if(!inp)return;
+  const raw=inp.value.trim(),q=normS(raw),isCho=IS_CHO.test(raw.replace(/\s/g,"")),c=raw.replace(/\s/g,"");
+  let n=0;
+  dd.querySelectorAll(".dd-opt").forEach(li=>{
+    const ok=!raw||(li.dataset.s&&(isCho?li.dataset.c.split("|").some(k=>k.startsWith(c)):li.dataset.s.includes(q)));
+    li.hidden=!ok;li.classList.remove("active");if(ok)n++;
+  });
+  dd.querySelector(".dd-empty").hidden=n>0;
+  const first=dd.querySelector(raw?".dd-opt:not([hidden])":'.dd-opt[aria-selected="true"]')||dd.querySelector(".dd-opt:not([hidden])");
+  if(first){first.classList.add("active");ddScroll(first)}
 }
 let ddOpen=null;
-function closeDD(){if(!ddOpen)return;ddOpen.querySelector(".dd-list").hidden=true;ddOpen.querySelector(".dd-btn").setAttribute("aria-expanded","false");ddOpen=null}
+function closeDD(){if(!ddOpen)return;ddOpen.querySelector(".dd-pop").hidden=true;ddOpen.querySelector(".dd-btn").setAttribute("aria-expanded","false");ddOpen=null}
 function openDD(dd){
   closeDD();ddOpen=dd;
-  const l=dd.querySelector(".dd-list");l.hidden=false;dd.querySelector(".dd-btn").setAttribute("aria-expanded","true");
-  l.querySelectorAll(".active").forEach(x=>x.classList.remove("active"));
-  const s=l.querySelector('[aria-selected="true"]');if(s){s.classList.add("active");s.scrollIntoView({block:"nearest"})}
+  dd.querySelector(".dd-pop").hidden=false;dd.querySelector(".dd-btn").setAttribute("aria-expanded","true");
+  const inp=dd.querySelector(".dd-q");if(inp)inp.value="";
+  filterDD(dd);
+  if(!inp){const l=dd.querySelector(".dd-list");l.querySelectorAll(".active").forEach(x=>x.classList.remove("active"));const s=l.querySelector('[aria-selected="true"]');if(s){s.classList.add("active");ddScroll(s)}}
+  // PC에서는 열자마자 바로 입력 (폰은 키보드가 화면을 가리므로 칸을 누를 때만)
+  if(inp&&matchMedia("(hover:hover)").matches)inp.focus();
 }
+document.addEventListener("input",e=>{if(e.target.classList&&e.target.classList.contains("dd-q"))filterDD(e.target.closest(".dd"))});
 function pickDD(dd,i){
   const sel=dd.previousElementSibling;sel.selectedIndex=i;
   sel.dispatchEvent(new Event("change",{bubbles:true}));
@@ -842,15 +872,15 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("keydown",e=>{
   const dd=e.target.closest&&e.target.closest(".dd");if(!dd)return;
-  const opts=[...dd.querySelector(".dd-list").children];
+  const opts=[...dd.querySelectorAll(".dd-opt:not([hidden])")],inInput=e.target.classList.contains("dd-q");
   if(ddOpen!==dd){if(e.key==="ArrowDown"||e.key==="Enter"||e.key===" "){e.preventDefault();openDD(dd)}return}
   let a=opts.findIndex(o=>o.classList.contains("active"));
   if(e.key==="Escape"){e.preventDefault();e.stopPropagation();closeDD();dd.querySelector(".dd-btn").focus()}
   else if(e.key==="ArrowDown"||e.key==="ArrowUp"){
-    e.preventDefault();a=Math.max(0,Math.min(opts.length-1,a+(e.key==="ArrowDown"?1:-1)));
-    opts.forEach(o=>o.classList.remove("active"));opts[a].classList.add("active");opts[a].scrollIntoView({block:"nearest"});
+    e.preventDefault();if(!opts.length)return;a=Math.max(0,Math.min(opts.length-1,a+(e.key==="ArrowDown"?1:-1)));
+    opts.forEach(o=>o.classList.remove("active"));opts[a].classList.add("active");ddScroll(opts[a]);
   }
-  else if(e.key==="Enter"||e.key===" "){e.preventDefault();if(a>=0)pickDD(dd,a)}
+  else if(e.key==="Enter"||(e.key===" "&&!inInput)){e.preventDefault();if(a>=0)pickDD(dd,+opts[a].dataset.i)}
   else if(e.key==="Tab")closeDD();
 });
 
