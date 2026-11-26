@@ -375,6 +375,34 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .c-react .mbar{flex:1;display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--line)}
 .c-react .mbar i{display:block;height:100%}
 .c-react b{color:var(--ink);font-weight:600}
+/* 첫 화면 "팀 순위" 탭: 리그 고르는 알약 버튼 + 순위표 (안쪽 스크롤) */
+.stand{margin:0 0 20px}
+.st-lgs{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
+.st-lgs::-webkit-scrollbar{display:none}
+.st-lgs button{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.st-lgs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.st-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;max-height:420px;overflow-y:auto;overscroll-behavior:contain}
+.st-tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.st-tbl th{position:sticky;top:0;z-index:1;background:var(--bg);color:var(--muted);font-size:11.5px;font-weight:600;padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
+.st-tbl td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
+.st-tbl th,.st-tbl td{white-space:nowrap;min-width:44px}
+.st-tbl th:first-child,.st-tbl td:first-child{padding-left:14px}
+.st-tbl th:last-child,.st-tbl td:last-child{padding-right:14px}
+.st-tbl tr:last-child td{border-bottom:0}
+.st-tbl th.tm,.st-tbl td.tm{text-align:left;width:100%}
+.st-tbl td.rk{font-weight:700;color:var(--muted)}
+.st-tbl th.tm,.st-tbl td.tm{min-width:0;max-width:0}
+.st-tbl td.pt{font-weight:700}
+.st-tbl tbody tr{cursor:pointer}
+.st-tbl tbody tr:hover td,.st-tbl tbody tr:focus-visible td{background:var(--soft-bg,rgba(127,127,127,.08))}
+.st-tbl tbody tr:focus-visible{outline:none}
+.st-tm{display:flex;align-items:center;gap:8px;min-width:0}
+.st-tm img{width:22px;height:22px;object-fit:contain;flex:0 0 auto}
+.st-tm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st-tm .star{color:#f5c542}
+.st-note{margin:8px 2px 0;font-size:11.5px;color:var(--muted)}
+.st-box .thin{padding:24px;text-align:center}
+@media (max-width:640px){.st-tbl .gd{display:none}.st-tbl th,.st-tbl td{padding:8px 4px;min-width:30px}.st-tbl th:first-child,.st-tbl td:first-child{padding-left:10px}.st-tbl th:last-child,.st-tbl td:last-child{padding-right:10px}}
 /* 첫 화면 "이번 주 화제" 줄 */
 .hot{margin:0 0 20px}
 .hot-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
@@ -503,6 +531,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     <section class="kgames" id="kgames" hidden></section>
     <section class="hot" id="hot" hidden></section>
     <section class="hot" id="moves" hidden></section>
+    <section class="stand" id="stand" hidden></section>
   </div>
   <div class="ad-slot" id="adFeed" hidden></div>
   <p class="stale" id="stale" role="status" hidden></p>
@@ -1033,7 +1062,43 @@ function checkStale(){
   $("stale").textContent=msgs.length?`⚠ ${msgs.join(", ")}. 자동 갱신이 잠시 멈췄을 수 있습니다.`:"";
 }
 // 첫 화면 위쪽 섹션(실시간 화제·즐겨찾기 경기·최근 이적)을 탭으로 묶어 하나만 보여 줌
-const FEED=[["hot","실시간 화제"],["kgames","즐겨찾기 경기"],["moves","최근 이적"]];
+const FEED=[["hot","실시간 화제"],["kgames","즐겨찾기 경기"],["stand","팀 순위"],["moves","최근 이적"]];
+// 팀 순위: ESPN 공개 순위표를 탭을 처음 열 때 받아 옴 (K리그는 ESPN에 없어서 5대 리그만)
+const STAND_LG=[["eng.1","프리미어리그"],["esp.1","라리가"],["ger.1","분데스리가"],["ita.1","세리에 A"],["fra.1","리그 1"]];
+let standLg="eng.1",standSeen="";const STAND={};
+function renderStand(){
+  const box=$("stand");
+  // 첫 화면이나 리그만 고른 화면에서만 (다른 조건으로 찾는 중이면 숨김)
+  const lg=STAND_LG.find(x=>x[1]===st.league);
+  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.club&&!st.group&&!st.favOnly&&(!st.league||lg);
+  if(!plain){box.innerHTML="";return}
+  // 위 필터에서 5대 리그를 고르면 순위표도 그 리그로
+  if(lg&&standSeen!==st.league){standLg=lg[0];loadStand()}
+  standSeen=st.league;
+  const d=STAND[standLg];
+  const fav=k=>isFavOf("club",k);
+  const body=!d?`<p class="thin">불러오는 중…</p>`:d.err?`<p class="thin">순위를 불러오지 못했습니다.</p>`
+    :`<table class="st-tbl"><thead><tr><th>순위</th><th class="tm">팀</th><th>경기</th><th>승</th><th>무</th><th>패</th><th class="gd">득실</th><th>승점</th></tr></thead><tbody>${d.rows.map(r=>`<tr tabindex="0" data-club="${esc(r.ko)}" title="${CLUBS.includes(r.ko)?esc(r.ko)+" 선수 보기":""}"><td class="rk">${r.rank}</td><td class="tm"><span class="st-tm">${r.logo?`<img src="${esc(r.logo)}" alt="" loading="lazy">`:""}<span>${fav(r.ko)?'<span class="star">★</span> ':""}${esc(r.ko)}</span></span></td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="gd">${r.gd}</td><td class="pt">${r.pts}</td></tr>`).join("")}</tbody></table>`;
+  box.innerHTML=`<div class="st-lgs" role="group" aria-label="리그 고르기">${STAND_LG.map(([c,l])=>`<button type="button" data-lg="${c}" aria-pressed="${c===standLg}">${l}</button>`).join("")}</div>
+    <div class="st-box">${body}</div>${d&&!d.err?`<p class="st-note">ESPN 기준 · 팀을 누르면 그 팀 선수만 봅니다.</p>`:""}`;
+}
+async function loadStand(){
+  if(STAND[standLg])return;const c=standLg;
+  try{
+    const j=await fetch(`https://site.api.espn.com/apis/v2/sports/soccer/${c}/standings`).then(r=>r.json());
+    const es=((j.children||[])[0]||{}).standings.entries||[];
+    const v=(e,n)=>{const s=e.stats.find(x=>x.name===n);return s?s.displayValue:""};
+    STAND[c]={rows:es.map(e=>{const lg=(e.team.logos||[])[0];return {rank:+v(e,"rank")||0,ko:teamKo(e.team.displayName),gp:v(e,"gamesPlayed"),w:v(e,"wins"),d:v(e,"ties"),l:v(e,"losses"),gd:v(e,"pointDifferential"),pts:v(e,"points"),
+      logo:lg?`https://a.espncdn.com/combiner/i?img=${encodeURIComponent(new URL(lg.href).pathname)}&w=44&h=44`:""}}).sort((a,b)=>a.rank-b.rank)};
+  }catch(e){STAND[c]={err:true}}
+  if(c===standLg){renderStand()}
+}
+function pickStandClub(k){
+  if(!CLUBS.includes(k))return;
+  st.club=k;const p=players.find(x=>x.club===k);if(p)st.league=p.league;
+  buildControls();save();render();
+  const m=document.querySelector(".meta");if(m)m.scrollIntoView({behavior:"smooth",block:"start"});
+}
 // 페이지를 열 때는 항상 첫 탭(실시간 화제). 사용자가 탭을 직접 누른 뒤에만 그 탭을 유지
 let feedTab="",feedChosen=false;
 function syncFeed(){
@@ -1044,6 +1109,7 @@ function syncFeed(){
   $("feed").classList.toggle("tabbed",avail.length>1);
   tabs.hidden=avail.length<2;
   tabs.innerHTML=avail.map(([id,label])=>`<button type="button" role="tab" data-t="${id}" aria-selected="${id===feedTab}">${label}</button>`).join("");
+  if(feedTab==="stand")loadStand();
 }
 // 최근 24시간 기사 수 (3시간마다 갱신). 예전 데이터처럼 h24가 없으면 0
 const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24||0};
@@ -1067,7 +1133,7 @@ function render(){
   if(key!==lastKey){shown=PAGE;lastKey=key}
   let list=pool().filter(p=>chipMatch[st.chip](p)&&(!st.nat||p.nat===st.nat)&&(!st.league||p.league===st.league)&&(!st.club||p.club===st.club)&&(!st.favOnly||st.fav.player.includes(p.no))&&
     (!q||matchQ(p,q)));
-  renderHot();renderKGames();renderMoves();syncFeed();
+  renderHot();renderKGames();renderMoves();renderStand();syncFeed();
   // 모바일 필터 버튼에 적용 중인 필터 개수
   $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth,st.favOnly].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
@@ -1380,6 +1446,11 @@ $("favBar").addEventListener("click",e=>{
 });
 $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"){st.club="";buildControls();save();render()}});
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
+$("stand").addEventListener("click",e=>{
+  const b=e.target.closest("[data-lg]");if(b){standLg=b.dataset.lg;renderStand();loadStand();return}
+  const r=e.target.closest("tr[data-club]");if(r)pickStandClub(r.dataset.club);
+});
+$("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-club]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandClub(r.dataset.club)}});
 $("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
