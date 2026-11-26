@@ -376,15 +376,15 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .c-react .mbar i{display:block;height:100%}
 .c-react b{color:var(--ink);font-weight:600}
 /* 첫 화면 "팀 순위" 탭: 리그 고르는 알약 버튼 + 순위표 (안쪽 스크롤) */
-.stand{margin:0 0 20px}
+.stand{margin:0 0 20px;max-width:760px}
 .st-lgs{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
 .st-lgs::-webkit-scrollbar{display:none}
 .st-lgs button{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .st-lgs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.st-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;max-height:420px;overflow-y:auto;overscroll-behavior:contain}
+.st-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;max-height:416px;overflow-y:auto;overscroll-behavior:contain}
 .st-tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
-.st-tbl th{position:sticky;top:0;z-index:1;background:var(--bg);color:var(--muted);font-size:11.5px;font-weight:600;padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
-.st-tbl td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--line)}
+.st-tbl th{position:sticky;top:0;z-index:1;background:var(--bg);color:var(--muted);font-size:11.5px;font-weight:600;height:34px;padding:0 6px;box-sizing:border-box;text-align:center;border-bottom:1px solid var(--line)}
+.st-tbl td{height:38px;padding:0 6px;text-align:center;border-bottom:1px solid var(--line)}
 .st-tbl th,.st-tbl td{white-space:nowrap;min-width:44px}
 .st-tbl th:first-child,.st-tbl td:first-child{padding-left:14px}
 .st-tbl th:last-child,.st-tbl td:last-child{padding-right:14px}
