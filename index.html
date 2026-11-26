@@ -243,7 +243,7 @@ dialog::backdrop{background:rgba(8,12,24,.6)}
 .d-info{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;padding:0 22px}
 /* 상세 팝업: 왼쪽 프로필(고정) + 오른쪽 탭 내용(이 칸만 스크롤) */
 dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px))}
-#dBody{display:grid;grid-template-columns:290px minmax(0,1fr) 340px;overflow:hidden}
+#dBody{display:grid;grid-template-columns:340px minmax(0,1fr) 340px;overflow:hidden}
 /* 댓글은 탭과 상관없이 오른쪽에 항상 */
 .d-cm{border-left:1px solid var(--line);overflow-y:auto;min-height:0;padding:16px 18px 22px 18px;overscroll-behavior:contain}
 .d-cm .comments{border-top:0;padding-top:0}
@@ -257,7 +257,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .d-content .d-tabs{margin-top:0;padding-top:10px;padding-right:60px}
 /* 폭이 좁으면(1100px 이하) 댓글은 탭 내용 아래로, 팝업 전체가 스크롤하고 프로필은 왼쪽에 붙어 있음 */
 @media (max-width:1100px){
-  #dBody{grid-template-columns:270px minmax(0,1fr);grid-template-rows:auto 1fr;overflow-y:auto;background:linear-gradient(var(--line),var(--line)) 269px 0/1px 100% no-repeat local}
+  #dBody{grid-template-columns:320px minmax(0,1fr);grid-template-rows:auto 1fr;overflow-y:auto;background:linear-gradient(var(--line),var(--line)) 319px 0/1px 100% no-repeat local}
   #dBody>.d-side{border-right:0}
   .d-side{grid-row:1 / span 2;position:sticky;top:0;align-self:start;max-height:100%}
   .d-content{overflow:visible}
