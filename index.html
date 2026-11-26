@@ -60,6 +60,14 @@ header{background:var(--head);color:var(--head-ink)}
 /* 헤더 고정: 스크롤해도 검색·필터가 위에 남음. 내려가면(.stuck) 아래 내용과 구분되게 그림자만 */
 header{position:sticky;top:0;z-index:30;transition:box-shadow .2s}
 header.stuck{box-shadow:0 6px 18px rgba(0,0,0,.28)}
+/* PC: 검색줄만 위에 붙고, 필터 줄은 내용과 함께 스크롤되어 올라감 (접히는 순간 화면이 튀지 않음) */
+@media (min-width:641px){
+  header{display:contents}
+  header>.top{position:sticky;top:0;z-index:30;background:var(--head);color:var(--head-ink);box-shadow:0 0 0 100vmax var(--head);clip-path:inset(0 -100vmax);transition:none}
+  header.stuck>.top{clip-path:inset(0 -100vmax -24px -100vmax);box-shadow:0 0 0 100vmax var(--head),0 6px 18px rgba(0,0,0,.28)}
+  header>.rail{position:relative;z-index:29;color:var(--head-ink)}
+  header>.rail::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--head);box-shadow:0 0 0 100vmax var(--head);clip-path:inset(0 -100vmax)}
+}
 .rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
 .pos-row{order:2;display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0}
 .pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:9px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
