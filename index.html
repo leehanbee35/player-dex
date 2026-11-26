@@ -17,7 +17,7 @@
 :root{
   --bg:#eef1f6; --surface:#ffffff; --ink:#18223a; --muted:#5b6680; --line:#d6dce8;
   --head:#16213b; --head-ink:#f2f5fb; --head-muted:#9aa6c2; --chip:#24304f; --accent:#2fbf71;
-  --gk:#d99a1a; --gk-soft:#fbf0d6; --df:#2f6fd6; --df-soft:#dde8fb; --link:#2563c9;
+  --gk:#d99a1a; --gk-soft:#fbf0d6; --df:#2f6fd6; --df-soft:#dde8fb; --link:#2563c9; --sb:#c3cad9; --sb-h:#9aa4ba;
   --mf:#21a05e; --mf-soft:#d9f2e4; --fw:#e0533d; --fw-soft:#fbe1dc;
   --f-display:"Black Han Sans","Noto Sans KR",system-ui,sans-serif;
   --f-body:"Noto Sans KR",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -26,15 +26,22 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0e1424; --surface:#172036; --ink:#e8ecf5; --muted:#99a4bd; --line:#2a3552;
   --head:#0a0f1d; --head-ink:#eef2fa; --head-muted:#8591ad; --chip:#1d2741;
-  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; --link:#8cb8ff; color-scheme:dark }}
+  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; --link:#8cb8ff; --sb:#34405e; --sb-h:#4d5b80; color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#0e1424; --surface:#172036; --ink:#e8ecf5; --muted:#99a4bd; --line:#2a3552;
   --head:#0a0f1d; --head-ink:#eef2fa; --head-muted:#8591ad; --chip:#1d2741;
-  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; --link:#8cb8ff; color-scheme:dark }
+  --gk-soft:#3a2f17; --df-soft:#1a2b4a; --mf-soft:#15352a; --fw-soft:#3d1f1b; --link:#8cb8ff; --sb:#34405e; --sb-h:#4d5b80; color-scheme:dark }
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px}
 a{color:var(--link)}
+/* 스크롤바: 얇고 둥근 막대, 바탕은 투명 (크롬·사파리·엣지는 ::-webkit-scrollbar, 파이어폭스는 scrollbar-color) */
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:var(--sb);border-radius:999px;border:3px solid transparent;background-clip:padding-box}
+*::-webkit-scrollbar-thumb:hover{background-color:var(--sb-h)}
+*::-webkit-scrollbar-corner{background:transparent}
+@supports (-moz-appearance:none){*{scrollbar-width:thin;scrollbar-color:var(--sb) transparent}}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
 .wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
@@ -54,7 +61,7 @@ header{background:var(--head);color:var(--head-ink)}
 header{position:sticky;top:0;z-index:30;transition:box-shadow .2s}
 header.stuck{box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .rail{padding-block:10px 14px;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.08)}
-.pos-row{display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0;scrollbar-width:thin}
+.pos-row{display:flex;gap:6px;overflow-x:auto;padding:6px 4px 2px;margin:-6px -4px 0}
 .pos{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--head-muted);font:inherit;font-size:11px;cursor:pointer;padding:4px 6px;border-radius:10px}
 .pos b{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font-family:var(--f-num);font-weight:700;font-size:15px;color:#fff;opacity:.55;transition:opacity .15s,transform .15s}
 .pos[aria-pressed="true"]{color:var(--head-ink)}
@@ -185,10 +192,10 @@ main{padding-block:20px 48px}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
 .badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap;align-items:center}
-.badges .bdg{display:inline-flex;align-items:center;height:22px;line-height:1}
+.badges .bdg{display:inline-flex;align-items:center;height:22px;line-height:1;padding:0 8px;font-size:11px;box-sizing:border-box}
 .bdg{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;color:#fff;background:var(--c);border:1px solid transparent;justify-content:center;font-family:var(--f-num);letter-spacing:.4px}
 .bdg.ghost{background:none;color:var(--ink);border:1px solid var(--line);font-family:var(--f-body);font-weight:500}
-.stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 10px 10px;border-top:1px dashed var(--line);font-size:12px}
+.stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:8px 10px 9px;margin:auto 0 0;border-top:1px dashed var(--line);font-size:12px}
 .stats dt{color:var(--muted)} .stats dd{margin:0;font-weight:500;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-variant-numeric:tabular-nums}
 .empty{padding:60px 0;text-align:center;color:var(--muted)}
 .more{display:flex;justify-content:center;padding:24px 0 8px}
@@ -257,6 +264,14 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .d-tabs .tc:empty{display:none}
 .d-pane{padding:16px 22px 24px;min-height:220px}
 .d-pane .season{margin-top:0}
+.d-pane h3.pane-h{margin:0 0 10px;font-size:14px}
+/* PC에서는 경기 탭 없이 기록 탭 아래에 이어서 */
+@media (min-width:821px){
+  .d-tabs button[data-dt="games"]{display:none}
+  .d-pane[data-pane="games"]{padding-top:0;min-height:0}
+}
+@media (max-width:820px){.d-pane h3.pane-h{display:none}}
+.d-side .credit{text-align:center;margin-top:auto}
 .d-pane .comments{border-top:0;padding-top:0}
 .d-info>div{background:var(--bg);border-radius:10px;padding:8px 10px;min-width:0}
 .d-info span{display:block;font-size:11px;color:var(--muted)} .d-info b{font-size:14px}
@@ -317,7 +332,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .kgames{margin:0 0 20px}
 .kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
 .kg-cols h3{font-size:12px;color:var(--muted);font-weight:600;margin:0 0 6px}
-.kg{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:6px;max-height:292px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.kg{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:6px;max-height:292px;overflow-y:auto;overscroll-behavior:contain}
 .kg-it .ph.tm{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
 .kg-it{width:100%;display:grid;grid-template-columns:54px 36px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit;text-align:left}
 .kg-it:hover{border-color:var(--muted)}
@@ -356,7 +371,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .hot-h h2{font-family:var(--f-display);font-weight:400;font-size:20px;margin:0}
 .hot-h small{color:var(--muted);font-size:12px}
 .hot-h button{font:inherit;font-size:12px;background:none;border:0;color:var(--link);cursor:pointer;padding:0;text-decoration:underline}
-.hot-list{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:10px;overflow-x:auto;padding:2px 2px 8px;margin:0;list-style:none;scrollbar-width:thin}
+.hot-list{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:10px;overflow-x:auto;padding:2px 2px 8px;margin:0;list-style:none}
 .hot-item{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 10px 10px;cursor:pointer;font:inherit;color:inherit;text-align:center;width:100%;position:relative}
 .hot-item:hover{border-color:var(--muted)}
 .hot-item .rk{position:absolute;top:8px;left:10px;font-family:var(--f-num);font-weight:700;font-size:15px;color:var(--muted)}
@@ -1098,22 +1113,25 @@ function commHTML(r){
 const EXT=`<svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M5 2H2v8h8V7M7 2h3v3M10 2L5.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const favBtn=(kind,v)=>`<button type="button" class="fav-btn" data-kind="${kind}" data-v="${esc(v)}" aria-pressed="${isFavOf(kind,v)}" aria-label="즐겨찾기" title="${isFavOf(kind,v)?"즐겨찾기 해제":"즐겨찾기에 추가"}">${isFavOf(kind,v)?"★":"☆"}</button>`;
 function openDetail(no){
-  openNo=no;
+  const prevNo=openNo;openNo=no;
   const p=BY_NO[no];if(!p)return;const q=encodeURIComponent(p.kr);
   const ph=PHOTO[p.no];
   const wasOpen=$("dlg").open,y=$("dContent")?$("dContent").scrollTop:0;
   // 위: 사진·이름·기본 정보 / 아래: 탭(기록·경기·반응·댓글) 중 하나만 전체 폭으로
   const espnStats=p.espn&&!p.espn.startsWith("w:");
-  const tabs=[["stats",p.espn&&p.espn.startsWith("w:")?"경력":"기록"],...(espnStats?[["games","경기"]]:[]),["react","반응"]];
-  if(!tabs.some(t=>t[0]===dTab))dTab=tabs[0][0];
+  const tabs=[["react","반응"],["stats",p.espn&&p.espn.startsWith("w:")?"경력":"기록"],...(espnStats?[["games","경기"]]:[])];
+  // 다른 선수를 열면 항상 반응 탭부터
+  if(!wasOpen||prevNo!==no||!tabs.some(t=>t[0]===dTab))dTab="react";
   $("dBody").innerHTML=`<aside class="d-side"><div class="d-top">${art(p)}<div><h2>${esc(p.kr)}${favBtn("player",p.no)}</h2><p>${esc(p.en)} · ${POS[p.pos][1]}</p>${MOVES[p.no]?`<p class="d-move">최근 이적: ${esc(MOVES[p.no].from)} → <b>${esc(MOVES[p.no].to)}</b> (${MOVES[p.no].date.slice(5).replace("-",".")})</p>`:""}</div></div>
     <div class="d-info"><div><span class="lab">나라${favBtn("nat",p.nat)}</span><b>${flag(p.nat)}${esc(NAT[p.nat]||p.nat||"-")}</b></div><div><span class="lab">팀${favBtn("club",p.club)}</span><b>${esc(p.club)}</b></div><div><span class="lab">리그${favBtn("league",p.league)}</span><b>${esc(p.league)}</b></div>
     <div><span>출생</span><b>${p.born?p.born+"년":"-"}</b></div><div><span>키</span><b>${p.h?p.h+"cm":"-"}</b></div>${p.foot?`<div><span>주발</span><b>${p.foot}</b></div>`:`<div><span>등번호</span><b>${p.num?esc(p.num):"-"}</b></div>`}</div>
+    ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`
+      :WPHOTO[p.no]?`<p class="credit" id="wcredit">사진: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(WPHOTO[p.no].slice(3))}" target="_blank" rel="noopener">Wikimedia Commons</a></p>`:""}
   </aside><div class="d-content" id="dContent"><div class="d-tabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-dt="${k}" aria-selected="${k===dTab}">${l}${k==="cm"?'<span class="tc" id="cmTabCount"></span>':""}</button>`).join("")}</div>
   <div class="d-pane" data-pane="stats" ${dTab==="stats"?"":"hidden"}>
     ${p.espn?`<section class="season" id="season"><h3>${p.espn.startsWith("w:")?"경력 기록":"이번 시즌 기록"}</h3><p class="thin">불러오는 중…</p></section>`:`<p class="thin">정리된 기록이 없습니다.</p>`}
   </div>
-  ${espnStats?`<div class="d-pane" data-pane="games" ${dTab==="games"?"":"hidden"}><section id="games"><p class="thin">불러오는 중…</p></section></div>`:""}
+  ${espnStats?`<div class="d-pane" data-pane="games" ${dTab==="games"?"":"hidden"}><h3 class="pane-h">최근 경기</h3><section id="games"><p class="thin">불러오는 중…</p></section></div>`:""}
   <div class="d-pane" data-pane="react" ${dTab==="react"?"":"hidden"}>
     <section class="react" id="react">${reactionHTML(p)}
       <div class="links">
@@ -1126,14 +1144,12 @@ function openDetail(no){
       </div>
     </section>
     ${gearHTML(p)}<div class="ad-slot" id="adDetail" hidden></div>
-    ${ph?`<p class="credit">사진: <a href="${esc(ph.u)}" target="_blank" rel="noopener">${esc(ph.a)}</a> · ${esc(ph.l||"라이선스 정보 없음")} · Wikimedia Commons</p>`
-      :WPHOTO[p.no]?`<p class="credit" id="wcredit">사진: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(WPHOTO[p.no].slice(3))}" target="_blank" rel="noopener">Wikimedia Commons</a></p>`:""}
   </div>
   </div><div class="d-cm"><section class="comments" id="comments"></section></div>`;
   // 새로 열 때는 내용 칸 맨 위부터, 열린 채로 다시 그릴 때는 보던 위치 유지 (폰에서는 팝업 전체가 스크롤)
   if(!wasOpen){$("dlg").showModal();$("dContent").scrollTop=0;$("dBody").scrollTop=0}else $("dContent").scrollTop=y;
   st.open=no;save();
-  mountComments(p);wcredit(p);seasonStats(p);mountAd("adDetail",MONEY.adfit.detail);
+  syncDTab();mountComments(p);wcredit(p);seasonStats(p);mountAd("adDetail",MONEY.adfit.detail);
 }
 // 댓글: 디씨 스타일 익명 댓글. 저장은 Supabase(comments 테이블). 쓰기·삭제·추천은 서버 함수(rpc)로만 가능
 // 닉네임(비우면 ㅇㅇ) + 비밀번호(삭제용), IP 앞 두 자리 표시, 추천 10개 이상 베스트, 금지어·30초 도배 제한은 서버에서 검사
@@ -1343,9 +1359,15 @@ $("closeD").addEventListener("click",()=>$("dlg").close());
 let openNo=0;
 // 상세 팝업 탭: 마지막으로 고른 탭을 다음 선수에도 그대로 (그 탭이 없는 선수면 첫 탭)
 let dTab="stats";
-$("dBody").addEventListener("click",e=>{const b=e.target.closest("[data-dt]");if(!b)return;dTab=b.dataset.dt;
-  document.querySelectorAll("#dBody [data-dt]").forEach(x=>x.setAttribute("aria-selected",x===b));
-  document.querySelectorAll("#dBody .d-pane").forEach(x=>x.hidden=x.dataset.pane!==dTab)});
+// PC(넓은 화면)에서는 경기 탭을 따로 두지 않고 기록 탭 아래에 이어서 보여 줌
+const WIDE=matchMedia("(min-width:821px)");
+function syncDTab(){
+  const w=WIDE.matches,cur=w&&dTab==="games"?"stats":dTab;
+  document.querySelectorAll("#dBody [data-dt]").forEach(x=>x.setAttribute("aria-selected",x.dataset.dt===cur));
+  document.querySelectorAll("#dBody .d-pane").forEach(x=>x.hidden=!(x.dataset.pane===cur||(w&&cur==="stats"&&x.dataset.pane==="games")));
+}
+WIDE.addEventListener("change",syncDTab);
+$("dBody").addEventListener("click",e=>{const b=e.target.closest("[data-dt]");if(!b)return;dTab=b.dataset.dt;syncDTab()});
 $("dBody").addEventListener("click",e=>{
   const b=e.target.closest(".fav-btn");if(!b)return;const fv=b.dataset.kind==="player"?+b.dataset.v:b.dataset.v;
   toggleFav(b.dataset.kind,fv);
