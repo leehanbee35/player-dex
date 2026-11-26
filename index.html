@@ -118,7 +118,7 @@ main{padding-block:20px 48px}
 .c-art svg{width:96px;height:96px}
 /* 최근 24시간 안에 새 기사가 나온 선수 */
 .c-art{position:relative}
-.c-new{position:absolute;top:8px;right:9px;font-family:var(--f-num);font-size:10px;font-weight:800;letter-spacing:.5px;line-height:1;padding:4px 6px;border-radius:5px;background:#e5484d;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.c-new{position:absolute;top:10px;left:calc(50% + 26px);font-family:var(--f-num);font-size:10px;font-weight:800;letter-spacing:.5px;line-height:1;padding:4px 6px;border-radius:5px;background:#e5484d;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .c-art img{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:3px solid var(--c);background:var(--soft)}
 .d-top img{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex:0 0 auto;border:3px solid var(--line)}
 .fav-star{color:var(--gk)}
@@ -195,7 +195,7 @@ main{padding-block:20px 48px}
 .credit{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
 .credit a{color:inherit}
 .badges{display:flex;gap:5px;padding:4px 10px 8px;flex-wrap:wrap;align-items:center}
-.badges .bdg{display:inline-flex;align-items:center;height:22px;line-height:1;padding:0 8px;font-size:11px;box-sizing:border-box}
+.badges .bdg{display:inline-flex;align-items:center;height:22px;line-height:1;padding:0 8px;font-size:11px;box-sizing:border-box;font-family:var(--f-body);letter-spacing:0}
 .bdg{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;color:#fff;background:var(--c);border:1px solid transparent;justify-content:center;font-family:var(--f-num);letter-spacing:.4px}
 .bdg.ghost{background:none;color:var(--ink);border:1px solid var(--line);font-family:var(--f-body);font-weight:500}
 .stats{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:9px 10px 13px;margin:auto 0 0;border-top:1px dashed var(--line);font-size:12px}
@@ -467,8 +467,8 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
     <button type="button" class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">필터·정렬<span class="fcount" id="filterCount"></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5L6 7.5L9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <div class="filters" id="filters">
     <div class="ctrls">
-      <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>리그 <select id="league"></select></label><button type="button" class="fav-toggle" id="favLeague" aria-label="고른 리그 즐겨찾기" aria-pressed="false">☆</button></span>
+      <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>나라 <select id="nat"></select></label><button type="button" class="fav-toggle" id="favNat" aria-label="고른 나라 즐겨찾기" aria-pressed="false">☆</button></span>
       <label>정렬 <select id="sort">
         <option value="no">기본순</option><option value="hot">화제순 (실시간)</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
