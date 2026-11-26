@@ -47,7 +47,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 header{background:var(--head);color:var(--head-ink)}
 .top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:14px}
-.logo{font-family:var(--f-display);font-size:26px;letter-spacing:.5px;display:flex;align-items:center;gap:8px}
+.logo{font-family:var(--f-display);font-size:26px;letter-spacing:.5px;display:flex;align-items:center;gap:8px;position:relative;top:2px} /* 한글 로고는 아래 획이 없어 글자 가운데가 2px 위로 뜸 → 검색창 가운데에 맞춤 */
 .search{flex:1;min-width:200px;max-width:520px;display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px 6px 4px 16px}
 .search input{flex:1;border:0;outline:0;font:inherit;font-size:14px;color:#18223a;background:transparent;padding:6px 0;min-width:0}
 .search span{font-size:11px;color:#5b6680;margin-right:10px;padding-right:10px;white-space:nowrap;position:relative}
@@ -476,6 +476,22 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .hot-item .c-react{padding:0;width:100%}
 .hot-item .sub b{color:var(--ink)}
 .hot-item .c-react>span:last-child{display:none} /* 화제 줄에서는 7일 기사 수 대신 24시간 기사 수만 */
+/* PC: 피드 세 탭이 같은 높이를 쓰고, 실시간 화제는 1~10위를 2열 × 5줄 순위표로 */
+@media (min-width:861px){
+  .feed{--feedH:486px}
+  .feed>#hot,.feed>#kgames,.feed>#stand{min-height:var(--feedH);box-sizing:border-box}
+  .hot-list{grid-auto-flow:column;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;gap:8px 16px;padding:0;height:calc(var(--feedH) - 32px)}
+  .hot-list>li{min-height:0;display:flex}
+  .hot-item{display:grid;grid-template-columns:28px 48px minmax(0,1fr) 140px;grid-template-rows:auto auto;column-gap:12px;row-gap:3px;align-content:center;align-items:center;text-align:left;padding:8px 16px;height:100%;box-sizing:border-box}
+  .hot-item .rk{position:static;grid-row:1/3;grid-column:1;font-size:20px;text-align:center}
+  .hot-item .ph{grid-row:1/3;grid-column:2}
+  .hot-item .ph svg,.hot-item .ph img{width:48px;height:48px}
+  .hot-item .nm{grid-column:3;grid-row:1;font-size:15px}
+  .hot-item>.sub:nth-child(4){grid-column:3;grid-row:2;font-size:12px}
+  .hot-item>.sub:nth-child(5){grid-column:4;grid-row:1;text-align:right;font-size:12.5px}
+  .hot-item .c-react{grid-column:4;grid-row:2}
+  .kg{max-height:394px}
+}
 .slegend{display:flex;gap:12px;font-size:12px;margin:6px 0 12px;font-variant-numeric:tabular-nums}
 .slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
 .slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
@@ -1634,8 +1650,7 @@ $("stand").addEventListener("click",e=>{
 });
 $("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-i]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandRow(+r.dataset.i)}});
 // 탭을 바꿔도 아래 목록이 위아래로 흔들리지 않게, 지금까지 본 탭 중 가장 높은 높이를 유지
-function lockFeed(){const f=$("feed");f.style.minHeight=Math.max(f.offsetHeight,parseFloat(f.style.minHeight)||0)+"px"}
-$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;lockFeed();feedTab=b.dataset.t;feedChosen=true;syncFeed();requestAnimationFrame(lockFeed)});
+$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
