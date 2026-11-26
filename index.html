@@ -47,7 +47,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 header{background:var(--head);color:var(--head-ink)}
 .top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:14px}
-.logo{font-family:var(--f-display);font-size:26px;letter-spacing:.5px;display:flex;align-items:center;gap:8px;position:relative;top:2px} /* 한글 로고는 아래 획이 없어 글자 가운데가 2px 위로 뜸 → 검색창 가운데에 맞춤 */
+.logo{font-family:var(--f-body);font-size:23px;font-weight:700;letter-spacing:-.5px;line-height:1;display:flex;align-items:center;gap:8px;white-space:nowrap} /* 두꺼운 제목 글꼴은 작은 크기에서 받침(ㅁ)이 뭉개져 본문 글꼴 굵게 */
 .search{flex:1;min-width:200px;max-width:520px;display:flex;align-items:center;background:#fff;border-radius:999px;padding:4px 6px 4px 16px}
 .search input{flex:1;border:0;outline:0;font:inherit;font-size:14px;color:#18223a;background:transparent;padding:6px 0;min-width:0}
 .search span{font-size:11px;color:#5b6680;margin-right:10px;padding-right:10px;white-space:nowrap;position:relative}
@@ -359,7 +359,21 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .gear a{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;text-decoration:none;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink)}
 .gear small{font-size:11px;color:var(--muted)}
 /* 첫 화면 위쪽 탭 */
-.feed{margin:0 0 28px}
+.feed{margin:0 0 28px;position:relative}
+/* 피드 크기: 기본(작게) · 크게(.f-full) · 접기(.f-min). 오른쪽 위 버튼으로 바꾸고 이 브라우저에 기억 */
+.feed-ctl{position:absolute;top:0;right:0;height:38px;display:flex;align-items:center;gap:2px}
+.feed-ctl button{font:inherit;font-size:12.5px;font-weight:600;color:var(--muted);background:none;border:0;border-radius:6px;padding:5px 9px;cursor:pointer;white-space:nowrap}
+.feed-ctl button:hover{color:var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.feed-ctl button:focus-visible{outline:2px solid var(--accent)}
+.feed .feed-tabs{padding-right:170px}
+@media (max-width:640px){.feed-ctl [data-fm="size"]{display:none}.feed .feed-tabs{padding-right:64px}}
+.feed.f-min>section{display:none!important}
+.feed.f-min .feed-ctl [data-fm="size"]{display:none}
+.feed:not(.f-full) .kg{max-height:154px}
+.feed:not(.f-full) .st-box{max-height:148px}
+.feed:not(.f-full) .st-note,.feed:not(.f-full) .sti-sub,.feed:not(.f-full) .sti-ps,.feed:not(.f-full) .sti-foot,.feed:not(.f-full) .sti-note,.feed:not(.f-full) .sti-dl>div:nth-child(n+4){display:none}
+.feed:not(.f-full) .st-info{min-height:0}
+.feed:not(.f-full) .st-wrap{align-items:start}
 .feed .kgames,.feed .hot{margin:0}
 .feed-tabs{display:flex;gap:4px;box-shadow:inset 0 -1px 0 var(--line);margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
 .feed-tabs::-webkit-scrollbar{display:none}
@@ -478,7 +492,14 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .hot-item .c-react>span:last-child{display:none} /* 화제 줄에서는 7일 기사 수 대신 24시간 기사 수만 */
 /* PC: 피드 세 탭이 같은 높이를 쓰고, 실시간 화제는 1~10위를 2열 × 5줄 순위표로 */
 @media (min-width:861px){
-  .feed{--feedH:486px}
+  .feed{--feedH:204px} .feed.f-full{--feedH:486px}
+  .feed:not(.f-full) .hot-list{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-flow:row;gap:8px}
+  .feed:not(.f-full) .hot-item{grid-template-columns:20px 40px minmax(0,1fr);column-gap:8px;padding:6px 10px}
+  .feed:not(.f-full) .hot-item .ph svg,.feed:not(.f-full) .hot-item .ph img{width:40px;height:40px}
+  .feed:not(.f-full) .hot-item .rk{font-size:15px}
+  .feed:not(.f-full) .hot-item .nm{font-size:13.5px}
+  .feed:not(.f-full) .hot-item>.sub:nth-child(4),.feed:not(.f-full) .hot-item .c-react{display:none}
+  .feed:not(.f-full) .hot-item>.sub:nth-child(5){grid-column:3;grid-row:2;text-align:left;font-size:12px}
   .feed>#hot,.feed>#kgames,.feed>#stand{min-height:var(--feedH);box-sizing:border-box}
   .hot-list{grid-auto-flow:column;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;gap:8px 16px;padding:0;height:calc(var(--feedH) - 32px)}
   .hot-list>li{min-height:0;display:flex}
@@ -624,6 +645,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 <main class="wrap">
   <div class="feed" id="feed">
     <div class="feed-tabs" id="feedTabs" role="tablist" hidden></div>
+    <div class="feed-ctl" id="feedCtl"><button type="button" data-fm="size"></button><button type="button" data-fm="min"></button></div>
     <section class="kgames" id="kgames" hidden></section>
     <section class="hot" id="hot" hidden></section>
     <section class="hot" id="moves" hidden></section>
@@ -1211,7 +1233,7 @@ function showStInfo(){
     <dl class="sti-dl"><div><dt>전적</dt><dd>${esc(r.w)}승 ${esc(r.d)}무 ${esc(r.l)}패</dd></div><div><dt>감독</dt><dd>${val(ti&&ti.coach)}</dd></div><div><dt>홈구장</dt><dd>${val(ti&&ti.venue)}</dd></div><div><dt>창단</dt><dd>${val(ti&&ti.year&&ti.year+"년")}</dd></div><div><dt>리그 우승</dt><dd>${val(ti&&ti.titles&&ti.titles+"회")}</dd></div><div><dt>마지막 우승</dt><dd>${val(ti&&ti.lastTitle&&ti.lastTitle+"년")}</dd></div></dl>
     ${top.length?`<div class="sti-sub">화제 선수</div><div class="sti-ps">${top.map(p=>`<button type="button" class="sti-p" data-no="${p.no}"><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span></button>`).join("")}</div>`:""}
     <div class="sti-foot">${ps.length?`<button type="button" class="sti-go" data-club="${esc(r.ko)}">이 팀 선수 ${ps.length}명 보기</button>`:""}
-    ${ti&&ti.link?`<a class="sti-src" href="${esc(ti.link)}" target="_blank" rel="noopener">위키백과에서 더 보기 ↗</a>`:""}</div>
+    </div>
     <small class="sti-note">감독·홈구장·창단·우승 기록은 위키데이터 기준이라 빠지거나 늦게 고쳐질 수 있습니다.</small>`;
   if(!ti)loadTeamInfo(k,r);
 }
@@ -1650,7 +1672,20 @@ $("stand").addEventListener("click",e=>{
 });
 $("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-i]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandRow(+r.dataset.i)}});
 // 탭을 바꿔도 아래 목록이 위아래로 흔들리지 않게, 지금까지 본 탭 중 가장 높은 높이를 유지
-$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
+$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;if(feedMode==="min")setFeedMode("");syncFeed()});
+// 피드 크기: ""(작게, 기본) · "full"(크게) · "min"(접기, 탭 줄만)
+let feedMode="";try{feedMode=localStorage.getItem("dexFeed")||""}catch(e){}
+function setFeedMode(m){
+  feedMode=m;try{localStorage.setItem("dexFeed",m)}catch(e){}
+  const f=$("feed");f.classList.toggle("f-full",m==="full");f.classList.toggle("f-min",m==="min");
+  const [sz,mn]=$("feedCtl").children;
+  sz.textContent=m==="full"?"작게 보기 ▴":"크게 보기 ▾";sz.setAttribute("aria-expanded",m==="full");
+  mn.textContent=m==="min"?"펼치기 ▾":"접기 ▴";mn.setAttribute("aria-expanded",m!=="min");
+}
+setFeedMode(feedMode);
+$("feedCtl").addEventListener("click",e=>{const b=e.target.closest("[data-fm]");if(!b)return;
+  if(b.dataset.fm==="size")setFeedMode(feedMode==="full"?"":"full");else setFeedMode(feedMode==="min"?"":"min");
+  if(feedTab==="stand")loadStand();});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
