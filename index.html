@@ -385,7 +385,31 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .c-react .mbar i{display:block;height:100%}
 .c-react b{color:var(--ink);font-weight:600}
 /* 첫 화면 "팀 순위" 탭: 리그 고르는 알약 버튼 + 순위표 (안쪽 스크롤) */
-.stand{margin:0 0 20px;max-width:760px}
+.stand{margin:0 0 20px}
+.st-wrap{display:grid;grid-template-columns:minmax(0,560px) minmax(0,320px);gap:14px;align-items:stretch}
+@media (max-width:860px){.st-wrap{grid-template-columns:minmax(0,1fr)}}
+.st-tbl tbody tr.on td{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.st-tbl tbody tr.on td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+.st-info{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:200px}
+.sti-h{display:flex;align-items:center;gap:12px}
+.sti-h img{width:44px;height:44px;object-fit:contain}
+.sti-h .st-ph{width:44px;height:44px;font-size:18px}
+.sti-h b{display:block;font-size:17px}
+.sti-h small{color:var(--muted);font-size:12px}
+.sti-dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sti-dl div{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+.sti-dl dt{font-size:11px;color:var(--muted);margin-bottom:2px}
+.sti-dl dd{margin:0;font-size:13px;font-weight:700;overflow-wrap:anywhere}
+.sti-wait{color:var(--muted);font-weight:400}
+.sti-sub{font-size:12px;color:var(--muted);font-weight:600}
+.sti-ps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.sti-p{display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 4px;min-width:0;border-radius:8px;border:1px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-align:left}
+.sti-p:hover{border-color:var(--accent)}
+.sti-p .nm{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.sti-p .ph{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:0 0 auto}
+.sti-p .ph img,.sti-p .ph svg{width:36px;height:36px;object-fit:cover;object-position:50% 18%}
+.sti-go{height:36px;border-radius:8px;border:0;background:var(--accent);color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.sti-src{font-size:12px;color:var(--link);text-align:center}
 .st-lgs{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
 .st-lgs::-webkit-scrollbar{display:none}
 .st-lgs button{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
@@ -1043,7 +1067,7 @@ async function loadFavGames(){
 }
 function renderKGames(){
   const box=$("kgames");if(!box)return;
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly;
+  const plain=true; // 필터와 상관없이 항상 보임
   const fav=!!FAVG,src=fav?FAVG:KGAMES;
   const nx=(src&&src.next||[]).filter(g=>BY_NO[g.no]&&new Date(g.date)>Date.now()-2*3600e3);
   const ls=(src&&src.last||[]).filter(g=>BY_NO[g.no]);
@@ -1072,7 +1096,7 @@ fetch("data/transfers.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(a
 const moveBadge=p=>{const t=MOVES[p.no];return t?`<span class="bdg move" title="${esc(t.from)} → ${esc(t.to)} (${t.date})">이적</span>`:""};
 function renderMoves(){
   const box=$("moves");if(!box)return;
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly;
+  const plain=true; // 필터와 상관없이 항상 보임
   // 사진이 있거나 반응을 수집하는 선수부터 (알려진 선수 위주)
   const known=p=>(PHOTO[p.no]||WPHOTO[p.no]?2:0)+(hotN(p)?1:0);
   const list=plain?MOVE_LIST.map(t=>BY_NO[t.no]).filter((p,i,a)=>p&&a.indexOf(p)===i).sort((a,b)=>known(b)-known(a)).slice(0,12):[];
@@ -1107,7 +1131,7 @@ async function kleagueStand(lg){
     const ci={gp:col("경기"),w:col("승"),d:col("무"),l:col("패"),gd:col("차"),pts:col("승점")};
     const rows=[...tb.rows].slice(1).filter(r=>r.cells.length>6&&/^\d+$/.test(r.cells[0].textContent.trim())).map(r=>{
       const a=r.cells[1].querySelector("a"),t=c=>r.cells[c]?r.cells[c].textContent.trim():"";
-      return {rank:+t(0),ko:(a?a.textContent:r.cells[1].textContent).replace(/\(.*?\)/g,"").trim(),gp:t(ci.gp),w:t(ci.w),d:t(ci.d),l:t(ci.l),gd:t(ci.gd).replace("−","-"),pts:t(ci.pts),logo:""}});
+      return {rank:+t(0),ko:(a?a.textContent:r.cells[1].textContent).replace(/\(.*?\)/g,"").trim(),gp:t(ci.gp),w:t(ci.w),d:t(ci.d),l:t(ci.l),gd:t(ci.gd).replace("−","-"),pts:t(ci.pts),logo:"",wiki:a?decodeURIComponent((a.getAttribute("href")||"").replace(/^.*\/wiki\//,"")):""}});
     if(rows.length)return {rows,src:"위키백과",yr};
   }
   throw new Error("no table");
@@ -1115,19 +1139,62 @@ async function kleagueStand(lg){
 let standLg="eng.1",standSeen="";const STAND={};
 function renderStand(){
   const box=$("stand");
-  // 첫 화면이나 리그만 고른 화면에서만 (다른 조건으로 찾는 중이면 숨김)
+  // 필터와 상관없이 항상 보임. 위 필터에서 순위가 있는 리그를 고르면 순위표도 그 리그로
   const lg=STAND_LG.find(x=>x[1]===st.league);
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.club&&!st.group&&!st.favOnly&&(!st.league||lg);
-  if(!plain){box.innerHTML="";return}
-  // 위 필터에서 5대 리그를 고르면 순위표도 그 리그로
   if(lg&&standSeen!==st.league){standLg=lg[0];loadStand()}
   standSeen=st.league;
   const d=STAND[standLg];
   const fav=k=>isFavOf("club",k);
+  const sel=standSel[standLg]||0;
   const body=!d?`<p class="thin">불러오는 중…</p>`:d.err?`<p class="thin">순위를 불러오지 못했습니다.</p>`
-    :`<table class="st-tbl"><thead><tr><th>순위</th><th class="tm">팀</th><th>경기</th><th>승</th><th>무</th><th>패</th><th class="gd">득실</th><th>승점</th></tr></thead><tbody>${d.rows.map(r=>`<tr tabindex="0" data-club="${esc(r.ko)}" title="${CLUBS.includes(r.ko)?esc(r.ko)+" 선수 보기":""}"><td class="rk">${r.rank}</td><td class="tm"><span class="st-tm">${r.logo?`<img src="${esc(r.logo)}" alt="" loading="lazy">`:`<i class="st-ph" aria-hidden="true">${esc(r.ko.replace(/^FC /,"").slice(0,1))}</i>`}<span>${fav(r.ko)?'<span class="star">★</span> ':""}${esc(r.ko)}</span></span></td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="gd">${r.gd}</td><td class="pt">${r.pts}</td></tr>`).join("")}</tbody></table>`;
+    :`<table class="st-tbl"><thead><tr><th>순위</th><th class="tm">팀</th><th>경기</th><th>승</th><th>무</th><th>패</th><th class="gd">득실</th><th>승점</th></tr></thead><tbody>${d.rows.map((r,i)=>`<tr tabindex="0" data-i="${i}" class="${i===sel?"on":""}" aria-selected="${i===sel}"><td class="rk">${r.rank}</td><td class="tm"><span class="st-tm">${r.logo?`<img src="${esc(r.logo)}" alt="" loading="lazy">`:`<i class="st-ph" aria-hidden="true">${esc(r.ko.replace(/^FC /,"").slice(0,1))}</i>`}<span>${fav(r.ko)?'<span class="star">★</span> ':""}${esc(r.ko)}</span></span></td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="gd">${r.gd}</td><td class="pt">${r.pts}</td></tr>`).join("")}</tbody></table>`;
   box.innerHTML=`<div class="st-lgs" role="group" aria-label="리그 고르기">${STAND_LG.map(([c,l])=>`<button type="button" data-lg="${c}" aria-pressed="${c===standLg}">${l}</button>`).join("")}</div>
-    <div class="st-box">${body}</div>${standKeepChip()}${d&&!d.err?`<p class="st-note">${d.src?`${d.yr}시즌 · 한국어 위키백과 기준`:"ESPN 기준"} · 팀을 누르면 그 팀 선수만 봅니다.</p>`:""}`;
+    <div class="st-wrap"><div class="st-box">${body}</div>${d&&!d.err?`<aside class="st-info" id="stInfo" aria-live="polite"></aside>`:""}</div>${standKeepChip()}${d&&!d.err?`<p class="st-note">순위: ${d.src?`${d.yr}시즌 · 한국어 위키백과 기준`:"ESPN 기준"} · 팀을 누르면 팀 정보가 바뀝니다.</p>`:""}`;
+  if(d&&!d.err)showStInfo();
+}
+// 팀 순위 옆 팀 정보: 순위·전적(순위표), 감독·홈구장·창단(위키데이터), 도감 선수 수·화제 선수(도감 데이터)
+const standSel={},TEAMINFO={};
+function stRow(){const d=STAND[standLg];return d&&d.rows?d.rows[standSel[standLg]||0]:null}
+function showStInfo(){
+  const box=$("stInfo"),r=stRow();if(!box||!r)return;
+  const ps=players.filter(p=>p.club===r.ko&&!isYouth(p));
+  const top=ps.filter(p=>h24(p)||hotN(p)).sort((a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)).slice(0,3);
+  const k=standLg+":"+r.ko,ti=TEAMINFO[k];
+  const val=x=>!ti?'<span class="sti-wait">불러오는 중…</span>':x?esc(x):"정보 없음";
+  const lgName=(STAND_LG.find(x=>x[0]===standLg)||[])[1]||"";
+  box.innerHTML=`<div class="sti-h">${r.logo?`<img src="${esc(r.logo)}" alt="">`:`<i class="st-ph" aria-hidden="true">${esc(r.ko.replace(/^FC /,"").slice(0,1))}</i>`}<div><b>${esc(r.ko)}</b><small>${esc(lgName)} ${r.rank}위 · 승점 ${esc(r.pts)}</small></div></div>
+    <dl class="sti-dl"><div><dt>전적</dt><dd>${esc(r.w)}승 ${esc(r.d)}무 ${esc(r.l)}패</dd></div><div><dt>감독</dt><dd>${val(ti&&ti.coach)}</dd></div><div><dt>홈구장</dt><dd>${val(ti&&ti.venue)}</dd></div><div><dt>창단</dt><dd>${val(ti&&ti.year&&ti.year+"년")}</dd></div></dl>
+    ${top.length?`<div class="sti-sub">화제 선수</div><div class="sti-ps">${top.map(p=>`<button type="button" class="sti-p" data-no="${p.no}"><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span></button>`).join("")}</div>`:""}
+    ${ps.length?`<button type="button" class="sti-go" data-club="${esc(r.ko)}">이 팀 선수 ${ps.length}명 보기</button>`:""}
+    ${ti&&ti.link?`<a class="sti-src" href="${esc(ti.link)}" target="_blank" rel="noopener">위키백과에서 더 보기 ↗</a>`:""}`;
+  if(!ti)loadTeamInfo(k,r);
+}
+// 팀 문서 → 위키데이터 항목 → 지금 감독(P286)·홈구장(P115)·창단(P571). 실패하면 "정보 없음"
+async function loadTeamInfo(k,r){
+  if(TEAMINFO[k]||loadTeamInfo[k])return;loadTeamInfo[k]=1;
+  const info={};
+  try{
+    const wp=(host,q)=>fetch(`https://${host}.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=pageprops&ppprop=wikibase_item&redirects=1&${q}`).then(x=>x.json());
+    const j=r.wiki?await wp("ko",`titles=${encodeURIComponent(r.wiki)}`):await wp("en",`generator=search&gsrlimit=1&gsrsearch=${encodeURIComponent(r.en+" football club")}`);
+    const pg=Object.values((j.query||{}).pages||{})[0];const qid=pg&&pg.pageprops&&pg.pageprops.wikibase_item;
+    if(qid){
+      const wd=q=>fetch(`https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&origin=*&${q}`).then(x=>x.json());
+      const e=(await wd(`ids=${qid}&props=claims|sitelinks&sitefilter=kowiki`)).entities[qid];
+      const cur=P=>{const a=(e.claims[P]||[]).filter(c=>c.mainsnak.datavalue&&!(c.qualifiers&&c.qualifiers.P582));const b=a.filter(c=>c.rank==="preferred");const c=(b.length?b:a).slice(-1)[0];return c?c.mainsnak.datavalue.value:null};
+      const coach=cur("P286"),venue=cur("P115"),inc=cur("P571");
+      if(inc&&inc.time)info.year=String(+inc.time.slice(1,5));
+      const ids=[coach,venue].filter(Boolean).map(x=>x.id);
+      if(ids.length){const L=(await wd(`ids=${ids.join("|")}&props=labels&languages=ko|en`)).entities;const lb=x=>x&&L[x.id]&&(L[x.id].labels.ko||L[x.id].labels.en||{}).value;info.coach=lb(coach);info.venue=lb(venue)}
+      const kw=e.sitelinks&&e.sitelinks.kowiki;if(kw)info.link="https://ko.wikipedia.org/wiki/"+encodeURIComponent(kw.title.replace(/ /g,"_"));
+    }
+  }catch(err){}
+  TEAMINFO[k]=info;
+  const now=stRow();if(now&&standLg+":"+now.ko===k)showStInfo();
+}
+function pickStandRow(i){
+  standSel[standLg]=i;
+  document.querySelectorAll("#stand tr[data-i]").forEach(t=>{const on=+t.dataset.i===i;t.classList.toggle("on",on);t.setAttribute("aria-selected",on)});
+  showStInfo();
 }
 // 다시 그린 뒤에도 리그 버튼 줄의 가로 위치를 유지하고, 고른 버튼이 가려져 있으면 보이게 (페이지는 움직이지 않음)
 let standScroll=0;
@@ -1146,7 +1213,7 @@ async function loadStand(){
     const j=await fetch(`https://site.api.espn.com/apis/v2/sports/soccer/${c}/standings`).then(r=>r.json());
     const es=((j.children||[])[0]||{}).standings.entries||[];
     const v=(e,n)=>{const s=e.stats.find(x=>x.name===n);return s?s.displayValue:""};
-    STAND[c]={rows:es.map(e=>{const lg=(e.team.logos||[])[0];return {rank:+v(e,"rank")||0,ko:teamKo(e.team.displayName),gp:v(e,"gamesPlayed"),w:v(e,"wins"),d:v(e,"ties"),l:v(e,"losses"),gd:v(e,"pointDifferential"),pts:v(e,"points"),
+    STAND[c]={rows:es.map(e=>{const lg=(e.team.logos||[])[0];return {rank:+v(e,"rank")||0,ko:teamKo(e.team.displayName),en:e.team.displayName,gp:v(e,"gamesPlayed"),w:v(e,"wins"),d:v(e,"ties"),l:v(e,"losses"),gd:v(e,"pointDifferential"),pts:v(e,"points"),
       logo:lg?`https://a.espncdn.com/combiner/i?img=${encodeURIComponent(new URL(lg.href).pathname)}&w=44&h=44`:""}}).sort((a,b)=>a.rank-b.rank)};
   }catch(e){STAND[c]={err:true}}
   if(c===standLg){renderStand()}
@@ -1174,7 +1241,7 @@ const h24=p=>{const r=REACT&&REACT.players&&REACT.players[p.no];return r&&r.h24|
 // 첫 화면(필터·검색·묶어보기 없음)에만 보이는 "실시간 화제" 상위 10명: 최근 24시간 기사 수, 같으면 7일 기사 수
 function renderHot(){
   const box=$("hot");
-  const plain=!st.q.trim()&&st.chip==="ALL"&&!st.nat&&!st.league&&!st.club&&!st.group&&!st.favOnly&&st.sort!=="hot";
+  const plain=true; // 필터와 상관없이 항상 보임
   const top=plain?players.filter(h24).sort((a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)).slice(0,10):[];
   if(!top.length){box.hidden=true;box.innerHTML="";return}
   box.hidden=false;
@@ -1519,9 +1586,11 @@ $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
 $("stand").addEventListener("click",e=>{
   const b=e.target.closest("[data-lg]");if(b){standLg=b.dataset.lg;renderStand();loadStand();return}
-  const r=e.target.closest("tr[data-club]");if(r)pickStandClub(r.dataset.club);
+  const g=e.target.closest(".sti-go");if(g){pickStandClub(g.dataset.club);return}
+  const p=e.target.closest(".sti-p");if(p){openDetail(+p.dataset.no);return}
+  const r=e.target.closest("tr[data-i]");if(r)pickStandRow(+r.dataset.i);
 });
-$("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-club]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandClub(r.dataset.club)}});
+$("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-i]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandRow(+r.dataset.i)}});
 $("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
