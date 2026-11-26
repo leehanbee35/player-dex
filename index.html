@@ -122,15 +122,15 @@ select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);
 .reset svg{transition:transform .25s}.reset:hover svg{transform:rotate(-60deg)}
 
 main{padding-block:24px 56px}
-.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:16px}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin-bottom:18px}
 #out>.group-h:first-child{margin-top:4px}
 .meta>div:first-child{display:flex;flex-wrap:wrap;align-items:center;column-gap:4px;row-gap:6px}
 .meta strong{line-height:1}
 .meta .crit{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;margin-left:6px}
 .crit-sep{display:none}
-.crit-tag{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:11.5px;font-weight:600}
-.crit-kv{font-size:11.5px;color:var(--muted);margin-left:4px}.crit-kv b{color:var(--ink);font-weight:600}
-.meta strong{color:var(--ink);font-family:var(--f-num);font-size:16px}
+.crit-tag{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:13px;font-weight:600}
+.crit-kv{font-size:13px;color:var(--muted);margin-left:6px}.crit-kv b{color:var(--ink);font-weight:600}
+.meta strong{color:var(--ink);font-family:var(--f-num);font-size:22px}
 .group-h{font-family:var(--f-body);font-size:18px;font-weight:800;letter-spacing:-.2px;margin:32px 0 12px;display:flex;align-items:center;gap:10px}
 .group-h small{font-family:var(--f-body);font-size:13px;font-weight:600;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
@@ -311,8 +311,8 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .d-info span{display:block;font-size:11px;color:var(--muted)} .d-info b{font-size:14px}
 .d-info .lab{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:2px}
 .d-info b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.react{border:1px dashed var(--line);border-radius:12px;padding:14px}
-.react h3{margin:0 0 6px;font-size:14px}
+.react{border:0;padding:0}
+.react h3{margin:0;font-size:15px;font-weight:800}
 .react p{margin:0 0 10px;color:var(--muted);font-size:12.5px;line-height:1.6}
 .links{display:flex;gap:6px;flex-wrap:wrap}
 .links a{font-size:12px;text-decoration:none;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
@@ -326,12 +326,17 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .bdg.ghost{display:inline-flex;align-items:center;gap:5px}
 .group-h .flag{width:27px;height:18px}
 .d-info b{display:flex;align-items:center;gap:5px}
-.r-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.r-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-bottom:14px}
 .r-head small{color:var(--muted);font-size:11px}
-.sbar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--bg)}
+.sbar{display:flex;height:6px;border-radius:999px;overflow:hidden;background:var(--bg);gap:2px;margin:0 0 16px}
+.score{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 10px}
+.sc b{display:block;font-family:var(--f-num);font-size:34px;font-weight:700;line-height:1;letter-spacing:-.5px}
+.sc b small{font-size:16px;margin-left:1px;opacity:.7}
+.sc span{display:block;margin-top:4px;font-size:12px;color:var(--muted)}
+.sc.p b{color:var(--mf)} .sc.u b{color:var(--ink);opacity:.75} .sc.n b{color:var(--fw)}
 .sbar i{display:block}
 .s-pos{background:var(--mf)} .s-neu{background:var(--muted);opacity:.45} .s-neg{background:var(--fw)}
-.comm{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.comm{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 /* 상세 화면 이번 시즌 기록 표 */
 .season{margin-top:14px}
 .season h3{font-size:14px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
@@ -366,7 +371,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .kgames{margin:0 0 20px}
 .kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
 .kg-cols h3{font-size:12px;color:var(--muted);font-weight:600;margin:0 0 6px}
-.kg{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:6px;max-height:292px;overflow-y:auto;overscroll-behavior:contain}
+.kg{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;gap:6px;max-height:234px;overflow-y:auto;overscroll-behavior:contain}
 .kg-it .ph.tm{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
 .kg-it{width:100%;display:grid;grid-template-columns:54px 36px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px;cursor:pointer;font:inherit;color:inherit;text-align:left}
 .kg-it:hover{border-color:var(--muted)}
@@ -401,7 +406,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .c-react b{color:var(--ink);font-weight:600}
 /* 첫 화면 "팀 순위" 탭: 리그 고르는 알약 버튼 + 순위표 (안쪽 스크롤) */
 .stand{margin:0 0 20px}
-.st-wrap{display:grid;grid-template-columns:minmax(0,560px) minmax(0,320px);gap:14px;align-items:stretch}
+.st-wrap{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:16px;align-items:stretch}
 @media (max-width:860px){.st-wrap{grid-template-columns:minmax(0,1fr)}}
 .st-tbl tbody tr.on td{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .st-tbl tbody tr.on td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
@@ -411,20 +416,23 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .sti-h .st-ph{width:44px;height:44px;font-size:18px}
 .sti-h b{display:block;font-size:17px}
 .sti-h small{color:var(--muted);font-size:12px}
-.sti-dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sti-dl{margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .sti-dl div{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
 .sti-dl dt{font-size:11px;color:var(--muted);margin-bottom:2px}
 .sti-dl dd{margin:0;font-size:13px;font-weight:700;overflow-wrap:anywhere}
 .sti-wait{color:var(--muted);font-weight:400}
 .sti-sub{font-size:12px;color:var(--muted);font-weight:600}
-.sti-ps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.sti-ps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .sti-p{display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 4px;min-width:0;border-radius:8px;border:1px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-align:left}
 .sti-p:hover{border-color:var(--accent)}
 .sti-p .nm{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
 .sti-p .ph{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:0 0 auto}
 .sti-p .ph img,.sti-p .ph svg{width:36px;height:36px;object-fit:cover;object-position:50% 18%}
-.sti-go{height:36px;border-radius:8px;border:0;background:var(--accent);color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
-.sti-src{font-size:12px;color:var(--link);text-align:center}
+.sti-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:auto}
+.sti-foot .sti-go{flex:1 1 200px}
+.sti-note{font-size:11px;color:var(--muted)}
+.sti-go{height:38px;padding:0 16px;border-radius:8px;border:0;background:var(--accent);color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.sti-src{font-size:12.5px;color:var(--link);white-space:nowrap}
 .st-lgs{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
 .st-lgs::-webkit-scrollbar{display:none}
 .st-lgs button{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
@@ -472,21 +480,23 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
 .slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
 .slegend b{color:var(--ink);font-weight:500}
-.spark{display:flex;align-items:flex-end;gap:4px;height:44px;margin-bottom:4px}
-.spark div{flex:1;background:var(--df);border-radius:3px 3px 0 0;min-height:2px;opacity:.75}
+.spark{display:flex;align-items:flex-end;gap:6px;height:56px;padding-top:14px;margin-bottom:6px;box-sizing:content-box;border-bottom:1px solid var(--line)}
+.spark div{flex:1;position:relative;background:var(--df);border-radius:3px 3px 0 0;min-height:0;opacity:.85}
+.spark div::before{content:attr(data-n);position:absolute;left:0;right:0;bottom:100%;margin-bottom:3px;text-align:center;font-size:11px;font-weight:700;color:var(--ink);opacity:.8;font-variant-numeric:tabular-nums}
+.spark div[data-n="0"]::before{content:""}
 .spark-x{display:flex;gap:4px;font-size:10px;color:var(--muted);margin-bottom:14px}
 .spark-x span{flex:1;text-align:center}
-.tags{margin:0 0 14px;display:flex;flex-direction:column;gap:8px}
-.tags>div{display:flex;gap:10px;align-items:flex-start}
-.tags dt{flex:0 0 38px;font-size:11px;color:var(--muted);line-height:24px}
-.tags dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;min-width:0}
+.tags{margin:0 0 18px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.tags>div,.tags dd{display:contents}
+.tags dt{display:none}
+
 .tags .k{font-size:12.5px;line-height:24px;color:var(--link)}
 .tags .t{font-size:12px;font-weight:600;line-height:24px;padding:0 10px;border-radius:6px;background:var(--df-soft);color:var(--ink)}
-.hl{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px}
-.hl a{display:flex;gap:8px;font-size:13px;color:var(--ink);text-decoration:none;line-height:1.45}
+.hl{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:12px}
+.hl a{display:flex;gap:12px;font-size:14px;color:var(--ink);text-decoration:none;line-height:1.55}
 .hl a:hover span:last-child{text-decoration:underline}
-.hl i{flex:0 0 8px;height:8px;border-radius:50%;margin-top:6px}
-.thin{font-size:11px;color:var(--fw);margin:-4px 0 10px}
+.hl i{flex:0 0 3px;align-self:stretch;border-radius:2px;opacity:1}
+.thin{font-size:12px;color:var(--muted);margin:-8px 0 14px}
 footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
@@ -532,7 +542,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
   header.hide{transform:translateY(-100%)}
   .filters{display:none;padding-bottom:12px}
   /* 폰: 즐겨찾기 경기 목록을 짧게 (카드 목록이 너무 밀리지 않게) */
-  .kg{max-height:200px}
+  .kg{max-height:234px}
   .kg-cols{gap:10px}
   .filters.open{display:flex;max-height:60vh;overflow-y:auto;overscroll-behavior:contain}
   .ctrls{display:grid;grid-template-columns:1fr;gap:8px;position:relative}
@@ -1182,10 +1192,11 @@ function showStInfo(){
   const val=x=>!ti?'<span class="sti-wait">불러오는 중…</span>':x?esc(x):"정보 없음";
   const lgName=(STAND_LG.find(x=>x[0]===standLg)||[])[1]||"";
   box.innerHTML=`<div class="sti-h">${r.logo?`<img src="${esc(r.logo)}" alt="">`:`<i class="st-ph" aria-hidden="true">${esc(r.ko.replace(/^FC /,"").slice(0,1))}</i>`}<div><b>${esc(r.ko)}</b><small>${esc(lgName)} ${r.rank}위 · 승점 ${esc(r.pts)}</small></div></div>
-    <dl class="sti-dl"><div><dt>전적</dt><dd>${esc(r.w)}승 ${esc(r.d)}무 ${esc(r.l)}패</dd></div><div><dt>감독</dt><dd>${val(ti&&ti.coach)}</dd></div><div><dt>홈구장</dt><dd>${val(ti&&ti.venue)}</dd></div><div><dt>창단</dt><dd>${val(ti&&ti.year&&ti.year+"년")}</dd></div></dl>
+    <dl class="sti-dl"><div><dt>전적</dt><dd>${esc(r.w)}승 ${esc(r.d)}무 ${esc(r.l)}패</dd></div><div><dt>감독</dt><dd>${val(ti&&ti.coach)}</dd></div><div><dt>홈구장</dt><dd>${val(ti&&ti.venue)}</dd></div><div><dt>창단</dt><dd>${val(ti&&ti.year&&ti.year+"년")}</dd></div><div><dt>리그 우승</dt><dd>${val(ti&&ti.titles&&ti.titles+"회")}</dd></div><div><dt>마지막 우승</dt><dd>${val(ti&&ti.lastTitle&&ti.lastTitle+"년")}</dd></div></dl>
     ${top.length?`<div class="sti-sub">화제 선수</div><div class="sti-ps">${top.map(p=>`<button type="button" class="sti-p" data-no="${p.no}"><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span></button>`).join("")}</div>`:""}
-    ${ps.length?`<button type="button" class="sti-go" data-club="${esc(r.ko)}">이 팀 선수 ${ps.length}명 보기</button>`:""}
-    ${ti&&ti.link?`<a class="sti-src" href="${esc(ti.link)}" target="_blank" rel="noopener">위키백과에서 더 보기 ↗</a>`:""}`;
+    <div class="sti-foot">${ps.length?`<button type="button" class="sti-go" data-club="${esc(r.ko)}">이 팀 선수 ${ps.length}명 보기</button>`:""}
+    ${ti&&ti.link?`<a class="sti-src" href="${esc(ti.link)}" target="_blank" rel="noopener">위키백과에서 더 보기 ↗</a>`:""}</div>
+    <small class="sti-note">감독·홈구장·창단·우승 기록은 위키데이터 기준이라 빠지거나 늦게 고쳐질 수 있습니다.</small>`;
   if(!ti)loadTeamInfo(k,r);
 }
 // 팀 문서 → 위키데이터 항목 → 지금 감독(P286)·홈구장(P115)·창단(P571). 실패하면 "정보 없음"
@@ -1205,6 +1216,13 @@ async function loadTeamInfo(k,r){
       const ids=[coach,venue].filter(Boolean).map(x=>x.id);
       if(ids.length){const L=(await wd(`ids=${ids.join("|")}&props=labels&languages=ko|en`)).entities;const lb=x=>x&&L[x.id]&&(L[x.id].labels.ko||L[x.id].labels.en||{}).value;info.coach=lb(coach);info.venue=lb(venue)}
       const kw=e.sitelinks&&e.sitelinks.kowiki;if(kw)info.link="https://ko.wikipedia.org/wiki/"+encodeURIComponent(kw.title.replace(/ /g,"_"));
+      // 리그 우승: 지금 리그와 그 전신 리그(지금 리그가 생기기 전 시즌만)에서 우승한 시즌의 끝난 해
+      try{
+        const sq=`SELECT DISTINCT ?y WHERE { wd:${qid} wdt:P118 ?lg . OPTIONAL{?lg wdt:P571 ?inc} ?lg (wdt:P1365|wdt:P155)* ?lgx . ?s wdt:P3450 ?lgx ; wdt:P1346 wd:${qid} . OPTIONAL{?s wdt:P582 ?e} OPTIONAL{?s wdt:P585 ?p} OPTIONAL{?s wdt:P580 ?b} BIND(YEAR(COALESCE(?e,?p,?b)) AS ?y) FILTER(?lgx = ?lg || !BOUND(?inc) || ?y <= YEAR(?inc)) }`;
+        const sj=await fetch("https://query.wikidata.org/sparql?format=json&query="+encodeURIComponent(sq)).then(x=>x.json());
+        const ys=sj.results.bindings.map(b=>b.y&&+b.y.value).filter(Boolean);
+        info.titles=ys.length;info.lastTitle=ys.length?Math.max(...ys):0;
+      }catch(err){}
     }
   }catch(err){}
   TEAMINFO[k]=info;
@@ -1343,10 +1361,9 @@ function reactionHTML(p){
   const s=r.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   const max=Math.max(1,...r.daily.map(d=>d.n));
   return `<div class="r-head"><h3>최근 ${REACT.window_days}일 반응</h3><small>${esc(REACT.source)} ${r.n}건 · ${esc(REACT.generated_at.slice(0,16).replace("T"," "))} 기준</small></div>
-    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" title="${d.date} ${d.n}건"></div>`).join("")}</div>
+    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" data-n="${d.n}" title="${d.date} ${d.n}건"></div>`).join("")}</div>
     <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
-    <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
-    <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
+    ${scoreHTML(pct)}
     ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있습니다.</p>`:""}
     ${r.topics.length||r.keywords.length?`<dl class="tags">${r.topics.length?`<div><dt>주제</dt><dd>${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}</dd></div>`:""}${r.keywords.length?`<div><dt>키워드</dt><dd>${r.keywords.map(k=>`<span class="k">#${esc(k)}</span>`).join("")}</dd></div>`:""}</dl>`:""}
     <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>${commHTML(r)}`;
@@ -1355,13 +1372,18 @@ function reactionHTML(p){
 // 대표 댓글에서 욕설·비하 표현이 든 댓글은 뺌 (수집기에서도 걸러 내지만 예전에 모은 것까지)
 const BANNED=["씨발","시발","씨팔","ㅅㅂ","ㅆㅂ","병신","ㅂㅅ","ㅄ","개새끼","새끼","좆","지랄","니애미","느금","애미","애비","엠창","창녀","짱깨","쪽바리","깜둥이","흑돼지","한남충","김치녀","꺼져","닥쳐","fuck","shit"];
 const isClean=t=>{const f=String(t).replace(/[\s.\-_~!*]+/g,"").toLowerCase();return !BANNED.some(w=>f.includes(w))};
+// 긍정·중립·부정 점수판: 큰 숫자 세 개 + 그 아래 얇은 비율 막대
+function scoreHTML(pct){
+  const K=[["pos","긍정","p"],["neu","중립","u"],["neg","부정","n"]];
+  return `<div class="score" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%">${K.map(([k,l,c])=>`<div class="sc ${c}"><b>${pct(k)}<small>%</small></b><span>${l}</span></div>`).join("")}</div>
+    <div class="sbar" aria-hidden="true"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>`;
+}
 function commHTML(r){
   const c=r&&r.comm;if(!c||!c.n)return "";
   const top=(c.top||[]).filter(h=>isClean(h.text));
   const s=c.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   return `<div class="comm"><div class="r-head"><h3>커뮤니티 반응</h3><small>유튜브 인기 댓글 ${c.n}건</small></div>
-    <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
-    <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
+    ${scoreHTML(pct)}
     <ul class="hl">${top.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>“${esc(h.text)}”</span></a></li>`).join("")}</ul></div>`;
 }
 
