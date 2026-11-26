@@ -584,7 +584,7 @@ footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
       <span class="pick"><label>팀 <select id="club"></select></label><button type="button" class="fav-toggle" id="favClub" aria-label="고른 팀 즐겨찾기" aria-pressed="false">☆</button></span>
       <span class="pick"><label>나라 <select id="nat"></select></label><button type="button" class="fav-toggle" id="favNat" aria-label="고른 나라 즐겨찾기" aria-pressed="false">☆</button></span>
       <label>정렬 <select id="sort">
-        <option value="no">기본순</option><option value="hot">실시간 화제순</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
+        <option value="hot">실시간 화제순</option><option value="young">나이 어린순</option><option value="old">나이 많은순</option><option value="tall">키 큰순</option><option value="name">이름순</option>
       </select></label>
       <button class="reset" id="reset" type="button" title="필터 초기화" aria-label="필터 초기화"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
     </div>
@@ -721,7 +721,7 @@ const chipColor={ALL:"#5b6680",GK:"#d99a1a",DF:"#2f6fd6",MF:"#21a05e",FW:"#e0533
 const chipMatch={ALL:()=>true,GK:p=>p.g==="GK",DF:p=>p.g==="DF",MF:p=>p.g==="MF",FW:p=>p.g==="FW"};
 
 // fav: 즐겨찾기한 나라·리그·팀 (이 브라우저에만 저장). club: 즐겨찾기 칩으로 고른 팀 필터
-const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false,fav:{nat:[],league:[],club:[],player:[]}};
+const st={q:"",chip:"ALL",nat:"",league:"",club:"",sort:"hot",group:"",youth:false,favOnly:false,fav:{nat:[],league:[],club:[],player:[]}};
 // 유스: 61번 이후 선수 중 등번호가 없거나 40번 이상 (직접 입력한 60명은 항상 표시)
 // K리그는 1군도 40~99번을 흔히 쓰고, 위키백과 명단 자체가 등록 선수라서 제외
 const isYouth=p=>p.no>60&&!/^K리그/.test(p.league)&&!(/^\d+$/.test(p.num)&&+p.num<40);
@@ -731,7 +731,7 @@ const FAV_KINDS=["nat","league","club","player"];
 const isFavOf=(kind,v)=>st.fav[kind].includes(v);
 const isFav=p=>isFavOf("club",p.club);
 let CLUBS=[],LEAGUES=[];
-const OK={o:["no","hot","young","old","tall","name"],g:["pos","nat","league","club"],p:POS_CHIPS.map(c=>c[0]),n:[]};
+const OK={o:["hot","young","old","tall","name"],g:["pos","nat","league","club"],p:POS_CHIPS.map(c=>c[0]),n:[]};
 // 검색: 띄어쓰기·대소문자·악센트(é→e) 무시, 초성 검색(ㅅㅎㅁ → 손흥민), 여러 단어는 모두 들어 있어야 함(예: "토트넘 손")
 const CHO="ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ";
 const normS=s=>String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").normalize("NFC").toLowerCase().replace(/[\s.\-·'’]/g,"");
@@ -764,7 +764,7 @@ reindex();
 const encPart=s=>encodeURIComponent(s).replace(/-/g,"%2D");
 function encodeHash(){
   const t=[];
-  if(st.sort!=="no")t.push("o",st.sort);
+  if(st.sort!=="hot")t.push("o",st.sort);
   if(st.group)t.push("g",st.group);
   if(st.chip!=="ALL")t.push("p",st.chip);
   if(st.nat)t.push("n",st.nat);
@@ -777,7 +777,7 @@ function encodeHash(){
 function applyHash(){
   const h=location.hash.slice(1);
   if(!h.startsWith("v-"))return false;
-  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,open:0});
+  Object.assign(st,{chip:"ALL",nat:"",league:"",club:"",sort:"hot",group:"",youth:false,open:0});
   const a=h.slice(2).split("-");
   for(let i=0;i+1<a.length;i+=2){
     const k=a[i];let v=a[i+1];try{v=decodeURIComponent(v)}catch(e){}
@@ -798,7 +798,7 @@ st.open=0; // 열어 둔 선수 화면은 주소(#...-d-번호)로만 복원
 if(Array.isArray(st.favs)){st.fav={nat:[],league:[],club:st.favs};delete st.favs}
 st.fav=Object.assign({nat:[],league:[],club:[],player:[]},st.fav||{});
 FAV_KINDS.forEach(k=>{if(!Array.isArray(st.fav[k]))st.fav[k]=[]});
-if(!OK.o.includes(st.sort))st.sort="no";
+if(!OK.o.includes(st.sort))st.sort="hot";
 if(!OK.p.includes(st.chip))st.chip="ALL"; // 예전 세부 포지션 칩(CB 등)은 전체로
 st.youth=false; // 유스 포함 버튼을 없앴으므로 항상 숨김 (이름 검색·즐겨찾기 선수 보기에서는 나옴)
 applyHash();
@@ -1264,7 +1264,7 @@ function renderHot(){
   if(!top.length){box.hidden=true;box.innerHTML="";return}
   box.hidden=false;
   const at=REACT.generated_at.slice(5,16).replace("-",".").replace("T"," ");
-  box.innerHTML=`<div class="hot-h"><h2>실시간 화제</h2><small>최근 24시간 기사 수 · ${esc(at)} 기준 · <button type="button" id="hotAll">화제순으로 전체 보기</button></small></div>
+  box.innerHTML=`<div class="hot-h"><h2>실시간 화제</h2><small>최근 24시간 기사 수 · ${esc(at)} 기준${st.sort!=="hot"?` · <button type="button" id="hotAll">화제순으로 전체 보기</button>`:""}</small></div>
     <ol class="hot-list">${top.map((p,i)=>`<li><button type="button" class="hot-item" data-no="${p.no}"><span class="rk">${i+1}</span><span class="ph">${art(p)}</span><span class="nm">${esc(p.kr)}</span><span class="sub">${esc(p.club)}</span><span class="sub">기사 <b>${h24(p)}</b>건</span>${reactLine(p)}</button></li>`).join("")}</ol>`;
 }
 // 선수가 수천 명이라 120명씩 그리고, 맨 아래에 닿으면(또는 더 보기를 누르면) 이어서 그림
@@ -1290,7 +1290,7 @@ function render(){
     (!q||matchQ(p,q)));
   renderHot();renderKGames();renderMoves();renderStand();syncFeed();
   // 모바일 필터 버튼에 적용 중인 필터 개수
-  $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="no",st.youth,st.favOnly].filter(Boolean).length||"";
+  $("filterCount").textContent=[st.nat,st.league,st.club,st.group,st.sort!=="hot",st.youth,st.favOnly].filter(Boolean).length||"";
   const S={no:(a,b)=>a.no-b.no,hot:(a,b)=>h24(b)-h24(a)||hotN(b)-hotN(a)||a.no-b.no,young:(a,b)=>b.born-a.born,old:(a,b)=>(a.born||9999)-(b.born||9999),tall:(a,b)=>b.h-a.h,name:(a,b)=>a.kr.localeCompare(b.kr,"ko")};
   if(q){const rk=new Map(list.map(p=>[p,qRank(p,q)]));list.sort((a,b)=>rk.get(a)-rk.get(b)||S[st.sort](a,b))}
   else list.sort(S[st.sort]);
@@ -1585,7 +1585,7 @@ $("grp").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)r
     const hide=innerWidth<=640&&d>0&&y>260&&!$("filters").classList.contains("open");hd.classList.toggle("hide",hide)},{passive:true});}
 // 모바일: 필터·정렬 접기/펼치기
 $("filterToggle").addEventListener("click",()=>{const open=!$("filters").classList.contains("open");$("filters").classList.toggle("open",open);$("filterToggle").setAttribute("aria-expanded",open)});
-$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"no",group:"",youth:false,favOnly:false});buildControls();save();render()});
+$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",chip:"ALL",nat:"",league:"",club:"",sort:"hot",group:"",youth:false,favOnly:false});buildControls();save();render()});
 $("nat").addEventListener("change",syncFav);
 $("league").addEventListener("change",syncFav);
 $("favNat").addEventListener("click",()=>{if(st.nat)toggleFav("nat",st.nat)});
