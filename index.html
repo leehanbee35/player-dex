@@ -326,9 +326,21 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .bdg.ghost{display:inline-flex;align-items:center;gap:5px}
 .group-h .flag{width:27px;height:18px}
 .d-info b{display:flex;align-items:center;gap:5px}
-.r-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-bottom:14px}
+.r-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-bottom:12px}
 .r-head small{color:var(--muted);font-size:11px}
-.sbar{display:flex;height:6px;border-radius:999px;overflow:hidden;background:var(--bg);gap:2px;margin:0 0 16px}
+.sbar{display:flex;height:8px;border-radius:999px;overflow:hidden;background:var(--bg);gap:2px;margin:6px 0 8px}
+/* 반응: 왼쪽 항목 이름 + 오른쪽 내용의 정보표 */
+.rx{margin:0 0 16px;display:grid;gap:10px}
+.rx>div{display:grid;grid-template-columns:76px minmax(0,1fr);column-gap:14px;align-items:start}
+.rx dt{font-size:12.5px;font-weight:600;color:var(--muted);line-height:22px}
+.rx dd{margin:0;min-width:0}
+.mlg{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted)}
+.mlg b{font-weight:700;font-variant-numeric:tabular-nums}
+.mlg .p b{color:var(--mf)} .mlg .u b{color:var(--ink)} .mlg .n b{color:var(--fw)}
+.rx-chips{display:flex;flex-wrap:wrap;gap:6px}
+.rx-chips .t{font-size:12.5px;font-weight:600;line-height:24px;padding:0 10px;border-radius:6px;background:var(--df-soft);color:var(--ink)}
+.rx-kw{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px;line-height:22px;color:var(--ink)}
+.rx-h{margin:0 0 10px;font-size:12.5px;font-weight:600;color:var(--muted)}
 .score{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:2px 0 10px}
 .sc b{display:block;font-family:var(--f-num);font-size:34px;font-weight:700;line-height:1;letter-spacing:-.5px}
 .sc b small{font-size:16px;margin-left:1px;opacity:.7}
@@ -336,7 +348,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .sc.p b{color:var(--mf)} .sc.u b{color:var(--ink);opacity:.75} .sc.n b{color:var(--fw)}
 .sbar i{display:block}
 .s-pos{background:var(--mf)} .s-neu{background:var(--muted);opacity:.45} .s-neg{background:var(--fw)}
-.comm{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.comm{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
 /* 상세 화면 이번 시즌 기록 표 */
 .season{margin-top:14px}
 .season h3{font-size:14px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
@@ -369,9 +381,9 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 @media (max-width:640px){.feed-ctl [data-fm="size"]{display:none}.feed .feed-tabs{padding-right:64px}}
 .feed.f-min>section{display:none!important}
 .feed.f-min .feed-ctl [data-fm="size"]{display:none}
-.feed:not(.f-full) .kg{max-height:154px}
-.feed:not(.f-full) .st-box{max-height:148px}
-.feed:not(.f-full) .st-note,.feed:not(.f-full) .sti-sub,.feed:not(.f-full) .sti-ps,.feed:not(.f-full) .sti-foot,.feed:not(.f-full) .sti-note,.feed:not(.f-full) .sti-dl>div:nth-child(n+4){display:none}
+.feed:not(.f-full) .kg{max-height:234px}
+.feed:not(.f-full) .st-box{max-height:226px}
+.feed:not(.f-full) .st-note,.feed:not(.f-full) .sti-sub,.feed:not(.f-full) .sti-ps,.feed:not(.f-full) .sti-foot,.feed:not(.f-full) .sti-note{display:none}
 .feed:not(.f-full) .st-info{min-height:0}
 .feed:not(.f-full) .st-wrap{align-items:start}
 .feed .kgames,.feed .hot{margin:0}
@@ -492,14 +504,17 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .hot-item .c-react>span:last-child{display:none} /* 화제 줄에서는 7일 기사 수 대신 24시간 기사 수만 */
 /* PC: 피드 세 탭이 같은 높이를 쓰고, 실시간 화제는 1~10위를 2열 × 5줄 순위표로 */
 @media (min-width:861px){
-  .feed{--feedH:204px} .feed.f-full{--feedH:486px}
+  .feed{--feedH:284px} .feed.f-full{--feedH:486px}
   .feed:not(.f-full) .hot-list{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));grid-auto-flow:row;gap:8px}
   .feed:not(.f-full) .hot-item{grid-template-columns:20px 40px minmax(0,1fr);column-gap:8px;padding:6px 10px}
   .feed:not(.f-full) .hot-item .ph svg,.feed:not(.f-full) .hot-item .ph img{width:40px;height:40px}
   .feed:not(.f-full) .hot-item .rk{font-size:15px}
   .feed:not(.f-full) .hot-item .nm{font-size:13.5px}
-  .feed:not(.f-full) .hot-item>.sub:nth-child(4),.feed:not(.f-full) .hot-item .c-react{display:none}
-  .feed:not(.f-full) .hot-item>.sub:nth-child(5){grid-column:3;grid-row:2;text-align:left;font-size:12px}
+  .feed:not(.f-full) .hot-item{grid-template-rows:auto auto auto auto;row-gap:2px}
+  .feed:not(.f-full) .hot-item .rk,.feed:not(.f-full) .hot-item .ph{grid-row:1/5}
+  .feed:not(.f-full) .hot-item>.sub:nth-child(4){grid-column:3;grid-row:2;font-size:12px}
+  .feed:not(.f-full) .hot-item .c-react{grid-column:3;grid-row:4;margin-top:4px}
+  .feed:not(.f-full) .hot-item>.sub:nth-child(5){grid-column:3;grid-row:3;text-align:left;font-size:12px}
   .feed>#hot,.feed>#kgames,.feed>#stand{min-height:var(--feedH);box-sizing:border-box}
   .hot-list{grid-auto-flow:column;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;gap:8px 16px;padding:0;height:calc(var(--feedH) - 32px)}
   .hot-list>li{min-height:0;display:flex}
@@ -517,11 +532,11 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .slegend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;background:currentColor}
 .slegend .p{color:var(--mf)} .slegend .u{color:var(--muted)} .slegend .n{color:var(--fw)}
 .slegend b{color:var(--ink);font-weight:500}
-.spark{display:flex;align-items:flex-end;gap:6px;height:56px;padding-top:14px;margin-bottom:6px;box-sizing:content-box;border-bottom:1px solid var(--line)}
+.spark{display:flex;align-items:flex-end;gap:6px;height:32px;padding-top:14px;margin-bottom:4px;box-sizing:content-box;border-bottom:1px solid var(--line)}
 .spark div{flex:1;position:relative;background:var(--df);border-radius:3px 3px 0 0;min-height:0;opacity:.85}
 .spark div::before{content:attr(data-n);position:absolute;left:0;right:0;bottom:100%;margin-bottom:3px;text-align:center;font-size:11px;font-weight:700;color:var(--ink);opacity:.8;font-variant-numeric:tabular-nums}
 .spark div[data-n="0"]::before{content:""}
-.spark-x{display:flex;gap:4px;font-size:10px;color:var(--muted);margin-bottom:14px}
+.spark-x{display:flex;gap:6px;font-size:11px;color:var(--muted)}
 .spark-x span{flex:1;text-align:center}
 .tags{margin:0 0 18px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .tags>div,.tags dd{display:contents}
@@ -529,11 +544,11 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 
 .tags .k{font-size:12.5px;line-height:24px;color:var(--link)}
 .tags .t{font-size:12px;font-weight:600;line-height:24px;padding:0 10px;border-radius:6px;background:var(--df-soft);color:var(--ink)}
-.hl{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:12px}
+.hl{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:9px}
 .hl a{display:flex;gap:12px;font-size:14px;color:var(--ink);text-decoration:none;line-height:1.55}
 .hl a:hover span:last-child{text-decoration:underline}
 .hl i{flex:0 0 3px;align-self:stretch;border-radius:2px;opacity:1}
-.thin{font-size:12px;color:var(--muted);margin:-8px 0 14px}
+.thin{font-size:12px;color:var(--muted);margin:6px 0 0}
 footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
@@ -1399,29 +1414,32 @@ function reactionHTML(p){
   const s=r.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   const max=Math.max(1,...r.daily.map(d=>d.n));
   return `<div class="r-head"><h3>최근 ${REACT.window_days}일 반응</h3><small>${esc(REACT.source)} ${r.n}건 · ${esc(REACT.generated_at.slice(0,16).replace("T"," "))} 기준</small></div>
-    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" data-n="${d.n}" title="${d.date} ${d.n}건"></div>`).join("")}</div>
-    <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
-    ${scoreHTML(pct)}
-    ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있습니다.</p>`:""}
-    ${r.topics.length||r.keywords.length?`<dl class="tags">${r.topics.length?`<div><dt>주제</dt><dd>${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}</dd></div>`:""}${r.keywords.length?`<div><dt>키워드</dt><dd>${r.keywords.map(k=>`<span class="k">#${esc(k)}</span>`).join("")}</dd></div>`:""}</dl>`:""}
+    <dl class="rx">
+      <div><dt>날짜별 기사</dt><dd><div class="spark" aria-label="날짜별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" data-n="${d.n}" title="${d.date} ${d.n}건"></div>`).join("")}</div>
+        <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div></dd></div>
+      <div><dt>기사 분위기</dt><dd>${scoreHTML(pct)}${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있습니다.</p>`:""}</dd></div>
+      ${r.topics.length?`<div><dt>주제</dt><dd class="rx-chips">${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}</dd></div>`:""}
+      ${r.keywords.length?`<div><dt>키워드</dt><dd class="rx-kw">${r.keywords.map(k=>`<span>${esc(k)}</span>`).join("")}</dd></div>`:""}
+    </dl>
+
     <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>${commHTML(r)}`;
 }
 // 커뮤니티 반응: 유튜브 영상의 인기 댓글을 같은 방식(긍정·중립·부정)으로 분류한 결과
 // 대표 댓글에서 욕설·비하 표현이 든 댓글은 뺌 (수집기에서도 걸러 내지만 예전에 모은 것까지)
 const BANNED=["씨발","시발","씨팔","ㅅㅂ","ㅆㅂ","병신","ㅂㅅ","ㅄ","개새끼","새끼","좆","지랄","니애미","느금","애미","애비","엠창","창녀","짱깨","쪽바리","깜둥이","흑돼지","한남충","김치녀","꺼져","닥쳐","fuck","shit"];
 const isClean=t=>{const f=String(t).replace(/[\s.\-_~!*]+/g,"").toLowerCase();return !BANNED.some(w=>f.includes(w))};
-// 긍정·중립·부정 점수판: 큰 숫자 세 개 + 그 아래 얇은 비율 막대
+// 분위기: 긍정·중립·부정 비율 막대 + 그 아래 한 줄 범례
 function scoreHTML(pct){
-  const K=[["pos","긍정","p"],["neu","중립","u"],["neg","부정","n"]];
-  return `<div class="score" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%">${K.map(([k,l,c])=>`<div class="sc ${c}"><b>${pct(k)}<small>%</small></b><span>${l}</span></div>`).join("")}</div>
-    <div class="sbar" aria-hidden="true"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>`;
+  return `<div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
+    <div class="mlg"><span class="p">긍정 <b>${pct("pos")}%</b></span><span class="u">중립 <b>${pct("neu")}%</b></span><span class="n">부정 <b>${pct("neg")}%</b></span></div>`;
 }
 function commHTML(r){
   const c=r&&r.comm;if(!c||!c.n)return "";
   const top=(c.top||[]).filter(h=>isClean(h.text));
   const s=c.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   return `<div class="comm"><div class="r-head"><h3>커뮤니티 반응</h3><small>유튜브 인기 댓글 ${c.n}건</small></div>
-    ${scoreHTML(pct)}
+    <dl class="rx"><div><dt>댓글 분위기</dt><dd>${scoreHTML(pct)}</dd></div></dl>
+
     <ul class="hl">${top.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>“${esc(h.text)}”</span></a></li>`).join("")}</ul></div>`;
 }
 
