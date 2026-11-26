@@ -107,8 +107,9 @@ select{font:inherit;font-size:13px;background:var(--chip);color:var(--head-ink);
 .reset:hover{color:var(--head-ink);border-color:rgba(255,255,255,.4)}
 .reset svg{transition:transform .25s}.reset:hover svg{transform:rotate(-60deg)}
 
-main{padding-block:20px 48px}
-.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:14px}
+main{padding-block:24px 56px}
+.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:16px}
+#out>.group-h:first-child{margin-top:4px}
 .meta>div:first-child{display:flex;flex-wrap:wrap;align-items:center;column-gap:4px;row-gap:6px}
 .meta strong{line-height:1}
 .meta .crit{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;margin-left:6px}
@@ -116,9 +117,9 @@ main{padding-block:20px 48px}
 .crit-tag{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:11.5px;font-weight:600}
 .crit-kv{font-size:11.5px;color:var(--muted);margin-left:4px}.crit-kv b{color:var(--ink);font-weight:600}
 .meta strong{color:var(--ink);font-family:var(--f-num);font-size:16px}
-.group-h{font-family:var(--f-display);font-size:20px;margin:22px 0 10px;display:flex;align-items:center;gap:10px}
-.group-h small{font-family:var(--f-num);font-size:14px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.group-h{font-family:var(--f-body);font-size:18px;font-weight:800;letter-spacing:-.2px;margin:32px 0 12px;display:flex;align-items:center;gap:10px}
+.group-h small{font-family:var(--f-body);font-size:13px;font-weight:600;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
 
 .card{--c:var(--fw);--soft:var(--fw-soft);background:var(--surface);border:2px solid var(--c);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,30,60,.15)}
@@ -339,14 +340,14 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .gear a{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;text-decoration:none;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink)}
 .gear small{font-size:11px;color:var(--muted)}
 /* 첫 화면 위쪽 탭 */
-.feed{margin:0 0 20px}
+.feed{margin:0 0 28px}
 .feed .kgames,.feed .hot{margin:0}
-.feed-tabs{display:flex;gap:4px;box-shadow:inset 0 -1px 0 var(--line);margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
+.feed-tabs{display:flex;gap:4px;box-shadow:inset 0 -1px 0 var(--line);margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
 .feed-tabs::-webkit-scrollbar{display:none}
 .feed-tabs button{font:inherit;font-size:14px;font-weight:600;background:none;border:0;color:var(--muted);padding:8px 12px 10px;cursor:pointer;white-space:nowrap}
 .feed-tabs button[aria-selected="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
 .feed.tabbed .hot-h h2{display:none}
-.feed.tabbed .hot-h{justify-content:flex-end}
+.feed.tabbed .hot-h{justify-content:flex-start}
 /* 첫 화면 한국 선수 경기 */
 .kgames{margin:0 0 20px}
 .kg-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
@@ -459,11 +460,14 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(760px,calc(100dvh - 40px)
 .slegend b{color:var(--ink);font-weight:500}
 .spark{display:flex;align-items:flex-end;gap:4px;height:44px;margin-bottom:4px}
 .spark div{flex:1;background:var(--df);border-radius:3px 3px 0 0;min-height:2px;opacity:.75}
-.spark-x{display:flex;gap:4px;font-size:10px;color:var(--muted);margin-bottom:12px}
+.spark-x{display:flex;gap:4px;font-size:10px;color:var(--muted);margin-bottom:14px}
 .spark-x span{flex:1;text-align:center}
-.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
-.tags span{font-size:12px;padding:2px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
-.tags .t{background:var(--df-soft);border-color:transparent}
+.tags{margin:0 0 14px;display:flex;flex-direction:column;gap:8px}
+.tags>div{display:flex;gap:10px;align-items:flex-start}
+.tags dt{flex:0 0 38px;font-size:11px;color:var(--muted);line-height:24px}
+.tags dd{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;min-width:0}
+.tags .k{font-size:12.5px;line-height:24px;color:var(--link)}
+.tags .t{font-size:12px;font-weight:600;line-height:24px;padding:0 10px;border-radius:6px;background:var(--df-soft);color:var(--ink)}
 .hl{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px}
 .hl a{display:flex;gap:8px;font-size:13px;color:var(--ink);text-decoration:none;line-height:1.45}
 .hl a:hover span:last-child{text-decoration:underline}
@@ -1324,12 +1328,12 @@ function reactionHTML(p){
   const s=r.sentiment,tot=s.pos+s.neu+s.neg||1,pct=k=>Math.round(s[k]/tot*100);
   const max=Math.max(1,...r.daily.map(d=>d.n));
   return `<div class="r-head"><h3>최근 ${REACT.window_days}일 반응</h3><small>${esc(REACT.source)} ${r.n}건 · ${esc(REACT.generated_at.slice(0,16).replace("T"," "))} 기준</small></div>
+    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" title="${d.date} ${d.n}건"></div>`).join("")}</div>
+    <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
     <div class="sbar" role="img" aria-label="긍정 ${pct("pos")}%, 중립 ${pct("neu")}%, 부정 ${pct("neg")}%"><i class="s-pos" style="width:${pct("pos")}%"></i><i class="s-neu" style="width:${pct("neu")}%"></i><i class="s-neg" style="width:${pct("neg")}%"></i></div>
     <div class="slegend"><span class="p"><b>긍정 ${pct("pos")}%</b></span><span class="u"><b>중립 ${pct("neu")}%</b></span><span class="n"><b>부정 ${pct("neg")}%</b></span></div>
     ${r.n<10?`<p class="thin">기사가 ${r.n}건뿐이라 비율이 크게 흔들릴 수 있습니다.</p>`:""}
-    <div class="spark" aria-label="일별 기사 수">${r.daily.map(d=>`<div style="height:${d.n/max*100}%" title="${d.date} ${d.n}건"></div>`).join("")}</div>
-    <div class="spark-x">${r.daily.map(d=>`<span>${+d.date.slice(8)}일</span>`).join("")}</div>
-    <div class="tags">${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}${r.keywords.map(k=>`<span>#${esc(k)}</span>`).join("")}</div>
+    ${r.topics.length||r.keywords.length?`<dl class="tags">${r.topics.length?`<div><dt>주제</dt><dd>${r.topics.map(t=>`<span class="t">${esc(t)}</span>`).join("")}</dd></div>`:""}${r.keywords.length?`<div><dt>키워드</dt><dd>${r.keywords.map(k=>`<span class="k">#${esc(k)}</span>`).join("")}</dd></div>`:""}</dl>`:""}
     <ul class="hl">${r.headlines.map(h=>`<li><a href="${esc(h.url)}" target="_blank" rel="noopener"><i class="s-${h.sentiment}" title="${S_LABEL[h.sentiment]}"></i><span>${esc(h.title)}</span></a></li>`).join("")}</ul>${commHTML(r)}`;
 }
 // 커뮤니티 반응: 유튜브 영상의 인기 댓글을 같은 방식(긍정·중립·부정)으로 분류한 결과
@@ -1591,7 +1595,9 @@ $("stand").addEventListener("click",e=>{
   const r=e.target.closest("tr[data-i]");if(r)pickStandRow(+r.dataset.i);
 });
 $("stand").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-i]");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pickStandRow(+r.dataset.i)}});
-$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
+// 탭을 바꿔도 아래 목록이 위아래로 흔들리지 않게, 지금까지 본 탭 중 가장 높은 높이를 유지
+function lockFeed(){const f=$("feed");f.style.minHeight=Math.max(f.offsetHeight,parseFloat(f.style.minHeight)||0)+"px"}
+$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;lockFeed();feedTab=b.dataset.t;feedChosen=true;syncFeed();requestAnimationFrame(lockFeed)});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
