@@ -346,17 +346,6 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .stbl tr.sub td{font-size:11px;color:var(--muted);font-weight:600;padding-top:10px;text-align:left}
 .season h3 small a{color:inherit}
 /* 카드 아래 반응 막대: 최근 7일 기사의 긍정·중립·부정 비율 */
-/* 카드 (사진 위, 정보 가운데 정렬) */
-.c-art{position:relative;padding:16px 0 8px}
-.c-art .c-no{position:absolute;top:8px;left:10px;font-size:13px}
-.c-art .c-tag{position:absolute;top:7px;right:8px}
-.card .c-react{margin-top:auto}
-.c-body{display:flex;flex-direction:column;align-items:center;gap:5px;padding:2px 10px 10px;text-align:center;min-width:0}
-.c-body .c-name{font-size:16px;max-width:100%}
-.c-team{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.c-team i{font-style:normal;margin:0 4px;opacity:.6}
-.c-body .badges{justify-content:center;padding:2px 0 0}
-.bdg.age{font-variant-numeric:tabular-nums}
 .c-react{display:flex;align-items:center;gap:7px;padding:0 10px 9px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 .c-react .mbar{flex:1;display:flex;height:5px;border-radius:3px;overflow:hidden;background:var(--line)}
 .c-react .mbar i{display:block;height:100%}
@@ -395,7 +384,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .thin{font-size:11px;color:var(--fw);margin:-4px 0 10px}
 footer{color:var(--muted);font-size:12px;padding-block:0 32px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media (max-width:480px){.c-body .badges{gap:3px}.c-body .badges .bdg{font-size:10px;padding:2px 5px;height:20px}.c-body .badges .flag{width:15px;height:10px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.c-art svg{width:72px;height:72px}.stats{font-size:11px}}
 /* ---------- 모바일(폭 640px 이하) ---------- */
 .filter-toggle{display:none}
 /* 조회조건 줄과 즐겨찾기 줄 사이 간격 */
@@ -895,16 +884,14 @@ function syncSeg(){document.querySelectorAll("#grp button").forEach(b=>b.setAttr
   document.querySelectorAll("#youth button").forEach(b=>b.setAttribute("aria-pressed",(b.dataset.y==="1")===!!st.youth));
   document.querySelectorAll(".pos").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===st.chip));}
 
-// 카드: 사진 → 이름 → 팀·리그 한 줄 → 포지션·나라·나이 → 반응 막대. 키·주발 같은 자세한 정보는 상세 화면에
+// 카드: 위에 등번호·이름, 사진, 포지션·나라 배지, 반응 막대, 아래에 팀·리그·출생(나이)·키(주발) 표
 function card(p){
   return `<button type="button" class="card ${p.g}" data-no="${p.no}">
-    <div class="c-art">${art(p)}<span class="c-no">${p.num?"#"+esc(p.num):""}</span>${MOVES[p.no]?`<span class="c-tag">${moveBadge(p)}</span>`:""}</div>
-    <div class="c-body">
-      <div class="c-name">${isFavOf("player",p.no)?'<span class="fav-star" title="즐겨찾는 선수">★</span> ':""}${esc(p.kr)}</div>
-      <div class="c-team">${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':""}${esc(p.club)}<i>·</i>${esc(p.league)}</div>
-      <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}${p.born?`<span class="bdg ghost age">${YEAR-p.born}세</span>`:""}</div>
-    </div>
+    <div class="c-head"><span class="c-no">${p.num?"#"+esc(p.num):""}</span><span class="c-name">${isFavOf("player",p.no)?'<span class="fav-star" title="즐겨찾는 선수">★</span> ':""}${esc(p.kr)}</span></div>
+    <div class="c-art">${art(p)}</div>
+    <div class="badges"><span class="bdg">${p.pos}</span>${p.nat?`<span class="bdg ghost">${flag(p.nat)}${esc(NAT[p.nat]||p.nat)}</span>`:""}${moveBadge(p)}</div>
     ${reactLine(p)}
+    <dl class="stats"><dt>팀</dt><dd>${isFav(p)?'<span class="fav-star" title="즐겨찾는 팀">★</span> ':''}${esc(p.club)}</dd><dt>리그</dt><dd>${esc(p.league)}</dd><dt>출생</dt><dd>${p.born?`${p.born}년 (${YEAR-p.born}세)`:"-"}</dd><dt>${p.foot?"키 · 주발":"키"}</dt><dd>${p.h?p.h+"cm":"-"}${p.foot?" · "+p.foot:""}</dd></dl>
   </button>`;
 }
 
@@ -997,12 +984,13 @@ function checkStale(){
   $("stale").hidden=!msgs.length;
   $("stale").textContent=msgs.length?`⚠ ${msgs.join(", ")}. 자동 갱신이 잠시 멈췄을 수 있습니다.`:"";
 }
-// 첫 화면 위쪽 섹션(한국 선수 경기·실시간 화제·최근 이적)을 탭으로 묶어 하나만 보여 줌. 고른 탭은 이 브라우저에 기억
+// 첫 화면 위쪽 섹션(실시간 화제·즐겨찾기 경기·최근 이적)을 탭으로 묶어 하나만 보여 줌
 const FEED=[["hot","실시간 화제"],["kgames","즐겨찾기 경기"],["moves","최근 이적"]];
-let feedTab="";try{feedTab=localStorage.getItem("dexFeed")||""}catch(e){}
+// 페이지를 열 때는 항상 첫 탭(실시간 화제). 사용자가 탭을 직접 누른 뒤에만 그 탭을 유지
+let feedTab="",feedChosen=false;
 function syncFeed(){
   const avail=FEED.filter(([id])=>$(id).innerHTML.trim());
-  if(!avail.some(([id])=>id===feedTab))feedTab=avail.length?avail[0][0]:"";
+  if(!feedChosen||!avail.some(([id])=>id===feedTab))feedTab=avail.length?avail[0][0]:"";
   FEED.forEach(([id])=>{$(id).hidden=id!==feedTab||!$(id).innerHTML.trim()});
   const tabs=$("feedTabs");
   $("feed").classList.toggle("tabbed",avail.length>1);
@@ -1343,7 +1331,7 @@ $("favBar").addEventListener("click",e=>{
 });
 $("out").parentElement.addEventListener("click",e=>{if(e.target.id==="clearClub"){st.club="";buildControls();save();render()}});
 $("out").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)openDetail(+c.dataset.no)});
-$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;try{localStorage.setItem("dexFeed",feedTab)}catch(e2){}syncFeed()});
+$("feedTabs").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;feedTab=b.dataset.t;feedChosen=true;syncFeed()});
 $("kgames").addEventListener("click",e=>{const c=e.target.closest(".kg-it");if(c)openDetail(+c.dataset.no)});
 $("moves").addEventListener("click",e=>{const c=e.target.closest(".hot-item");if(c)openDetail(+c.dataset.no)});
 $("hot").addEventListener("click",e=>{
