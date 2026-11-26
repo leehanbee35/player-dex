@@ -124,8 +124,8 @@ main{padding-block:20px 48px}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,30,60,.15)}
 .card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .card.GK{--c:var(--gk);--soft:var(--gk-soft)} .card.DF{--c:var(--df);--soft:var(--df-soft)} .card.MF{--c:var(--mf);--soft:var(--mf-soft)}
-.c-head{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:6px;padding:7px 10px;background:var(--soft)}
-.c-head .c-name{text-align:center}
+.c-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px;padding:7px 10px;background:var(--soft)}
+.c-head .c-name{text-align:left;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:anywhere;line-height:1.25}
 .c-tr{display:flex;justify-content:flex-end}
 .c-no{font-family:var(--f-num);font-weight:600;color:var(--muted);font-size:13px}
 .c-name{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
