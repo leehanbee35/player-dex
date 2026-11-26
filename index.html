@@ -398,6 +398,7 @@ dialog{width:min(1180px,calc(100vw - 32px));height:min(680px,calc(100dvh - 40px)
 .st-tbl tbody tr:focus-visible{outline:none}
 .st-tm{display:flex;align-items:center;gap:8px;min-width:0}
 .st-tm img{width:22px;height:22px;object-fit:contain;flex:0 0 auto}
+.st-ph{display:grid;place-items:center;width:22px;height:22px;flex:0 0 auto;border-radius:50%;background:var(--bg);border:1px solid var(--line);font-style:normal;font-size:11px;font-weight:700;color:var(--muted)}
 .st-tm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .st-tm .star{color:#f5c542}
 .st-note{margin:8px 2px 0;font-size:11.5px;color:var(--muted)}
@@ -1063,8 +1064,27 @@ function checkStale(){
 }
 // 첫 화면 위쪽 섹션(실시간 화제·즐겨찾기 경기·최근 이적)을 탭으로 묶어 하나만 보여 줌
 const FEED=[["hot","실시간 화제"],["kgames","즐겨찾기 경기"],["stand","팀 순위"],["moves","최근 이적"]];
-// 팀 순위: ESPN 공개 순위표를 탭을 처음 열 때 받아 옴 (K리그는 ESPN에 없어서 5대 리그만)
-const STAND_LG=[["eng.1","프리미어리그"],["esp.1","라리가"],["ger.1","분데스리가"],["ita.1","세리에 A"],["fra.1","리그 1"]];
+// 팀 순위: 탭을 처음 열 때 받아 옴. 5대 리그는 ESPN 공개 순위표, K리그는 ESPN에 없어서 한국어 위키백과 "N년 K리그1" 문서의 시즌 순위표
+const STAND_LG=[["eng.1","프리미어리그"],["esp.1","라리가"],["ger.1","분데스리가"],["ita.1","세리에 A"],["fra.1","리그 1"],["kor.1","K리그1"],["kor.2","K리그2"]];
+async function kleagueStand(lg){
+  const api=q=>fetch(`https://ko.wikipedia.org/w/api.php?action=parse&format=json&origin=*&${q}`).then(r=>r.json());
+  const y=new Date().getFullYear();
+  for(const yr of [y,y-1]){
+    const page=encodeURIComponent(`${yr}년 ${lg}`);
+    const sj=await api(`prop=sections&page=${page}`);if(sj.error)continue;
+    const sec=sj.parse.sections.find(x=>x.line==="시즌 순위");if(!sec)continue;
+    const j=await api(`prop=text&section=${sec.index}&page=${page}`);
+    const tb=new DOMParser().parseFromString(j.parse.text["*"],"text/html").querySelector("table.wikitable");if(!tb)continue;
+    const head=[...tb.rows[0].cells].map(c=>c.textContent.trim());
+    const col=n=>head.findIndex(h=>h===n);
+    const ci={gp:col("경기"),w:col("승"),d:col("무"),l:col("패"),gd:col("차"),pts:col("승점")};
+    const rows=[...tb.rows].slice(1).filter(r=>r.cells.length>6&&/^\d+$/.test(r.cells[0].textContent.trim())).map(r=>{
+      const a=r.cells[1].querySelector("a"),t=c=>r.cells[c]?r.cells[c].textContent.trim():"";
+      return {rank:+t(0),ko:(a?a.textContent:r.cells[1].textContent).replace(/\(.*?\)/g,"").trim(),gp:t(ci.gp),w:t(ci.w),d:t(ci.d),l:t(ci.l),gd:t(ci.gd).replace("−","-"),pts:t(ci.pts),logo:""}});
+    if(rows.length)return {rows,src:"위키백과",yr};
+  }
+  throw new Error("no table");
+}
 let standLg="eng.1",standSeen="";const STAND={};
 function renderStand(){
   const box=$("stand");
@@ -1078,13 +1098,24 @@ function renderStand(){
   const d=STAND[standLg];
   const fav=k=>isFavOf("club",k);
   const body=!d?`<p class="thin">불러오는 중…</p>`:d.err?`<p class="thin">순위를 불러오지 못했습니다.</p>`
-    :`<table class="st-tbl"><thead><tr><th>순위</th><th class="tm">팀</th><th>경기</th><th>승</th><th>무</th><th>패</th><th class="gd">득실</th><th>승점</th></tr></thead><tbody>${d.rows.map(r=>`<tr tabindex="0" data-club="${esc(r.ko)}" title="${CLUBS.includes(r.ko)?esc(r.ko)+" 선수 보기":""}"><td class="rk">${r.rank}</td><td class="tm"><span class="st-tm">${r.logo?`<img src="${esc(r.logo)}" alt="" loading="lazy">`:""}<span>${fav(r.ko)?'<span class="star">★</span> ':""}${esc(r.ko)}</span></span></td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="gd">${r.gd}</td><td class="pt">${r.pts}</td></tr>`).join("")}</tbody></table>`;
+    :`<table class="st-tbl"><thead><tr><th>순위</th><th class="tm">팀</th><th>경기</th><th>승</th><th>무</th><th>패</th><th class="gd">득실</th><th>승점</th></tr></thead><tbody>${d.rows.map(r=>`<tr tabindex="0" data-club="${esc(r.ko)}" title="${CLUBS.includes(r.ko)?esc(r.ko)+" 선수 보기":""}"><td class="rk">${r.rank}</td><td class="tm"><span class="st-tm">${r.logo?`<img src="${esc(r.logo)}" alt="" loading="lazy">`:`<i class="st-ph" aria-hidden="true">${esc(r.ko.replace(/^FC /,"").slice(0,1))}</i>`}<span>${fav(r.ko)?'<span class="star">★</span> ':""}${esc(r.ko)}</span></span></td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="gd">${r.gd}</td><td class="pt">${r.pts}</td></tr>`).join("")}</tbody></table>`;
   box.innerHTML=`<div class="st-lgs" role="group" aria-label="리그 고르기">${STAND_LG.map(([c,l])=>`<button type="button" data-lg="${c}" aria-pressed="${c===standLg}">${l}</button>`).join("")}</div>
-    <div class="st-box">${body}</div>${d&&!d.err?`<p class="st-note">ESPN 기준 · 팀을 누르면 그 팀 선수만 봅니다.</p>`:""}`;
+    <div class="st-box">${body}</div>${standKeepChip()}${d&&!d.err?`<p class="st-note">${d.src?`${d.yr}시즌 · 한국어 위키백과 기준`:"ESPN 기준"} · 팀을 누르면 그 팀 선수만 봅니다.</p>`:""}`;
+}
+// 다시 그린 뒤에도 리그 버튼 줄의 가로 위치를 유지하고, 고른 버튼이 가려져 있으면 보이게 (페이지는 움직이지 않음)
+let standScroll=0;
+function standKeepChip(){
+  const old=document.querySelector("#stand .st-lgs");if(old)standScroll=old.scrollLeft;
+  requestAnimationFrame(()=>{const row=document.querySelector("#stand .st-lgs");if(!row)return;row.scrollLeft=standScroll;
+    const b=row.querySelector('[aria-pressed="true"]');if(!b)return;
+    const l=b.offsetLeft-row.offsetLeft,r=l+b.offsetWidth;
+    if(l<row.scrollLeft)row.scrollLeft=l-8;else if(r>row.scrollLeft+row.clientWidth)row.scrollLeft=r-row.clientWidth+8;});
+  return "";
 }
 async function loadStand(){
   if(STAND[standLg])return;const c=standLg;
   try{
+    if(c.startsWith("kor.")){STAND[c]=await kleagueStand(STAND_LG.find(x=>x[0]===c)[1]);if(c===standLg)renderStand();return}
     const j=await fetch(`https://site.api.espn.com/apis/v2/sports/soccer/${c}/standings`).then(r=>r.json());
     const es=((j.children||[])[0]||{}).standings.entries||[];
     const v=(e,n)=>{const s=e.stats.find(x=>x.name===n);return s?s.displayValue:""};
