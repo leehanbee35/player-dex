@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:32+09:00",
+ "generated_at": "2026-11-27T04:33+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "tracked": [
@@ -2636,18 +2636,14 @@
  ],
  "players": {
   "1": {
-   "n": 125,
-   "h24": 6,
+   "n": 121,
+   "h24": 7,
    "sentiment": {
     "pos": 15,
-    "neu": 59,
-    "neg": 51
+    "neu": 51,
+    "neg": 55
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 10
-    },
     {
      "date": "2026-11-21",
      "n": 9
@@ -2662,45 +2658,49 @@
     },
     {
      "date": "2026-11-24",
-     "n": 61
+     "n": 63
     },
     {
      "date": "2026-11-25",
-     "n": 14
+     "n": 15
     },
     {
      "date": "2026-11-26",
-     "n": 5
+     "n": 8
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
-    "기록",
-    "인터뷰"
+    "인터뷰",
+    "기록"
    ],
    "keywords": [
     "코리안 더비",
     "침묵",
-    "연봉 순위",
     "플레이오프",
-    "패배"
+    "패배",
+    "공격포인트"
    ],
    "headlines": [
     {
+     "title": "‘韓 레전드’ 손흥민 24위 ‘충격 랭킹’ 공개, 50명 중 40명이 日 선수···김민재와 이강인 ‘1·2위’ ...",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9VcVFXY0ZYUzF5aUVuNjdOaTNyamxDaWRhamVWclljb3htUGV3ckFOaFRLMVNLSGFHcC1kd3RFdmZ1Nm44MHRPanF4X0Qtb1RZQ1ZGRVhEZ3JPVkVLekHSAWNBVV95cUxQQVdDQks5cmZudjVGa05RLW5RT3dRemp6ZWhSMjlZNS15Y0doX3BMZzZGZzlJY1RLSkZuSFpnZ1FiTXNON1NBc1I3bWJFVGduNVNpTnRhQUR2ejhYeFpjLVU5SlE?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
+    {
+     "title": "충격 '오피셜' 공식 전망, \"활약 미미했다\" 질타까지...손흥민, 2라운드도 못 가고 떨어지나 \"적극적으로 뛰어야 3차전 가능\"",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1PVFBSdDIySjJkQU1UdDltcXVxdGx3U1Fid0dRczlCNU9US1ptczNfZ1RJS1VMS0ZyMlJyWTBtb1gyclNuRUVBdXRIR1Q3U2IwQ0E2ODd3MDQtY1JzNXJGcjdTYWl1SElOMDFpaFFJdkpBZFd6YXl6RGVfZkpTZw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
+    {
      "title": "'손흥민 유럽 리턴' 초대박 가능성? 유럽 구단 러브콜 시나리오 있을까…경쟁 덜한 MLS 다소 불만→여전한 공격수 경쟁력",
      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9IU0J3YjY3U2V4TEg3ZWRTNFB1dU1kdU50RnV6eGhwT1VjU2k5S19LczN1eXdDdzdRNE5XLVc3OTRUYmpLRXNLaExBY0hWZ1M1X210NHdETmdMZ0V2X2dXdlMtclhXekd2TTdmcFdWOVBSVTA5RzhyWnFSU0xnUQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
-    },
-    {
-     "title": "\"손흥민 살아나면 LAFC도 살아날까\" 질문에 돌아온 뜻밖의 답변...美 MLS 해설위원, 손흥민 아닌 부앙가 극찬 \"메시 다음으로 뛰어난 선수!\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBlTlJWa1o5a3pkbHRNdlU3VHN5TjlSZFByTXRoTlRBRGVaMUpoVWpsbDVWSDFiUmNxRXRDcThobWxZN1JwdzVRUENWX2F1dzFPbmk0RkgzU0E0TktlMDJTdGtJLVF4MXg2SHfSAW9BVV95cUxNT29ScGFqNVd6aGg3WURDUWduaVNHV3Fzazl2bEhOTUJNbjZ0b2xHbnc0OXdNcXJ0OG5XeXVUbDZVMXMxU181Sy03clN5MXExVzIxZk5vZXVROEpsNzdGbEdJaDRETnRoU3I4R25kNkk?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
-    },
-    {
-     "title": "손흥민 '오피셜' 작심 발언, 설마 유럽 돌아오나...LAFC 계약 만료 앞두고 폭탄 발언 \"MLS 압박감 덜 해, 조치 취해야\"",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE44aFlkcVpKODFWNmhMaDVRdlFsM2RuZFJuZXBKMTRBdGNLTFpFV2hZZFlKbm9OdVhfZmVnNjdHcW13S1VFb1kzV3g2TlI2RUxMRkdOSXBMcVVGVWNQWndpR1daUjl0N1o4dGhGQzFwWWJfMWZfbnlXM2hoejNiQQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
     }
@@ -2732,21 +2732,17 @@
    }
   },
   "2": {
-   "n": 129,
-   "h24": 35,
+   "n": 126,
+   "h24": 39,
    "sentiment": {
     "pos": 29,
-    "neu": 67,
-    "neg": 33
+    "neu": 63,
+    "neg": 34
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 11
-    },
-    {
      "date": "2026-11-21",
-     "n": 50
+     "n": 51
     },
     {
      "date": "2026-11-22",
@@ -2766,7 +2762,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 34
+     "n": 41
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -2777,36 +2777,36 @@
    "keywords": [
     "교체 출전",
     "무승부",
+    "역전패",
     "팀 부상",
-    "평점",
-    "역전패"
+    "평점"
    ],
    "headlines": [
     {
-     "title": "뮌헨의 내년 여름 최우선 목표는 ‘중앙 수비’ 개편…주전 밀려난 김민재는 ‘3옵션’ 만족, 이적 생각 없다",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE94bnV6Wk9xX3drUTkyVWtHaGVZSTRXRmY0Y0hrdFd6azRIeVVZdkJRaGt2LTRsMFExVV9HWDRaTThoekFsUFV0cGVCUkUwS2dhcG04S29MYXlvaEprbVHSAWNBVV95cUxNUE94UjY4bFd0ZGhKZ1J0YXVLWWh2S0pXTzBKUW50dG9VeVZ6QkVZMGM3NkozQmJUQVY1aC1YeG56VmQ3Sml4M0Jwc3ZXQkh2TTR2T3RuT29DMDUtSFgyVmEzMm8?oc=5",
+     "title": "골 못넣는 이강인·골 못막는 김민재…자존심 구긴 태극전사",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1UQkcwVHBPX1lWakNuWjJZaUtVNTY0TlIzTzFPa0xYTFdaWU5ydU1vQ1NsanNBX2NmbG5YV29uTFgyTmhVZXhsVFc5NnRJQW9aYmoxSm5LdlIteDZPOUVPcUZDNVdJb0U?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
     },
     {
-     "title": "[포토] 퓨처스리그 북부리그 승리 부문 수상 소감 전하는 김민재",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ycXowelpKNXJzZ1BMaVB3UmpRalczcFo5Z0M4QXNkLVBDcFA0a0RLSjRqX19mT2s2N2JIYXZlSUI4Y0RDTE54N2dacFNPblJSbHZYQ1ZkZjBRSVg5V3hwYTFvcGxlblM5ZzRFVg?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "[사진]소감 말하는 김민재",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPaEdpRVNjVV9yT2hadm9HYTBiRE0tUWRXSVZCVGlFWmdaTEVjWkE3STZONTBONHRfNm9vQlRfUWlpTE9lWHN4VkZoZnNlcDQxbTlHRFQ0ZnZZY3F6dTdoU2o4alpqckc3Z1pHS09PZDJ0VnJjcjJva0tjelJjZUFHLWxtQUFSLWNX0gGcAUFVX3lxTE52QnB6RkhkNFBFOHRrSzdCTWdvRVgwSmQ4Rm5oZldmUjI1OTVJTXJhNVdLdVBiZmFUMmk5ODhzTmpNMC0zOW1iRVUydFZCOW5OZUh5YXJQXzJYZF9NMGp4eVFIdW5KUnFmTVNiU2FEWU5DM3BKMlJxaGlidWRQZjJyOHNkR0xVYmtuWW5MdGtxVWdaa0dhYkNwanFsSw?oc=5",
+     "title": "둘째 출산 직후 '17살 연하'와 불장난? '김민재 동료' 노이어, 충격 의혹 진짜였나...아내 작심 메시지 \"가정 파괴한 남자가 부끄러운 것\" - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5JdUFFOFppRzNqZUhMNTdFeXNucnpHM015SHRRWWQ5S0NuQkFJQlJzcDhuZW44Rm92OXFTU3cwZmdQZGVPVU1yVDBkRklrQlVqcmxtaUljRDYzMGdQcG1RM0hMX09fS3ZDZnfSAW9BVV95cUxNb2dCMFQ1SDZLWHZROE9HQVoxaXkwZmVvTlRVNGQ5WjYxRkFhWWpCMjVTSFBKMkxOczV4ejhvcG52a2ZqZS1FUXV2cC1Fc1FCS2RjYXJ6My1jVU95UmpsWGpNZUVYRHBzNUNGZHZOcXM?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
+    },
+    {
+     "title": "존재감 드러낸 이강인… 역전패 못막은 김민재",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1uX2dNbHJSem5ONEU5a1ByOFhhMk5PWXIwN2oxdG1RUjIzYXNEUU9mTmtnMzM3VVN5anJOam13SDBTWWdPeVV4d1BLOTNjcGxG0gFUQVVfeXFMTmhWMnE1Yng3WjJvdFhlXzRoVmJkcW9qZmp1S0V5RTY4ZmZlWDJjSlVNaUFtS0tBTHdVZFVESDg5ZkIweHFSX0dsVEJaV3B5OWcwcVVz?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
     }
    ],
    "comm": {
-    "n": 3,
+    "n": 2,
     "sentiment": {
      "pos": 2,
      "neu": 0,
-     "neg": 1
+     "neg": 0
     },
     "top": [
      {
@@ -2818,28 +2818,19 @@
       "text": "멋진 김민재^^",
       "url": "https://www.youtube.com/watch?v=ZQ111fwm7D0&lc=UgxCRjIXkDF2Ge1dKrd4AaABAg",
       "sentiment": "pos"
-     },
-     {
-      "text": "은퇴해라 월드컵 예선 탈락해도 된다. 10년도 더 기다릴 수 있다. 이딴 팀 보고 싶지 않다",
-      "url": "https://www.youtube.com/watch?v=ZQ111fwm7D0&lc=UgxiUFVPjE0tshyVzLV4AaABAg",
-      "sentiment": "neg"
      }
     ]
    }
   },
   "3": {
-   "n": 153,
-   "h24": 34,
+   "n": 111,
+   "h24": 41,
    "sentiment": {
-    "pos": 104,
-    "neu": 31,
-    "neg": 18
+    "pos": 59,
+    "neu": 30,
+    "neg": 22
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 52
-    },
     {
      "date": "2026-11-21",
      "n": 7
@@ -2858,11 +2849,15 @@
     },
     {
      "date": "2026-11-25",
-     "n": 5
+     "n": 6
     },
     {
      "date": "2026-11-26",
-     "n": 33
+     "n": 42
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -2871,30 +2866,30 @@
     "대표팀"
    ],
    "keywords": [
-    "국제선수상",
     "킬패스",
-    "2연패",
-    "2년 연속",
-    "승리"
+    "승리",
+    "교체 출전",
+    "선발 출전",
+    "평점"
    ],
    "headlines": [
     {
-     "title": "이강인 57분 활약 아틀레티코, UCL 3경기 만에 승리…비킹에 2-0 완승",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA4S2lKUTYwWFVGYTRGeGdhRjZPb0RpaFBEY1htY3pTSlpkc3ZtYnBvMmMwbDdtM0htZ0lZN3pMUWFsSVNjVzllQzFFd1puNnBaVFlrUlVDZUtzQU0?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "`잘 뛰긴 했는데` 이강인의 아틀레티코는 승리, 김민재의 바이에른은 고배",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9oNmxfSVZPUnk1SkZNc2RrLTJ2b2ZJdnRRWUI2eG5NQ0xJUFVpT3B0ancwRXg4ZUtaWG5Jbk5jakJZSjBZZ09BX0liaU1lcXZ4ZUNxS3YyLXN4c05ORHpBX29R?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "‘골든 보이’ 이강인이 그립다···PSG ‘공격진 초토화’ 문제 발생, 西 현지 “LEE 판매한 것을 아쉬워할...",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBESFMxQTZwYVI2YUlmd05lVjV0bDlMbXR6d3NDaGRyXzNtYmM1d1VJVWpDd1U1RmUyRVF1bU1JMmd4UXVZWXYxS0E2LTAyeE1WN2FOSWVZOUdCUjZaRVHSAWNBVV95cUxOanJMZ0JqNU5LZmlvaTNWLWs4eFBXX1FiS0VnSmdZdExnY1JsR2g2aDJ4UEU2NzBtNVFTNzRzaVpDdGUzZUR3dWlBZjJvM2NLUWdYdXltdjF6dWlMY2Vvc3h3Mkk?oc=5",
+     "title": "골 못넣는 이강인·골 못막는 김민재…자존심 구긴 태극전사",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1UQkcwVHBPX1lWakNuWjJZaUtVNTY0TlIzTzFPa0xYTFdaWU5ydU1vQ1NsanNBX2NmbG5YV29uTFgyTmhVZXhsVFc5NnRJQW9aYmoxSm5LdlIteDZPOUVPcUZDNVdJb0U?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
+    },
+    {
+     "title": "GK 선방에 ‘이강인 왼발 슛’ 막혔지만…\"평점 7.2\" 활약",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5LV1hsSkk5SnF3YjNfSW1OWFVmbFpRLXp5WkhObkJFQlRGd2VSb3pxWXBRUUc5bzdESWFGS3Rlc1JSM2JQSUdFVjJuRHlGcHRsZVhaTA?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
+    {
+     "title": "\"이강인 지금 있었으면\" 이적 후 의미심장 한마디…공격진 초토화 PSG '구멍 뻥' → 뒤늦게 커지는 이강인 공백 절감",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE10aFZGQl9LaVJTblczdEJnWFl3NXFwZENxSHRDa2MyWnRYTEdHdlpSNXdDbTlQRVAtNF9KaGlJVUhPWW5ySkJHZE9Cald3UXZDNHB1UFJWaEtfOVZxcUN4SlQtang3ZFpBSUFMOGZvcG0?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
     }
    ],
    "comm": {
@@ -2924,18 +2919,14 @@
    }
   },
   "4": {
-   "n": 43,
-   "h24": 4,
+   "n": 42,
+   "h24": 3,
    "sentiment": {
-    "pos": 7,
+    "pos": 5,
     "neu": 9,
-    "neg": 27
+    "neg": 28
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -2946,7 +2937,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 6
+     "n": 7
     },
     {
      "date": "2026-11-24",
@@ -2958,7 +2949,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 3
+     "n": 4
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -2975,6 +2970,12 @@
    ],
    "headlines": [
     {
+     "title": "'韓 국대' 황희찬 희소식! 프리미어리그 복귀 청신호···울버햄튼 '강등→승격권 진입' 1위와 승점 단, 1점 차",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBxdEw2NEFwS3RLcXJCY1pkRENVSUdzU0NzRDVfSTRpaFkxS2Npc1k4RFRKSUttcmk5WnpwQ1Z6NEx6UVZReFVVUGdhYU5fdkd4OWJFazdR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
+    {
      "title": "‘韓 국대’ 황희찬 희소식! 프리미어리그 복귀 청신호 켜졌다···울버햄튼 ‘강등→승격권 진입’ 1위와 승점 단,...",
      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mdVRiTmxnMThVZ1J0OVlZaU5PQVZZYU5Gelo1NmFfYlpNb2lUTW4xQzh3dXpLRkFxLTdRVVlySl8zekJ6M2lYWGJsQlo5dHdfaEhqaFR6M2JINmVQTFHSAWNBVV95cUxOZE5heE5OQlkxNi1hOGVCZHNpVlQ5UEhCdXpuQzRMOURjTGFSb2ZOU1FqeVdUTlJnWnNJWXZqZmJiUFFsclVMcmt6djZucXI3SlhkWVY0NHhBSFpSWWNhNVA0RlE?oc=5",
      "date": "2026-11-26",
@@ -2985,20 +2986,14 @@
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBpb2F2SXJIako2eUxiUTJzOHJHX3VCVWxxOE5NMmJUWFp6LWRBcks4NklKdmVLVVpGOEZncDBMUnhFMHdvcUZHdU5Xdll5VmYwR3kzYUhQbm4tXy16d0dtTVBfU3ZtQQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
-    },
-    {
-     "title": "‘韓 국가대표’ 황희찬, 다음 시즌 깜짝 프리미어리거 되나…울버햄튼, 최근 8경기 6승 2무→승격권 진입",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE84a1NJcjR6TU9XRktxbkFxWm81WGZFa0FsbTZLNFBxT2pmZzZCMEhMTGt5bXNubzEyek0tOGU3cEFvS0NwSkRwaDZxMnhYYy1rNUt6MW9UZjA1ei1TUzVjb3RHZW9jSkFfbm4tQW9MUDFaeFZs?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 22,
+    "n": 17,
     "sentiment": {
      "pos": 2,
-     "neu": 6,
-     "neg": 14
+     "neu": 5,
+     "neg": 10
     },
     "top": [
      {
@@ -3020,18 +3015,14 @@
    }
   },
   "5": {
-   "n": 10,
+   "n": 7,
    "h24": 0,
    "sentiment": {
     "pos": 1,
-    "neu": 6,
-    "neg": 3
+    "neu": 4,
+    "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -3055,11 +3046,15 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "인터뷰",
     "경기력",
+    "인터뷰",
     "대표팀"
    ],
    "keywords": [
@@ -3090,9 +3085,9 @@
     }
    ],
    "comm": {
-    "n": 13,
+    "n": 2,
     "sentiment": {
-     "pos": 13,
+     "pos": 2,
      "neu": 0,
      "neg": 0
     },
@@ -3106,31 +3101,22 @@
       "text": "제 아는 지인이 모 국대선수 장인인데\n국대선수들 중 유일하게 안티가 없는 선수가 이재성 선수라고 하더라구요,\n모두에게 존경과 사랑을 받고있는 이재성 선수,그리고 대한민국  축구의 영원한 레전드 차범근 감독님,두분 존경하고 사랑합니다",
       "url": "https://www.youtube.com/watch?v=Sm-NFubD6RU&lc=Ugy9E7OF7ESGR0xXBzR4AaABAg",
       "sentiment": "pos"
-     },
-     {
-      "text": "이재성 같은 선수가 진짜 고평가받아야하는 선수임",
-      "url": "https://www.youtube.com/watch?v=zKO21oxn64A&lc=Ugwjg5oVnjGR9kKCBzZ4AaABAg",
-      "sentiment": "pos"
      }
     ]
    }
   },
   "6": {
-   "n": 64,
-   "h24": 4,
+   "n": 55,
+   "h24": 0,
    "sentiment": {
-    "pos": 21,
-    "neu": 40,
-    "neg": 3
+    "pos": 22,
+    "neu": 31,
+    "neg": 2
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 11
-    },
-    {
      "date": "2026-11-21",
-     "n": 13
+     "n": 15
     },
     {
      "date": "2026-11-22",
@@ -3151,19 +3137,23 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
     "기타",
-    "기록"
+    "대표팀"
    ],
    "keywords": [
     "교체 출전",
     "UCL 2연승",
     "FA컵",
-    "AFC 국제선수상",
-    "친정팀"
+    "친정팀",
+    "교체 투입"
    ],
    "headlines": [
     {
@@ -3212,18 +3202,14 @@
    }
   },
   "7": {
-   "n": 33,
+   "n": 29,
    "h24": 0,
    "sentiment": {
-    "pos": 21,
+    "pos": 17,
     "neu": 11,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 4
-    },
     {
      "date": "2026-11-21",
      "n": 3
@@ -3247,6 +3233,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -3255,11 +3245,11 @@
     "대표팀"
    ],
    "keywords": [
-    "시즌 첫 선발",
     "선발 출전",
+    "시즌 첫 선발",
     "드리블 성공",
     "팀 패배",
-    "선발 복귀"
+    "첫 선발"
    ],
    "headlines": [
     {
@@ -3317,10 +3307,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -3343,6 +3329,10 @@
     {
      "date": "2026-11-26",
      "n": 16
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -3388,10 +3378,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -3413,6 +3399,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -3453,18 +3443,14 @@
    }
   },
   "10": {
-   "n": 11,
-   "h24": 2,
+   "n": 10,
+   "h24": 3,
    "sentiment": {
-    "pos": 5,
-    "neu": 1,
-    "neg": 5
+    "pos": 2,
+    "neu": 2,
+    "neg": 6
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -3487,55 +3473,55 @@
     },
     {
      "date": "2026-11-26",
-     "n": 2
+     "n": 4
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
-    "기록",
-    "인터뷰"
+    "인터뷰",
+    "기록"
    ],
    "keywords": [
+    "부진",
     "아쉬움",
-    "팀 부진",
-    "고통 발언",
-    "연패 우려",
-    "무승 부진"
+    "작심발언",
+    "수비 붕괴",
+    "이적설"
    ],
    "headlines": [
+    {
+     "title": "‘7경기 1승’ 최악 부진 빠진 맨시티, 재정 위반 여파+수비 조직 붕괴→‘에이스’ 홀란도 작심발언 “경기 집중하기 쉽지 않아”",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE44ZS1uYjRmdS1LUjNKbGNjb3hCYTNCUi1kZUJWUmRUbDRwQWNFVE81QzNSZXR4VTFmMjNnRFc1QkpESWlkc3dkYl8xRlpNNEVTNTFWeFhEV1FwdjBPdlA2X1dzbkhXT0RKVjZPS2kwNlZqMHNj?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
+    {
+     "title": "'엘링 홀란-라민 야말' 미친 조합 뜬다! 맨시티 대충격…내년 바르셀로나 이적 '가시화'",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBETDFvaTRMemt6S0JXNG1RTHRVTXU2dXg3R0s2ME10clR1Vl9xM3ROYUNKWXc2WnRhOWxjUDFTNjRwb0djNk1XQUhxMUtxTGo3Y2w4LUhQZVphZ0FNM0lxZWVIVTRZaThYd3BTRVIzZjdjck1WMVhBLWhCVkRDZw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
     {
      "title": "“이제 모든 게 의문”… 7경기 2승 맨시티 부진에 흔들리는 홀란, “못 이겨서 정말 고통스럽다”",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBKMGdOS1Zwdkg3R1ZLNXhOVk9WVXJROHlRR0pHQ3E5bkVHajYzUldwcnZydWhfR3hOcjJZYk9qSm11UlFmSERkcFY4Tng0dW9OT0FKRzFMcjQ0YUR1OG9BUXBJOE5NMDUzczdLbmdB?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
-    },
-    {
-     "title": "\"어디부터 잘못됐는지 모르겠다! 그 원인 찾아야\"...홀란 침묵→5경기 무승 빠진 맨시티, 아스널전 앞두고 분위기 최악",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5GbE10MGtwX0hEM2pQYzNISjRGYThQeGRkLS1Dek4xTVE1UDRjMzU1LTBXVmoteEgzRmZMM29QZnRzNlQwNFBublRHelRQNWw5a2Z1VnROai1iVW00bFpmWlF5bkhfVGQwSWt3ZUFCQm1iNlBC?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "'5경기 단 1승' 맨시티 충격 부진, 홀란의 한숨...\"이기지 못하면 모든 걸 의심하기 시작한다\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5xVHhCN2xUWHlCVk9jUGxWUGtZTmpIYTU4emtDaVdkNmliaGVqd09oYXRwaTMzbXpLSWIyZVVqcHZQem1Wd2h3V3k5T1lOQnNERFFhR2xZa1FWbFlnUmRTRXM3Zm1tNGh3RFHSAW9BVV95cUxNUkVWMFZyM1FGSVFqejBieHdkVXN4NzBVNzNSejhIUkRoZnBVN2hELUEzSVFrMzZDZThSeHh3dXhJVVhBN3l6bzl5aW1xQjhURE13Z2FmNDlfdEdHQXdVV2RaamZuRExjUlNQcUhZdW8?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neg"
     }
    ]
   },
   "11": {
-   "n": 29,
-   "h24": 3,
+   "n": 30,
+   "h24": 0,
    "sentiment": {
-    "pos": 25,
+    "pos": 26,
     "neu": 1,
     "neg": 3
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -3554,10 +3540,14 @@
     },
     {
      "date": "2026-11-25",
-     "n": 22
+     "n": 23
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -3594,9 +3584,9 @@
     }
    ],
    "comm": {
-    "n": 30,
+    "n": 29,
     "sentiment": {
-     "pos": 22,
+     "pos": 21,
      "neu": 7,
      "neg": 1
     },
@@ -3621,17 +3611,13 @@
   },
   "12": {
    "n": 12,
-   "h24": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 5,
     "neu": 5,
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 3
@@ -3655,6 +3641,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -3690,11 +3680,11 @@
     }
    ],
    "comm": {
-    "n": 4,
+    "n": 2,
     "sentiment": {
      "pos": 0,
      "neu": 0,
-     "neg": 4
+     "neg": 2
     },
     "top": [
      {
@@ -3706,28 +3696,19 @@
       "text": "비닐이 기복이 심하더라 리그같이 시즌 내내 하는 대회는 꾸준히 잘해줘야하는데 비닐은 시즌내내 폼이 많이 오락가락함 반대로 챔스 같이 토너 일정 몰려있을땐 비닐 고점 때문에 써볼만 하고 \n발롱도르 폼이었던 23/24시즌도 전반기엔 아무것도 못하다가 후반기에 다 몰아치고 25/26 바로 전시즌도 리그 4개월째 노골이라고 엄청 까였었는데 바로 앨클에서 솔로골 득",
       "url": "https://www.youtube.com/watch?v=BRzssXhwPkA&lc=UgyjfEVSQEjhO1uihu94AaABAg",
       "sentiment": "neg"
-     },
-     {
-      "text": "뭔가 음바페랑 더 잘 맞음",
-      "url": "https://www.youtube.com/watch?v=BRzssXhwPkA&lc=Ugz3Q3JCM1ohBpGcQod4AaABAg",
-      "sentiment": "neg"
      }
     ]
    }
   },
   "13": {
-   "n": 37,
+   "n": 38,
    "h24": 5,
    "sentiment": {
-    "pos": 29,
+    "pos": 30,
     "neu": 7,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -3750,6 +3731,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 4
+    },
+    {
+     "date": "2026-11-27",
      "n": 1
     }
    ],
@@ -3762,27 +3747,27 @@
     "원더골",
     "역전골",
     "역전 결승골",
-    "재계약 임박",
-    "형제"
+    "지단 비교",
+    "팀 구원"
    ],
    "headlines": [
     {
-     "title": "“사람들이 비판할 구실만 찾는다”… 벨링엄, PSV전 부활포 터뜨린 비니시우스 겨냥한 비난 여론에 작심 반박",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5fajdRTmVobUJHLXloSGtTbnFuU1JhTnFjZGhHMHhfSEdkcUpna0cyTmRFdVZEaFRCRjdSWTNVVW0tbW42a0k2dVlLeVhPUkpXcEt3UGxXLVNDWFZ6NWNOdmg3amJ0WjlCc0ZqMXZR?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
-    },
-    {
-     "title": "[포토뉴스]벨링엄 날았다…레알 마드리드, UCL 5전 전승으로 PSG 제치고 1위 올라",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE04ckx0dldvZEdoUnJfMFRKR2lWMG9sMXNGWWV0blo0QjU5ZjRyemo5LXNWajF2bzVjZE1lTmFMTWNadlhHYm9EQ0dIaXdxMXVPMjZYc2kzejlXaGxWVXRn0gFfQVVfeXFMTWxXcDJhVTUzR0R4MGNEZDI5OUQ3UnpLUlZwUUtYRnlFd2tqdS1SYjkzNUJSRXNWN2otVldqTFJzbjgzYnlhVHVoTHhJamxsUjVnZ2ktemhIY3JRSUFTSnM?oc=5",
-     "date": "2026-11-25",
+     "title": "벨링엄: \"지단은 나보다 더 훌륭하고, 더 우아하다.\"",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBrMlJkaTV0T2xqaEphaWQxWXp1RWtvX2JuVFJTMFN2NXlvWHRNeUJzbHZEZEE1VnFaTEpuajZyS3J3NHZkZzBDNFk0VzZaM1kyUXBaLWVnbWtyWlprQWhOT3VUb2tpWEc5MDR6UllGOGtEdW1rVm41UGk4cw?oc=5",
+     "date": "2026-11-27",
      "sentiment": "pos"
     },
     {
-     "title": "케인에 이어 잉글랜드인 발롱도르 수상? 벨링엄, “난 신경 쓰지 않는다...우승이 더 중요”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE05R2N5eGVudG9BQlk2ZkhCTUFTMTg2OWdIN0hJNDhndXpSZ3hiNlItaktNN1VVNjRIYmxleTh1SDgyN3hDWkh4RVBrUThzOEtqNWZTMWY3cll4eS1DRG9sTHdNT3gwMzRaak5xNUFoQnVlQQ?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neu"
+     "title": "\"발롱도르? 관심 없어\" 환상 발리골 폭발한 세계 최고 MF 벨링엄, 개인 수상에 선 그었다... \"팀 승리가 훨씬 중요해!\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1HTE9oTW01TE9yeGQ4YjJiS3BoU3Rvd21qQlRIUE9QT25ZdTU0WXg3NFJ1VzRhRDl6N1BXM2w5emVWODY5WjU0cEtFMzAxcEEtRkNkSDl5QV9IWVU1UlI5RnZ4b19rbFlQOFJoS0Roa2NVdGVh?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
+    {
+     "title": "“달라진 점? 모리뉴 감독님”… 지단 떠오르게 하는 득점으로 레알 마드리드 구원한 벨링엄, “감독님이 많은 것을 바꿨다”",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9WTWxMS2dSVW1udEdGQm5EcWF1TE5kMjZDOWRhODFNUUZxS1N4Q2JBTWNlN3BvUU0zeGRRVTQ5TmRrbnVGdFFsbHRxcFo2UDZ6Z3RKZVJuWkNTU0N0MEFBSGthUlRqT3U4VElCQXRB?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
     }
    ],
    "comm": {
@@ -3821,10 +3806,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -3847,6 +3828,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [],
@@ -3854,18 +3839,14 @@
    "headlines": []
   },
   "15": {
-   "n": 16,
-   "h24": 2,
+   "n": 17,
+   "h24": 3,
    "sentiment": {
     "pos": 3,
-    "neu": 9,
+    "neu": 10,
     "neg": 4
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -3888,7 +3869,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 2
+     "n": 3
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -3905,6 +3890,12 @@
    ],
    "headlines": [
     {
+     "title": "'엘링 홀란-라민 야말' 미친 조합 뜬다! 맨시티 대충격…내년 바르셀로나 이적 '가시화'",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBETDFvaTRMemt6S0JXNG1RTHRVTXU2dXg3R0s2ME10clR1Vl9xM3ROYUNKWXc2WnRhOWxjUDFTNjRwb0djNk1XQUhxMUtxTGo3Y2w4LUhQZVphZ0FNM0lxZWVIVTRZaThYd3BTRVIzZjdjck1WMVhBLWhCVkRDZw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
+    {
      "title": "라민 야말의 부재에도 불구하고 바르셀로나는 챔피언스 리그에서 압도적인 승리를 거두었다.",
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNc1lkNFRSUkk0WVNySUl1TU92b081amdWbDZMN0xOdm1GSmZsTEhIMWFlaWIzY2FxNnphWDBLeTFXVVpFdmJrRVBjMEhlbXd6bVh5VXJPUDl6Z2Q2cVI0WUVyOHhKVGprZ0R2NFhLaHNRdF92UzFlbzhSNXpvVHMtblRDUzdFS2tqeVIyQzY2YWF6YnZn?oc=5",
      "date": "2026-11-26",
@@ -3915,12 +3906,6 @@
      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBiel82blJSREFqT2ZQTEtqeUNhdFFIeER3aTFnQno4WU5idlJHdGFmV1U2TTQtbFRvQXpBQmpwamtqRi1rb0drN2F0c1VCaExPVW12b3NMZDNkV01nNHRzMWg0UdIBY0FVX3lxTFBiel82blJSREFqT2ZQTEtqeUNhdFFIeER3aTFnQno4WU5idlJHdGFmV1U2TTQtbFRvQXpBQmpwamtqRi1rb0drN2F0c1VCaExPVW12b3NMZDNkV01nNHRzMWg0UQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
-    },
-    {
-     "title": "“야말, 집에서 GTA 하려고 UCL 결장했나”…황당 질문에 헛웃음 터뜨렸다",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBWRU90TUh5N1EyR3dYRjZOcEFiQ2FLR2hCOU9jZDlYUE1CTE1RQnE4NFdmdVJWcVBTcTRDenhJdTlCNWgxcWdMN21RT3gzYm9mUzh1Z0RBMEduOTA?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neg"
     }
    ],
    "comm": {
@@ -3959,10 +3944,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -3984,6 +3965,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4005,21 +3990,17 @@
    ]
   },
   "17": {
-   "n": 101,
-   "h24": 5,
+   "n": 100,
+   "h24": 3,
    "sentiment": {
-    "pos": 5,
-    "neu": 18,
-    "neg": 78
+    "pos": 2,
+    "neu": 19,
+    "neg": 79
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 3
-    },
-    {
      "date": "2026-11-21",
-     "n": 49
+     "n": 51
     },
     {
      "date": "2026-11-22",
@@ -4040,6 +4021,10 @@
     {
      "date": "2026-11-26",
      "n": 4
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -4051,8 +4036,8 @@
     "발목 인대 파열",
     "수술",
     "재활",
-    "발목 인대",
-    "무승부"
+    "무승부",
+    "발목 인대"
    ],
    "headlines": [
     {
@@ -4101,18 +4086,14 @@
    }
   },
   "18": {
-   "n": 24,
+   "n": 26,
    "h24": 3,
    "sentiment": {
     "pos": 0,
     "neu": 8,
-    "neg": 16
+    "neg": 18
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 5
@@ -4135,7 +4116,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 3
+     "n": 4
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
     }
    ],
    "topics": [
@@ -4144,30 +4129,30 @@
     "이적"
    ],
    "keywords": [
+    "재계약",
+    "구단 갈등",
     "은폐 의혹",
     "발작 증세",
-    "건강 이상",
-    "연봉 재협상",
-    "선수협 성명"
+    "건강 이상"
    ],
    "headlines": [
+    {
+     "title": "\"김민재 재계약 올스톱!\"…바이에른 뮌헨 발칵 뒤집혔다→'2200억' 무시알라 정신질환+먹튀 조짐에 전전긍긍 \"KIM 논의 나중에\"",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wRGc5RTBsVmhFMEZpQjI5U29JalY0WF9iSTMwdHo0NGEzVFdSRlJWcW1RdHdjMURWMHZtQjdlYzkzMm1GYW1vZDduWUswdTF5OEFTbXJ3?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
+    {
+     "title": "\"뮌헨, 수년 만에 최대 위기!\"...'김민재 동료' 무시알라 질병 은폐 논란→주장 키미히, 수뇌부에 작심발언 \"절대 용납할 수 없는 일\"",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdVJDamNfUG5XSGs2bjFTMFRBQWZOR3Fqc2ZwQlM2azF4ZjFfN1k3dmdRTG94ZVZvTWJ1V3l5VlMzWEhVYVBsTkFVMGwwMG11X0dqYW45a3ZqdzJhVlJhU3NsREhIaDBQZTJMeGJYbWpIcGlQWjE4dU42QU9YamQyU09NUlEtQTYzRTRn?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
     {
      "title": "아픈 무시알라 계약 흔드는 뮌헨에 분노한 주장 키미히, “팀이 선수보다 위대해도 사람보다 위대할 순 없어”",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1Mcml4LUVqRmczcmJwTlhrcW9rUjNCY0FlUlZVNGxaZmJOTVpnWDhHT2pnYUhGYnh1SHJNMTN1bXZ6N0Q2X0lNNWh0b21XZDlOQWNvUzRCUUZrTl9EeDJycHg3M3d3NXYzNy1iS3NB?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
-    },
-    {
-     "title": "[오피셜] 바이에른 뮌헨 초유의 공식발표, '김민재 동료' 무시알라 질환 은폐 의혹에 입 열었다...에이전트와 공동 해명→\"재계약 두 달 뒤 처음 증상 나타나\"",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE01REZyS0kxcjd0emRsY3QzZFgzTzJjVDNqRVVPNmllTmlXdHhsb0o2bTJucnIwdHFqX0lRbzdoOHJqaGx3ZlM5YWNYNXFYR0pFbk80Wmx5TzFOQTBiQnpEQTFUUQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "[공식성명] ‘발작 증세 숨기고 재계약?’ 뮌헨-무시알라 측, “건설적인 대화 나눴다”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5KSjF1eUVlMDEtX0JJOF9fcl8yMVJONFlPQUc1NTFkZjdpV1BaempfYVpWZlN5RFBEdGdLZUx5X0JyQjdabmlxM3RldTNWNUI0cVhQVy1uNDQwbVliWktfY1NTVU9hVWk0QUFCUjNsYmFzQQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
     }
    ],
    "comm": {
@@ -4197,18 +4182,14 @@
    }
   },
   "19": {
-   "n": 19,
-   "h24": 11,
+   "n": 20,
+   "h24": 10,
    "sentiment": {
-    "pos": 18,
+    "pos": 19,
     "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -4232,6 +4213,10 @@
     {
      "date": "2026-11-26",
      "n": 10
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
     }
    ],
    "topics": [
@@ -4240,13 +4225,19 @@
     "기록"
    ],
    "keywords": [
-    "부활",
     "맨유전",
+    "부활",
     "완승",
     "활약",
     "상승세"
    ],
    "headlines": [
+    {
+     "title": "“맨유 상대로 넣은 발리골 거의 50번 돌려봤어” 19위 맨유 찢은 ‘2000억 사나이’ 비르츠, 맨유전 원더골에 자부심...커리어 TOP3 골로 뽑아",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9rNlpBWEd2N25KcnZVUC1RSW0yczg0V3ROWkRCT2FhNWhWNl9IeHBVYmJwR0F5and0NUwzaXhETjJDM0pROXhDSEhOdzlVQXF6MTlGa1lqTjhVTnRMQWppdTFjU2d3QW9ub01YWF9hbW9qdw?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
     {
      "title": "알렉산더 이삭과 플로리안 비르츠가 리버풀에서 빛나고 있습니다",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPUFgyc1NZV19DRE9ZT05jTTJmRmpwXzQ1dHFGanR5YVdWSjB4bFNzRm1LeDJ3a1EwUm1Rd0E1b1FjV2Mydml5SlhPQXdnTTZTMjdSUDg4UHhZcGt0M01rTnNCbmFBZ2hmeFVSMVZ0NnZDTk1uN1VPUklUamR0N2VIczJoeFVOc294NE9rS0d0UDhWTGhpd0loSXA4dkw4MWNFVTBuYjNVaXV4ZElwV3c?oc=5",
@@ -4256,12 +4247,6 @@
     {
      "title": "리버풀은 이삭과 비르츠의 활약으로 계속해서 상승세를 타고 있다.",
      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE56SnJGdjVZYUlUSlByczFrNU85TUdlTWpRZXBvcmNsdjJ4Q3ZJS0hETmNTNWQwWkFtMnVWVk5oZWR1UFVrZEtXS3ItQ2w2UmpUZFRNdzNBaUhGMG9MM0lzOEpKN2R2WFpsclV3S0p2eEd1b0FhUng5THlDZw?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "이사크와 비르츠가 모두 득점을 기록하며 리버풀은 클럽 브뤼헤를 손쉽게 제압했습니다.",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNQWpQbzNJc2plY29KS1diUUlTbS16NkttczktWTV2V1FHRmdOdklBSTU5U2Y4cEdod2M2ZmszWXU4UG81YlhvNWk1bUQxUVBmSEZuTjBOLUpReDF3ZFk0VTBsUGJhUTVCbVZWTHhUdEppTHR0RHRENXdKWDl4NHR5Q3B4bFpfcmFENlRv?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
     }
@@ -4276,10 +4261,6 @@
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -4302,6 +4283,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4332,10 +4317,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -4357,6 +4338,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4387,18 +4372,14 @@
    ]
   },
   "22": {
-   "n": 1,
+   "n": 0,
    "h24": 0,
    "sentiment": {
-    "pos": 1,
+    "pos": 0,
     "neu": 0,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -4422,23 +4403,15 @@
     {
      "date": "2026-11-26",
      "n": 0
-    }
-   ],
-   "topics": [
-    "이적"
-   ],
-   "keywords": [
-    "재계약",
-    "내부단속"
-   ],
-   "headlines": [
+    },
     {
-     "title": "‘챔피언’ 아스널의 내부단속, 아르테타에 이어 라이스 등 5명과 재계약...‘HERE WE GO'",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9GTEtGOFRaRTBhWW1SblNwRmVRNDd3SVNtdEg5OF9pa2hheXUtYWRnV0dDQkoyWC1lTDBPTVJkRlhqb3Y0TGVsWHZ0SUMxQ3BHZnJVRUw0Z3dfRTZzYVNwMVJZQjhsdkNQdllaSFpXMGNjdw?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
+     "date": "2026-11-27",
+     "n": 0
     }
-   ]
+   ],
+   "topics": [],
+   "keywords": [],
+   "headlines": []
   },
   "23": {
    "n": 4,
@@ -4449,10 +4422,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 3
@@ -4475,6 +4444,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4521,10 +4494,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -4546,6 +4515,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4591,10 +4564,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -4617,6 +4586,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [],
@@ -4624,18 +4597,14 @@
    "headlines": []
   },
   "26": {
-   "n": 8,
+   "n": 5,
    "h24": 0,
    "sentiment": {
-    "pos": 6,
+    "pos": 3,
     "neu": 1,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -4659,12 +4628,16 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "이적",
     "인터뷰",
-    "기록"
+    "기록",
+    "이적"
    ],
    "keywords": [
     "재계약",
@@ -4696,17 +4669,13 @@
   },
   "27": {
    "n": 1,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -4729,6 +4698,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4758,10 +4731,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -4784,6 +4753,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [],
@@ -4799,10 +4772,6 @@
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -4825,6 +4794,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4864,10 +4837,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -4889,6 +4858,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -4897,18 +4870,14 @@
    "headlines": []
   },
   "31": {
-   "n": 3,
-   "h24": 0,
+   "n": 4,
+   "h24": 1,
    "sentiment": {
-    "pos": 0,
+    "pos": 1,
     "neu": 1,
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -4931,21 +4900,32 @@
     },
     {
      "date": "2026-11-26",
+     "n": 1
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
    "topics": [
     "부상",
+    "경기력",
     "이적"
    ],
    "keywords": [
     "십자인대",
+    "전력",
+    "동기부여",
     "영입설",
-    "공격진",
-    "대체자",
-    "연쇄이탈"
+    "공격진"
    ],
    "headlines": [
+    {
+     "title": "네베스 \"크바라츠헬리아와 데지레 두에가 없으면 전력이 약해지지만, 그들을 위해 싸울 동기는 더 커졌다\"",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBJTWd5bFFoN0txb3NIRXNVZVNhdW5yVGZ0eFZ1aUFFN2haUmNtM1Z0VVlMUF9HYXJfYWtzUXl3VkxCUVB6MW1leTNGWG1nUjUwX3NmLVhOQUFmX2wzMjlR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
     {
      "title": "PSG 파격 결단! '비니시우스 영입' 유력 선택지…'장기 부상' 두에·크바라츠헬리아 자리 메운다",
      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1jcjhWdXNfLUFSV1NjY1hJSDUyRElnd0hRWlVsdnZjT1VPeGhlZ2FjT2c3bHV2VVFYU2xYVlFRd0hmdFRkcXVLQWtYMVhGLTBqcUZFTzFGeGlWV05XN094R0dya0hfVW4wd0hteEZKNmVVQUxrcFBvWUNKYm81dw?oc=5",
@@ -4957,28 +4937,18 @@
      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1zeUpPS2FmRDdWUVcwNGNjZWxRaWVwb3h5STJFSVFFRlZ5RWRwSDg5enZUVHZMWE5MdEVvZExrYUdIRlUyOEVnc2hTRlhCbERtemgyUHJZODBxQ1Y5aXIwWDdpcTJuSWdSR2g4dXprQTNKWXp2SjNSajFhUQ?oc=5",
      "date": "2026-11-23",
      "sentiment": "neg"
-    },
-    {
-     "title": "“심각한 부상이다”… PSG 초비상, 크바라츠헬리아 이어 데지레 두에도 '십자인대 파열' 의심→ MRI 검사 예정",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5OLXIzbXk2T0FsMExQRl9Ob2FTNkItaG9oUHB5bjFsZXlzOWRnOC1KelRvUE1GQjhLQ2FKRE9nWFUycFd4b0Zjd3hRZ2FET3NlLUlLVlhSQ0tnX0RSYklwbVFfVTVrNGNGc1I4ZjRn?oc=5",
-     "date": "2026-11-22",
-     "sentiment": "neg"
     }
    ]
   },
   "32": {
-   "n": 0,
-   "h24": 0,
+   "n": 2,
+   "h24": 2,
    "sentiment": {
     "pos": 0,
-    "neu": 0,
-    "neg": 0
+    "neu": 1,
+    "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5001,16 +4971,40 @@
     },
     {
      "date": "2026-11-26",
+     "n": 2
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "인터뷰",
+    "경기력"
+   ],
+   "keywords": [
+    "무승부",
+    "팀 평가",
+    "자기 평가"
+   ],
+   "headlines": [
+    {
+     "title": "누누 멘데스 \"승점 2점을 놓쳤지만, 지지 않은 것이 팀 전체에 중요하다\"",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5nS0xNSnFaV0g3RlBMV2prVVFoWjEtUGpxV0R0Zjl6bDFFZzRjUk92dzBpN195MHBOWk42WUhqZ2lsVFB5RmxGQUt0d2l0VXByS0duejkwWmh5dUNIaEFoR1ln?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
+    {
+     "title": "누누 멘데스 \"제 기량 못 보였다, 로마와 무승부는 승점 2점을 잃은 것\"",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBobmdLbzQ1NTBJUEM0THFnbVluQkk4Z2JxRUdod1VRVEtmRjhIN3l5NF9zR0RsLUhLRHk2QVBjbDRrYlVhUVF5V3lRRUtLYzlONFJxVEdOa3RURUxPSGZDVW5n?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    }
+   ]
   },
   "33": {
    "n": 3,
-   "h24": 0,
+   "h24": 1,
    "sentiment": {
     "pos": 2,
     "neu": 1,
@@ -5018,10 +5012,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -5043,21 +5033,30 @@
     },
     {
      "date": "2026-11-26",
+     "n": 1
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "기록"
+    "경기력"
    ],
    "keywords": [
+    "득점",
+    "슈투트가르트전",
     "선발 명단",
     "벤치",
-    "막기 어려운 선수",
-    "수비 평가",
-    "득점 기록"
+    "막기 어려운 선수"
    ],
    "headlines": [
+    {
+     "title": "인터 밀란 라우타로 마르티네스, 슈투트가르트전 팀 두 번째 골",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFA3VTBZLUxPMFJZZVBsSFZ5Sm1JbFVNMW5RVWhKaExvWnQtSGpFb0RfdW5sdmh4TTlMZFJzT2dtVDFOc2lhU19mZWhGTS03OGUxVDd5b3dZRnlSdlM1Y2hnMHZlbHctLW5pS05rdjVR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
     {
      "title": "인테르나치오날레, 아탈란타 원정 선발 명단 발표: 튀랑-에스포지토 투톱, 라우타로 벤치, 파바르 선발 출전",
      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9fU0FIQjhyZ1lBSjRNYjM5eW04bXVSdnBzbkViOFh2MGg2UXJlLU1BdVRWZ0licXdZVndUeUxFYVkzVDdOT2EyN0M3bDk0b2xXM3hGMV9zWWxaLW1SZ2tr?oc=5",
@@ -5069,28 +5068,18 @@
      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5KMXFvcTN0bDdnR3pkemttM2Q4N1NLWjl4alc4TjRTMEt4ZzRyZWZjOTBSeEV2cndTUVdKcVdfbGpxWWdVSF9HTXZkWjZPLTBVaGhNQm5haE5Cb0E?oc=5",
      "date": "2026-11-21",
      "sentiment": "pos"
-    },
-    {
-     "title": "Opta: 라우타로 마르티네스, 아탈란타전 최근 6경기 중 5경기 득점, 총 8골 기록",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5WR0dGTFQweWNSNmh6WThoSTlMM0xzWnFaNnplbkt5ZVMzQm93ZXE0U2FGS0xGR1pQb0hjeHRsanMwQUFmYWh6QmVhY0d5Z1VlcU9DZE1WQWg2T2QxQkc2dkVidVF5QmlSa3RKUkpR?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
     }
    ]
   },
   "34": {
-   "n": 72,
-   "h24": 4,
+   "n": 48,
+   "h24": 5,
    "sentiment": {
-    "pos": 20,
-    "neu": 26,
+    "pos": 11,
+    "neu": 11,
     "neg": 26
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 26
-    },
     {
      "date": "2026-11-21",
      "n": 5
@@ -5113,39 +5102,43 @@
     },
     {
      "date": "2026-11-26",
-     "n": 3
+     "n": 5
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "기록",
     "논란",
+    "경기력",
     "기타"
    ],
    "keywords": [
-    "연봉",
-    "순위",
-    "MLS",
     "공 던지기",
-    "연봉 순위"
+    "비매너",
+    "발롱도르",
+    "공 투척",
+    "완패"
    ],
    "headlines": [
+    {
+     "title": "발롱도르 공식: 메시와 호날두가 모두 표를 준 선수는 단 두 명",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBBbkxnLUo4OXhyZDNzbGRUdkhQSnNZOGNudDktZ21xSFpISllrdjdNNzhjRnZ2TkxyVkZzLXlrQXF2TnhtLTQtVTFQcFFac2pWMVdOUVJZblhUUFl5MU1v?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
+    {
+     "title": "메시에게는 끝내 단 한 표도 주지 않은 호날두...발롱도르 공식 홈페이지의 포장 \"동료들을 향한 조건 없는 지지\" - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBrcE9yel9uVmF0RktLSVF5NmdJSXNtME5FQzd5WGFOMEJPVzBNZXdIdlhhV2FrWm1ma2hfQ1NJZEVmUHVCNzlDcy00cUM5MGcyNnE5UDAyX2QwX0lWUVVVR3NWTk5sSXJZVkR5aUtSRdIBb0FVX3lxTFBrcE9yel9uVmF0RktLSVF5NmdJSXNtME5FQzd5WGFOMEJPVzBNZXdIdlhhV2FrWm1ma2hfQ1NJZEVmUHVCNzlDcy00cUM5MGcyNnE5UDAyX2QwX0lWUVVVR3NWTk5sSXJZVkR5aUtSRQ?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
     {
      "title": "메시에게는 끝내 단 한 표도 주지 않은 호날두...발롱도르 공식 홈페이지의 포장 \"동료들을 향한 조건 없는 지지\"",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9zWDUtRXdteHdPcTd6TnZHcXB2LWZvbUhDRHg3RURUeUJqTHU0U0dmb0tLcEFJbV9FOGx5ZjRIMGtURzBlWUJsUkY1ZjU4M2JQQWtUUA?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
-    },
-    {
-     "title": "과르디올라 감독 \"메시와 호날두, 라이벌 관계가 서로를 성장시켰다\"",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPWTlfN3RhZHliOS1sbjRoLXNWYnMwRmNub2p3N1pqSXNaSnljcUZzX1VuYjRhMFIzYWc0ODVrZk1jZUs1NGIzUkVRMlRkR3VWWnhtTWFrbFk1Uk05LVdCd3h4N2MtZVJ0azNYMVdOZ083dmdPLVNWYUVyenprdnp1edIBgAFBVV95cUxPWTlfN3RhZHliOS1sbjRoLXNWYnMwRmNub2p3N1pqSXNaSnljcUZzX1VuYjRhMFIzYWc0ODVrZk1jZUs1NGIzUkVRMlRkR3VWWnhtTWFrbFk1Uk05LVdCd3h4N2MtZVJ0azNYMVdOZ083dmdPLVNWYUVyenprdnp1eQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "메시가 호날두를, 호날두가 메시를 키웠다… 과르디올라 감독이 말하는 ‘메호대전’이 가능했던 이유",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9EOS1IY2dweVNnTmpvRmNUMDhKaU94czh6WW12U2YybkVJcnlyUEhrVXFiQVJMZVdrSUtwdUxLeDNhVkpnR0YwaXk3c3VweG85N3dkVTFiaUFYSzhYQXhoa1F0Z1FWN2o1SVFudDBR?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ],
    "comm": {
@@ -5175,18 +5168,14 @@
    }
   },
   "35": {
-   "n": 49,
+   "n": 50,
    "h24": 9,
    "sentiment": {
-    "pos": 18,
+    "pos": 19,
     "neu": 16,
     "neg": 15
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 3
-    },
     {
      "date": "2026-11-21",
      "n": 11
@@ -5201,7 +5190,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 3
+     "n": 4
     },
     {
      "date": "2026-11-25",
@@ -5209,39 +5198,43 @@
     },
     {
      "date": "2026-11-26",
-     "n": 7
+     "n": 10
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
-    "논란",
-    "기록"
+    "기록",
+    "논란"
    ],
    "keywords": [
     "득점",
     "페널티킥",
     "실축",
     "1000골",
-    "승리"
+    "부심 조롱"
    ],
    "headlines": [
+    {
+     "title": "발롱도르 공식: 메시와 호날두가 모두 표를 준 선수는 단 두 명",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBBbkxnLUo4OXhyZDNzbGRUdkhQSnNZOGNudDktZ21xSFpISllrdjdNNzhjRnZ2TkxyVkZzLXlrQXF2TnhtLTQtVTFQcFFac2pWMVdOUVJZblhUUFl5MU1v?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
+    {
+     "title": "‘눈 가리고 팔 흔들’ 호날두, 부심 조롱 행동으로 징계 위기",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE95VHVYUXJSTWhobGp1RkF2QThiRl9XWU16ZU9OMWVmT283akhFV0FMcndId3ZuTWVoYm9iSUxXcDZsaVJqbmJyeFFyMWZmeFczLXZiYndpYW1NT2lONXplY2h2a9IBY0FVX3lxTE95VHVYUXJSTWhobGp1RkF2QThiRl9XWU16ZU9OMWVmT283akhFV0FMcndId3ZuTWVoYm9iSUxXcDZsaVJqbmJyeFFyMWZmeFczLXZiYndpYW1NT2lONXplY2h2aw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
     {
      "title": "\"눈 가리고 허공에 깃발\" 부심 조롱한 호날두, 최대 3개월 징계 위기",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE11SDdDakdDSjd6cFg4NEZpd3Bsc3dfZjJseGxUbENCenV3TVRjLTJvLWNKSjk0S2djRG01MVhOanBpTk5nOXppeTlNRHYwRDVHVWtTRQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
-    },
-    {
-     "title": "메시에게는 끝내 단 한 표도 주지 않은 호날두...발롱도르 공식 홈페이지의 포장 \"동료들을 향한 조건 없는 지지\"",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9zWDUtRXdteHdPcTd6TnZHcXB2LWZvbUhDRHg3RURUeUJqTHU0U0dmb0tLcEFJbV9FOGx5ZjRIMGtURzBlWUJsUkY1ZjU4M2JQQWtUUA?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "과르디올라 감독 \"메시와 호날두, 라이벌 관계가 서로를 성장시켰다\"",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPWTlfN3RhZHliOS1sbjRoLXNWYnMwRmNub2p3N1pqSXNaSnljcUZzX1VuYjRhMFIzYWc0ODVrZk1jZUs1NGIzUkVRMlRkR3VWWnhtTWFrbFk1Uk05LVdCd3h4N2MtZVJ0azNYMVdOZ083dmdPLVNWYUVyenprdnp1edIBgAFBVV95cUxPWTlfN3RhZHliOS1sbjRoLXNWYnMwRmNub2p3N1pqSXNaSnljcUZzX1VuYjRhMFIzYWc0ODVrZk1jZUs1NGIzUkVRMlRkR3VWWnhtTWFrbFk1Uk05LVdCd3h4N2MtZVJ0azNYMVdOZ083dmdPLVNWYUVyenprdnp1eQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
     }
    ],
    "comm": {
@@ -5280,10 +5273,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -5305,6 +5294,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -5322,10 +5315,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -5348,6 +5337,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [],
@@ -5363,10 +5356,6 @@
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5390,6 +5379,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -5410,18 +5403,14 @@
    ]
   },
   "39": {
-   "n": 37,
-   "h24": 11,
+   "n": 41,
+   "h24": 14,
    "sentiment": {
-    "pos": 7,
-    "neu": 24,
+    "pos": 10,
+    "neu": 25,
     "neg": 6
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 2
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5444,7 +5433,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 9
+     "n": 14
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
     }
    ],
    "topics": [
@@ -5456,27 +5449,27 @@
     "멀티골",
     "재계약",
     "재계약 보류",
-    "레드카드",
-    "심판"
+    "공 다툼",
+    "챔피언스리그"
    ],
    "headlines": [
     {
-     "title": "캡틴 브루노 짜증 폭발! '잔디의 마법' 도움에도 승리 실패…감독 교체에도 여전한 '불협화음'",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBmSWVqOGUyUkR1dzQybmJVSlBvelhfdnRGZWl1M21xcXJBZHdXdkdpUUdMcFpiRzF6RDZOSnREUzc4RnJ0V0RlR0tOSENweENNdGZERENaeTBhMUFMcFM5SGt3SUxuNjFtTTFpLVNUc29DLUthaXl4QWo1R0N6dw?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "브루노 페르난데스가 두 골을 터뜨리며 맨체스터 유나이티드가 스포르팅과 극적인 무승부를 기록했다.",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVnVfV3BGUG84eUNzTlJCeW1HdldEMWpnQWJ2bi03bGxITWR2MlBmRTlIYWx0Rm9FWi1sSnUtVzhFdWs3UF9FT0N1ZFlZRkFDcHhUWW9UYmZ1LUpld3llaEw3dXE1a1h4ZzJtSFNiX1ZJeDJHZkpFRzJuTHlqUEtKS0ZWLXU?oc=5",
-     "date": "2026-11-26",
+     "title": "'미쳤다' 맨체스터 유나이티드 후반에만 '2골' 작렬, 포체티노의 '전술 변화' 통했다! '캡틴' 브루노 하프타임 지시 공개...\"더 많은 공격성 원했다\"",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE84TG1EWGh4OElKTlhnZmVxRkV3S1pqOEJsM2NsU0tiQk15SHFkVWFLUjJyN3BLcEdKZHdPbnZ0U05MYzJuQmlGRlEwVFBvcjd6Ti0xaklCVWJYV2F6WXNuOUk3ajNudw?oc=5",
+     "date": "2026-11-27",
      "sentiment": "pos"
     },
     {
-     "title": "‘브루노는 속 터진다’…또 승리 놓친 맨유, 포체티노 “함께한 지 일주일밖에 안 됐다”",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBCYXhBRUI0S2ZXR01PZ3oyQWsxdUlPVk9oWmVZVXFTcDBMQVliTTVyRTVOeWpIM2stenhvV0RCN0dtZ2ZTTHlrdUk1Yk5HRWVpTXZGS2p6WXFCRmk2RTd0MUxIRQ?oc=5",
+     "title": "새똥 먹은 후유증이 이제 나타나나...前 맨유 선수 애슐리 영, ‘캡틴’ 브루노 방출 주장...“브루노는 맨유보다 개인의 영예를 더 중요하게 생각해”",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Yc0IwZDZ1akUtcGpUd3liT0VsLWU0WkVQMU5rX2ZpNmJ6ZU1lSm1Cd0hfSUh5VzU1bms1OXJNbjczc0JLYzZscUk1X0s2M1QzdUhzM3lGaFJWQ2o0bnE1aURjMm8zQkgwZkkyeVBFcm1PQQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
+    },
+    {
+     "title": "‘에이징 커브? 클래스는 영원하다!’ 브루노 페르난데스, 친정팀 스포르팅 상대 멀티골+POTM 무력시위",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9OMmd4Wmt6TFlEMzJUQ1l1TXFWYWxnX3VwU2FBa0QxQ1hXY1RJYlpHTlg1UE5TWXhJY0MzUlRDUXNZWjZlVVRnV0kwTlpwUlllbnNVS05Kdkw1M0czbjV0SU1rbTNZWHI0RFZLQU9fQTJLSkJr?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
     }
    ],
    "comm": {
@@ -5506,18 +5499,14 @@
    }
   },
   "40": {
-   "n": 3,
+   "n": 1,
    "h24": 0,
    "sentiment": {
-    "pos": 2,
-    "neu": 1,
+    "pos": 1,
+    "neu": 0,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 2
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5541,19 +5530,19 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "이적",
-    "대표팀"
+    "경기력"
    ],
    "keywords": [
     "3골",
     "맨시티전",
-    "승리",
-    "계약 연장",
-    "캡틴"
+    "승리"
    ],
    "headlines": [
     {
@@ -5561,18 +5550,6 @@
      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQQ3F3Ul95LV9tVTJwVmxaNnRRNEVrMEUwRFVvM1pMX1hBbzB5cEY4UmRpM3dRVzY3TWNzMlkyb24tV3pHWmlmN0dSQ01NRWJFcWdUSUp1TnhHc3VQRFNjcnJCdVFZRm9IMmZCNnFjczZWZ2pPcEF6bERvZkh2SjFVRFd4NXpRSWtlZ2haMW8zeko4Sno0Yjhybi1SOHFxZw?oc=5",
      "date": "2026-11-23",
      "sentiment": "pos"
-    },
-    {
-     "title": "레알 마드리드, 캡틴 페데 발베르데와 2031년까지 계약 연장 임박",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9CdU54TFZqVy1XSEZ6MU5YbGZpT3VIOS1Zb2lRMW91aThxeEJqbXRNUjRiZjdYb3gwTHBhMy1rb2xOZEktREg4bkpSajg1WFF6WmQydnJMaU1sSUJTUWpLM25TNWJ1M0ktcTJ6OVNQbw?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
-    },
-    {
-     "title": "한국 4-1 부수고 아르헨티나까지 꺾더니…발베르데 호소 “포를란 정식 감독 선임 모두가 지지한다”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE45TGtIWk1kR3A1VUpTQ0czXzBSUzdYZHZQN0tiSlhQclJSb2N0bThtd2FLZUFFTEM0akp4LXpTcXJCMmpjNHl2czFZNWQ0VVV0TTNqNWpBZll2YUtnVHZybmF0dzhyV0dsak5hNmpJSXBKUQ?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
     }
    ]
   },
@@ -5585,10 +5562,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5611,6 +5584,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -5628,10 +5605,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -5653,6 +5626,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -5661,18 +5638,14 @@
    "headlines": []
   },
   "43": {
-   "n": 4,
-   "h24": 1,
+   "n": 3,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 4,
+    "neu": 3,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -5695,6 +5668,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -5732,18 +5709,14 @@
    ]
   },
   "44": {
-   "n": 2,
-   "h24": 2,
+   "n": 3,
+   "h24": 3,
    "sentiment": {
     "pos": 1,
     "neu": 0,
-    "neg": 1
+    "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -5766,7 +5739,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 2
+     "n": 3
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -5774,13 +5751,19 @@
     "논란"
    ],
    "keywords": [
+    "질병 은폐",
+    "수뇌부 비판",
+    "팀 위기",
     "구단 수뇌부",
-    "선수 건강",
-    "공개 비판",
-    "팀 신뢰",
-    "미래 낙관"
+    "선수 건강"
    ],
    "headlines": [
+    {
+     "title": "\"뮌헨, 수년 만에 최대 위기!\"...'김민재 동료' 무시알라 질병 은폐 논란→주장 키미히, 수뇌부에 작심발언 \"절대 용납할 수 없는 일\" - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1nRU9LYzVEMXhzbUoxZXB0ekpXVFlOVG1zamxEN05UUEh6WV9vMDJ1U0ttU0dJaXlnM210TjRrUDRObG9vXzhHU1dlVEFIYkE0QWgzTERDT2JaMXZuQy12WnA0UXU5Mm1jVTJqZTcwa9IBb0FVX3lxTE1nRU9LYzVEMXhzbUoxZXB0ekpXVFlOVG1zamxEN05UUEh6WV9vMDJ1U0ttU0dJaXlnM210TjRrUDRObG9vXzhHU1dlVEFIYkE0QWgzTERDT2JaMXZuQy12WnA0UXU5Mm1jVTJqZTcwaw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neg"
+    },
     {
      "title": "‘선수 질병 공개저격’ 뮌헨 수뇌부에 반기 든 키미히! “절대 이해 못 해, 사람이 제일 우선이지”",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9UZHN5OEJ1Rm9pbFBZazZxc2EwRmlpeXRnVFZIZk82SmlCZjdBWDFoWjNNU3pQTy1yYVpPV3pSOFl5SjNSSGk2TXpMb01ubUVyOXNYRGMwbFBDRUVBdDBPM3JRc0lKX1hZRWlUMmpaejg1QQ?oc=5",
@@ -5797,17 +5780,13 @@
   },
   "45": {
    "n": 22,
-   "h24": 6,
+   "h24": 5,
    "sentiment": {
     "pos": 1,
     "neu": 9,
     "neg": 12
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 13
@@ -5831,6 +5810,10 @@
     {
      "date": "2026-11-26",
      "n": 6
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -5876,10 +5859,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -5902,6 +5881,10 @@
     {
      "date": "2026-11-26",
      "n": 2
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -5941,10 +5924,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -5966,6 +5945,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6003,18 +5986,14 @@
    ]
   },
   "48": {
-   "n": 6,
-   "h24": 1,
+   "n": 7,
+   "h24": 3,
    "sentiment": {
-    "pos": 1,
-    "neu": 5,
+    "pos": 0,
+    "neu": 7,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -6037,7 +6016,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 1
+     "n": 3
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -6052,21 +6035,21 @@
    ],
    "headlines": [
     {
-     "title": "위기의 맨유 초대형 구세주 뜬다! 폭격기 오시멘 영입 '수면 위'…내년 여름 이적시장 주목",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBQUmdMQjNQeFpSRVR3allmazJhME9aemxFY1NncU1aVWJQMm1yQm1peE5rcXM0WXR1SUpsRmZrRnM0aTJOTVhSNnJKZW5NRDBqa1hIN0hoNTQzRG04VTBhakNQanFCcjY2clAxRDZHNVhFeXhfV3VXMVZMNkxMQQ?oc=5",
+     "title": "맨체스터 유나이티드는 겨울 이적 시장에서 빅터 오시멘을 영입하기를 원한다.",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSnp6a3BYR3JTemc2amxVX2ZEdWRyTFFIMEZnVjlNcGU1WEx2V1VOeXUybFRVNy1QcVVVMGZaRUN3dG51cmRzMndGMkgyXzFKaDFUZ1lqVEhwYWFxMDFuS0NqRm1sRkQ5dUYyXzRZeHR3RklJLXFIbW5mUHFKZFVvTFFzaVExOVY2c1V0bzlydl9NUE5POXEtZ0J3?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
     },
     {
-     "title": "\"맨체스터 유나이티드 제안 들을 준비됐다!\"…포체티노 부임한 맨유에 '초대형 공격수' 영입설! 오시멘, 이적료만 최대 1,760억 원",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5oa3Bpb0NQMGltNnpsM256QVlza19objRpVTJBSmVwMWlIa09pdmUzUGJGbUdDY3NvZWNmTnN5X1dTMDc3TmRHT1lvaVQ4NkFDQ3pWMmtrNDJjN1c2aFB5bHNmQTVtaUtPbm1vWEVMUU42UQ?oc=5",
-     "date": "2026-11-22",
+     "title": "맨유는 포체티노 감독 때문에 오시멘 영입에 거액을 투자했다.",
+     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE54UDFmREQ4Tm94MnBTLURLM01NYkdUWE5rS2huWTEzV3RzWFJfMGRDWkJsR0dCV3lrNzZfZEhRRTc4UWN6aVFkQm5tSTR1UWJZdjZXZmxUYW9nVGtSTWUzQi1rbWFEMjZUUGtvN0NOVlRJX0V0Tjhn?oc=5",
+     "date": "2026-11-26",
      "sentiment": "neu"
     },
     {
-     "title": "\"맨유 제안 들을 준비 됐다\" 포체티노볼 초대박! 1호 영입이 '세계 TOP3 공격수'? 오시멘, 이적에 긍정적 반응→예상 이적료 최대 1760억",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9lM1RlcDlCOUl2dUplN2Yza2NYZUdUdkpNZGNkME9LcHRjOF84LVotVU9WTlFVUXlfZUl2dEkzNjVDektXVDlsaXZWcy1TMGRmTmN6bmx1TXlDeVRtZXhnTC15Yw?oc=5",
-     "date": "2026-11-22",
+     "title": "위기의 맨유 초대형 구세주 뜬다! 폭격기 오시멘 영입 '수면 위'…내년 여름 이적시장 주목",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBQUmdMQjNQeFpSRVR3allmazJhME9aemxFY1NncU1aVWJQMm1yQm1peE5rcXM0WXR1SUpsRmZrRnM0aTJOTVhSNnJKZW5NRDBqa1hIN0hoNTQzRG04VTBhakNQanFCcjY2clAxRDZHNVhFeXhfV3VXMVZMNkxMQQ?oc=5",
+     "date": "2026-11-26",
      "sentiment": "neu"
     }
    ]
@@ -6080,10 +6063,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -6106,6 +6085,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6136,18 +6119,14 @@
    ]
   },
   "50": {
-   "n": 2,
-   "h24": 1,
+   "n": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -6171,30 +6150,24 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "대표팀",
-    "기타"
+    "대표팀"
    ],
    "keywords": [
     "월드컵 불참",
-    "훈련",
-    "대표팀 탈락",
-    "두바이 휴가",
-    "여자친구"
+    "훈련"
    ],
    "headlines": [
     {
      "title": "2026년 월드컵에 나오지 않은 콜 파머, 오히려 더 열심히 일한다.",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYnp0RHdsVVk1WHZUby1lUHFKMGhSTTJvMjRaSk5ndkVNYWx0TU1NMFY2UGRuY2RkbzNBOWZvcHl2eHZ5NDhFcFhaY2hnemZNLVZhMzRpNXlydVNTVi03cl9rTHA1emJkYmQ3TWtiRkxDaVlzVXo5b2dQeWRhXzUwZ0pYcTVtZld3ZEJnYUpwcmdxUmM1NndWODRwRTZlVno3cHdESWlwdW1vWHF5U2FZ?oc=5",
      "date": "2026-11-26",
-     "sentiment": "neu"
-    },
-    {
-     "title": "'대표팀 탈락? 오히려 잘됐어' 콜 파머, 화끈한 여자친구와 두바이서 달콤한 휴가 만끽 - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9ON1psNlNxWlJLVmNYTWYtSlR1aXBtalpwazZjYldaSEdDNXZjNFdTbTJYNWlxUHluZjJmWEFMSmVlN3gydkc4T0JOU1AtbEFKSmdyRXU1bTdLclFHRURlTVVyd2hGbmstaHfSAW9BVV95cUxQUUY1TzRydTlFYXRwZkJkdzhMNmpzM19zRDREZWxFMHB4NC1UWlJjbm12clFBMVFNak9LLTJLV1RDaVVlUE0zb3ZvU3NqTmQwTWJ6VlFueldUX2RqSHdVV1ZjZENsRFRVRjdtQzRnaDQ?oc=5",
-     "date": "2026-11-20",
      "sentiment": "neu"
     }
    ]
@@ -6209,10 +6182,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6234,6 +6203,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6251,10 +6224,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6276,6 +6245,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6293,10 +6266,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6318,6 +6287,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6335,10 +6308,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6360,6 +6329,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6368,18 +6341,14 @@
    "headlines": []
   },
   "55": {
-   "n": 3,
-   "h24": 1,
+   "n": 2,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -6402,6 +6371,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6428,12 +6401,6 @@
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBYQ1pWMHdQQW15UHdJQ3hZSjVSd3E4Z21fMUZZcld2WkNFZWo5am54OThYMWhMd0lLRGhWTnZZQ05BQk8xQWZOLTFqazlmVlFtVWNHY0R6MGE3VXlTTWJBX1pURDVOLTNLZnpfbmln?oc=5",
      "date": "2026-11-24",
      "sentiment": "neg"
-    },
-    {
-     "title": "알론소: 주앙 페드루는 리즈 유나이티드전 결장, 카이세도, 에밀리아노 마르티네스는 출전 가능",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE51VXRVX2xkQXBBeXlXYXQ3X2JHak9BT3VndnpLdGJVc1F1MFlJeU1Ebl9CQVJzVVl1V2NKTm9kZzlub25qRDJxSThlaTRHNkZuQ042Q3psR3pZLTQ3QnlR?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
     }
    ]
   },
@@ -6446,10 +6413,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -6473,6 +6436,10 @@
     {
      "date": "2026-11-26",
      "n": 2
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -6511,10 +6478,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6536,6 +6499,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6553,10 +6520,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6579,6 +6542,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [],
@@ -6586,18 +6553,14 @@
    "headlines": []
   },
   "59": {
-   "n": 20,
+   "n": 18,
    "h24": 0,
    "sentiment": {
     "pos": 13,
     "neu": 4,
-    "neg": 3
+    "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 2
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -6620,6 +6583,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6691,10 +6658,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6716,6 +6679,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6744,6 +6711,62 @@
     }
    ]
   },
+  "63": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "이적",
+    "인터뷰"
+   ],
+   "keywords": [
+    "겨울 이적시장",
+    "영입 기대",
+    "첼시"
+   ],
+   "headlines": [
+    {
+     "title": "온스테인 \"첼시, 감독과 선수단 역량 극대화에 집중... 겨울 이적시장 스콧 영입 큰 기대 말아야\"",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LclFZbHEydTMxRHZsWlB2elQ2dEJKdUJhajJHZUVIVTBERUlwNFVnWUYxOFNuM0xmVG1WUE5rNmJua2Zpdk9ZeEYxa0pIODFQeW5iSzVYeXlVZ3pheHVV?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neu"
+    }
+   ]
+  },
   "96": {
    "n": 7,
    "h24": 0,
@@ -6753,10 +6776,6 @@
     "neg": 3
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -6779,6 +6798,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6824,10 +6847,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6849,6 +6868,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6887,10 +6910,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -6912,6 +6931,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -6952,10 +6975,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -6977,6 +6996,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7007,10 +7030,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7032,6 +7051,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7051,61 +7074,6 @@
     }
    ]
   },
-  "106": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "친선경기",
-    "유니폼",
-    "국가대표 자격"
-   ],
-   "headlines": [
-    {
-     "title": "케파, 바스크 자치주 유니폼 입고 친선경기 출전... 미승인 국가라 문제 없어",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE0zYjlEbm1lTEhIMlQxVU5ONXFEMkRfNUp5anp2MjNxVkgwNHFkeXRfOS0wSWh4WURHdUJWWXkybl96ZHJ6TGsydW1rQkNETU55WHBkdThMWjhUbEJEX1Q3eHRiOUlOQU1n?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "115": {
    "n": 1,
    "h24": 0,
@@ -7116,10 +7084,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7141,6 +7105,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7170,10 +7138,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7196,6 +7160,10 @@
     {
      "date": "2026-11-26",
      "n": 2
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -7231,63 +7199,9 @@
     }
    ]
   },
-  "139": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "선수 프로필",
-    "공격수 정보"
-   ],
-   "headlines": [
-    {
-     "title": "니콜라스 잭슨프로필 — 공격수 | Goal.com 한국어",
-     "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxNWURWWDVndk01QXhJQnhXRlBJbHdsUHE2azc3QWhtb2xGN1RvZndUOU1jRHBrYy1yOW9LM2RCaDZFRlJyUEZPVlR5a0dRODRKU2dBQU5jd2tQdkFMR0QtRDZLSmRFZDNPb0F5azRhZzdXZlBYd0VqQ0ZhOXhZQ0IwWWRZOUNlTkl6Z2tBSDFLOU9GSlpsV0l3WHF1aGxkY09JWEJYNHNyRUt6UkNLMnlhMHhxckhXM0IyeHRQWTh3bVRwNkEzalJ3Wk55WXNPdXNEbHlqVTFfMEtMSWpjUGFMS2JIaExsVHEwMkZuR1dqWi1Kc3p2OUhiSWpyRlNLcHlEQzZ6RlJ5amx0UGJObEVfMlllbHREdzVkOHVOcGpyRVNyd3dFZzYySng1QkJjdw?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "164": {
    "n": 2,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 0,
@@ -7295,10 +7209,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7321,6 +7231,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -7352,17 +7266,13 @@
   },
   "166": {
    "n": 4,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 1,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -7385,6 +7295,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7430,10 +7344,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -7455,6 +7365,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7484,74 +7398,16 @@
     }
    ]
   },
-  "212": {
+  "221": {
    "n": 1,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "경기력"
-   ],
-   "keywords": [
-    "출전 가능",
-    "결장 소식"
-   ],
-   "headlines": [
-    {
-     "title": "알론소: 주앙 페드루는 리즈 유나이티드전 결장, 카이세도, 에밀리아노 마르티네스는 출전 가능",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE51VXRVX2xkQXBBeXlXYXQ3X2JHak9BT3VndnpLdGJVc1F1MFlJeU1Ebl9CQVJzVVl1V2NKTm9kZzlub25qRDJxSThlaTRHNkZuQ042Q3psR3pZLTQ3QnlR?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
-  "221": {
-   "n": 2,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
+    "neu": 0,
     "neg": 1
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7574,18 +7430,20 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "부상"
+    "부상",
+    "경기력"
    ],
    "keywords": [
     "부상 복귀",
     "무승",
-    "골 부진",
-    "결장",
-    "출전 명단"
+    "골 부진"
    ],
    "headlines": [
     {
@@ -7593,12 +7451,6 @@
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBYQ1pWMHdQQW15UHdJQ3hZSjVSd3E4Z21fMUZZcld2WkNFZWo5am54OThYMWhMd0lLRGhWTnZZQ05BQk8xQWZOLTFqazlmVlFtVWNHY0R6MGE3VXlTTWJBX1pURDVOLTNLZnpfbmln?oc=5",
      "date": "2026-11-24",
      "sentiment": "neg"
-    },
-    {
-     "title": "알론소: 주앙 페드루는 리즈 유나이티드전 결장, 카이세도, 에밀리아노 마르티네스는 출전 가능",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE51VXRVX2xkQXBBeXlXYXQ3X2JHak9BT3VndnpLdGJVc1F1MFlJeU1Ebl9CQVJzVVl1V2NKTm9kZzlub25qRDJxSThlaTRHNkZuQ042Q3psR3pZLTQ3QnlR?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
     }
    ]
   },
@@ -7612,10 +7464,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7637,6 +7485,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7660,17 +7512,13 @@
   },
   "237": {
    "n": 3,
-   "h24": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 0,
     "neu": 1,
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -7694,6 +7542,10 @@
     {
      "date": "2026-11-26",
      "n": 2
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -7739,10 +7591,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7764,6 +7612,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7794,10 +7646,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7819,6 +7667,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7886,10 +7738,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -7911,6 +7759,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -7931,126 +7783,7 @@
     }
    ]
   },
-  "420": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "부상"
-   ],
-   "keywords": [
-    "팀 훈련 복귀",
-    "재활"
-   ],
-   "headlines": [
-    {
-     "title": "다니엘 파르케: 안톤 슈타흐, 도미닉 칼버트르윈 등이 팀 훈련에 복귀해 재활 중",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13TXRhSWUzMHZJdUR1eVVXWTRFZlZ3TDAxUEpZOGhVQlFLY3UtZWMyQ0JobXl1M2ZHM1p5eVl5S1ZVeHpHc2YwZERGRjE4RmFTek1mSVIyWDliYzlZNExv?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "421": {
-   "n": 2,
-   "h24": 1,
-   "sentiment": {
-    "pos": 2,
-    "neu": 0,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 1
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "이적",
-    "경기력",
-    "대표팀"
-   ],
-   "keywords": [
-    "재계약",
-    "주전",
-    "핵심 선수",
-    "빅클럽 관심",
-    "데이터 분석"
-   ],
-   "headlines": [
-    {
-     "title": "'韓은 PL 0명인데'...일본 열도 환호! 다나카는 리즈 주전 이어 2029년까지 재계약 임박 \"파르케 아래 핵심\"",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE95ekRfN1FXOV9tazVUckZ3RjlCWVRrQ0xJMWN6S2V3aDVEdW1oY3B2RkZ3YkVCczV3N21wa1Q4eEdLRnIyeWhYTU1CdHdBbWpaeDloVElNbHVZdE1OdkJCcHk1YTQ1TUc3Vk8zdUZER19zcEZO?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "pos"
-    },
-    {
-     "title": "한국 0명, 일본 10명인데 격차 더 벌어진다…日 국가대표 다나카, 맨유·토트넘·첼시·리버풀 관심 “데이터 분석 시스템 통해 주목”",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1fdkNPaVRmMXdpRFFZSk9ZeEY2cWhybUhGeHdyVm9GeXRZdExvNnlPYmlacWN1NjlyVzRYbDR0aUFiLUJYS3V6NnFkN2U1aU9sRmFyd0NDejVENmRLak5FX3lQbXk5YklQZDZpNXAzWmU0aTFl?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
-    }
-   ]
-  },
-  "448": {
    "n": 1,
    "h24": 0,
    "sentiment": {
@@ -8060,9 +7793,61 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
+     "date": "2026-11-21",
      "n": 0
     },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "이적",
+    "경기력"
+   ],
+   "keywords": [
+    "재계약",
+    "주전",
+    "핵심 선수"
+   ],
+   "headlines": [
+    {
+     "title": "'韓은 PL 0명인데'...일본 열도 환호! 다나카는 리즈 주전 이어 2029년까지 재계약 임박 \"파르케 아래 핵심\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE95ekRfN1FXOV9tazVUckZ3RjlCWVRrQ0xJMWN6S2V3aDVEdW1oY3B2RkZ3YkVCczV3N21wa1Q4eEdLRnIyeWhYTU1CdHdBbWpaeDloVElNbHVZdE1OdkJCcHk1YTQ1TUc3Vk8zdUZER19zcEZO?oc=5",
+     "date": "2026-11-25",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "448": {
+   "n": 2,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
     {
      "date": "2026-11-21",
      "n": 0
@@ -8085,6 +7870,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 1
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8093,11 +7882,19 @@
     "기록"
    ],
    "keywords": [
+    "질주",
+    "경기 장면",
     "도움",
     "연속 도움",
     "리그 기록"
    ],
    "headlines": [
+    {
+     "title": "리버풀 바르콜라, 맨유전서 공 몰고 질주…안필드 경기 장면",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5fbVdUUGZIQXRqdEd1dzdMMWpPUjRiNHVUNjhlY3Q2YlJTSEdfbWtFR1JxN19mT0daaWpBSVRDc2UxRXBNWXRnTlkzaHRTMlBMOWozaDh3bC1jSkp4TzZVU3VOd214ZFR3Y0x6OERR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
     {
      "title": "브래들리 바르콜라, 프리미어리그 2경기 연속 도움... 최근 리그 5경기 4도움",
      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE16VXotUHRWWnZISzdmLUFWNktudUhCRGF6a1QteWhJekpJX0N5MDZvRTYtOVJQU2JDdEJnamQwbm5WYVpMX0o4VmFOMU1jRGgzWGxUWDlyS3diSWxrdzdTbVdxU3U1TzA?oc=5",
@@ -8107,18 +7904,14 @@
    ]
   },
   "469": {
-   "n": 1,
-   "h24": 0,
+   "n": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 0,
-    "neu": 1,
+    "neu": 2,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8141,18 +7934,31 @@
     },
     {
      "date": "2026-11-26",
+     "n": 1
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
    "topics": [
+    "경기력",
     "이적"
    ],
    "keywords": [
+    "경기 일정",
+    "프리미어 리그",
     "이적설",
     "완전영입조항",
     "바르셀로나복귀"
    ],
    "headlines": [
+    {
+     "title": "리버풀-맨유, 안필드서 프리미어 리그 경기…도르구와 아라우호 경합",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBWX0dKTmRZUVM2QW5Nakdfd0dGZnNhNGFxem45d1poYXpxR19yWDdBRnFrLUE3WGJxODE3ZDYzcDJOZ29iWnR2MEE3bjNLeHF2Mk9tMFZlUWZhVEExMTYxVFFsNmJ6SlB3TDNodTRR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
     {
      "title": "\"아라우호의 미래는 리버풀의 결정에 달려 있다!\"…'HERE WE GO' 로마노 직접 컨펌! 완전 영입 조항 존재→바르셀로나 복귀 가능성도 여전",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5qdHdFWU1CMUl6blBoRGRzdHlZUHV2NlVza2xlYzNSTmllUDJQenh0OG1HQWdhRGItZmZIZDNGUmxmT000SktsUW9Gckhmb2ltLXZQM0lKbHY0a1VzTWh4NzlFN041U19iZkFvUmdsd3pmUQ?oc=5",
@@ -8171,10 +7977,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -8197,6 +7999,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -8226,10 +8032,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -8251,6 +8053,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8296,10 +8102,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -8321,6 +8123,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8341,18 +8147,14 @@
    ]
   },
   "490": {
-   "n": 2,
+   "n": 1,
    "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 1,
-    "neg": 1
+    "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8376,6 +8178,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -8383,9 +8189,7 @@
    ],
    "keywords": [
     "출전 준비",
-    "나폴리전",
-    "부상 상황",
-    "풀럼전"
+    "나폴리전"
    ],
    "headlines": [
     {
@@ -8393,12 +8197,6 @@
      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1Za1l5eXpMT01XcDZYeTRTMklYdHBQN1ktRHNyQWpFX0l1SmxiclVIOHNFQllXZ3RSYzlOblhYRmY5WTZtc1FSbXlZYzVCR2V0eGhuSFl6ajJUSFU1OURtNm4xMmtCMFJuaDBCcFZGRDlKUi1QaUdUeQ?oc=5",
      "date": "2026-11-23",
      "sentiment": "neu"
-    },
-    {
-     "title": "마레스카, 풀럼전 앞두고 누네스·후사노프 부상 상황 업데이트",
-     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOQkZrNXdCdmJYX0ljWkQzOTBEUlJHS0xsdXJwX19oQnlVcHJySkM3QmZURm0tQzF6UEtmci1Lb0F5b2k1cGUxUktDMDBaZTh1RlY1WWZZN29MbnVxejAyWTI3dkZaV2xDX0pxeE5lMVBIVVBiTjYxd1JWcDU5TUh6RXYzLTdpLVNDMHB0QktRZUpXX1FO?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neg"
     }
    ]
   },
@@ -8411,10 +8209,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8437,6 +8231,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8482,10 +8280,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -8508,6 +8302,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -8528,18 +8326,14 @@
    ]
   },
   "513": {
-   "n": 4,
+   "n": 3,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 3,
+    "neu": 2,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8563,11 +8357,14 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "이적",
-    "경기력"
+    "이적"
    ],
    "keywords": [
     "겨울 영입",
@@ -8598,18 +8395,14 @@
    ]
   },
   "516": {
-   "n": 42,
-   "h24": 2,
+   "n": 43,
+   "h24": 1,
    "sentiment": {
     "pos": 7,
     "neu": 18,
-    "neg": 17
+    "neg": 18
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8620,7 +8413,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 8
+     "n": 9
     },
     {
      "date": "2026-11-24",
@@ -8633,6 +8426,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -8694,18 +8491,14 @@
    }
   },
   "517": {
-   "n": 4,
+   "n": 3,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8728,6 +8521,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8765,17 +8562,13 @@
   },
   "518": {
    "n": 3,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 0,
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -8798,6 +8591,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8843,10 +8640,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -8869,6 +8662,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -8889,6 +8686,69 @@
     }
    ]
   },
+  "525": {
+   "n": 2,
+   "h24": 2,
+   "sentiment": {
+    "pos": 0,
+    "neu": 2,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 2
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "프리미어 리그",
+    "경기 대결",
+    "경합",
+    "챔피언스리그",
+    "볼 컨트롤"
+   ],
+   "headlines": [
+    {
+     "title": "리버풀-맨유, 안필드서 프리미어 리그 경기…도르구와 아라우호 경합",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBWX0dKTmRZUVM2QW5Nakdfd0dGZnNhNGFxem45d1poYXpxR19yWDdBRnFrLUE3WGJxODE3ZDYzcDJOZ29iWnR2MEE3bjNLeHF2Mk9tMFZlUWZhVEExMTYxVFFsNmJ6SlB3TDNodTRR?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
+    {
+     "title": "맨유 패트릭 도르구, 스포르팅전서 볼 컨트롤…챔피언스리그 16강 5차전",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBDWnhmZWxwWFYwV0dPNUhlcWZhQmZMbTRkRlp2RkJMdkxLdWctMGNRcU41OFloOXVmc0dodmZ2MXZ5d2czd1ZjOHd0Zl9QdmtXaTJONTF3bzc5SGZnMGFnU2pLN05felJ6cW9JUXB3?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    }
+   ]
+  },
   "539": {
    "n": 1,
    "h24": 0,
@@ -8898,10 +8758,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -8924,6 +8780,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -8953,10 +8813,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -8978,6 +8834,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9007,10 +8867,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -9033,6 +8889,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9052,18 +8912,14 @@
    ]
   },
   "640": {
-   "n": 4,
+   "n": 3,
    "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 0,
-    "neg": 4
+    "neg": 3
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 3
@@ -9086,6 +8942,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9132,10 +8992,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -9157,6 +9013,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9193,18 +9053,14 @@
    ]
   },
   "644": {
-   "n": 2,
+   "n": 1,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -9228,30 +9084,25 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "인터뷰",
-    "기타"
+    "인터뷰"
    ],
    "keywords": [
     "손흥민 대결",
     "실점 방지",
-    "과제",
-    "선수 프로필",
-    "미드필더"
+    "과제"
    ],
    "headlines": [
     {
      "title": "토트넘 ‘한솥밥’→이제는 ‘적’…벤탄쿠르 “손흥민에게 실점하지 않는 게 주요 과제” [쿠키 현장]",
      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5FNmg2czRIYVBVT1ZpMnlHM09pNVB0NnpSVVZtQ1FuTWZ5cGcwSWxYdjNoODVNVHNsQXVJMVZubmV4cnRQSWVSbTFlaTItRFZMSlJHNzUzcDduaUYtZUI3REV6QQ?oc=5",
      "date": "2026-11-21",
-     "sentiment": "neu"
-    },
-    {
-     "title": "로드리고 벤탄쿠르프로필 — 미드필더 | Goal.com 한국어",
-     "url": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxPakFJSURIX3A4YVJ3Qmd5MFFfME0zWk1nQ2NWdmlLV1NHWGpoRG96S2ZEaXlyQlBPUG10TFUzUlR1SFdBWTBNcnZBU3h1NC03ZWRQdGZOWTFtY0t5SUhqSGxLN2txb2xLVWV1U2hpU2FwVmQ5VFdWeDBQTVQ5QTRFTzFmWGJPOVpldUE4aGRCTi1yNFp0am1weEZpQllpTFlLLTh3RHNPYjdTVGplVkwtWVk0ejd2b3BfZEg5by1ZdVBNT3dHamdPMEJlNkR4QXF0TnVmSDJtSk1Sby13S2hObUxUenRVWHpqaVJKUWYtMGNwX2wyODZGcDNMeUx4SmNKaFNMN21QMUVpSWI5OWJZS3RWcEZKSEZrRlUtUlYzYXlKLXJJSTNIeEI5NkV1V3JReDF6eFVad0VnOTFqUWxDRjlrcEJ6MmNfQWlLWlQxTzhmQQ?oc=5",
-     "date": "2026-11-20",
      "sentiment": "neu"
     }
    ]
@@ -9266,10 +9117,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9291,6 +9138,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9322,10 +9173,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9347,6 +9194,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9367,18 +9218,14 @@
    ]
   },
   "710": {
-   "n": 4,
-   "h24": 2,
+   "n": 6,
+   "h24": 4,
    "sentiment": {
-    "pos": 4,
+    "pos": 6,
     "neu": 0,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -9401,44 +9248,49 @@
     },
     {
      "date": "2026-11-26",
-     "n": 2
+     "n": 4
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
-    "기록"
+    "기록",
+    "인터뷰"
    ],
    "keywords": [
     "완승",
     "POTM 선정",
     "수비 활약",
     "득점",
-    "기록 경신"
+    "맹활약"
    ],
    "headlines": [
+    {
+     "title": "‘오른쪽 이강인은 침묵하는데...’ 그리말도 맹활약에 왼쪽 라인 전체가 살았다! 시메오네도 극찬 “개인기량 뿐 아니라 팀 전체에 긍정적”",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1POWh5U2xYdlpvTEZxb05tTHN3LVlnSVBYVTU5akdXSm1teEJjc2lSNzQzYkJGMXd5QkNqdm8yWjBHWTktMlpRa3dmRWxBNWFpU2ZCTk1SSjRPWWFfQWFPT2RwQ0xuRFlPQ0w2Yi0yNmI4NThE?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
+    {
+     "title": "‘강인아, 이게 월클의 활약이다’ 김민재도 못 받은 분데스 랑리스테 WK 받은 그리말도, 아틀레티코 고공행진 이끌며 맹활약!",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE50MHhNdGVldE9XSjdsVkQ0Y1NUNTVOa1liRVJ4SUFPSXFDdFkwa29vSWRPZFhrZVItX3JiRkxFM0VQY3ExdXR6Z21ldWxILUZ2WHlCZHJoNWxXOGFjaG8xQUVzNE9iNUFBckVBNlRZOUZGZw?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "pos"
+    },
     {
      "title": "[공식발표] '공격수보다 빛난 수비수' 그리말도, 아틀레티코 2-0 완승 이끌고 UEFA 공식 POTM 선정...\"공격에서 언제나 해결책이었다\"",
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5Nc0RCOEVkNXIzdzNnXzVwWGpWUWdDMTR6ZmtMZWJYaTZJSGRvQVFJUGVjazFhZXBzUU1JUHgzT1lRV1FMTk83YW51U2FpYVlTOHVsVw?oc=5",
      "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "[공식발표] '공격수보다 빛난 수비수' 그리말도, 아틀레티코 2-0 완승 이끌고 UEFA 공식 POTM 선정...\"공격에서 언제나 해결책이었다\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5FTjNrOUZDQWVZUE9vTGVBTnd1cnAwdC10UTdIVHpNQ1RHVzI3bWQ4UmtFRmlyTDdTVHloV1RibWZXQjQ2TXlQMUxSRE56a3hGUVBwSWVEMC1UNjJOeG1BZFlYWkNvdk1ja3ZFZndtUdIBb0FVX3lxTE5FTjNrOUZDQWVZUE9vTGVBTnd1cnAwdC10UTdIVHpNQ1RHVzI3bWQ4UmtFRmlyTDdTVHloV1RibWZXQjQ2TXlQMUxSRE56a3hGUVBwSWVEMC1UNjJOeG1BZFlYWkNvdk1ja3ZFZndtUQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "'수비수인데 이강인보다 골 많이 넣는다'...그리말도, 13경기 만에 5골 폭발→30년 묵은 ATM 기록 경신 앞둬",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFByVGttU2l4YzltcEs1azBwR3k3TjBfZTAxeTBfVmhTM1B6Vm1KUDBpTFJVSmhlRlNYU1RIeFA5V3lQMVV2UmhpYjNmZkF1S1psaHlFbDFGYThYT2FzWmlYQko2X0VKLUJnTXU4U3hVV1RuRVJP?oc=5",
-     "date": "2026-11-24",
      "sentiment": "pos"
     }
    ]
   },
   "714": {
    "n": 2,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 1,
@@ -9446,10 +9298,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9472,6 +9320,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9501,18 +9353,14 @@
    ]
   },
   "717": {
-   "n": 7,
-   "h24": 1,
+   "n": 6,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
-    "neu": 5,
+    "neu": 4,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 3
@@ -9536,6 +9384,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9581,10 +9433,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9606,6 +9454,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9633,18 +9485,14 @@
    ]
   },
   "725": {
-   "n": 10,
+   "n": 9,
    "h24": 5,
    "sentiment": {
     "pos": 6,
     "neu": 1,
-    "neg": 3
+    "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -9668,6 +9516,10 @@
     {
      "date": "2026-11-26",
      "n": 5
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9713,10 +9565,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9738,6 +9586,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9768,10 +9620,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9793,6 +9641,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -9837,10 +9689,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -9863,6 +9711,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9884,18 +9736,14 @@
    ]
   },
   "740": {
-   "n": 11,
-   "h24": 9,
+   "n": 13,
+   "h24": 11,
    "sentiment": {
-    "pos": 10,
-    "neu": 1,
+    "pos": 11,
+    "neu": 2,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -9918,7 +9766,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 9
+     "n": 11
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -9928,9 +9780,9 @@
    ],
    "keywords": [
     "멀티골",
+    "대승",
     "챔피언스리그",
     "두 골",
-    "대승",
     "원정 승리"
    ],
    "headlines": [
@@ -9955,18 +9807,14 @@
    ]
   },
   "747": {
-   "n": 1,
-   "h24": 0,
+   "n": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 1,
-    "neu": 0,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -9989,17 +9837,29 @@
     },
     {
      "date": "2026-11-26",
+     "n": 1
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
    "topics": [
+    "기타",
     "기록"
    ],
    "keywords": [
+    "경기 일정",
     "도움",
     "시즌 기록"
    ],
    "headlines": [
+    {
+     "title": "스페인 리그, 페르민 로페스 아센 vs 아틀레티코 마드리드",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPNm42MHpjOUVzLWgxRERWTnRRNEpuZ29FaGktQmNDUEdkSFBDbEJRalBxQ2VBLXRVSmRlSU5SaVhZd19zc0FWaDZNUFZjM2d1TnJYSG92eVlIXzNRVFRoRUM5eGJWdWhWRjNlV2J3UjJTcG5ERDVBX2xzNDhoVmliZFdIMDNZRjRpTkhmMS1QUUg?oc=5",
+     "date": "2026-11-26",
+     "sentiment": "neu"
+    },
     {
      "title": "라민 야말, 이번 시즌 페르민 로페스에게 최다 4도움",
      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5ucmNlaGZQdEJzWFJ4RDhaZFhTckNOSXZYZ200UEZUOFVUZHk1S3BDeE1wdlF1N2VIdkRJYTNjUFZ6MHhqQVdJd0hFejhWQlZOMHgzNFExMFBuMnV1dW1iSmJn?oc=5",
@@ -10018,10 +9878,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -10043,6 +9899,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10073,10 +9933,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -10098,6 +9954,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10127,10 +9987,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -10152,6 +10008,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10172,6 +10032,62 @@
     }
    ]
   },
+  "788": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 0,
+    "neg": 1
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 1
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "논란"
+   ],
+   "keywords": [
+    "램파드 비판",
+    "부당한 대우",
+    "공개 비난"
+   ],
+   "headlines": [
+    {
+     "title": "마르코스 알론소 \"램파드는 나를 부당하게 대했고, 모두 앞에서 나를 비난하며 거짓말을 했다\"",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE51bG1kUGh6N2dOdTAyWmk5VDljalp2WnRGNV93TzBMN2pvWDliamJRLUxrMzd5ZmpFb2VnUENFc1RYZHp5aFJXVE9Ta01EVnllb1FlYXpjdkNQanlhNFdB?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "neg"
+    }
+   ]
+  },
   "883": {
    "n": 1,
    "h24": 0,
@@ -10181,10 +10097,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -10207,6 +10119,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10226,62 +10142,6 @@
     }
    ]
   },
-  "898": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "대표팀",
-    "인터뷰"
-   ],
-   "keywords": [
-    "월드컵",
-    "불참",
-    "결승전"
-   ],
-   "headlines": [
-    {
-     "title": "다니 카르바할: 이번 여름 월드컵 불참에 마음 아팠지만 결승전에 꼭 뛰고 싶었다",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1sZUN4alJBbF9xSEg3NF91di05VmZRMFN4RG9UcVRjTE5VQm9aMEhwX0l3STl5NGg3MmFrZTd1M1dQVGx0OFRySE9QQ3BiaVp0UnR4S1R0S3ktdFBRM3ZR?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "993": {
    "n": 1,
    "h24": 0,
@@ -10292,10 +10152,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -10317,6 +10173,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10346,10 +10206,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -10371,6 +10227,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10401,10 +10261,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -10426,6 +10282,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10447,18 +10307,14 @@
    ]
   },
   "1125": {
-   "n": 6,
+   "n": 1,
    "h24": 0,
    "sentiment": {
-    "pos": 3,
-    "neu": 3,
+    "pos": 0,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 5
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -10482,19 +10338,18 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "이적",
-    "논란",
-    "기록"
+    "이적"
    ],
    "keywords": [
     "재계약",
-    "공식발표",
-    "연봉",
-    "맨유 이적 거절",
-    "계륵 평가"
+    "공식발표"
    ],
    "headlines": [
     {
@@ -10502,18 +10357,6 @@
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBkd1NBbThCNDR1NGZxQkdtd1gtUmFMcDFDOUpvYmx2NUdTbWIyODMwYzdocjl0ODhPODZ2UFE1dFg3VzRfdUhNQ2NjVzhFT1N4NnNkNmN5a2haRjgyWWJjWldvMGFpQ2pxdENHNGh3?oc=5",
      "date": "2026-11-21",
      "sentiment": "neu"
-    },
-    {
-     "title": "[오피셜] ‘세계 최고 GK’ 쿠르투아, 레알 마드리드와 2028년까지 ‘재계약’...추아메니 이어 집안 단속 열심",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1hejNNa2sxVWJFQ3lqT2xkY3pWNU1SQ2FnYTVPeVRBSndOVS1IX3FIbndTaFdmd1FMNUdQY0hfaEprSGdPN2VncHZyN19fTkdwRldhSGFoTm9sSFlOeXUwTU9tSHdVV3NzdXVTX3dkN092dw?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    },
-    {
-     "title": "[오피셜] ‘발베르데와 난투극 벌였던’ 추아메니, ‘일편단심 레알 사랑’ 맨유 러브콜도 거절하고 32년까지 재계약...'연봉 130억 잭팟'",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5QaE9uYnZTZDk2UXVJY2pMWHVRM2kzZks1cWxWdzZsenIxOEJrUDNweWkyTWhTXzUxQ3lEV3BRSy10ZjllNXRjSWJKcG1DZzhTdmpnZ3Q3R3J3R2ZpZmljb2s4cWRUVllnQVhzZ0h1VDZyQnNG?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
     }
    ]
   },
@@ -10526,10 +10369,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -10552,6 +10391,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10589,18 +10432,14 @@
    ]
   },
   "1132": {
-   "n": 2,
+   "n": 1,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -10624,6 +10463,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -10632,21 +10475,13 @@
    "keywords": [
     "이적 시장",
     "AC 밀란",
-    "이적료",
-    "이적설",
-    "기자 발언"
+    "이적료"
    ],
    "headlines": [
     {
      "title": "무리뉴 감독은 줄 생각 없다는데… 엔드릭 달라는 AC 밀란 1,025억 실탄 장전, 겨울 이적 시장에 베팅한다",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE96Q1psLWpFRWNxWmJCSWFzM0loV0JZMW96WmJHWEVfOW9hdFpJLVdLVHdnQ1FuYmNpQXNISS1NQmJ1Um81TUxtVGwwSDVLX0RYZEdTN0dYU2J4MWtxTmNXcXdia2d5eGc3U2FXQkJR?oc=5",
      "date": "2026-11-24",
-     "sentiment": "neu"
-    },
-    {
-     "title": "기자: 엔드릭은 밀란에 안 간다고 말한 적 없어, 조제 무리뉴는 팔기 싫어하지만 플로렌티노 페레스는 팔 의향 있어",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9TOUpybk16RnB1aExoTDlLUkozVzVvX0tHYVRMZHBCS3pMVkN3ZXlTMzViOHVjRVdxM1FjRWhyY29kNGNNSkUtS0ZFcGpQeEFmTWNXd3hVWk9kMjZkS244?oc=5",
-     "date": "2026-11-20",
      "sentiment": "neu"
     }
    ]
@@ -10660,10 +10495,6 @@
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -10686,6 +10517,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10725,10 +10560,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -10750,6 +10581,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10771,17 +10606,13 @@
   },
   "1336": {
    "n": 1,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -10804,6 +10635,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -10824,61 +10659,6 @@
     }
    ]
   },
-  "1341": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 0,
-    "neg": 1
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "부상",
-    "대표팀"
-   ],
-   "keywords": [
-    "허벅지 근육 파열",
-    "의료진 오진"
-   ],
-   "headlines": [
-    {
-     "title": "캐나다 대표팀 의료진 또 오진 논란...‘김민재 동료’ 데이비스, 허벅지 근육 파열 부상",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBRRERCVmhQdzJ0T0k3QVpLR3dZaXlUaU5VVHRjZHgxdHl5TjRCc3dHemdYWFZzbUEwTzNWUEhzQmtzVmNHUm9hNUpncW1zQ3Zuc2xRZGRROWlIZlFIREdlWnB0eW5Temx2RHl0MHhPVk9KUQ?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neg"
-    }
-   ]
-  },
   "1346": {
    "n": 3,
    "h24": 3,
@@ -10888,10 +10668,6 @@
     "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -10915,6 +10691,10 @@
     {
      "date": "2026-11-26",
      "n": 3
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -10949,60 +10729,6 @@
     }
    ]
   },
-  "1347": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 1,
-    "neu": 0,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "이적"
-   ],
-   "keywords": [
-    "영입",
-    "수비 라인 강화"
-   ],
-   "headlines": [
-    {
-     "title": "바이에른 뮌헨, 이토 히로키 영입으로 수비 라인 강화",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9OMG5QclYxcVZvTHRvNE5VUFlXQkVOcXdEbVF3Yi16ckhYRTVFN04zenNWRXpfNlViMzZJUlFyWEpFa05wUEhBYlhGXzRnVk5DYVZrVUlkVkhSS3JGZkJhSXVLUmNJVllvdjEzWHBDZnU?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
-    }
-   ]
-  },
   "1348": {
    "n": 1,
    "h24": 1,
@@ -11013,10 +10739,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11039,6 +10761,10 @@
     {
      "date": "2026-11-26",
      "n": 1
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -11068,10 +10794,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11093,6 +10815,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11123,10 +10849,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11148,6 +10870,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11194,10 +10920,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -11219,6 +10941,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11258,10 +10984,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11283,6 +11005,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11313,10 +11039,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11338,6 +11060,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11374,10 +11100,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11399,6 +11121,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11428,10 +11154,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11454,6 +11176,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -11474,18 +11200,14 @@
    ]
   },
   "1477": {
-   "n": 10,
+   "n": 9,
    "h24": 0,
    "sentiment": {
     "pos": 2,
-    "neu": 3,
+    "neu": 2,
     "neg": 5
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -11509,12 +11231,16 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
     "경기력",
-    "기타",
-    "대표팀"
+    "대표팀",
+    "인터뷰"
    ],
    "keywords": [
     "주전 경쟁",
@@ -11544,11 +11270,11 @@
     }
    ],
    "comm": {
-    "n": 20,
+    "n": 18,
     "sentiment": {
-     "pos": 4,
+     "pos": 3,
      "neu": 2,
-     "neg": 14
+     "neg": 13
     },
     "top": [
      {
@@ -11569,7 +11295,62 @@
     ]
    }
   },
-  "1820": {
+  "1825": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 1
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "경기력",
+    "기록"
+   ],
+   "keywords": [
+    "공격포인트",
+    "2경기 연속"
+   ],
+   "headlines": [
+    {
+     "title": "활약 이어갈까? 곤살루 하무스, 올 시즌 세리에 A 첫 2경기 연속 공격포인트",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mc2dpczJNTm9tTDhDNHhDT2JCR3hxcjlYQTkwd0FoRm0yUWJQS1QtTlZZOG1tN2FxNTlqaWtnVHd2LWh6U1Jlb3Q0ckdzWjlrdEtFYmEzWGdEVnV3LVE?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "pos"
+    }
+   ]
+  },
+  "1834": {
    "n": 1,
    "h24": 0,
    "sentiment": {
@@ -11579,134 +11360,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "훈련 복귀"
-   ],
-   "headlines": [
-    {
-     "title": "가제타: 루카 모드리치, 디에고 모레이라, 곤살루 하무스가 밀란 훈련에 복귀",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9EVjJxRUpGb05xbGc1a0JjRXdwTTRpR1Q4Q09YTTIxZV9mTXgyYnNHcExUdGs3V3V5NDh5VHZtTm9ZSl9zV0hJdDd2RkZyZURZcEdkU0ZkMm5xdXdnREE0?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
-  "1825": {
-   "n": 3,
-   "h24": 0,
-   "sentiment": {
-    "pos": 1,
-    "neu": 2,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 2
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 1
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "경기력",
-    "기록",
-    "기타"
-   ],
-   "keywords": [
-    "공격포인트",
-    "2경기 연속",
-    "훈련 복귀",
-    "조언",
-    "경기 집중"
-   ],
-   "headlines": [
-    {
-     "title": "활약 이어갈까? 곤살루 하무스, 올 시즌 세리에 A 첫 2경기 연속 공격포인트",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mc2dpczJNTm9tTDhDNHhDT2JCR3hxcjlYQTkwd0FoRm0yUWJQS1QtTlZZOG1tN2FxNTlqaWtnVHd2LWh6U1Jlb3Q0ckdzWjlrdEtFYmEzWGdEVnV3LVE?oc=5",
-     "date": "2026-11-23",
-     "sentiment": "pos"
-    },
-    {
-     "title": "가제타: 루카 모드리치, 디에고 모레이라, 곤살루 하무스가 밀란 훈련에 복귀",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBLMWxWbEJQdEQ2VHFWVmFoLTVnN3k4cXM0U1VzdzNkUmYxZ3N2UFJkY1JHVVlmTjFxa1RaMXhxclBTcXI0X2tPaEN6b3I1bTdRd2h6Sy1mR3J2a1hVTTZV?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    },
-    {
-     "title": "훈텔라르: 곤살루 하무스에게 경기에 집중하고 현재를 즐기라고 조언할 것",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA4dkpGbWNGTDlxZ1QtMUZsWmtIU1JadlRlRV9heHdGWTNFLTJ2cTdLQ0NTczEyOHFaLVpwZHpORGJ1ZTNkbnVObHRTcFRNUlNBWk9ocWdsY2VBYjRxbGdZ?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
-  "1834": {
-   "n": 2,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 1
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -11729,17 +11382,18 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "기타"
+    "경기력"
    ],
    "keywords": [
     "빌드업",
-    "롱패스",
-    "골키퍼 평가",
-    "반응"
+    "롱패스"
    ],
    "headlines": [
     {
@@ -11747,28 +11401,18 @@
      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBwd0VWMVdCbzlPdG9adHp5LTRlSWxMSEZLODJnM0pEQXBEOG93b1FBeFRLVkZvM25uQUhqaXNMTkNCN2VwUVFWWU02bUZudV85QVhlbTVRdU5JeEk?oc=5",
      "date": "2026-11-24",
      "sentiment": "neu"
-    },
-    {
-     "title": "4위 일본은 ‘싱글벙글’→19위 밀란은 ‘극대노’...골키퍼 가치 평가에서 엇갈린 반응...“메냥보다 뛰어난 골키퍼가 18명이나 있다고?”",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA4bHZNcjVTOTg4WDQ0Z3BqNXFCQldYbkhBX2FFU0xpZG9OdGdsNE01eEFUR1pfbUItWHRkN0d5RTZjOGNOa3VRWmZkY0Q3dGVRRDhJNXFBZzdQQW5YRjNCNHBlaDh0QkhUR0ljQ1JzMlllUQ?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neg"
     }
    ]
   },
   "2125": {
-   "n": 3,
+   "n": 2,
    "h24": 0,
    "sentiment": {
     "pos": 1,
-    "neu": 2,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -11791,6 +11435,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11803,8 +11451,7 @@
     "선발 명단",
     "원정 경기",
     "평가",
-    "상위 수준",
-    "재계약"
+    "상위 수준"
    ],
    "headlines": [
     {
@@ -11818,12 +11465,6 @@
      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE13NkMtSlk0LXRtVFkyazgzQlc1bUNYUF8xSHBUR1VhQVliYktLRGI3X1JfdFZSREQ5MHkwSW1OZHFfWkRLOGVCWXFWM3cxNXJhTHdhdzJPM1FXSXV0YktR?oc=5",
      "date": "2026-11-22",
      "sentiment": "pos"
-    },
-    {
-     "title": "가제타 델로 스포르트: 튀랑, 인테르와 재계약하며 임금 인상 기대... 클럽은 낮은 기본급+성과급 방식 선호",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ZMUJabWxOVVVpUkRiMkFDaW53NWhyUjJndTBxZGc2U0xRbzVpQTZRek5DczloV1c3QXUwLXNDUDhKRjVvRVplMXlzcVBlNEUwZTBPcjBXN2hIbnp6aWV3?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
     }
    ]
   },
@@ -11836,10 +11477,6 @@
     "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -11862,6 +11499,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -11881,73 +11522,15 @@
     }
    ]
   },
-  "2302": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "기자회견 취소",
-    "위기 극복 촉구"
-   ],
-   "headlines": [
-    {
-     "title": "공식 발표: 나폴리, 경기 전 기자회견 취소 및 바냐 밀린코비치사비치 팀의 위기 극복 촉구",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ISHlqN3VrcFhFdDY4dlBrVlJyVnNWWUd1MjBmM3dxcDBjd2RHaWtVUVhoUW5tdE9jZVI1QS1OSzlRYlplRnVTVWNhSkdPV2tNYnI0eUVpN1F6U1AwX0gw?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "2863": {
-   "n": 35,
+   "n": 34,
    "h24": 0,
    "sentiment": {
     "pos": 2,
-    "neu": 3,
+    "neu": 2,
     "neg": 30
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -11970,6 +11553,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12041,10 +11628,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12066,6 +11649,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12097,10 +11684,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12122,6 +11705,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12151,18 +11738,14 @@
    ]
   },
   "2866": {
-   "n": 2,
+   "n": 1,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 2,
+    "neu": 1,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -12186,29 +11769,24 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "기타"
+    "경기력"
    ],
    "keywords": [
     "공 경합",
-    "PSG 니스",
-    "선수 프로필",
-    "수비수"
+    "PSG 니스"
    ],
    "headlines": [
     {
      "title": "[PSG 니스] 공 다투는 자바르니-아무라",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5HVVFDUVdQbmpGMnFIT2hVUzJPU19UclVLSWlieFpINXdvQUFFQlJVdUNPVWJQT0tOQWRKQ281N1N4ZlBPbzUxMXhmalFHeDVYNGtoVVNkS0hsMlhCRkVKU25rbjA2YjZjWHNBOHBB?oc=5",
      "date": "2026-11-23",
-     "sentiment": "neu"
-    },
-    {
-     "title": "일리아 자바르니프로필 — 수비수 | Goal.com 한국어",
-     "url": "https://news.google.com/rss/articles/CBMirgJBVV95cUxNRFJRcENxNXFGWGVlT1hjNkxGLUJaV1BFMzlVR1g0cVhSVkN5S0x1MUlxaFJ5VFVEOTRzN0FfV0wxZU92dEFtVVM5dHk5ZFVnX2xpbVhQNmVycWtUNTRjX2R2cWVwNW5tWXI0Qmw3bnZGX18wV0swRGpyX2p4bHBfM3Uta3lULThCcDFITXpXYy1vTlliMVhiU3h2Z3Y2NW5mWFZucDA1b0Y2dVhMZkVjNGZkZm0ydXdLNzZLR2JqNEM0dEFmTGVCUjFLeVFKYmZyMUdWWWJtMkxRY3h4T0lGX2dmVEE0R2xpSVRBYmp1VUlLc0YyS2h4QTZHa0RQY0RISVcxVFpURGhNRkFZV3Njd25tQ3BGRGNMbzNJSXRhNk5xeWQxaTRSUHhFOVBsdw?oc=5",
-     "date": "2026-11-20",
      "sentiment": "neu"
     }
    ]
@@ -12223,10 +11801,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12248,6 +11822,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12277,10 +11855,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12302,6 +11876,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12330,18 +11908,14 @@
    ]
   },
   "3716": {
-   "n": 26,
+   "n": 25,
    "h24": 0,
    "sentiment": {
-    "pos": 11,
+    "pos": 10,
     "neu": 15,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 22
@@ -12365,12 +11939,14 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "기타",
-    "경기력",
-    "대표팀"
+    "기타"
    ],
    "keywords": [
     "임신",
@@ -12400,9 +11976,9 @@
     }
    ],
    "comm": {
-    "n": 25,
+    "n": 20,
     "sentiment": {
-     "pos": 24,
+     "pos": 19,
      "neu": 0,
      "neg": 1
     },
@@ -12435,10 +12011,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12460,6 +12032,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12505,10 +12081,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -12530,6 +12102,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12592,18 +12168,14 @@
    }
   },
   "5088": {
-   "n": 4,
+   "n": 3,
    "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 0,
-    "neg": 2
+    "neg": 1
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -12626,6 +12198,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12697,10 +12273,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -12722,6 +12294,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -12822,18 +12398,14 @@
    }
   },
   "5818": {
-   "n": 9,
+   "n": 4,
    "h24": 0,
    "sentiment": {
-    "pos": 2,
-    "neu": 2,
-    "neg": 5
+    "pos": 1,
+    "neu": 1,
+    "neg": 2
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 5
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -12857,19 +12429,23 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "이적",
     "경기력",
+    "이적",
     "대표팀"
    ],
    "keywords": [
-    "이적료",
-    "백업 평가",
     "러시아행",
+    "이적료",
     "이적 무산",
-    "선발 출전"
+    "선발 출전",
+    "감독 데뷔전"
    ],
    "headlines": [
     {
@@ -12892,11 +12468,11 @@
     }
    ],
    "comm": {
-    "n": 18,
+    "n": 6,
     "sentiment": {
-     "pos": 6,
-     "neu": 3,
-     "neg": 9
+     "pos": 2,
+     "neu": 1,
+     "neg": 3
     },
     "top": [
      {
@@ -12917,60 +12493,6 @@
     ]
    }
   },
-  "7650": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "플레이오프 일정",
-    "MLS"
-   ],
-   "headlines": [
-    {
-     "title": "손흥민·김기희, MLS 가을 무대 동반 출격…엇갈린 플레이오프 일정",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PaTc5UzhqalM3UmdNRndMZTlxaVA2LWMydTNtblFIalpPWEdwbmRJWXBmR3lidUxESl9xQ0dPZ09uWENhQWxRSVFHY281enR4SWhrQnFFNFVxRGJhRV83a3J4b1dBMFVvMzVwRA?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "7876": {
    "n": 5,
    "h24": 0,
@@ -12980,10 +12502,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -13006,6 +12524,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13042,11 +12564,11 @@
     }
    ],
    "comm": {
-    "n": 10,
+    "n": 9,
     "sentiment": {
      "pos": 2,
      "neu": 0,
-     "neg": 8
+     "neg": 7
     },
     "top": [
      {
@@ -13118,10 +12640,10 @@
    "keywords": [],
    "headlines": [],
    "comm": {
-    "n": 12,
+    "n": 7,
     "sentiment": {
-     "pos": 10,
-     "neu": 2,
+     "pos": 6,
+     "neu": 1,
      "neg": 0
     },
     "top": [
@@ -13153,10 +12675,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -13178,6 +12696,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13207,10 +12729,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13232,6 +12750,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13252,61 +12774,6 @@
     }
    ]
   },
-  "10662": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 1,
-    "neu": 0,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "경기력"
-   ],
-   "keywords": [
-    "패스",
-    "태클",
-    "평점"
-   ],
-   "headlines": [
-    {
-     "title": "골도 없는데 '결승골' 김지호보다 평점 높았다... '양민혁보다 일찍 강원 데뷔' 최재혁, 미친 패스에 태클 7회",
-     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9Mcldud01XMGw4S0dEY3RMTXFvWXJEcUc1akt5X1ktVFYzOExtd0IxendFM29TVllsYnpoTU42VFVra25WMS1Peko5NE4zcFhjR0hZVk1MQjFhZGs4d1RVR2lsaTlZaVgwMEYtcmlfMkM1TXJPZ2c?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
-    }
-   ]
-  },
   "10694": {
    "n": 2,
    "h24": 0,
@@ -13316,10 +12783,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -13342,6 +12805,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13377,10 +12844,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13402,6 +12865,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13448,10 +12915,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13473,6 +12936,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13503,10 +12970,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13528,6 +12991,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13558,10 +13025,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13583,6 +13046,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13629,10 +13096,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13654,6 +13117,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13700,10 +13167,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13725,6 +13188,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13764,10 +13231,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13789,6 +13252,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13834,10 +13301,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13859,6 +13322,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13889,10 +13356,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -13914,6 +13377,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -13984,10 +13451,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14009,6 +13472,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14039,10 +13506,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -14064,6 +13527,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14094,10 +13561,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -14119,6 +13582,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14148,10 +13615,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 4
     },
@@ -14173,6 +13636,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14218,10 +13685,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 4
     },
@@ -14243,6 +13706,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14287,10 +13754,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14312,6 +13775,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14343,10 +13810,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -14368,6 +13831,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14388,18 +13855,14 @@
    ]
   },
   "10872": {
-   "n": 7,
+   "n": 3,
    "h24": 0,
    "sentiment": {
-    "pos": 5,
+    "pos": 1,
     "neu": 2,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 4
-    },
     {
      "date": "2026-11-21",
      "n": 1
@@ -14423,12 +13886,16 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
-    "경기력",
-    "기록",
-    "인터뷰"
+    "인터뷰",
+    "기타",
+    "경기력"
    ],
    "keywords": [
     "구단 데이터",
@@ -14468,10 +13935,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14493,6 +13956,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14523,10 +13990,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14548,6 +14011,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14577,10 +14044,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14602,6 +14065,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14646,10 +14113,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -14671,6 +14134,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14709,10 +14176,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 2
     },
@@ -14734,6 +14197,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14772,10 +14239,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14797,6 +14260,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14836,10 +14303,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -14861,6 +14324,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -14890,18 +14357,14 @@
    ]
   },
   "10998": {
-   "n": 4,
+   "n": 2,
    "h24": 0,
    "sentiment": {
-    "pos": 3,
-    "neu": 1,
+    "pos": 2,
+    "neu": 0,
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 2
-    },
     {
      "date": "2026-11-21",
      "n": 2
@@ -14925,6 +14388,10 @@
     {
      "date": "2026-11-26",
      "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
     }
    ],
    "topics": [
@@ -14932,11 +14399,9 @@
     "경기력"
    ],
    "keywords": [
-    "이달의 골",
     "바이시클킥",
-    "기록 도전",
-    "100경기",
-    "시즌 득점"
+    "이달의 골",
+    "기록 도전"
    ],
    "headlines": [
     {
@@ -14950,12 +14415,6 @@
      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1EWVNzeFBHQk1tNmRDLUFLNHYxZDBEX0ZjNGlya2RCNzNsYTA2cmhXbWFJYThnbjRIUDVmWWxzNk4tWjhEUnRhY0FTVV9QcV9EcUw1VGhjTEN4VTJISElsWk9UM1hBMHBreHdV?oc=5",
      "date": "2026-11-21",
      "sentiment": "pos"
-    },
-    {
-     "title": "바이시클킥으로 ‘이달의 골’... 이건희, 친정 김천서 100경기·시즌 7골 도전",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5QNkVMc0p4a1dSNVMzYjlYRDREcXBTcGpGUXhkMkw5dndJVFY4MUhCTWU5WEdFUmt3QXNvWVB5TUNUbFREeFFNOEY2clBDLU1lSTVaRE5pdDduMzUybFl0cEdKVm5uWkFLSjc1VUxxSQ?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "pos"
     }
    ]
   },
@@ -14968,10 +14427,6 @@
     "neg": 0
    },
    "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 0
-    },
     {
      "date": "2026-11-21",
      "n": 0
@@ -14994,6 +14449,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15038,10 +14497,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15063,6 +14518,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15092,10 +14551,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15117,6 +14572,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15152,60 +14611,6 @@
     }
    ]
   },
-  "11033": {
-   "n": 1,
-   "h24": 0,
-   "sentiment": {
-    "pos": 0,
-    "neu": 1,
-    "neg": 0
-   },
-   "daily": [
-    {
-     "date": "2026-11-20",
-     "n": 1
-    },
-    {
-     "date": "2026-11-21",
-     "n": 0
-    },
-    {
-     "date": "2026-11-22",
-     "n": 0
-    },
-    {
-     "date": "2026-11-23",
-     "n": 0
-    },
-    {
-     "date": "2026-11-24",
-     "n": 0
-    },
-    {
-     "date": "2026-11-25",
-     "n": 0
-    },
-    {
-     "date": "2026-11-26",
-     "n": 0
-    }
-   ],
-   "topics": [
-    "기타"
-   ],
-   "keywords": [
-    "경기 일정",
-    "기념 시상식"
-   ],
-   "headlines": [
-    {
-     "title": "포항, 김성재 체제 첫 승 도전…21일 안양전서 박찬용 100경기 시상식도 진행",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE4zR2tlRWVOTFBMOFhITEpYRFo0bWlPV3llNXVORmZvZW1iMGZPSFdNbHNxNmNheXloQXZoeV9XQVo2Wl9oNm1FZXdleUlTTjRsa2RQRFVUN0FxZW8?oc=5",
-     "date": "2026-11-20",
-     "sentiment": "neu"
-    }
-   ]
-  },
   "11053": {
    "n": 1,
    "h24": 0,
@@ -15216,10 +14621,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15241,6 +14642,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15272,10 +14677,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15297,6 +14698,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15326,10 +14731,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15351,6 +14752,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15380,10 +14785,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 10
     },
@@ -15405,6 +14806,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15450,10 +14855,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -15475,6 +14876,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15504,10 +14909,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 1
     },
@@ -15529,6 +14930,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
@@ -15574,10 +14979,6 @@
    },
    "daily": [
     {
-     "date": "2026-11-20",
-     "n": 0
-    },
-    {
      "date": "2026-11-21",
      "n": 0
     },
@@ -15599,6 +15000,10 @@
     },
     {
      "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
      "n": 0
     }
    ],
