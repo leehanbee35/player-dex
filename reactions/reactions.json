@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T04:33+09:00",
+ "generated_at": "2026-11-27T13:12+09:00",
  "window_days": 7,
  "source": "구글 뉴스",
  "tracked": [
@@ -2636,12 +2636,12 @@
  ],
  "players": {
   "1": {
-   "n": 121,
-   "h24": 7,
+   "n": 135,
+   "h24": 13,
    "sentiment": {
-    "pos": 15,
-    "neu": 51,
-    "neg": 55
+    "pos": 16,
+    "neu": 57,
+    "neg": 62
    },
    "daily": [
     {
@@ -2658,7 +2658,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 63
+     "n": 68
     },
     {
      "date": "2026-11-25",
@@ -2670,7 +2670,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 9
     }
    ],
    "topics": [
@@ -2687,57 +2687,57 @@
    ],
    "headlines": [
     {
-     "title": "‘韓 레전드’ 손흥민 24위 ‘충격 랭킹’ 공개, 50명 중 40명이 日 선수···김민재와 이강인 ‘1·2위’ ...",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9VcVFXY0ZYUzF5aUVuNjdOaTNyamxDaWRhamVWclljb3htUGV3ckFOaFRLMVNLSGFHcC1kd3RFdmZ1Nm44MHRPanF4X0Qtb1RZQ1ZGRVhEZ3JPVkVLekHSAWNBVV95cUxQQVdDQks5cmZudjVGa05RLW5RT3dRemp6ZWhSMjlZNS15Y0doX3BMZzZGZzlJY1RLSkZuSFpnZ1FiTXNON1NBc1I3bWJFVGduNVNpTnRhQUR2ejhYeFpjLVU5SlE?oc=5",
-     "date": "2026-11-26",
+     "title": "\"손흥민 존재감 너무 없었다, 이대로면 끝내...\" MLS 사무국, 공식 프리뷰에 '냉정 직격탄' - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFB4U2JaZUhyZkRhMmZDU1h1djhnWVpoZWxCVkhQQTM1QlVkbVM5cjJPZ1FzTGZJYmxQZnJobFlnQzVhSlNtWW5qb09uczFHXzRvVXVmVzZlYlJJSmYwTFVWaVZ5aFZMd1IwMVHSAW9BVV95cUxOWnhnQkJ6TXNYOTdFNS04c3RmZnJyWEQxMmRHZWpWTVNOZ3FxUmY5cDlxV09lRmNkZldpR21JbkZUREpVbWVfSmQxSlBkT011cUU2eVhKYlU4Z1hib1FSaGVMTENrcmFUZV9RSVdXV1U?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neg"
     },
     {
-     "title": "충격 '오피셜' 공식 전망, \"활약 미미했다\" 질타까지...손흥민, 2라운드도 못 가고 떨어지나 \"적극적으로 뛰어야 3차전 가능\"",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1PVFBSdDIySjJkQU1UdDltcXVxdGx3U1Fid0dRczlCNU9US1ptczNfZ1RJS1VMS0ZyMlJyWTBtb1gyclNuRUVBdXRIR1Q3U2IwQ0E2ODd3MDQtY1JzNXJGcjdTYWl1SElOMDFpaFFJdkpBZFd6YXl6RGVfZkpTZw?oc=5",
-     "date": "2026-11-26",
+     "title": "\"손흥민 존재감 너무 없었다, 이대로면 끝내...\" MLS 사무국, 공식 프리뷰에 '냉정 직격탄'",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSM2tYVnZYb1FVX3FxX2g0TG1UYWlIQVZsRUZyTTVEZmxwRHVxN0pxeEhSaUloazFVcTBTelJ6Y2xyZTNWaklfTWtjNGl6R0thaUUtX3R0Ui1hUlFxQUdIc19WMTBTM0FTUDh2NFgyTDJIUG5ZNWc?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neg"
     },
     {
-     "title": "'손흥민 유럽 리턴' 초대박 가능성? 유럽 구단 러브콜 시나리오 있을까…경쟁 덜한 MLS 다소 불만→여전한 공격수 경쟁력",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9IU0J3YjY3U2V4TEg3ZWRTNFB1dU1kdU50RnV6eGhwT1VjU2k5S19LczN1eXdDdzdRNE5XLVc3OTRUYmpLRXNLaExBY0hWZ1M1X210NHdETmdMZ0V2X2dXdlMtclhXekd2TTdmcFdWOVBSVTA5RzhyWnFSU0xnUQ?oc=5",
-     "date": "2026-11-26",
+     "title": "손흥민-유소영 열애…\"현모양처가 이상형\" 과거 언급 화제",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE44M0hTdnF3US1rcGFmZVM2N0lYTVpXVW9WMGZzMjg0emdfMGpMeWdqdGJ0WFBnY2ZLUmdsT3Vtd1U4X0p6TTRNMkE1U2hhMkhkblpBZw?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neu"
     }
    ],
    "comm": {
-    "n": 36,
+    "n": 55,
     "sentiment": {
-     "pos": 6,
-     "neu": 8,
-     "neg": 22
+     "pos": 18,
+     "neu": 12,
+     "neg": 25
     },
     "top": [
      {
-      "text": "손흥민의 축구를 방해하는 동료들, 팀 검독, 주부심들. 그만 고생하고 돌아가자, EPL로!",
-      "url": "https://www.youtube.com/watch?v=QueGixtXrgE&lc=UgyHdpFPuEs_XMukheV4AaABAg",
-      "sentiment": "neg"
+      "text": "다 아는 이야기는 빼세요 영상이 기니까 영상을 안 보게 됩니다.",
+      "url": "https://www.youtube.com/watch?v=ZQtPV4m3Z4I&lc=UgwI0a3w11ZiGPYXlZJ4AaABAg",
+      "sentiment": "pos"
      },
      {
-      "text": "손흥민은 하이라이트가 아니라 풀경기를 봐야됨 ㅋㅋㅋㅋ 진짜 쿠플 영상관리자 너무 착하다 ㅋㅋㅋ 트롤링한거 하나도 안올렸네 ㅋㅋㅋㅋㅋ",
-      "url": "https://www.youtube.com/watch?v=Ge_rO6EzWAc&lc=UgyiV-o8A6UHaq0svcl4AaABAg",
-      "sentiment": "neg"
+      "text": "이번 시즌은 여기까지",
+      "url": "https://www.youtube.com/watch?v=RalJbJ_AaVY&lc=UgxHqSwATAfXk6HGvCt4AaABAg",
+      "sentiment": "neu"
      },
      {
-      "text": "맨유복귀 하자마자 대패함",
-      "url": "https://www.youtube.com/watch?v=QueGixtXrgE&lc=UgwPLjjKIC8yUWkVDN14AaABAg",
-      "sentiment": "neg"
+      "text": "그 반데벤에 그 쏘니네요❤ 감사해요❤❤",
+      "url": "https://www.youtube.com/watch?v=cPJy8Uo_kP8&lc=UgwbUae3x9jCTJhstOd4AaABAg",
+      "sentiment": "pos"
      }
     ]
    }
   },
   "2": {
-   "n": 126,
-   "h24": 39,
+   "n": 145,
+   "h24": 23,
    "sentiment": {
-    "pos": 29,
-    "neu": 63,
-    "neg": 34
+    "pos": 34,
+    "neu": 68,
+    "neg": 43
    },
    "daily": [
     {
@@ -2762,11 +2762,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 41
+     "n": 54
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 6
     }
    ],
    "topics": [
@@ -2778,66 +2778,71 @@
     "교체 출전",
     "무승부",
     "역전패",
-    "팀 부상",
-    "평점"
+    "자책골",
+    "선발 출전"
    ],
    "headlines": [
     {
-     "title": "골 못넣는 이강인·골 못막는 김민재…자존심 구긴 태극전사",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1UQkcwVHBPX1lWakNuWjJZaUtVNTY0TlIzTzFPa0xYTFdaWU5ydU1vQ1NsanNBX2NmbG5YV29uTFgyTmhVZXhsVFc5NnRJQW9aYmoxSm5LdlIteDZPOUVPcUZDNVdJb0U?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "둘째 출산 직후 '17살 연하'와 불장난? '김민재 동료' 노이어, 충격 의혹 진짜였나...아내 작심 메시지 \"가정 파괴한 남자가 부끄러운 것\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5JdUFFOFppRzNqZUhMNTdFeXNucnpHM015SHRRWWQ5S0NuQkFJQlJzcDhuZW44Rm92OXFTU3cwZmdQZGVPVU1yVDBkRklrQlVqcmxtaUljRDYzMGdQcG1RM0hMX09fS3ZDZnfSAW9BVV95cUxNb2dCMFQ1SDZLWHZROE9HQVoxaXkwZmVvTlRVNGQ5WjYxRkFhWWpCMjVTSFBKMkxOczV4ejhvcG52a2ZqZS1FUXV2cC1Fc1FCS2RjYXJ6My1jVU95UmpsWGpNZUVYRHBzNUNGZHZOcXM?oc=5",
-     "date": "2026-11-26",
+     "title": "`UCL 충격 역전패, 김민재 문제가 아니다`…바이에른 뮌헨 공격력 초토화, 분데스리가도 우려",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1NVkpDQ1N5alU1Yi1nNEFnYmcwWHV4Z185UzRwdnFwQ0EwVzRwYTFteW5SV0JnY1U5Wm5FZUlhMU8xZ2VTakJvcXA3Tl9UTVFTb3RZZVhfbmltQVQyWTBya2JFVnN3UQ?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neu"
     },
     {
-     "title": "존재감 드러낸 이강인… 역전패 못막은 김민재",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1uX2dNbHJSem5ONEU5a1ByOFhhMk5PWXIwN2oxdG1RUjIzYXNEUU9mTmtnMzM3VVN5anJOam13SDBTWWdPeVV4d1BLOTNjcGxG0gFUQVVfeXFMTmhWMnE1Yng3WjJvdFhlXzRoVmJkcW9qZmp1S0V5RTY4ZmZlWDJjSlVNaUFtS0tBTHdVZFVESDg5ZkIweHFSX0dsVEJaV3B5OWcwcVVz?oc=5",
-     "date": "2026-11-26",
+     "title": "'韓 국가대표' 김민재 결국 뮌헨에서 주전 경쟁 실패→튀르키예로 복귀하나...\"페네르바체의 첫 번째 타깃, 에이전트와 꾸준히 연락\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBvWmJtbXJmN0pVLXlMOGc1SlZ4MWYtMzRMUnNnbTh1WFU0MDFOUWpfMFFzTUh0MDR2Tm1Tai15R2RGYlFUdHlzRjF5dnJoc01MX2djdnplT2pZNGdlNU9mdWdsYUpsbWNuN3Y1eFRMNXZTd0ZO?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neg"
+    },
+    {
+     "title": "대반전! 1위 김민재, 2위 이강인, 10위 황인범...韓·日 통합 Elo 랭킹 상위 50명 공개→한국 선수 10명에 그쳤지만, 최상단 점유",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQclZZTWNnai1FZV9RZ011ZVJUaVBQSDRqMXAtdnNSaXlJLS1XeGVsNnc0aW5fVENid0lLQ3hVTmFRT1VpMVBreS0tLW8zVXJZSVdfTlBDOWlZeEVVSzYxTzM1Wm9mdHJZV3Rfb0VZRUtIQlM2SGN2aXBzSnE2a3E4ZzNn?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 2,
+    "n": 12,
     "sentiment": {
-     "pos": 2,
-     "neu": 0,
-     "neg": 0
+     "pos": 5,
+     "neu": 3,
+     "neg": 4
     },
     "top": [
      {
-      "text": "어쩌라고 은퇴해",
-      "url": "https://www.youtube.com/watch?v=9CXsKlVt_s8&lc=UgyvATfwmlSbRhVN33F4AaABAg",
+      "text": "킬리안 이였으면 진작에 속도로 밀려서 몸싸움할수도없지 ㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=tVTmoOn3lb4&lc=Ugz4OEVvPONLVjTK4Jp4AaABAg",
       "sentiment": "pos"
      },
      {
-      "text": "멋진 김민재^^",
-      "url": "https://www.youtube.com/watch?v=ZQ111fwm7D0&lc=UgxCRjIXkDF2Ge1dKrd4AaABAg",
+      "text": "애초에 찐바페였으면 저렇게 몸쌈으로\n비벼볼려고 하는 시도를 안하지ㅋㅋㅋ\n뒷공간 속도로 터는걸 노리지 ㅋㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=tVTmoOn3lb4&lc=UgyK3N6WLffzlh47gPZ4AaABAg",
       "sentiment": "pos"
+     },
+     {
+      "text": "저 빼빼마른 애한테 몸싸움 지는것도 웃기는 일 아닌가😂😂",
+      "url": "https://www.youtube.com/watch?v=tVTmoOn3lb4&lc=UgxWRqlCzLXFBndvHBF4AaABAg",
+      "sentiment": "neg"
      }
     ]
    }
   },
   "3": {
-   "n": 111,
-   "h24": 41,
+   "n": 120,
+   "h24": 8,
    "sentiment": {
-    "pos": 59,
-    "neu": 30,
-    "neg": 22
+    "pos": 64,
+    "neu": 33,
+    "neg": 23
    },
    "daily": [
     {
      "date": "2026-11-21",
-     "n": 7
+     "n": 11
     },
     {
      "date": "2026-11-22",
-     "n": 5
+     "n": 7
     },
     {
      "date": "2026-11-23",
@@ -2853,11 +2858,11 @@
     },
     {
      "date": "2026-11-26",
-     "n": 42
+     "n": 44
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
@@ -2874,6 +2879,12 @@
    ],
    "headlines": [
     {
+     "title": "아틀레티코 마드리드의 이강인, 엘체 전 10경기 만에 공격포인트 도전",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5SWE9ia095eGVKY3ZQWFEyUmU2N2tJemFoVkEwMU9mLVY4S1lSeEEyRFB2VEQ5ZEE2THB5WmVWN1dqOHVUU2dnQ3FVaWNHZVExWVVuOFBwMUxzbHg4T3VYbktEYzFCM0gzS3BqdA?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
+    {
      "title": "골 못넣는 이강인·골 못막는 김민재…자존심 구긴 태극전사",
      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1UQkcwVHBPX1lWakNuWjJZaUtVNTY0TlIzTzFPa0xYTFdaWU5ydU1vQ1NsanNBX2NmbG5YV29uTFgyTmhVZXhsVFc5NnRJQW9aYmoxSm5LdlIteDZPOUVPcUZDNVdJb0U?oc=5",
      "date": "2026-11-26",
@@ -2884,47 +2895,41 @@
      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5LV1hsSkk5SnF3YjNfSW1OWFVmbFpRLXp5WkhObkJFQlRGd2VSb3pxWXBRUUc5bzdESWFGS3Rlc1JSM2JQSUdFVjJuRHlGcHRsZVhaTA?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "\"이강인 지금 있었으면\" 이적 후 의미심장 한마디…공격진 초토화 PSG '구멍 뻥' → 뒤늦게 커지는 이강인 공백 절감",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE10aFZGQl9LaVJTblczdEJnWFl3NXFwZENxSHRDa2MyWnRYTEdHdlpSNXdDbTlQRVAtNF9KaGlJVUhPWW5ySkJHZE9Cald3UXZDNHB1UFJWaEtfOVZxcUN4SlQtang3ZFpBSUFMOGZvcG0?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 33,
+    "n": 52,
     "sentiment": {
-     "pos": 13,
-     "neu": 6,
-     "neg": 14
+     "pos": 18,
+     "neu": 12,
+     "neg": 22
     },
     "top": [
      {
-      "text": "승리를 이끌었다 ㅋㅋㅋ",
-      "url": "https://www.youtube.com/watch?v=8l72LeyspUY&lc=UgwXwM-_Mxfrn8QnKA54AaABAg",
+      "text": "이강인이 공격 전개에 많이 기여했는데, 점점 더 발전하는 것 같아요!",
+      "url": "https://www.youtube.com/watch?v=xDeoGjYi7rQ&lc=UgxE7pOFdQVRhgX4Aqt4AaABAg",
       "sentiment": "pos"
      },
      {
-      "text": "도대체 2골은 에케 넣은거냐 그게 신기하다 체력도 안되니깐 교체로 쓰고 득점할 기미가 전혀 안보이더라 포기",
-      "url": "https://www.youtube.com/watch?v=pj8yei8yBw0&lc=Ugxa8v39SlGHLAA8qoh4AaABAg",
-      "sentiment": "pos"
+      "text": "0 승리했지만 이강인의 공격포인트가 아쉬워요. 계속 응원할게요!",
+      "url": "https://www.youtube.com/watch?v=xDeoGjYi7rQ&lc=UgxM-lxM7TG-SxS3unN4AaABAg",
+      "sentiment": "neg"
      },
      {
-      "text": "기점패스 한단계낮춰서 수비수 몰고다니니까 기점 어그로도 한개만듭시닼ㅋ",
-      "url": "https://www.youtube.com/watch?v=pj8yei8yBw0&lc=UgwdYGUQIsbYM2N71-54AaABAg",
-      "sentiment": "pos"
+      "text": "이강인, 다음에는 펀치력을 보여주길! 화이팅! 💪",
+      "url": "https://www.youtube.com/watch?v=xDeoGjYi7rQ&lc=Ugwx0XOZtKIJ08nt-894AaABAg",
+      "sentiment": "neu"
      }
     ]
    }
   },
   "4": {
-   "n": 42,
+   "n": 43,
    "h24": 3,
    "sentiment": {
     "pos": 5,
     "neu": 9,
-    "neg": 28
+    "neg": 29
    },
    "daily": [
     {
@@ -2953,13 +2958,13 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
     "경기력",
-    "대표팀",
-    "기록"
+    "기록",
+    "대표팀"
    ],
    "keywords": [
     "무득점",
@@ -2969,6 +2974,12 @@
     "슈팅 없음"
    ],
    "headlines": [
+    {
+     "title": "'8경기 연속 공격P 침묵' 황희찬, 결국 다시 벤치행이다...현지 매체 \"경쟁자 부상 복귀로 황희찬 제외 예상\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1NczVCYmhZVEhybGRaV3hKcXV4LS0yNHlMU09NNGJJd2hMM2l0ZWdSY3A1WTRCdHA2MURaVFhHZlFYLW1uRC1PX2ZiMTY0bGtvSFR0MFpjOE5HMGVhQ1JzMnBwVEdHS203Z0ljYTRzNlk3LUxJ?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
     {
      "title": "'韓 국대' 황희찬 희소식! 프리미어리그 복귀 청신호···울버햄튼 '강등→승격권 진입' 1위와 승점 단, 1점 차",
      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBxdEw2NEFwS3RLcXJCY1pkRENVSUdzU0NzRDVfSTRpaFkxS2Npc1k4RFRKSUttcmk5WnpwQ1Z6NEx6UVZReFVVUGdhYU5fdkd4OWJFazdR?oc=5",
@@ -2980,35 +2991,29 @@
      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mdVRiTmxnMThVZ1J0OVlZaU5PQVZZYU5Gelo1NmFfYlpNb2lUTW4xQzh3dXpLRkFxLTdRVVlySl8zekJ6M2lYWGJsQlo5dHdfaEhqaFR6M2JINmVQTFHSAWNBVV95cUxOZE5heE5OQlkxNi1hOGVCZHNpVlQ5UEhCdXpuQzRMOURjTGFSb2ZOU1FqeVdUTlJnWnNJWXZqZmJiUFFsclVMcmt6djZucXI3SlhkWVY0NHhBSFpSWWNhNVA0RlE?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "\"황희찬 기대했던 모습과 달라\"...분데스리가 복귀 후 '9경기 0골', 獨 매체의 작심 비판! \"득점력 저조→비판 중심에 섰다\"",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBpb2F2SXJIako2eUxiUTJzOHJHX3VCVWxxOE5NMmJUWFp6LWRBcks4NklKdmVLVVpGOEZncDBMUnhFMHdvcUZHdU5Xdll5VmYwR3kzYUhQbm4tXy16d0dtTVBfU3ZtQQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
     }
    ],
    "comm": {
-    "n": 17,
+    "n": 30,
     "sentiment": {
-     "pos": 2,
-     "neu": 5,
-     "neg": 10
+     "pos": 8,
+     "neu": 6,
+     "neg": 16
     },
     "top": [
      {
-      "text": "그런애가 왜 그때만 골 많이 넣었냐? 뭔 억까 그정도 골수면 진작에   피엘에서 중워권팀 오퍼 있어서 갔어 꾸준함도 없고 유리몸인데 뭔 억까 ㅇㅈㄹ이야",
-      "url": "https://www.youtube.com/watch?v=tedriB_QkAc&lc=Ugyj4LAvK09q9SIITKt4AaABAg",
+      "text": "슈퍼카 사과했냐\n은퇴논란 해명했냐",
+      "url": "https://www.youtube.com/watch?v=3x2RwWuKEp0&lc=Ugw2kXQQUyhj0tIQM8B4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "황희찬은 이미 pl 한시즌14골이라는 성적도\n낸선수임 싫어하는건 ㅇㅈ인데 억까는 하지마셈 ㅋㅋ",
-      "url": "https://www.youtube.com/watch?v=tedriB_QkAc&lc=UgxwuqbcKRW7daSXlZ94AaABAg",
-      "sentiment": "pos"
+      "text": "국대도 내보내라",
+      "url": "https://www.youtube.com/watch?v=3x2RwWuKEp0&lc=Ugy84BytdtyTf5OyMdN4AaABAg",
+      "sentiment": "neg"
      },
      {
-      "text": "저건 홀란 침투가 살린거 같은데 뒷 침투보고 준 패스가 아니야",
-      "url": "https://www.youtube.com/watch?v=tedriB_QkAc&lc=UgzdoJsEHbiuX-zYjVB4AaABAg",
+      "text": "한명 바뀌고 경기력 다르면 안좋던 이유는?",
+      "url": "https://www.youtube.com/watch?v=3x2RwWuKEp0&lc=UgySe9EhK_sXU5Y0oDl4AaABAg",
       "sentiment": "neg"
      }
     ]
@@ -3085,31 +3090,36 @@
     }
    ],
    "comm": {
-    "n": 2,
+    "n": 7,
     "sentiment": {
-     "pos": 2,
-     "neu": 0,
+     "pos": 5,
+     "neu": 2,
      "neg": 0
     },
     "top": [
      {
-      "text": "이재성이 최고다",
-      "url": "https://www.youtube.com/watch?v=2NxED7pOj4w&lc=Ugw2a_dj2j6GJJBrgap4AaABAg",
+      "text": "이재성 마지막 월드컵이니깐 더욱 그렇지\n다음 월드컵 2030년 이재성 40살이라 못나온다",
+      "url": "https://www.youtube.com/watch?v=2NxED7pOj4w&lc=UgwAp1qN_wqKMuTvGth4AaABAg",
+      "sentiment": "neu"
+     },
+     {
+      "text": "이재성 트래핑 많이 좋아졌구나",
+      "url": "https://www.youtube.com/watch?v=MTLPK7KfKqY&lc=UgxcOxos7jrODqgQCzt4AaABAg",
       "sentiment": "pos"
      },
      {
-      "text": "제 아는 지인이 모 국대선수 장인인데\n국대선수들 중 유일하게 안티가 없는 선수가 이재성 선수라고 하더라구요,\n모두에게 존경과 사랑을 받고있는 이재성 선수,그리고 대한민국  축구의 영원한 레전드 차범근 감독님,두분 존경하고 사랑합니다",
-      "url": "https://www.youtube.com/watch?v=Sm-NFubD6RU&lc=Ugy9E7OF7ESGR0xXBzR4AaABAg",
+      "text": "이재성은 그냥 호감형",
+      "url": "https://www.youtube.com/watch?v=MTLPK7KfKqY&lc=UgxO_CNdec_AegMNfMt4AaABAg",
       "sentiment": "pos"
      }
     ]
    }
   },
   "6": {
-   "n": 55,
-   "h24": 0,
+   "n": 56,
+   "h24": 1,
    "sentiment": {
-    "pos": 22,
+    "pos": 23,
     "neu": 31,
     "neg": 2
    },
@@ -3140,7 +3150,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
@@ -3157,6 +3167,12 @@
    ],
    "headlines": [
     {
+     "title": "대반전! 1위 김민재, 2위 이강인, 10위 황인범...韓·日 통합 Elo 랭킹 상위 50명 공개→한국 선수 10명에 그쳤지만, 최상단 점유",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9zbjctdThYZUg1aVlOaUVWcEtfODZqSzVyQVUweW82dUF4Mk40REx1Q2ZWZFJfRk5ONUtvNUhmWm5pamI2LTJlLVNIN1Q5ZmZQUHA1eElVZE16c0Q3a2JEd1RCenJLMmZQS1VYQ2R1UUx3X09zRlE?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
+    {
      "title": "‘친정’ 페예노르트 상대한 황인범, “특별한 밤! 아직도 내 응원가 들린다”",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE44T2dJeVgzSHRYSnZqWUU0aWtQdDZkQnNQSE9fQ3c3RUx2bTByb3JSSEpoOVVacGltbFdQaW8wWkFlaHNMUzd1T2ozNFFkWUJsenU5YWxoWGgwVmN4MmVLS1RDOXp4VEdPcmpYZDVEVkpRZw?oc=5",
      "date": "2026-11-26",
@@ -3167,35 +3183,29 @@
      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5paUE0N0wwMXozNmNYTUprVE9oSDA3eHZiU3Y2WEEyZ0RJcWdPSGozc3ZNcm44bmV6d1VxckNfR3NZRVhRYW83YXhwN0pkd1owZjZ4LUxnUzllTmNBNnJOS0llX21Ld1JaQXc?oc=5",
      "date": "2026-11-25",
      "sentiment": "neu"
-    },
-    {
-     "title": "해외에선 인성까지 인정받은 황인범, 국내에서만 딴판?",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFB6TllRQU1oQUk1VktGUDFrM2R0cWZicW9pRlI4RmhSb2RVSFp1eFF4aW1odzVlTEJHeWxsVjI3VnU1QzJWcmNma0FJVlZTYVpfR1HSAVdBVV95cUxOUFZCX1MzX3lWTWtLRXY4QjdiQmh0OW1sOEJNTlF2c05VOFpLVTVBQjB0RzJzMU9FQVdFVXQ1T1lqcHM4TjZ1bGk0WElMTnl1dmYyeTNzVG8?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neg"
     }
    ],
    "comm": {
-    "n": 28,
+    "n": 30,
     "sentiment": {
      "pos": 3,
      "neu": 5,
-     "neg": 20
+     "neg": 22
     },
     "top": [
      {
+      "text": "당연한결과!\n96라인국대꼭퇴출시키자!",
+      "url": "https://www.youtube.com/watch?v=dzWUt_K3H74&lc=Ugwr8y4d7yCDqOKq1x14AaABAg",
+      "sentiment": "neg"
+     },
+     {
+      "text": "와우   제발 방출해라",
+      "url": "https://www.youtube.com/watch?v=dzWUt_K3H74&lc=Ugxl335jFC7NygmKwjt4AaABAg",
+      "sentiment": "neg"
+     },
+     {
       "text": "황인범이가 손흥민 선수 대하는 모습을  소속팀 선수들에게 알려야",
       "url": "https://www.youtube.com/watch?v=dzWUt_K3H74&lc=UgwambYSj8fSxvOpM2p4AaABAg",
-      "sentiment": "neg"
-     },
-     {
-      "text": "쌤통이다.",
-      "url": "https://www.youtube.com/watch?v=dzWUt_K3H74&lc=UgylHql4HsDx2MjviLh4AaABAg",
-      "sentiment": "neg"
-     },
-     {
-      "text": "실력도 안되는것들이 참! 기가찬다",
-      "url": "https://www.youtube.com/watch?v=dzWUt_K3H74&lc=Ugzu3QZaHFsGwaYeg7d4AaABAg",
       "sentiment": "neg"
      }
     ]
@@ -3272,36 +3282,36 @@
     }
    ],
    "comm": {
-    "n": 9,
+    "n": 11,
     "sentiment": {
      "pos": 7,
      "neu": 1,
-     "neg": 1
+     "neg": 3
     },
     "top": [
      {
+      "text": "축구도 모르는 인간아 설레발이 고마쳐라",
+      "url": "https://www.youtube.com/watch?v=x48aruAmfwM&lc=Ugwgkt9vXEL-9fr5zwR4AaABAg",
+      "sentiment": "neg"
+     },
+     {
+      "text": "분데스 주전을 안쓴다? 간이 배 밖으로 쳐 나온거지ㅋㅋㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=x48aruAmfwM&lc=UgxXf-cMc_X62q7QLcN4AaABAg",
+      "sentiment": "neg"
+     },
+     {
       "text": "중미가 지금약점인대 중미가\n딱맞음 뛰어난피지컬 저돌적인공격",
       "url": "https://www.youtube.com/watch?v=x48aruAmfwM&lc=UgxbHj6mbhu_BsndHV94AaABAg",
-      "sentiment": "pos"
-     },
-     {
-      "text": "옌스는 미드필더가 맞다고 봅니다. 패스마스터급 시야와 패스, 레이져급 중거리슛팅, 반다이크도 울고갈 몸싸움, 메시급 밸런스! 최적의 포지션인거 같습니다",
-      "url": "https://www.youtube.com/watch?v=x48aruAmfwM&lc=UgylI3wKEBnk_OirfN14AaABAg",
-      "sentiment": "pos"
-     },
-     {
-      "text": "포백에서 검증 안되었다고 하는데 그래도 옌스가 낫지 않나? 다른 선수 쓰느니",
-      "url": "https://www.youtube.com/watch?v=x48aruAmfwM&lc=UgwK2y3RKr8svNjix0Z4AaABAg",
       "sentiment": "pos"
      }
     ]
    }
   },
   "8": {
-   "n": 18,
-   "h24": 16,
+   "n": 20,
+   "h24": 7,
    "sentiment": {
-    "pos": 7,
+    "pos": 9,
     "neu": 11,
     "neg": 0
    },
@@ -3332,7 +3342,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 2
     }
    ],
    "topics": [
@@ -3343,30 +3353,55 @@
    "keywords": [
     "선발 출전",
     "팀 연승",
+    "연승",
     "승격 경쟁",
-    "5연승",
-    "프리미어리거 기대"
+    "5연승"
    ],
    "headlines": [
+    {
+     "title": "스토크시티 밀월 2-1 제압…배준호 선발 출전 5연승 : 스포츠",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE53V01ubWpwSUZKR0pMNHQtMi1NdjVhbTIzMmRmVlJTZ2dvWVlHQXBXUFFyNTg3TGJNUENHM2lxUjB2alVjYk1LSUJvcw?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
+    {
+     "title": "'日 9명, 韓 0명' 무너진 자존심, 배준호가 세운다...스토크 시티, 英 2부서 파죽의 5연승→선두와 승점 동률! 감독도 \"훌륭한 성적, 기세 이어가야\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9lQWpJMkxjWXJvSWQ3cWJReU5mQldaMXpZTVhadHpRNjFHX05GSlBwaUhkbThFUVQ5VXVIdTdlYWJZTG9TengwWkhOaXFwS1ZtUUp5azd1LTh2ZkRCd2dHVHV0ekpha1JGUlo5QVZWR2dXM0gy?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
     {
      "title": "‘5연승 질주’ 배준호의 스토크시티, EPL 승격 가시권…‘프리미어리거 0명’ 깨나",
      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBvbFNsUlI1akxoMXVYdDIwUG9GX1FFNHB5LTdJMUFmYlo1eWVaR01ia3pVWnEwTGhwczVuaFZSdmQ2d3dOektZNHVjUnZYTTV4Y25vbXh1Z3I0U3BHdHfSAWNBVV95cUxQNFY0THRpME01TkU5c2VzenQzQmNvVlRwc0theGxHMEhWN2dsUnRmakl6cVZLN0dOVnFRVW9UajdRTTZRTUtOSFMxSmhmY2dILUxvOEVTM2U2RnFLWEFPNDdGb3M?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "'한국 대표팀 미래' 배준호, 韓 역대 16호 프리미어리거 꿈 이뤄지나...여름 이적 불발→소속팀 승격 희망 상승, 스토크 밀월전 2-1 승리",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9oTnZzR3RWWkVmMU15ek9xR2x6VENMMlpFbFIyc2pPX0h1elVyN3RqZUZ2dE5xTU5mZWEzZXllTm9mQ2JGMW9xXzl3QXRhQ1ZFRVh5SVp5dUxzcFl6Zmhta0tHVG9rQWhCYXNGakhJYWh5bHJfRnh2S3NJSFg5UQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
-    },
-    {
-     "title": "배준호 선발 출전-스토크시티 5연승, EPL 승격 경쟁 가속",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5nQWw5S0JVbHh5cjhLaGc0NVFVNENsUHpXYm9LRlFpbXdwcWlsOE9mbjYyaDZOWl9NT1RSR0x5WTdXc0JueU5zRHNIdy1CRklodUh4eW5aaDA5U1JENFlCZkpMUWZPd1ZLc2hrTUl3?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
     }
-   ]
+   ],
+   "comm": {
+    "n": 8,
+    "sentiment": {
+     "pos": 1,
+     "neu": 3,
+     "neg": 4
+    },
+    "top": [
+     {
+      "text": "묵직한 선수..차기 주장감",
+      "url": "https://www.youtube.com/watch?v=ZDDzT7sZLrA&lc=Ugy-a0Va7GmxOZ-QTll4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "아직 시즌초반인데 설레발 오지네",
+      "url": "https://www.youtube.com/watch?v=ZDDzT7sZLrA&lc=Ugz_Eg7PpOmfMo4bPUt4AaABAg",
+      "sentiment": "neg"
+     },
+     {
+      "text": "공미인데 공격포인트가 너무 없어서, PL 승격해도 과연 선발명단에 남아있을까 싶으네. 백승호는 주전 경쟁에서 밀리고 있고, 엄지성은 잘하고 있지만 스완지가 올라갈 수 있을지가 의문. 현재로선 PL 입성이 가장 유력한 선수가 김민수 뿐. 그런데 민수도 다다음 시즌이나 되야 이적이 가능할듯.",
+      "url": "https://www.youtube.com/watch?v=ZDDzT7sZLrA&lc=UgwJnvI5mj2kv20YnMl4AaABAg",
+      "sentiment": "neg"
+     }
+    ]
+   }
   },
   "9": {
    "n": 1,
@@ -3443,12 +3478,12 @@
    }
   },
   "10": {
-   "n": 10,
-   "h24": 3,
+   "n": 11,
+   "h24": 2,
    "sentiment": {
     "pos": 2,
     "neu": 2,
-    "neg": 6
+    "neg": 7
    },
    "daily": [
     {
@@ -3469,7 +3504,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 3
+     "n": 4
     },
     {
      "date": "2026-11-26",
@@ -3487,10 +3522,10 @@
    ],
    "keywords": [
     "부진",
+    "팀 부진",
+    "연패 우려",
     "아쉬움",
-    "작심발언",
-    "수비 붕괴",
-    "이적설"
+    "작심발언"
    ],
    "headlines": [
     {
@@ -3584,13 +3619,18 @@
     }
    ],
    "comm": {
-    "n": 29,
+    "n": 31,
     "sentiment": {
-     "pos": 21,
-     "neu": 7,
+     "pos": 22,
+     "neu": 8,
      "neg": 1
     },
     "top": [
+     {
+      "text": "애초에 겨울 이적시장에 다 안팔듯 ,팔겠냐고 제발",
+      "url": "https://www.youtube.com/watch?v=GM8nprCbMs0&lc=UgwxKZS8o4SiH1T08Fp4AaABAg",
+      "sentiment": "neu"
+     },
      {
       "text": "음바페 지리네",
       "url": "https://www.youtube.com/watch?v=xZU1S7ZmbqI&lc=Ugyo3Fh7cJxRhHtsOH54AaABAg",
@@ -3600,18 +3640,13 @@
       "text": "대바페",
       "url": "https://www.youtube.com/watch?v=hqu7lwY1JCk&lc=Ugxx0Xe3xPTXt0mRhUx4AaABAg",
       "sentiment": "pos"
-     },
-     {
-      "text": "음바페도 벌써 27이네",
-      "url": "https://www.youtube.com/watch?v=ZpDIymYs2gA&lc=Ugxlo7pII9oh476difF4AaABAg",
-      "sentiment": "pos"
      }
     ]
    }
   },
   "12": {
    "n": 12,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 5,
     "neu": 5,
@@ -3701,10 +3736,10 @@
    }
   },
   "13": {
-   "n": 38,
+   "n": 39,
    "h24": 5,
    "sentiment": {
-    "pos": 30,
+    "pos": 31,
     "neu": 7,
     "neg": 1
    },
@@ -3735,7 +3770,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 1
+     "n": 2
     }
    ],
    "topics": [
@@ -3752,6 +3787,12 @@
    ],
    "headlines": [
     {
+     "title": "“이분 질문이 아직 안 끝났잖아요” 실력·인성 모두 뛰어난 벨링엄, 여성 기자의 질문권 지켜줘 찬사",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ReWxoTHNmYWtfRkg2aWdLa0o2b0lER2NCN0tHS2FxajdqS05oZEZVSFgtRmRLR3FvRThoOVd4dWxfUV9lSnlTOGdoUE9pYWZlVkFIV2pSUXFYdUdZT1p6NXl1NNIBY0FVX3lxTE5ReWxoTHNmYWtfRkg2aWdLa0o2b0lER2NCN0tHS2FxajdqS05oZEZVSFgtRmRLR3FvRThoOVd4dWxfUV9lSnlTOGdoUE9pYWZlVkFIV2pSUXFYdUdZT1p6NXl1NA?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
+    {
      "title": "벨링엄: \"지단은 나보다 더 훌륭하고, 더 우아하다.\"",
      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBrMlJkaTV0T2xqaEphaWQxWXp1RWtvX2JuVFJTMFN2NXlvWHRNeUJzbHZEZEE1VnFaTEpuajZyS3J3NHZkZzBDNFk0VzZaM1kyUXBaLWVnbWtyWlprQWhOT3VUb2tpWEc5MDR6UllGOGtEdW1rVm41UGk4cw?oc=5",
      "date": "2026-11-27",
@@ -3762,22 +3803,21 @@
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1HTE9oTW01TE9yeGQ4YjJiS3BoU3Rvd21qQlRIUE9QT25ZdTU0WXg3NFJ1VzRhRDl6N1BXM2w5emVWODY5WjU0cEtFMzAxcEEtRkNkSDl5QV9IWVU1UlI5RnZ4b19rbFlQOFJoS0Roa2NVdGVh?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "“달라진 점? 모리뉴 감독님”… 지단 떠오르게 하는 득점으로 레알 마드리드 구원한 벨링엄, “감독님이 많은 것을 바꿨다”",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9WTWxMS2dSVW1udEdGQm5EcWF1TE5kMjZDOWRhODFNUUZxS1N4Q2JBTWNlN3BvUU0zeGRRVTQ5TmRrbnVGdFFsbHRxcFo2UDZ6Z3RKZVJuWkNTU0N0MEFBSGthUlRqT3U4VElCQXRB?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 33,
+    "n": 36,
     "sentiment": {
-     "pos": 33,
+     "pos": 36,
      "neu": 0,
      "neg": 0
     },
     "top": [
+     {
+      "text": "진짜 존나 멋있음\n내가 본 선수 중에 간지 하나는 1황임",
+      "url": "https://www.youtube.com/watch?v=oviTQppNMNI&lc=Ugxi-9gY9du4buoDo_h4AaABAg",
+      "sentiment": "pos"
+     },
      {
       "text": "얼굴 실력 몸 모든걸 가진남자 거기에 낭만까지.. 질투난다",
       "url": "https://www.youtube.com/watch?v=oviTQppNMNI&lc=Ugx5e6QnA-aATIWr1aV4AaABAg",
@@ -3787,20 +3827,15 @@
       "text": "벨링엄 축신의 경지에 이르렀다",
       "url": "https://www.youtube.com/watch?v=CO8fNqT9RMM&lc=UgyPS6TqBvlpCWHXnWd4AaABAg",
       "sentiment": "pos"
-     },
-     {
-      "text": "현 폼 가장 완벽한 육각형: 벨링엄",
-      "url": "https://www.youtube.com/watch?v=u_ejpQ2ywsA&lc=UgwNdIQPuSMLmzvmQ_x4AaABAg",
-      "sentiment": "pos"
      }
     ]
    }
   },
   "14": {
-   "n": 0,
-   "h24": 0,
+   "n": 1,
+   "h24": 1,
    "sentiment": {
-    "pos": 0,
+    "pos": 1,
     "neu": 0,
     "neg": 0
    },
@@ -3831,16 +3866,28 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
-   "topics": [],
-   "keywords": [],
-   "headlines": []
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "풀타임",
+    "득점"
+   ],
+   "headlines": [
+    {
+     "title": "밥값 하려면 더 뛰어! 살라, 튀르키예 가서 뜻밖의 ‘혹사 모드’ 또 풀타임+득점포",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Kb2xaS1puLU81ODZXdDJ5dmsxYWJNcVBDNXZXekxoNlRpbjFlZWVsRDZTYWMxSnMyRUhKX1RHSXZmRG8wTGRSQmQtRUtnTkp3cXI3c284UWxOUkQ5SlFEVlhsT2hsZkloUDYwMXhNTXA0UQ?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    }
+   ]
   },
   "15": {
    "n": 17,
-   "h24": 3,
+   "h24": 1,
    "sentiment": {
     "pos": 3,
     "neu": 10,
@@ -3990,17 +4037,17 @@
    ]
   },
   "17": {
-   "n": 100,
-   "h24": 3,
+   "n": 103,
+   "h24": 0,
    "sentiment": {
     "pos": 2,
-    "neu": 19,
-    "neg": 79
+    "neu": 21,
+    "neg": 80
    },
    "daily": [
     {
      "date": "2026-11-21",
-     "n": 51
+     "n": 52
     },
     {
      "date": "2026-11-22",
@@ -4012,11 +4059,11 @@
     },
     {
      "date": "2026-11-24",
-     "n": 2
+     "n": 3
     },
     {
      "date": "2026-11-25",
-     "n": 1
+     "n": 2
     },
     {
      "date": "2026-11-26",
@@ -4060,11 +4107,11 @@
     }
    ],
    "comm": {
-    "n": 14,
+    "n": 16,
     "sentiment": {
-     "pos": 3,
+     "pos": 4,
      "neu": 5,
-     "neg": 6
+     "neg": 7
     },
     "top": [
      {
@@ -4078,19 +4125,19 @@
       "sentiment": "neg"
      },
      {
-      "text": "파머스 리그라...챔스에서 증명 못하면 나가리인데.....",
-      "url": "https://www.youtube.com/watch?v=spWYW3Iyswk&lc=Ugz8ntLks1VOnyi6Rrl4AaABAg",
-      "sentiment": "neg"
+      "text": "스포트릭이 케인의 성곡적인 복귀를 응원합니다.\n여러분은 케인의 성공적인 복귀를 예상하시나요? ⚽🔥",
+      "url": "https://www.youtube.com/watch?v=k6BdB1LO-54&lc=UgyU0JMuy1ni5fd8VE54AaABAg",
+      "sentiment": "pos"
      }
     ]
    }
   },
   "18": {
-   "n": 26,
-   "h24": 3,
+   "n": 27,
+   "h24": 4,
    "sentiment": {
     "pos": 0,
-    "neu": 8,
+    "neu": 9,
     "neg": 18
    },
    "daily": [
@@ -4120,7 +4167,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 1
+     "n": 2
     }
    ],
    "topics": [
@@ -4137,6 +4184,12 @@
    ],
    "headlines": [
     {
+     "title": "바이에른 뮌헨서 ‘연봉 조정’ 논란, 동료 키미히도 반발한 ‘무시알라 사태’… 그 사이 리버풀은 영입 검토 중?",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQbDFTeU1aLWxuTGFlaE1hMXdTMjRMcmJmYzlDd25UZlJBWHRyOUxaYkVKcm1kbFV0dmNiTm4xV3FVcXRWS0lSQm9xMmQ1cFhtbGhzTnNoeUMtTmZINHZjMF9rTHpoTUlxNjJyWFpn?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
+    {
      "title": "\"김민재 재계약 올스톱!\"…바이에른 뮌헨 발칵 뒤집혔다→'2200억' 무시알라 정신질환+먹튀 조짐에 전전긍긍 \"KIM 논의 나중에\"",
      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5wRGc5RTBsVmhFMEZpQjI5U29JalY0WF9iSTMwdHo0NGEzVFdSRlJWcW1RdHdjMURWMHZtQjdlYzkzMm1GYW1vZDduWUswdTF5OEFTbXJ3?oc=5",
      "date": "2026-11-27",
@@ -4147,45 +4200,39 @@
      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdVJDamNfUG5XSGs2bjFTMFRBQWZOR3Fqc2ZwQlM2azF4ZjFfN1k3dmdRTG94ZVZvTWJ1V3l5VlMzWEhVYVBsTkFVMGwwMG11X0dqYW45a3ZqdzJhVlJhU3NsREhIaDBQZTJMeGJYbWpIcGlQWjE4dU42QU9YamQyU09NUlEtQTYzRTRn?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
-    },
-    {
-     "title": "아픈 무시알라 계약 흔드는 뮌헨에 분노한 주장 키미히, “팀이 선수보다 위대해도 사람보다 위대할 순 없어”",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1Mcml4LUVqRmczcmJwTlhrcW9rUjNCY0FlUlZVNGxaZmJOTVpnWDhHT2pnYUhGYnh1SHJNMTN1bXZ6N0Q2X0lNNWh0b21XZDlOQWNvUzRCUUZrTl9EeDJycHg3M3d3NXYzNy1iS3NB?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neu"
     }
    ],
    "comm": {
-    "n": 4,
+    "n": 11,
     "sentiment": {
      "pos": 1,
-     "neu": 1,
-     "neg": 2
+     "neu": 4,
+     "neg": 6
     },
     "top": [
      {
-      "text": "FIFPRO having to publicly call out Bayern over Musiala says everything — and they did the exact same thing to Kroos in 2014. If Olise is watching his best mate get treated like that, where do you thin",
-      "url": "https://www.youtube.com/watch?v=MKBBncgrifk&lc=Ugxsu8sTZ_hq_PNLLd94AaABAg",
+      "text": "폼 돌아오는게 문제가 아니라 경기 뛰는것 자체가 힘든 상황임. 프리시즌때 실제로 경기 뛰다 거품물고 기절함",
+      "url": "https://www.youtube.com/watch?v=KSoppZvhutM&lc=UgytIbwt0XjNPV7DSzJ4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "And that doesnt mean he wants to leave, hes just supporting his Best friend at bayern",
-      "url": "https://www.youtube.com/watch?v=MKBBncgrifk&lc=Ugw6nhSXrgl6RQaJahl4AaABAg",
+      "text": "무시알라는 진짜 너무 안타깝다 ㅜㅜ 부상만 없었으면 싶지만 또 축구는 너무 격한 스포츠라 또 부상을 피하는 것이 마냥 쉽지만은 않아서.. 그저 안타까울 뿐",
+      "url": "https://www.youtube.com/watch?v=VqIKySwAiYs&lc=UgyMHbKaBFbVNIJXFyx4AaABAg",
       "sentiment": "neu"
      },
      {
-      "text": "Bro said this last season also😭🥀",
-      "url": "https://www.youtube.com/watch?v=MKBBncgrifk&lc=UgzpVU6pT50PnKx9DdZ4AaABAg",
-      "sentiment": "neg"
+      "text": "정강이 골절도 되게 큰 부상이긴 한데 뇌전증이 진짜 큰 문제인듯\n저건 신경계 문제라서 본인이 노력한다고 해서 해결할 수 있는 문제가 아님\n재능도 증명했었는데 참 아쉬운 재능이다",
+      "url": "https://www.youtube.com/watch?v=VqIKySwAiYs&lc=Ugy5HA073ZyyewfKLoN4AaABAg",
+      "sentiment": "neu"
      }
     ]
    }
   },
   "19": {
-   "n": 20,
-   "h24": 10,
+   "n": 21,
+   "h24": 4,
    "sentiment": {
-    "pos": 19,
+    "pos": 20,
     "neu": 1,
     "neg": 0
    },
@@ -4216,7 +4263,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 1
+     "n": 2
     }
    ],
    "topics": [
@@ -4227,11 +4274,17 @@
    "keywords": [
     "맨유전",
     "부활",
+    "이주의 선수",
     "완승",
-    "활약",
-    "상승세"
+    "활약"
    ],
    "headlines": [
+    {
+     "title": "[오피셜] 맨유전 기회 창출 10회→1골 1도움 '미친 활약' 비르츠, PL 이주의 선수 선정…마침내 부활 신호탄 쏘아 올렸다",
+     "url": "https://news.google.com/rss/articles/CBMi2ApBVV95cUxOaWIxMVlYN1ptYzFwSnVPTmpVRnRJelVmTXFEcUVab3FtMDc3dTlIVkJTVm5iSHBpN0JnNVdhQ3R0azRGVms5TkdlUk1aWUdKVTVmM2dyNDlVZmlqaWlUMzB0U1hubS1nWUptWlJUX1I2cV9vbWNhTUVJeFU2azdZdVdSclZaUUpEellsN0MtWkFNVnJfbnRBZHhsZTBtRFFCX0hOWXMxUDR3eUR3VkQ0blIzdHVtT2I4ZzYxZ2ducDItR0RGU0tMaG1halFWX3l4SXR5ODNsb0lZYlZaSkpTM0xRbXhDWS15TmhtVVhOSFhjNXdmUEZLa1RlQm53ZDMxYjdSZzFmV1UzeG5NajRiTG44V0JEYWlRRHVOMEpGVUo5aE9FT19wYXljRVpkRTEwNHV2alhfYlVkNTlHUXJSWjVXMDVRRHlzWjdiTEIyV09zaThPdUJ3RVZndXdILWhpTEE0QXQ3Z00zZjkxbXJqZ2JNbnV3RXdRQ01oaUxickg2ZVVLOEJySzdGQzFUYkZFaFpRU2xfajBSN0MyazhGdVk1a2Nva1JYci1ST3BaSU4wc0lJdFBoRVVTTDdsTTQzY0hxVzNPOWFnbnFJQlBVdWtoMHk0U2I3TElheVlLRHJyck1zTjM3ZkcyaGNtRl9NcUFxVkpsdmlqb3BLdW1MWVMwVGh3WjZGQXdqNnJwQmpCSllCSU82Z3JuNXJ5Rk91ODdZNnRBc3pIcGd0Q0d6bkVRY0dRSG5wVDc5d0gyWXpCUmpCbmtjR2VKcHFxZ3VscWdLQmpXZENYaUFPTUlLdnNCTVVFblBfazMwcS1ua3NPakgzT0pzRk40enJBTXNjdzhOVzVld1I2YUdOa0k0NVZnUVJ3V2N2REdIWTF0SUx5T1JhdWNhTmdKTS1wSVVmWEZmZUZ2d0I4eURBNkgzMTJZZXp0eWZLYzBYY1V2bDRlMWZDeE9URm5XTFBuU1hBdkpNWmVhRFY3MlFUTThBcks1RGtxV09VZUxmTTAzd2VkZmwyM3VTQ0EtRE5Yb3dISEg0TnAtX2tTa1BuWmVoWUpkYzJzZlQtSVJsZm9tZUs5d2g3UmFqN0syQmxraUFmSkdkZHgzSnNJZzMwdlAyZEt3cE9DMFBVS2d5WEF6Tl9VYnpYdVdJOWEwUF95TTFqbE9jNHo2VkY1LXZfTEtYYTN6Y0ZDZnRnaXdzbFFUQWxmNTlHbnMyandxcXNUdVlPQ21OUm53WVI4eTBfVUdZRXBiOVBqUm9tNWlIV3VqSWRubUtqUDBldFUtMXRhRm01NEd4eDBiejRGX2tTMkVDMU5SbEVlNW1VYkEzMW5INlNwbzMwNHpWUVQtN1N0QU8yT29nb1ZTb0JMbzZrbm5ocEt2cHBvd3V5eVF3OWY0R2hzenFMdS1QSnV4T2d6bGp4MjhELWpNMW1wX1hKTzliNDF2OXVfRkNpMXc0S0NCNVdOUV9ScHFhMFpCY1pDU1hBTFhXVzJqM3V0Ty1KR0Z5UHp0SE9IWjBJTW5tVXZaR3drV2JkQjN3WVJRanFCNEVaWDR6ZGxaeVpLUWppYnNiV1YzTXdVeWFvSG01R3dmMmgtNUl4eUlyY082NG53RDNENlpDdWpwZ3pWRUhYdkNYbEJoNEE2NXJGQlJHTk5HblVucVF5WlJlS1A4UUM4aHRHelZhVXNuRmQyMGJ6R1hLandrYnN4RWlTNkRjU0tVeFBVaWRrUFVHZ3FyQjI0Q3diSUtrSFhfZzdBM2xUMjNZRFByMW1mM0xkVlNPSUh2M3RaY2ExYVZVZm0zTUhZY0wtZmVwdFJmcVo?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
     {
      "title": "“맨유 상대로 넣은 발리골 거의 50번 돌려봤어” 19위 맨유 찢은 ‘2000억 사나이’ 비르츠, 맨유전 원더골에 자부심...커리어 TOP3 골로 뽑아",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9rNlpBWEd2N25KcnZVUC1RSW0yczg0V3ROWkRCT2FhNWhWNl9IeHBVYmJwR0F5and0NUwzaXhETjJDM0pROXhDSEhOdzlVQXF6MTlGa1lqTjhVTnRMQWppdTFjU2d3QW9ub01YWF9hbW9qdw?oc=5",
@@ -4243,21 +4296,15 @@
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPUFgyc1NZV19DRE9ZT05jTTJmRmpwXzQ1dHFGanR5YVdWSjB4bFNzRm1LeDJ3a1EwUm1Rd0E1b1FjV2Mydml5SlhPQXdnTTZTMjdSUDg4UHhZcGt0M01rTnNCbmFBZ2hmeFVSMVZ0NnZDTk1uN1VPUklUamR0N2VIczJoeFVOc294NE9rS0d0UDhWTGhpd0loSXA4dkw4MWNFVTBuYjNVaXV4ZElwV3c?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "리버풀은 이삭과 비르츠의 활약으로 계속해서 상승세를 타고 있다.",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE56SnJGdjVZYUlUSlByczFrNU85TUdlTWpRZXBvcmNsdjJ4Q3ZJS0hETmNTNWQwWkFtMnVWVk5oZWR1UFVrZEtXS3ItQ2w2UmpUZFRNdzNBaUhGMG9MM0lzOEpKN2R2WFpsclV3S0p2eEd1b0FhUng5THlDZw?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ]
   },
   "20": {
-   "n": 1,
-   "h24": 0,
+   "n": 3,
+   "h24": 1,
    "sentiment": {
     "pos": 0,
-    "neu": 0,
+    "neu": 2,
     "neg": 1
    },
    "daily": [
@@ -4271,7 +4318,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-24",
@@ -4287,18 +4334,34 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
+    "이적",
     "부상",
     "기록"
    ],
    "keywords": [
-    "발롱도르 징크스",
-    "부상 이력"
+    "그리움",
+    "전 동료",
+    "레알 마드리드",
+    "바르셀로나 선택",
+    "발롱도르 징크스"
    ],
    "headlines": [
+    {
+     "title": "맨시티의 로드리와 베르나르두 실바에 대한 그리움",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQc0RFRnV3cjRFdi1Wa2lKMVpRUGJwTDFyUC12TWstWGY1Q1dCSVVzSURkUGtfdTI2NVkyV1N1OFN3Ml82YTBrOWdhV0k4TV90bGJsTmVGUjBLbWR3TjlHUHhqNDNMMzhMVmo3aUthYnRPQTlQS0ZYU2ZnQmJRRjR5MUEwSjN0TWVtM2RDWE02OGpVUVUtbVVrdWJ3?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
+    {
+     "title": "레알 마드리드에 쫓기던 로드리, 바르셀로나 선택",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE55RHdWSnhnRmVCazFXRktOVzZKZzRnR193dFlRcVdJZEE2THlNMHlfLUhTcUJMdnVZT2ZhcGtqYUd3UUZBS3pDZGItaFRqVzMxNnlLRUFEMDBGaGhNQ1lyWmxFRVlJdndrZ203QVJ3RkNCcEpiU1VVXzE3SDdrTDA?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neu"
+    },
     {
      "title": "발롱도르에 내려진 저주? ‘발롱도르 징크스’ 정말 있었나...케인 부상 악재에 로드리-뎀벨레 부상 이력까지 화제",
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5iTTlIYkEwTnEwYzItdFA4MmtVZTJMQ1A1LWctUnpzYktPUEstSUxJRVZ1dVNlZFpia0tjTlhoZWRPZ1REYjFQckkwYjU2aGtJTkU1QVJfV2hUQ0pYdEZ3OGh4b2FVWTBacEQ2dk9iUDVnZw?oc=5",
@@ -4414,17 +4477,17 @@
    "headlines": []
   },
   "23": {
-   "n": 4,
+   "n": 5,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 4,
+    "neu": 5,
     "neg": 0
    },
    "daily": [
     {
      "date": "2026-11-21",
-     "n": 3
+     "n": 4
     },
     {
      "date": "2026-11-22",
@@ -4477,8 +4540,8 @@
      "sentiment": "neu"
     },
     {
-     "title": "“이번 여름에 작별할 수도 있고…” 재계약 소식 없는 리버풀 캡틴 반 다이크, “무슨 일이 일어날지 지켜보자”",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5SVmNSd01hRjEzYXRtRVNrLUZJdlVfWjF2RG9wcmd2MElRYWFmT3dCVm9LREx0QlhlZF91ZHBUQUQtS3JrOUlFSnJnQXpPN05HM2F1V3dvWTRZZHBwODJOZ2p4UXdEWWg0RnZmYXd3?oc=5",
+     "title": "로마노: 밀란은 버질 반 다이크를 높이 평가하지만 아직 협상에 착수하지 않았다",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBHWC1wbENMOTlYNXNQX2hhNVY1NFBNak4yRmVQdFpzbFhpYlhSUkZ4cmhtZG1HZDV3NUhWTTRfOE03bk05aVJKdG9nSDY5QV9sR2lSOEs3N3REZTFvRFMw?oc=5",
      "date": "2026-11-21",
      "sentiment": "neu"
     }
@@ -4871,7 +4934,7 @@
   },
   "31": {
    "n": 4,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 1,
     "neu": 1,
@@ -4942,7 +5005,7 @@
   },
   "32": {
    "n": 2,
-   "h24": 2,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 1,
@@ -5072,12 +5135,12 @@
    ]
   },
   "34": {
-   "n": 48,
-   "h24": 5,
+   "n": 52,
+   "h24": 7,
    "sentiment": {
-    "pos": 11,
-    "neu": 11,
-    "neg": 26
+    "pos": 12,
+    "neu": 12,
+    "neg": 28
    },
    "daily": [
     {
@@ -5086,7 +5149,7 @@
     },
     {
      "date": "2026-11-22",
-     "n": 24
+     "n": 25
     },
     {
      "date": "2026-11-23",
@@ -5106,7 +5169,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 3
     }
    ],
    "topics": [
@@ -5117,68 +5180,68 @@
    "keywords": [
     "공 던지기",
     "비매너",
+    "MLS",
     "발롱도르",
-    "공 투척",
-    "완패"
+    "공 투척"
    ],
    "headlines": [
     {
-     "title": "발롱도르 공식: 메시와 호날두가 모두 표를 준 선수는 단 두 명",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBBbkxnLUo4OXhyZDNzbGRUdkhQSnNZOGNudDktZ21xSFpISllrdjdNNzhjRnZ2TkxyVkZzLXlrQXF2TnhtLTQtVTFQcFFac2pWMVdOUVJZblhUUFl5MU1v?oc=5",
-     "date": "2026-11-26",
+     "title": "'축구의 신' 메시, 테베스 은퇴 경기 출전…박지성도 초청될까?",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBOcDRET091YVdrWjMtU2VuTEF4V2swOVRIcUlzWXlrOFcxX2hEa2dIUmdpdFJJaHZQdFRMcGtBaVc5bEZ1OEZCVllBc1NsVGdGb2c?oc=5",
+     "date": "2026-11-27",
      "sentiment": "pos"
     },
     {
-     "title": "메시에게는 끝내 단 한 표도 주지 않은 호날두...발롱도르 공식 홈페이지의 포장 \"동료들을 향한 조건 없는 지지\" - 머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBrcE9yel9uVmF0RktLSVF5NmdJSXNtME5FQzd5WGFOMEJPVzBNZXdIdlhhV2FrWm1ma2hfQ1NJZEVmUHVCNzlDcy00cUM5MGcyNnE5UDAyX2QwX0lWUVVVR3NWTk5sSXJZVkR5aUtSRdIBb0FVX3lxTFBrcE9yel9uVmF0RktLSVF5NmdJSXNtME5FQzd5WGFOMEJPVzBNZXdIdlhhV2FrWm1ma2hfQ1NJZEVmUHVCNzlDcy00cUM5MGcyNnE5UDAyX2QwX0lWUVVVR3NWTk5sSXJZVkR5aUtSRQ?oc=5",
-     "date": "2026-11-26",
+     "title": "'충격' 손흥민도 메시도 벼랑 끝! '8.3%' 못 뒤집으면 1R 탈락 확정...\"스타들 향한 압박 커지고 있다\" MLS도 조명 - 머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1vNVhTYVhxMEw1MGI1V0RJZ3lza2JlcVJBM19KV2tGNHhkXzJCR0p1ZDZrOE1GX3VFbTVoZXZRc3NYYm9lTDd6WXVCQzhxcGZVNlF2SzdSWWRrY19NOVRhSVNJbE03NmV5YnfSAW9BVV95cUxOSkdWeGJGbGtVSEdzUjlLR1c2T3c0NTAxRjlXSDZ3ai1uWldpVS1Gb2ozVE1ja0NJbGNIQk9YT1B6MTd2WEtJZ25MSTc3NGhmVHhyMktHVnhCV2FlR0I1a29Gckk4MHB4WTFOdXpXNnM?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neg"
     },
     {
-     "title": "메시에게는 끝내 단 한 표도 주지 않은 호날두...발롱도르 공식 홈페이지의 포장 \"동료들을 향한 조건 없는 지지\"",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9zWDUtRXdteHdPcTd6TnZHcXB2LWZvbUhDRHg3RURUeUJqTHU0U0dmb0tLcEFJbV9FOGx5ZjRIMGtURzBlWUJsUkY1ZjU4M2JQQWtUUA?oc=5",
-     "date": "2026-11-26",
+     "title": "'역대 최고의 라이벌' 메시, 호날두가 한 팀에서 뛴다...\"테베즈 은퇴 경기서 볼 가능성! 무슨 수를 써서라도 설득하겠다는 의지\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9rZ0lOdmxlcWl4VXY0RWFnYWVZTW5oT2VBcjdYQ3EycDYxQjhxNFNQWEZqc19WcW12N0tCV25ac1BxTEs3eElVM3JhckgyVEUzVmxSdjdUMnZIR2lqM0Z1MV85NHlTOUZmUWJyUFNnU2J2bkZI?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neu"
     }
    ],
    "comm": {
-    "n": 23,
+    "n": 27,
     "sentiment": {
      "pos": 7,
      "neu": 3,
-     "neg": 13
+     "neg": 17
     },
     "top": [
      {
-      "text": "pessi",
-      "url": "https://www.youtube.com/watch?v=KCWgK44REFw&lc=Ugzagjd755jUbqFNNYJ4AaABAg",
+      "text": "앞에서 알짱거린다고 공던지면 서로엘로우지 무슨 레드야 ㅋㅋㅋㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=KCWgK44REFw&lc=UgxzV66aDaU17L1-EER4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "사람이긴 하네 감정을 가지고 있었어\n너무 천외천이라 사람과 다른 결일 줄 알았네 인간미 있음",
-      "url": "https://www.youtube.com/watch?v=RpFwIDKN6Ew&lc=Ugxh0KE4z2OEunJTrAd4AaABAg",
+      "text": "아 진짜 줜나 웃기네ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=VaRCsIMrhuQ&lc=UgzlWAl7f8B4oyQhsd14AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "메시는 실수해도 어느 선수도 불평을 안해... 왜?? 완벽하니까..",
-      "url": "https://www.youtube.com/watch?v=xvmQyXPlqdM&lc=UgzdoHJHY7jgDvOtB_x4AaABAg",
-      "sentiment": "pos"
+      "text": "저게 노퇴장 ㅋㅋㅋㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=VaRCsIMrhuQ&lc=Ugz6rz3NPGDoE14cl8t4AaABAg",
+      "sentiment": "neg"
      }
     ]
    }
   },
   "35": {
-   "n": 50,
-   "h24": 9,
+   "n": 53,
+   "h24": 8,
    "sentiment": {
     "pos": 19,
-    "neu": 16,
-    "neg": 15
+    "neu": 17,
+    "neg": 17
    },
    "daily": [
     {
      "date": "2026-11-21",
-     "n": 11
+     "n": 12
     },
     {
      "date": "2026-11-22",
@@ -5202,7 +5265,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 2
     }
    ],
    "topics": [
@@ -5215,50 +5278,50 @@
     "페널티킥",
     "실축",
     "1000골",
-    "부심 조롱"
+    "통산 골"
    ],
    "headlines": [
+    {
+     "title": "‘호날두 또 사고쳤다’ 이번엔 심판 조롱→‘최대 3개월 출전 정지’ 위기",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5wZ1RFMGFxMlpzQkh1aV9Nb21QTUNEdVhQMEVoREZCZFNMbmxVeTQwck9Sb3A0MjZscnFmcE1zMFZsa0M4Z3Njb3l4ek5fTTVzcDhJVHJiSkFPMk1CbDZZd095SnZsS2ljM2NKTlNoa05GQQ?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
+    {
+     "title": "'역대 최고의 라이벌' 메시, 호날두가 한 팀에서 뛴다...\"테베즈 은퇴 경기서 볼 가능성! 무슨 수를 써서라도 설득하겠다는 의지\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9rZ0lOdmxlcWl4VXY0RWFnYWVZTW5oT2VBcjdYQ3EycDYxQjhxNFNQWEZqc19WcW12N0tCV25ac1BxTEs3eElVM3JhckgyVEUzVmxSdjdUMnZIR2lqM0Z1MV85NHlTOUZmUWJyUFNnU2J2bkZI?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
     {
      "title": "발롱도르 공식: 메시와 호날두가 모두 표를 준 선수는 단 두 명",
      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBBbkxnLUo4OXhyZDNzbGRUdkhQSnNZOGNudDktZ21xSFpISllrdjdNNzhjRnZ2TkxyVkZzLXlrQXF2TnhtLTQtVTFQcFFac2pWMVdOUVJZblhUUFl5MU1v?oc=5",
      "date": "2026-11-26",
      "sentiment": "neu"
-    },
-    {
-     "title": "‘눈 가리고 팔 흔들’ 호날두, 부심 조롱 행동으로 징계 위기",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE95VHVYUXJSTWhobGp1RkF2QThiRl9XWU16ZU9OMWVmT283akhFV0FMcndId3ZuTWVoYm9iSUxXcDZsaVJqbmJyeFFyMWZmeFczLXZiYndpYW1NT2lONXplY2h2a9IBY0FVX3lxTE95VHVYUXJSTWhobGp1RkF2QThiRl9XWU16ZU9OMWVmT283akhFV0FMcndId3ZuTWVoYm9iSUxXcDZsaVJqbmJyeFFyMWZmeFczLXZiYndpYW1NT2lONXplY2h2aw?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "\"눈 가리고 허공에 깃발\" 부심 조롱한 호날두, 최대 3개월 징계 위기",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE11SDdDakdDSjd6cFg4NEZpd3Bsc3dfZjJseGxUbENCenV3TVRjLTJvLWNKSjk0S2djRG01MVhOanBpTk5nOXppeTlNRHYwRDVHVWtTRQ?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
     }
    ],
    "comm": {
-    "n": 27,
+    "n": 40,
     "sentiment": {
-     "pos": 20,
+     "pos": 30,
      "neu": 1,
-     "neg": 6
+     "neg": 9
     },
     "top": [
      {
-      "text": "이니 침을 왜 갑자기 뱉어ㅋㅋㅋㅋ",
-      "url": "https://www.youtube.com/watch?v=_ZTFmghQFB8&lc=UgyuL5kfLyL5R1RkSd54AaABAg",
-      "sentiment": "pos"
+      "text": "그야 자격을 증명하지 못한 것들이 건드리니 트로피가 빡쳐서 저주를 내리는게 당연한거지",
+      "url": "https://www.youtube.com/watch?v=PXZJwoP7BVw&lc=UgxgzZIueqPL6xcZhkN4AaABAg",
+      "sentiment": "neg"
      },
      {
-      "text": "금방 찍겠네 1000골",
-      "url": "https://www.youtube.com/watch?v=_ZTFmghQFB8&lc=Ugy4edR5ZuCoKwnSfo94AaABAg",
-      "sentiment": "pos"
+      "text": "노쇼두 ㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=PXZJwoP7BVw&lc=UgxhuWs4ghv3NpH-29x4AaABAg",
+      "sentiment": "neg"
      },
      {
-      "text": "슈퍼스타 역사상 최고 GOAT",
-      "url": "https://www.youtube.com/watch?v=_ZTFmghQFB8&lc=UgzfHqpChD6pBNzEIFV4AaABAg",
-      "sentiment": "pos"
+      "text": "습관성 노쇼두 ㅋㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=PXZJwoP7BVw&lc=Ugxi9aTqsKjVYE1vdsJ4AaABAg",
+      "sentiment": "neg"
      }
     ]
    }
@@ -5403,11 +5466,11 @@
    ]
   },
   "39": {
-   "n": 41,
-   "h24": 14,
+   "n": 42,
+   "h24": 8,
    "sentiment": {
     "pos": 10,
-    "neu": 25,
+    "neu": 26,
     "neg": 6
    },
    "daily": [
@@ -5437,7 +5500,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 1
+     "n": 2
     }
    ],
    "topics": [
@@ -5454,6 +5517,12 @@
    ],
    "headlines": [
     {
+     "title": "맨유 참 안 풀린다…'PK 헌납→캐칭 미스' 라먼스 감싼 페르난데스 \"실수는 축구의 일부이자 선수단 전체 책임\"",
+     "url": "https://news.google.com/rss/articles/CBMi0ApBVV95cUxQQmMzZjVLQWRFcllkRElNQ3A5OHRhNlFMUGM2LWtuTklzVlVpVkVPMTE4SDRTRklCYzNSMHdCNG5tbUFiWGFQbDJPMDBrWHdKdkVwM0pZYlVVOFktQmoyWlExQVRBcGFNS0w0Q0M2TURKZmxvUklBeDJBZF9SZ0tEVlQ5WmpFaHFQdnR3UmFpRnBGalI1ZHYzOWJDTHlkWEJHejVtM19BT0R2OF9FOGJTZHpRdlNsZi1sVU1sRlM2VmVmeW5LUVQ2ZVluUlVNX1NvdU1UQzV0X3RyYUx3RkEwZm94T1JrQ0ticVhBUGFJUklpUVQwM3FYQUtFbmhVbWRHNjlRS0dEMUJzaE1IQk84VmhJTVBEdkxVaUcwQm9rbkxvU0RnWVJIbnpqR0k5NS15QnA3QzBVSDZIQ0RKZ212V3BtZ04ydUt3dmhSTi1IemlGVHVpUjJjNEVIclg2YXNhbzJqX0k5UUlQUTZlYWxEdzlsVGlzeU1oUGVNWkgxMWVkNWFSR19zUjlORmJFVmphWTVZTjhWT3ZDWWRuZVNtdy1yc2xCWjhsMXNlT1pWZXVmNnZzbjl1bVd6ckRES2RXWXBCTHduVkdjSW5mWkJqQ192WFc1dlRoQnpHU0dsaFV5MExDcGJLbzh3c1Ytb3FjWkp6UFpEYkt2dExGOUpLNFZROVVCcmI0RzVQUVNQNzNTR1B0bVZBdnU1ZDhMWXBzR3EtS01ZRUVKWUtXVjF2Z3htV1l5ZjVGUmVUMk1PbWNDTlZnU2hLZDl5VFI2LU5KenJzVDdMV2NpY3BiLVJZb0FDdjJMekQwMUJfS1hHM1ZrZVVoTl9sd1ZsQ0Z5RXhfU21BSE92UzBOZnBFSTh0YkExT0FOLUhDLUZ3M0NWRVo0WW4zTkZoVGVEWEFhMzFCNjhfR1lfWlpOVE84Q1BNOUVqR1psQk5yM2g1YVplUFRyRUJxWVg3b2U1TjhEMHQxbVFBQzN2MFJyQ216dlVLbjFTNWdid0hzTFhEVnBsb0IwMXNzRF9SMUFjdGlaXzhDWEY3WVFKMGkzeDR2Y1VDNW51LWkwQUVRMkc2NUlzN0hUOUNjaWtSblJfUmN3VlRxa0lJUFQ2U3pnYVQwTEJXTXNtMERkaWhYcGVsZElaQm9VMHoxV1c0VS1nQmV0UkF6VjVkSEI4SHpvRlRvMTJRSU5HbWJOTXhuaHZQbE45UHpZbXRlTzFTQlVZQ3IxOXN2eVNraC1CaEQ5NkpWbGtka2FYNGdsLWQyeVRvcFpxbHdPT1RWNzhCUm1CYzZpdlpjbjhKUnJXdWllUktUdE83RWl0dndPMDc5bkVaZW40dU4yZzQxYURVakJUVG5kbzA0SDI5WDh4dk9ldWFkZmNBeG1tQmxpZTVaOGxiTlIxMVZydUMtV3kyQmw0blNfbDk3TEdibThrVW4tZ3h4SUsxWEpRWWdYWVliV1c0VTlZNDE2Y2NlS2g1d0RrWWxxd284eTdISDlHNTRCRER3MDU4ZzBONlJvcnFsQndHaXpOMldDS2Y2UFozWnJGYW03cExsWUQxWUNZNDU5NFZqUWhnemttOG9aNnZiTGw0LUxxVTRCVVRyZEpnRWptSWlBbDRrT1dzV2NmaUpfcHdXd3RqSHh3QVItU1A5Yi01YUtHZXpQbmtPc3RNT2NJVWgzZXBGVUQ5bXJsaTJmWnBVVXZTR2k3V2ppRHR4NEQtQVRVa0dtOGFaQVRYX0gxb0JSd0tDM1c1bVAwUWhaa1NoM3hYVzlqN2hrRmdjQXF2Q2RsSTNqSmw0Yndad0ppQ1dVRW83?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
+    {
      "title": "'미쳤다' 맨체스터 유나이티드 후반에만 '2골' 작렬, 포체티노의 '전술 변화' 통했다! '캡틴' 브루노 하프타임 지시 공개...\"더 많은 공격성 원했다\"",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE84TG1EWGh4OElKTlhnZmVxRkV3S1pqOEJsM2NsU0tiQk15SHFkVWFLUjJyN3BLcEdKZHdPbnZ0U05MYzJuQmlGRlEwVFBvcjd6Ti0xaklCVWJYV2F6WXNuOUk3ajNudw?oc=5",
      "date": "2026-11-27",
@@ -5464,36 +5533,30 @@
      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Yc0IwZDZ1akUtcGpUd3liT0VsLWU0WkVQMU5rX2ZpNmJ6ZU1lSm1Cd0hfSUh5VzU1bms1OXJNbjczc0JLYzZscUk1X0s2M1QzdUhzM3lGaFJWQ2o0bnE1aURjMm8zQkgwZkkyeVBFcm1PQQ?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
-    },
-    {
-     "title": "‘에이징 커브? 클래스는 영원하다!’ 브루노 페르난데스, 친정팀 스포르팅 상대 멀티골+POTM 무력시위",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9OMmd4Wmt6TFlEMzJUQ1l1TXFWYWxnX3VwU2FBa0QxQ1hXY1RJYlpHTlg1UE5TWXhJY0MzUlRDUXNZWjZlVVRnV0kwTlpwUlllbnNVS05Kdkw1M0czbjV0SU1rbTNZWHI0RFZLQU9fQTJLSkJr?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 18,
+    "n": 23,
     "sentiment": {
-     "pos": 8,
+     "pos": 10,
      "neu": 3,
-     "neg": 7
+     "neg": 10
     },
     "top": [
+     {
+      "text": "앞에 잔디 일부러 판거고 도움하고 싶어서 잔디에 찬거고 세어머니는 친정팀이라 안한거",
+      "url": "https://www.youtube.com/watch?v=JWYl4EqeTBQ&lc=UgxgEEi-9-A7FEGSLll4AaABAg",
+      "sentiment": "neg"
+     },
+     {
+      "text": "심판 매수로도 안 되니까 잔디까지 매수한 거냐?",
+      "url": "https://www.youtube.com/watch?v=JWYl4EqeTBQ&lc=UgxVP9FVVLCQdxX4QoV4AaABAg",
+      "sentiment": "neg"
+     },
      {
       "text": "Awful crybaby of a player🤣 part of the failure at United",
       "url": "https://www.youtube.com/watch?v=s7QpcoLZFPE&lc=UgyBFSKQJxijZl3W_Qd4AaABAg",
       "sentiment": "neg"
-     },
-     {
-      "text": "The question from the Portuguese media are stupid",
-      "url": "https://www.youtube.com/watch?v=o8hBOs6NKMA&lc=UgzrnMzDpwKN56WJgoR4AaABAg",
-      "sentiment": "neg"
-     },
-     {
-      "text": "He has scored a brace today",
-      "url": "https://www.youtube.com/watch?v=s7QpcoLZFPE&lc=Ugxfr1U07S2a_DslKER4AaABAg",
-      "sentiment": "pos"
      }
     ]
    }
@@ -5710,7 +5773,7 @@
   },
   "44": {
    "n": 3,
-   "h24": 3,
+   "h24": 1,
    "sentiment": {
     "pos": 1,
     "neu": 0,
@@ -5780,7 +5843,7 @@
   },
   "45": {
    "n": 22,
-   "h24": 5,
+   "h24": 0,
    "sentiment": {
     "pos": 1,
     "neu": 9,
@@ -5851,7 +5914,7 @@
   },
   "46": {
    "n": 2,
-   "h24": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 2,
     "neu": 0,
@@ -5987,7 +6050,7 @@
   },
   "48": {
    "n": 7,
-   "h24": 3,
+   "h24": 2,
    "sentiment": {
     "pos": 0,
     "neu": 7,
@@ -6119,11 +6182,11 @@
    ]
   },
   "50": {
-   "n": 1,
+   "n": 2,
    "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 1,
+    "neu": 2,
     "neg": 0
    },
    "daily": [
@@ -6145,7 +6208,7 @@
     },
     {
      "date": "2026-11-25",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-26",
@@ -6157,17 +6220,28 @@
     }
    ],
    "topics": [
-    "대표팀"
+    "대표팀",
+    "이적",
+    "인터뷰"
    ],
    "keywords": [
     "월드컵 불참",
-    "훈련"
+    "훈련",
+    "이적설",
+    "충성 발언",
+    "부인"
    ],
    "headlines": [
     {
      "title": "2026년 월드컵에 나오지 않은 콜 파머, 오히려 더 열심히 일한다.",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYnp0RHdsVVk1WHZUby1lUHFKMGhSTTJvMjRaSk5ndkVNYWx0TU1NMFY2UGRuY2RkbzNBOWZvcHl2eHZ5NDhFcFhaY2hnemZNLVZhMzRpNXlydVNTVi03cl9rTHA1emJkYmQ3TWtiRkxDaVlzVXo5b2dQeWRhXzUwZ0pYcTVtZld3ZEJnYUpwcmdxUmM1NndWODRwRTZlVno3cHdESWlwdW1vWHF5U2FZ?oc=5",
      "date": "2026-11-26",
+     "sentiment": "neu"
+    },
+    {
+     "title": "콜 파머, 맨체스터 유나이티드 소문을 부인하며 첼시에 충성을 다짐",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOb2ZJYndlVmNDcE5iYzVvakRQM01kZHpfZWtzNE80NmFIMG5ra0NCdGNKSnpjLUJDdk9VcDdhbm5wWW5lNXMyR0xrbWtxcl9xczlFdm1HLUc3dXVuYm9ZNW9WejlDMlV2MlVneVlaMk9JV011djAxYzZMeFMtZTZnaXdXNmF1VWpSaDd3dkhzM3g5M20wMVY4SXZQeG5YMnY2Q19R?oc=5",
+     "date": "2026-11-25",
      "sentiment": "neu"
     }
    ]
@@ -6406,7 +6480,7 @@
   },
   "56": {
    "n": 2,
-   "h24": 2,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 2,
@@ -7129,12 +7203,12 @@
    ]
   },
   "120": {
-   "n": 4,
-   "h24": 2,
+   "n": 6,
+   "h24": 3,
    "sentiment": {
     "pos": 0,
     "neu": 0,
-    "neg": 4
+    "neg": 6
    },
    "daily": [
     {
@@ -7163,38 +7237,38 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 2
     }
    ],
    "topics": [
     "경기력",
-    "논란",
-    "이적"
+    "이적",
+    "논란"
    ],
    "keywords": [
-    "벤치",
-    "태도 비판",
-    "경기 출전",
-    "불만",
-    "원정 명단 배제"
+    "부진",
+    "경력 회복",
+    "벤치 배제",
+    "임대 종료",
+    "벤치"
    ],
    "headlines": [
+    {
+     "title": "가르나초, 경력 회복 노력에 또다시 길을 잃다",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQeUR0dkJjSWdFSkRuZlIyVDM1OGdsRkhhX3JkMWJIN2lrTkt0OFJVeGR3ZVpiYmt3OGhORmVJRVdNVDJrSWxVUkJEMkhJcHFiRlBYZE0ySVM4eWV0SWxGaGdiUlcyN1NmY19weXJWM2xyOVd2a2wwcmcxTndnQVBCZjExQTRSVThBWGo3aFN4bkFYQTNHWVhaZmpYZEtzWmlHcHdF?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
+    {
+     "title": "‘3경기 연속 벤치에도 못들었다!’ 촉망받던 아르헨티나 신성 가르나초, 에메리 감독 구상서 완벽 배제...빌라 임대 생활 조기 종료 위기",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0xbV9DbHJfelNPTHVtdlBhVnBnWVBqR3h2SEdhMVcyclpULTZxMUV1MDVORnlmbFZOS1dvdFIydk5DS2ZoOXlmd2dIZGhTQzEzaEduQzlIdVVLRXRDNWtXaEN5UDB4RXVsVDctMmE0Nlk5RTFN?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
     {
      "title": "대굴욕! ‘맨유 떠나고 완전히 망했다’ 벤치 비었는데 못 앉은 가르나초→“이건 태도 문제야” 비판",
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9zbnBaWmdGMDQ0THJHenNQTDA1OGxqd3lEU0xrT1hDMDBOTU9yTjV2RnBtalRJYWFzbkZIZjVoWTNqcFA3VG9vMUNrWWQ0VGFqZlEwMUgzZzZlclZoaGV0SDJ6Ym5UOHQ0VUZ0TWRFdG5UZFZW?oc=5",
      "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "또 ‘금쪽이 모드’ 시작… 빌라에서도 불만 드러낸 가르나초, 챔스 원정 명단 배제되자 부글부글",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1yaW5aMjBrYWtBSGdfVlpYMDU3YmduZnBLZnpDbnF4VXpWY2VUYkkteTBmbm1kbk1jMV9vWTVtQWdBdmdBd1ZGSG55c1ZjVFJlMHFFVEdBMFNBT1FXcGhLb1ZpeWZVY2FEY01LdER3?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "가르나초의 아스톤 빌라에서의 악몽",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE53RGx3cm40NTdHRTMyelRyYkl0Y2d1cF9iaDBBdnFiME1UY2RTeWxRRkl0Ql9mTkg0WjhNLU5hWWVoR0d1NElnMjh6WVgzWFBuRVdpRnBSLS0wckJyckF1dVdFZVctQ3A2aTdMb0lWYw?oc=5",
-     "date": "2026-11-25",
      "sentiment": "neg"
     }
    ]
@@ -7332,6 +7406,86 @@
      "date": "2026-11-24",
      "sentiment": "neg"
     }
+   ],
+   "comm": {
+    "n": 9,
+    "sentiment": {
+     "pos": 8,
+     "neu": 1,
+     "neg": 0
+    },
+    "top": [
+     {
+      "text": "김지수선수일본국대를 꽃길포기하고 대한민국 국가대표가 되었습니다\n김지수선수 응원합니다...화이팅.",
+      "url": "https://www.youtube.com/watch?v=VaRF8h8rSsI&lc=UgyzjaCj6g141YjUQRR4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "기가맥히게  잘잡네^^",
+      "url": "https://www.youtube.com/watch?v=VaRF8h8rSsI&lc=UgzZ2tVZ0VcGsT4dlj14AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "대단합니다. 모두 다 기술이 여러가지 들어가요. 기술력이 훨씬 높아보여요.",
+      "url": "https://www.youtube.com/watch?v=VaRF8h8rSsI&lc=UgyIugD0gnV2gDO4_ct4AaABAg",
+      "sentiment": "pos"
+     }
+    ]
+   }
+  },
+  "186": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "경기력"
+   ],
+   "keywords": [
+    "활약",
+    "대파",
+    "승리"
+   ],
+   "headlines": [
+    {
+     "title": "오스만의 활약에 힘입어 브라이튼이 크라이오바를 4-0으로 대파했다.",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBzUXpDcHQ2OGI5NkZkYmVzbkJQNzEteURsdTZFT2t2ZWpoYWtzREk5M05ZZU5JbUhuRTdyTnlPLWtpMFFXZEpBUEFQTHZJVHNNVkdUQWdWUFJ3MWJ4OHVHdFJ2QUhPZE9sRmE3SU1FNlh2dzdxSWJWMG02cw?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    }
    ]
   },
   "199": {
@@ -7399,12 +7553,12 @@
    ]
   },
   "221": {
-   "n": 1,
-   "h24": 0,
+   "n": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 0,
     "neu": 0,
-    "neg": 1
+    "neg": 2
    },
    "daily": [
     {
@@ -7433,7 +7587,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
@@ -7441,11 +7595,19 @@
     "경기력"
    ],
    "keywords": [
+    "결장",
+    "참패",
+    "부상자",
     "부상 복귀",
-    "무승",
-    "골 부진"
+    "무승"
    ],
    "headlines": [
+    {
+     "title": "리즈전 1-4 참패 쇼크, 그런데 부상자 복귀도 없다… 위기의 첼시, 주앙 페드루 등 5명 노팅엄전 출전 불발",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9VNmcza2kxMl9KTFNSUVQybG5ReFE2LWhJdWE1cEU3QW8yWElGUmFmSFZ5V0I1ZTlkWFpuMWswXzQ3blJ0WnlCczdObEJHZXZWYTZhcGFtTnJlR1NKUWVsZ09WaXJ0X0lZQUgzd2d3?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
     {
      "title": "주포 빠지니 5경기 무승에 고작 2골… 첼시 골잡이 주앙 페드루 연내 복귀 어렵다, 카이세도 부상까지 설상가상",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBYQ1pWMHdQQW15UHdJQ3hZSjVSd3E4Z21fMUZZcld2WkNFZWo5am54OThYMWhMd0lLRGhWTnZZQ05BQk8xQWZOLTFqazlmVlFtVWNHY0R6MGE3VXlTTWJBX1pURDVOLTNLZnpfbmln?oc=5",
@@ -7511,12 +7673,12 @@
    ]
   },
   "237": {
-   "n": 3,
+   "n": 4,
    "h24": 1,
    "sentiment": {
     "pos": 0,
     "neu": 1,
-    "neg": 2
+    "neg": 3
    },
    "daily": [
     {
@@ -7545,22 +7707,28 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
-    "부상",
     "인터뷰",
-    "기타"
+    "부상",
+    "논란"
    ],
    "keywords": [
     "은퇴 고민",
     "잔류",
-    "에이전트 설득",
-    "잦은 부상",
-    "경기력 비판"
+    "PK 실축",
+    "웃음 논란",
+    "감독 경고"
    ],
    "headlines": [
+    {
+     "title": "PK 내주고 승부차기까지 실축했는데 웃음이 나와? 첼시 포파나 인터뷰 논란, 사비 알론소 감독 “다시 반복하지 마” 경고",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1TWE1NVkFXRlliZkNPSEpYaDNETk9HMDdLUTVtNVdDTzA2MjVtM1h4X3czRElyUW9OYXZIeTJDLTlldndUNU1ael9kR0pmdEgwNmhOSlV4cEhpdjNLTllaTThOSGhmZWd1b0ROdXh3?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
     {
      "title": "포파나 '부상 탓 은퇴 고민'…에이전트 설득에 잔류 : 스포츠",
      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1QbkhjVGdwdkdvSnQwS3EyOEUtN3RHTXB6Q0dkNV9HZnRsNVFINTVOeW5jVGRoVFVOU1JQNDAzOFJzc25kM1ZFTF9qUQ?oc=5",
@@ -7571,12 +7739,6 @@
      "title": "첼시 포파나 잦은 부상에 은퇴 고민…에이전트 설득에 잔류 : 스포츠",
      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1TVElJOGZvUWJqN1dWZFE1YTh4RlNmTTBsTGkxODNrRFpEdVlSZEJkYjdtSGZZZmpDN3BSWW9kYkJTc0kxNFpwR25BRQ?oc=5",
      "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "시드웰: 첼시 선수들 경기력 믿기지 않아, 포파나는 수치스러웠다",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9NTnVleEJkeDBkUm9pbm8tVkxyeXFCdGxscDExNlhhZTFzOTRVTzJOcXh3cWtSQ3lMS09wNFMwU0JSR055Y1dKaTI1UENEbTJ1LWx2aHRKMTZsTnoxcU93?oc=5",
-     "date": "2026-11-22",
      "sentiment": "neg"
     }
    ]
@@ -7633,6 +7795,62 @@
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZNzZiX0lLWDF5QWFOYkl3YnFIYnl2S0Z0OUQ2aEwtNlFmUExNSHh4OENlMDdjcGVlQXZnWWdETnIzMDJQZFpsMzBpa0N5WHl1Rm52V215akRHVmxUc3ZEQQ?oc=5",
      "date": "2026-11-22",
      "sentiment": "neu"
+    }
+   ]
+  },
+  "286": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 1,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "인터뷰",
+    "경기력"
+   ],
+   "keywords": [
+    "첫 승",
+    "감독 소감",
+    "자신감"
+   ],
+   "headlines": [
+    {
+     "title": "장필리프 마테타, 토마스 프랭크 감독의 첫 승 소감: \"팀에 자신감을 위해 승리가 필요했고, 모두가 감독님을 위해 기뻐했다\"",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAxSTZVMi13NW5JbmpwcmYyM19CeW1tb1NuYVBUZnVTcW93SV9fdzNReGtuZHhvYTVFazR6cThTRi1VZmQxRnQwS1FoMjZZUEtncTg0LXJHM3BTNWdoWEZj?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
     }
    ]
   },
@@ -7784,10 +8002,10 @@
    ]
   },
   "421": {
-   "n": 1,
-   "h24": 0,
+   "n": 2,
+   "h24": 1,
    "sentiment": {
-    "pos": 1,
+    "pos": 2,
     "neu": 0,
     "neg": 0
    },
@@ -7818,19 +8036,28 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
     "이적",
+    "기타",
     "경기력"
    ],
    "keywords": [
     "재계약",
+    "빅클럽 러브콜",
+    "주급 인상",
     "주전",
     "핵심 선수"
    ],
    "headlines": [
+    {
+     "title": "韓 프리미어리거는 씨가 말랐는데...日 핵심 MF 다나카 아오, 빅클럽 러브콜 거절하고 리즈와 제계약 합의 ‘주급 대폭 인상!’",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBVXzUwejB1SWk1dDBZdTdwaTd0SkVpS0JzVkRIZXAzT1hFdDNUcEREZjJJeDI3SXJ1UkR3TTdRWTBhRjJxQjhKNnRnOG5JTUVNODJvUXk5VXUtMDlUZGU1UF9DVGhudk9pajNSUFVHV01Ha0Rq?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
     {
      "title": "'韓은 PL 0명인데'...일본 열도 환호! 다나카는 리즈 주전 이어 2029년까지 재계약 임박 \"파르케 아래 핵심\"",
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE95ekRfN1FXOV9tazVUckZ3RjlCWVRrQ0xJMWN6S2V3aDVEdW1oY3B2RkZ3YkVCczV3N21wa1Q4eEdLRnIyeWhYTU1CdHdBbWpaeDloVElNbHVZdE1OdkJCcHk1YTQ1TUc3Vk8zdUZER19zcEZO?oc=5",
@@ -8326,11 +8553,11 @@
    ]
   },
   "513": {
-   "n": 3,
-   "h24": 0,
+   "n": 5,
+   "h24": 2,
    "sentiment": {
-    "pos": 0,
-    "neu": 2,
+    "pos": 1,
+    "neu": 3,
     "neg": 1
    },
    "daily": [
@@ -8360,46 +8587,48 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 2
     }
    ],
    "topics": [
-    "이적"
+    "이적",
+    "인터뷰",
+    "경기력"
    ],
    "keywords": [
-    "겨울 영입",
-    "영입 관심",
-    "이적설",
-    "동반 방출",
-    "이적시장"
+    "소신 발언",
+    "판정 탓",
+    "팀 반성",
+    "선발 출전",
+    "승리 의지"
    ],
    "headlines": [
+    {
+     "title": "'지금 심판 탓할 때가 아니다!'…맨유 지르크지의 소신 발언 \"우리 자신을 돌아봐야 한다\"→\"지금의 수렁에서 스스로 벗어나야 한다\"",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB1dFF2RWVER3hKVWZhdGYxOW8xdFg0YnRHdW9Za25iQmx3WXcxVXk0eDVKSC1Gczgwa2NtU1lHQm96NWFrVWVzdXd4Sm9aV0R5YUpfaXhoSkdaRDU2OEtCaDl0NllPVi16M0J4eVoyMmI1Zw?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    },
+    {
+     "title": "'반년 만의 선발 경기'서 번뜩인 지르크지 소신 발언 \"맨유 같은 팀이라면 판정 관계없이 반드시 승리해야\"",
+     "url": "https://news.google.com/rss/articles/CBMi8ApBVV95cUxQX1JLaFowR3ZMRHU5cG1SeGlEY29iLWJDTDBxRUZYWXdVOXBXS2lYTUlIY1FlMjF2RXAzei1xdEZjNU1EMWFLQVJSNDNIYW1KY0ZPVTVPSi1iOGtkcWVId2RsU0c5WGwyNDFaTUE3Z01VYUI1Mk9IaDllTTFNTHl2UGZWTDhWQTFQWV9YUDhQbmd2SXBLYVBKdnBLSVJJeHRUcHdtRjZsRXJqM2VkbU9EQ3RaU1hWRzVud1FCMDJ0RFlJbjRwUGNNT3ZHWm5EQ2xrMnhvZVozN2wxUW5RMTBfZVVsWGZNN2ZhTm9xYlRwOElCNk1RYmpGMUQ2VG1qT1B3anRsZ3NRNFZ2MkZ5aDNHVFBKWUJEVG11SWdtbm1aNjlUeE9ISXl0cjJaVzRvQ2pTRUNmUmJqSlBhQ1NraWI3aDdxZXNiNHdXamEwc1YwVTU3cUhjdDd3YXZwbEE5RldiNnJBeVNvNnpCQUo0Q2VZRDVoMnU1Z0syYk0xLVZXSGk5LXNiNi11VlhydkFBU2ZjYjdwSS1fTTY4bGtPYlR1amZaOHEtTmNwZzg1b1l5UWlxY1FEbFBJRHpNb0M3VW91SXpCR3J6Q29uR0ExMHlsWFRYYlVHWjl5dTBQQ3RWdDhQRWxhdW1EempFRHdDNTNwS252T1p6aFB0emtkVjF5MzBGcDd6MmRndWVXbmFZQWhTa2ljSmRTWlhSRGdITm83d3paVGpOZHZFMkxwbDB1MlQtY0o1dlpMcnQ4MDdkNmJUNTBRTUJLV1FUeUFhbnBzNUZyN3E5a3FjcHdibnZSdi1mMWJ4MDd5NVVKQ01aQmp1S0QwZTFmM2huY28tU0xiYk1vZ1pHbl9PdnZhOGVBczJZNnpEZmhxc0ZnVHBDbzVVYU4xLV9feUhiN3Jsd0Mwb2xWVEpETWFPckcxWW5oTVZmelpuMk5vRHlxby1VT1ZDSmZvSU1kazFDbVVoeUYxR2RsZGtVUVZOYktPM3dLT1ZCMHJwVTZMMHJwUEo1TzhsOGR5c2luVmhvNEZLMENFc3VsdE1sdnNrOTlyRlliOHF3LWJrYThsN0VJXzlLclBNZDA1aVFFLXNVUmhiTlJEc0dNWnFzSklEdUdfZWpZcE9sdUVYc1VNcnBWWFRhZ2lPZlZ0MHViSHRnODhtZWtBRDVianFDa1NHQjlBcmRVNm16X3ZVN1AwYTFDZld3SjA1cmRWM1o5Zjd0bUJlQVZ4VDFrNWVSRTBXSnRYUHdKVDd4QS1fT202M01qQWI3ZEs5V3lndVQwZklaSW5LNHlmYm55R2FvU0ZZZkpxU2pPM2t4dE5YNWV4RDhrMEFGdzdrd0Z4QVJvVWl3M1gycG95WjNDRmVQTmR0UWEwTm5JbUh6N2hhOExOczNpRV8yVTZBWE9oa1BjX3JJMFVMQTF1U1V2NG1QdmNyU3NtWTdCd3BCSDNsYTRvVEhMNmpTUVlmSjZ1dDdnXy01cWFsbjFVSG1kZXNiQjZrNTRYQ1ZENmYwYzdsVURUSl9zTGFoVXFwREFHYzFfRDVUdGlTdnhTYXVWd2k2QjhIcnp5a1NLcmsxclNmbVNXWFpPT0s3THEzUF9SWlVVdExqaFpDRkM5OVlabmNoRmRfRXBzRkx0bGNDQjdWOS1MdGZTMGVqWTh0eUxTNUNBVzBOdUJVM3I4WGdyM3BrekpKS3c2WDRuU2h6eFFrSDMxdDRtUHNiZEE0R2dYdWdiZlNDR1daWDI2ejhQWGw0d1d2QzZfdWtwZTdyZ3IwTFhfMU5FS2RmZ1UxQURaZ2pnMmxBWU1iZW83MnRQcE5xbzQ1QUNDZ2FldUl4RlNsZ2s2bEJRTUNBT28?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
     {
      "title": "맨유 1-4 대파했던 이탈리아 코모, 겨울에 지르크지 영입에 관심…“나폴리도 영입 추진”",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1iSzNoWHNmY3dicVoxT0h1dmp1REpFeVJESzF6XzQ3eUoyTDJPZUZ4eFVOOGp1TDVsZGdXNW1jWUdBSXREWVp3cU9QWEZhY1BKdjJ5UnZjUmwyV2RlWmlYYnNwVmx2Mk5kT00yNGx5UG8?oc=5",
      "date": "2026-11-25",
      "sentiment": "neu"
-    },
-    {
-     "title": "'맨체스터 유나이티드, 결국 매각 결단 내리나?'…1월 이적시장 영입 자금 마련 위해 지르크지-마르티네스 동반 방출 가능성 제기",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA3N3JXWEc5M1hJSUw4aHpTNDU3cnlMOW1HUG9OMGw5TkI1cGN6dDNVdi1OM0dsWTNpckI4U3FqalBvTEdTTk1HanJZUWUzNTIwRTkwNG8yYWpFeWM2MURkRVhWVi05STFJaFZrSF9XT1NEUQ?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neu"
-    },
-    {
-     "title": "맨체스터 유나이티드는 조슈아 지르크지의 이적과 관련한 실망스러운 소식을 접했습니다.",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNTXJtOW4zWGpZVWl6a2szcWF3aVZKQ05hMmVfeTBlc0o4djN6c1ZUX1p4Q3pucDNIUUYtNlc0LUd5SlhhUUlPSEgzZ0pUUWF3NXphUFFjOWVZeGdqeThsV0IzM0NPaUVEZGhqY0x6Q1ZRb1dKMDFrbHRjVElMSVA2Y1FjM2dhYlNNQ3JxY3lPV3I?oc=5",
-     "date": "2026-11-24",
-     "sentiment": "neg"
     }
    ]
   },
   "516": {
-   "n": 43,
-   "h24": 1,
+   "n": 46,
+   "h24": 3,
    "sentiment": {
-    "pos": 7,
-    "neu": 18,
+    "pos": 9,
+    "neu": 19,
     "neg": 18
    },
    "daily": [
@@ -8429,7 +8658,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 3
     }
    ],
    "topics": [
@@ -8446,29 +8675,29 @@
    ],
    "headlines": [
     {
-     "title": "“VAR은 대체 뭘 하고 있었나?”… 요로 퇴장 징계 취소에도 분노한 포체티노 맨유 감독, “다시 11대11로 뛸 수 있나?”",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1wa3pnSkRKVXdpX3pUMzRNRWdMTUFEQ1hWWlpzVzFtVXl3RXVNWXZEa1JWVnJPZjBiOXVYbGpGMkhUbFIxaThTOG1fR2hVX1pWTVM5LXViU3VWQjlrSlZiZUo2YThCY2Z1VzNqeTV3?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "neg"
-    },
-    {
-     "title": "\"이제 와서?\", 맨체스터 유나이티드 '요로 퇴장→리버풀에 대패→징계 취소'...'SON 은사' 분노 폭발! \"절대 일어나면 안 되는 일\"",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBGRkFHeHc0a01CMUEzNXRrRnU0SWpteWNlS2NLUGVOa1lvN0E0SXR0TGg4cTBOOUxjQ2NRbUJHZXFPX3FrSThBZ0MxOUo4eURROGdzZnh1ZXU2R0xmYW5Ud3FNRF9sQQ?oc=5",
-     "date": "2026-11-25",
-     "sentiment": "neg"
-    },
-    {
-     "title": "맨유 억울해 미치겠다…'오피셜' 공식 발표 '0-4 완패 빌미' 레니 요로 퇴장 오심 판정→FA 징계 철회",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE82eVZYX2lOY2Rrbnp1a3A4QW5MZHc0X3RXdUF6Y2gwSGFSVEpqQXJacVM2Z0VGczZKNm9QTUE0dmpqTm83eWFvMVBDemVhbExXVXJjOEItUF9SOThqWTJGOEMwVzRTaEdaT2dpQXRsOFZiRGxydnZRc2hDcm1iQQ?oc=5",
-     "date": "2026-11-25",
+     "title": "'19위' 맨유는 억울하다! 요로 다이렉트 레드카드→\"명백한 득점 기회 아니었어, 주심이 오류 범했다\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBCd2xEZ0w1VzJBZWt6UmNvWVVnd0N6T2Fkb1hXVjN5TFNvT0Fhd2VJN2ZpS2VEcHFhb1lyVEJQZEU4Ymp6c3NUUUVSamJ6SEkyWVpKYWJjNkJIZ1ZjcFBQdDNZcWZaNnRkMDdtN2M5TzF1bHZp?oc=5",
+     "date": "2026-11-27",
      "sentiment": "neu"
+    },
+    {
+     "title": "맨체스터 유나이티드 전문가는 어떻게 레니 요로가 징계를 피하도록 도왔을까요?",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPU1NzbVNRRTJzQ1RFUU1WNmdWeTJJQ1dOWW5aLXpqek9vb2stakJOOVdyb003RGk3X0ViZXAyb2JNQjFpUnJfdVQ3SWhxQmszN09sUk03OGUxTms1X3hmdmMtOTE4cjV0WE5VdUNTWDVSZWpiYWdpRnVoQU9SWkpBWHFLeHJHeGc?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
+    {
+     "title": "맨유 요로 퇴장 징계 취소? EPL 심판들 화났다… 사후 판정 평가단 5인 만장일치 “정심”, 英 매체 “심판들 충격과 분노”",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE42emFWUG9NVlU0QktJV1hXMC1xV3RMZWJXX0pDT004bm9hVEpJd1lGaW5jcXNsTVNJY2Q0cndVUndOTVBrMW9rY2stNGpYM096ZHJ6S0NZSTlocnIxaG1wYndOMEg2dmpPMGZMSGxB?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
     }
    ],
    "comm": {
-    "n": 17,
+    "n": 18,
     "sentiment": {
      "pos": 1,
-     "neu": 5,
+     "neu": 6,
      "neg": 11
     },
     "top": [
@@ -8478,14 +8707,14 @@
       "sentiment": "pos"
      },
      {
+      "text": "FA는 오심이다 반면 심판협회에서는 정심이다 라는 입장 유지 중... \n일단 심판들은 오심이 아니라는 이야기",
+      "url": "https://www.youtube.com/watch?v=ar0q9YTsQkc&lc=UgwzwCupKh7lW0qOLD54AaABAg",
+      "sentiment": "neu"
+     },
+     {
       "text": "저따구로 부딪혔는데 파울아니라고 우기는거는 ㄹㅇ 양심이 뒤졌나",
       "url": "https://www.youtube.com/watch?v=ar0q9YTsQkc&lc=UgwAhVkX0yIBjljXhvx4AaABAg",
       "sentiment": "neg"
-     },
-     {
-      "text": "이거는 근데 뭔가 레드를 저때 안줬으면 그거도 말 나왔을 듯",
-      "url": "https://www.youtube.com/watch?v=ar0q9YTsQkc&lc=UgwXc2A0pssqUgAw6HN4AaABAg",
-      "sentiment": "neu"
      }
     ]
    }
@@ -8632,7 +8861,7 @@
   },
   "523": {
    "n": 1,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
     "neu": 0,
@@ -9108,12 +9337,12 @@
    ]
   },
   "646": {
-   "n": 1,
-   "h24": 0,
+   "n": 2,
+   "h24": 1,
    "sentiment": {
     "pos": 0,
     "neu": 0,
-    "neg": 1
+    "neg": 2
    },
    "daily": [
     {
@@ -9142,7 +9371,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
@@ -9150,11 +9379,19 @@
     "경기력"
    ],
    "keywords": [
+    "재부상",
+    "복귀",
+    "이적료 논란",
     "부상 재발",
-    "부상 복귀전",
-    "근육 부상"
+    "부상 복귀전"
    ],
    "headlines": [
+    {
+     "title": "1,300억 썼는데 이게 뭔가...사비우, 부상 복귀해서 또 부상→2026년 남은 경기 못 나올 전망! \"바넷이 기회 얻었어\"",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1hYVVTT2tBQXhpODUxWGNYYUkwalVJb1pXa2xUQnJjWUhOY1BkQnl4TmptbFF1blptZXhHY3p5bVh3dHhPcm5IM2w1RllqckpfbVFpcmMtQUpUaHM1c2dhNVZuQmwwQmtLY25Od1Ryc3FxdmRw?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neg"
+    },
     {
      "title": "2008년생 유망주 '환상 데뷔전'에도 웃을 수 없는 토트넘...'부상 복귀전' 사비우, 25분 만에 다시 부상! 데 제르비 \"너무 화난다, 근육 부상 재발했어\"",
      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1mQ2p1a0Q3ZFZ4Q2F6VGo5dWRuZGJTS0FIOU13YWpCemRGYTZfX28yNVlmUGtlby1VdEdpa1d3V3RDeHRYaGlqdGdRQkV6SzNxalZiZWVpR014M2Z1NV82WUg1bHljZzN5cDF1ZF9NbXpocDNv?oc=5",
@@ -9219,7 +9456,7 @@
   },
   "710": {
    "n": 6,
-   "h24": 4,
+   "h24": 2,
    "sentiment": {
     "pos": 6,
     "neu": 0,
@@ -9486,7 +9723,7 @@
   },
   "725": {
    "n": 9,
-   "h24": 5,
+   "h24": 0,
    "sentiment": {
     "pos": 6,
     "neu": 1,
@@ -9611,10 +9848,10 @@
    ]
   },
   "737": {
-   "n": 9,
+   "n": 10,
    "h24": 0,
    "sentiment": {
-    "pos": 9,
+    "pos": 10,
     "neu": 0,
     "neg": 0
    },
@@ -9629,7 +9866,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 6
+     "n": 7
     },
     {
      "date": "2026-11-24",
@@ -9680,10 +9917,10 @@
    ]
   },
   "738": {
-   "n": 1,
+   "n": 2,
    "h24": 1,
    "sentiment": {
-    "pos": 0,
+    "pos": 1,
     "neu": 0,
     "neg": 1
    },
@@ -9702,7 +9939,7 @@
     },
     {
      "date": "2026-11-24",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-25",
@@ -9718,13 +9955,15 @@
     }
    ],
    "topics": [
-    "부상",
-    "이적"
+    "이적",
+    "부상"
    ],
    "keywords": [
     "발목 부상",
     "선발 경기",
-    "겨울 이적"
+    "겨울 이적",
+    "유소년 코치",
+    "이적 실수"
    ],
    "headlines": [
     {
@@ -9732,14 +9971,20 @@
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5HOE5IWUVIU1c1bkE5Z3FHZnRlOVE1bGFKN0lWbFFfd2lNQXFybVBPcmgyRkNxVTNxM3ZNWU53cUxGQVdfdjBXb3otVVlBQTgxa2VwUkk1YWZBRmxJYUQ1MklCT3lSWEFCdHRXem9R?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
+    },
+    {
+     "title": "전 유소년 코치: 돈을 생각하지 않는다면 바르셀로나가 알레한드로 발데를 파는 것은 실수",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBEVUdJRFRzMC1kQWRJcnRLbmNhc3F0V1ZVS2w1S0xtVVV1MVZvdUNKWVEzdGRFNWtYMGJpTHl5azNWUWJ4dlFYbkU5VVNYMGpwMWpDWE05VlJjTGJreHFr?oc=5",
+     "date": "2026-11-24",
+     "sentiment": "pos"
     }
    ]
   },
   "740": {
-   "n": 13,
-   "h24": 11,
+   "n": 14,
+   "h24": 2,
    "sentiment": {
-    "pos": 11,
+    "pos": 12,
     "neu": 2,
     "neg": 0
    },
@@ -9770,7 +10015,7 @@
     },
     {
      "date": "2026-11-27",
-     "n": 0
+     "n": 1
     }
    ],
    "topics": [
@@ -9787,6 +10032,12 @@
    ],
    "headlines": [
     {
+     "title": "[오피셜] “제2의 하피냐로 불린다” 앤서니 고든, 음바페 제치고 UCL 매치데이 5 이주의 선수 선정",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBLczQ1TFdmek42X0EwblkzOEpQMmZoYUh3TEVQMjRVUV91MF9ndzloYVB4TEppQW1EVDVaM2NESlF0YzIzVDBGRmprNHJaX1pHcEJRSWdSVHdkUGFDVjdHT0tKVjJHcURIamFJTFpB?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "pos"
+    },
+    {
      "title": "[오피셜] “3-0에도 계속 공격하는 것, 그게 바르셀로나다”… 멀티골 앤서니 고든, 경기 최우수 선수 선정",
      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1oc2d2RnpnU0RheWRwcDJ3SUpzTGNfVXliRjJQRk9tRE9hZGVrcU9OeVRSRnFKcTZTUkdFZEV6RHZIQ01TRzJ2OXBjRXNlN2dFLUs4Y3lLbU01THE3b0Z0VmlyclNkeURSQlg1UENB?oc=5",
      "date": "2026-11-26",
@@ -9797,18 +10048,12 @@
      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTzRyckR1aHZGM2NzeHphYU5YMUwxUnhGajIzazJVc2V4TE1xWTlOTkY4bzhzTFJlbjBpY3NKZ1U0WERMY3lCOHBBRlBDNkgzSVR2ZGpoT1JQOWJLOW5KRjBiTHRIRnJwOVZ3WGRreUhDZEVfTm1jYmNiZ0dMc25JZm9pZE1Cc0ZkRTJxeThmbkllYWNkVHJoVGNEdUljS3pr?oc=5",
      "date": "2026-11-26",
      "sentiment": "pos"
-    },
-    {
-     "title": "'고든 멀티골' 바르셀로나, 사바 4-1 대파⋯UCL 16강 직행 청신호",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1UZVFOM19CR3pSMUlPODE0UEc4SGhwRi11Mk5mNXhzdHJpV0o2Y2ZRSGIyZlYzVlJpQjNDdHlIRkdXM0t2YndRSFNrajhpTDExcXU2aUphbWs4NVNpLW4xV0l1dk1ZUWJnbmFnbFZR?oc=5",
-     "date": "2026-11-26",
-     "sentiment": "pos"
     }
    ]
   },
   "747": {
    "n": 2,
-   "h24": 1,
+   "h24": 0,
    "sentiment": {
     "pos": 1,
     "neu": 1,
@@ -10360,6 +10605,60 @@
     }
    ]
   },
+  "1126": {
+   "n": 1,
+   "h24": 1,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 0
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 1
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "그리움",
+    "맨체스터 시티"
+   ],
+   "headlines": [
+    {
+     "title": "맨시티의 로드리와 베르나르두 실바에 대한 그리움",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQc0RFRnV3cjRFdi1Wa2lKMVpRUGJwTDFyUC12TWstWGY1Q1dCSVVzSURkUGtfdTI2NVkyV1N1OFN3Ml82YTBrOWdhV0k4TV90bGJsTmVGUjBLbWR3TjlHUHhqNDNMMzhMVmo3aUthYnRPQTlQS0ZYU2ZnQmJRRjR5MUEwSjN0TWVtM2RDWE02OGpVUVUtbVVrdWJ3?oc=5",
+     "date": "2026-11-27",
+     "sentiment": "neu"
+    }
+   ]
+  },
   "1128": {
    "n": 5,
    "h24": 0,
@@ -10548,7 +10847,32 @@
      "date": "2026-11-22",
      "sentiment": "neu"
     }
-   ]
+   ],
+   "comm": {
+    "n": 18,
+    "sentiment": {
+     "pos": 17,
+     "neu": 1,
+     "neg": 0
+    },
+    "top": [
+     {
+      "text": "최고다",
+      "url": "https://www.youtube.com/watch?v=NAzdacq8XQ8&lc=Ugw8Roinr0NPE2C7RfJ4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "43:22 침소에들라하라 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅜㅠㅜ 사이버도화살은 숨길수없다",
+      "url": "https://www.youtube.com/watch?v=C-08TgKgpmE&lc=Ugx5nVdpjEc-Kq0cZ4V4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "살롱드립에서 9트쫑보다 킹덤 보고 왔는데\n욕하고 입 잘터고 무대 잘하는 만능캐인줄 알았는데\n그냥 사람이 진국이네. 인생 2회차야 뭐야\n왜캐 진중하게 상담 잘해주는거야 말도 잘하고 생각의 깊이가 다르네...",
+      "url": "https://www.youtube.com/watch?v=C-08TgKgpmE&lc=UgynyZIXA0Omc8exaMR4AaABAg",
+      "sentiment": "pos"
+     }
+    ]
+   }
   },
   "1320": {
    "n": 1,
@@ -10661,7 +10985,7 @@
   },
   "1346": {
    "n": 3,
-   "h24": 3,
+   "h24": 1,
    "sentiment": {
     "pos": 1,
     "neu": 0,
@@ -10730,17 +11054,17 @@
    ]
   },
   "1348": {
-   "n": 1,
-   "h24": 1,
+   "n": 2,
+   "h24": 0,
    "sentiment": {
     "pos": 0,
-    "neu": 0,
+    "neu": 1,
     "neg": 1
    },
    "daily": [
     {
      "date": "2026-11-21",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-22",
@@ -10768,12 +11092,15 @@
     }
    ],
    "topics": [
-    "부상"
+    "부상",
+    "경기력"
    ],
    "keywords": [
     "줄부상",
     "결장",
-    "감독 한숨"
+    "감독 한숨",
+    "월드컵 결장",
+    "4강전"
    ],
    "headlines": [
     {
@@ -10781,6 +11108,12 @@
      "url": "https://news.google.com/rss/articles/CBMixwpBVV95cUxPX0pXaGttbXB5NEFDeFlGSmdXZS1nZy0zTXMwWi1NbVc5Tk1aX3BETkdRcFNmVWFabS1mRm92UEhFSnZZcU0wUEtvRi1QTDgzWTd2YldibkZrYlJjd1hiTlMwS2RvbmV1VFI5VmFGYVFudTFucG90ZkpEcTVPV0ZkcFJHUk00YWhwa1RkRzBZQWZwQUgtV1NmaEdkZlFpdjlEZncwNF92blU4NVVTNW9JckJRbWh2ajlLUkxXZzYycGdScEtQdkdFalhXWkUxdUdZVHQzM2xJQkR6N25HbzZRQWNmby1sWkpJenlpbHhWTndIQU9mMFN1T0h0OVpsb2RfQjhqekVpTjV3SGtndlRiX3ByRGFnalMxcnllNjZxVmZvLTZwOE95N0k3ZjVyTmd2cFVGVjcydzRWenBxV3lLLTdmZTFCR2duazg3TDJPNDlLajcwUnJHWHJrdW02SWN4ZVZYaFRqNmtSNm5mZFhhUTBaWUI0ZThUVnFfYzluRE9mclh4QW9TUFYzY2VfUXlrbUhnOWRDRFdCSEdqam9ZUGc3eWNjRVdPRUhtazQ2RktrUkJDOUFTZG56REV6VmJHeTVLR0ZGUmcxNnl0NFlGeWtETE5rWkdrdjJROTctNndUQ0dYNC1CeExUaDI2NXVFQ0tSYkRUbVdBRm14YkV2ZTU5Nk92Rk0ydmVSNV9BUWN0NGYyaFNPLTdlYVRLSzBXbzQ4S0hqTG01UHpDeGRJaG03SnpxeTFiQmRmcGRRWTl3emc5a1dvN25MaU5TVUsyY2JvUjBWLWxVSnVrZk10dzZQYk9OamhqRWNfTnNfRkFSWFBicHA5YWNXdzh3U29iY3Ywb2FVSC1ONHNKV09hTW5yTGlWdmJ1U1hrdGxJMzVBMWJWZTlPOERzQjNrZU9nZTV6LVhLZFZlNU1RdUVXVFJRT1NQeG1uNVBBOElLc1kwZEdxd1B0MkpWR1QydmpJM1dmYkRNcWtSMUExUHBPU3dHbS01aTdzc0tnUnphQ3UzVXlwUE8yeXNKVk5Xc0ZCTWFCbFcwbTFpN1VTMXo2ZVd5NjdXeFV4cWxBTk1FY2JFUnFOcVljcFJ0bHQyX2pVeFhpeEtwVG00UlRmd1c3VlJPSWk4ZGh0UFFhbVdRX09MTUtMaFNUTmdJM1NFckVMNVVCbkQ3eVluQ2JzTHJ6ZUtPdHMyWDBESVUtOUJuT1JESHBvZkZtZGVkbnlBNUxpdWpmVnZsenRXMWdpN0lMdC1mQVlXTkk0M2czMnNnY2F4NnF1S282Y0x5Yjk2TUVNeXNqOWw3U0ctTUNuU2ozYTFBZVh3YVdUdlFyRVZsRzR0RHVxUTNBMXRfbDBOLWY3Ti1ockd5dEhPTlFwOE9NMFZEeUFhalRpWkhxRmowWHBmOXZzajZRU0lwYkZYWTBZWmxaSHBudDgwOXpfcjkzS29hNzI2TjV6VnpCUkFDcUo3LWpRMTYwR2RFTFNhWnlXZXF3NTNEclVYanA5MXBzYWJUTWtRRzYxc0FHTXdvRUlNR3BEemRRLXQ4ZDNxWWZhOU8tYzRfWFpJRTNTd2lqUXFHZkZpcEJSZUZVblVzN3dFSXlCNVhpb3huZE5mZEMyUkRfZWtMaWh5NWxMX3lVNmNrd1pGejRvNTZqTHdyaHExT05BNVR4M2J2SWxESmI1LTh4by1vWElJZmNMMjNlWTF6NmdkOWZCOXlQcS1IYk8yVnIzMVYxRUlHZ1FVd0hoUmg2LXk3NzZWUFRwWEIwUzBoekR6akdyUzU1TzB3Q2pYMURGWHdv?oc=5",
      "date": "2026-11-26",
      "sentiment": "neg"
+    },
+    {
+     "title": "모로코 스타 사이바리, 프랑스와의 2026 월드컵 4강전 결장",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOdkpaRURPcm9tOXQzLU9YRGdQNG5fYkRLc0lFYzJKcTdHbkV4NFFRbEJBeG4xNW1uTXpsN2RpVU5hR2I3dE1YSVhSSFJvdnNpSEVZOFZPOTlMRGt2WG45Qkp0eEUyOU9sTVBBS1NSaDh2VTltUWVmc1l0bDFhZTQyamtyVFdoZVpZT0ItNVprdW90MUQ0RmYzU0VoRUloeWdtU1ptRkpueGxKaXRfTzFBMEU0VER3S1hUX180?oc=5",
+     "date": "2026-11-21",
+     "sentiment": "neu"
     }
    ]
   },
@@ -11030,12 +11363,12 @@
    ]
   },
   "1371": {
-   "n": 2,
+   "n": 3,
    "h24": 0,
    "sentiment": {
     "pos": 2,
     "neu": 0,
-    "neg": 0
+    "neg": 1
    },
    "daily": [
     {
@@ -11048,7 +11381,7 @@
     },
     {
      "date": "2026-11-23",
-     "n": 0
+     "n": 1
     },
     {
      "date": "2026-11-24",
@@ -11068,14 +11401,23 @@
     }
    ],
    "topics": [
-    "경기력"
+    "경기력",
+    "논란"
    ],
    "keywords": [
     "결승골",
     "극적 승리",
-    "선두 등극"
+    "선두 등극",
+    "세레머니",
+    "팬 반발"
    ],
    "headlines": [
+    {
+     "title": "기독교 연상 세레머니했다고... 도르트문트 은메차, 팬들 반발 샀다",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9WRDR2TVptazF6X2xyY0lUaEkzTEY2TkV6VHRBWnhDV3Z5UFRIQV83SlBvMXZIVVhPWkhRdlVQeGFaYW5aRmdyQVBUanZ3QWV2Nk1fSlFVVEVwcHZQUUMxY0xULW54NUJIcEE?oc=5",
+     "date": "2026-11-23",
+     "sentiment": "neg"
+    },
     {
      "title": "카스트로프, 선발 출전으로 '공수 맹활약' 했는데...\"골키퍼 손에서 승점 1점이 빠져나갔다\" 도르트문트, 은메차 결승골로 극적인 1-0 승리 '바이에른 제치고 선두'",
      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBLbmVXRURDcVpXTXFfSVFoY1ZwNFhpY2lucmtFbUJmSWxJWlZzMkRzc2ZUYVdEaGQzSGN2TU1MRDdSVjlORllIalRKaXVyNWNsT1lR?oc=5",
@@ -11140,6 +11482,61 @@
      "title": "그레고어 코벨: 예전에는 선두를 쫓는 입장이었지만, 이제는 선두 자리를 지켜야 한다",
      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4tRWtycFc2SjlqZG9raTFlRkU3RkpsTThOSlJIVEZ3RXBBT1pYazI3eHJQSi1XbHJXRWxnMWIzWEJnNUo2ZkIzVnFXSXJDaDVyWHM2RUplLVFhal9XLUxr?oc=5",
      "date": "2026-11-22",
+     "sentiment": "neu"
+    }
+   ]
+  },
+  "1377": {
+   "n": 1,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 1,
+    "neg": 0
+   },
+   "daily": [
+    {
+     "date": "2026-11-21",
+     "n": 0
+    },
+    {
+     "date": "2026-11-22",
+     "n": 0
+    },
+    {
+     "date": "2026-11-23",
+     "n": 0
+    },
+    {
+     "date": "2026-11-24",
+     "n": 0
+    },
+    {
+     "date": "2026-11-25",
+     "n": 1
+    },
+    {
+     "date": "2026-11-26",
+     "n": 0
+    },
+    {
+     "date": "2026-11-27",
+     "n": 0
+    }
+   ],
+   "topics": [
+    "기타"
+   ],
+   "keywords": [
+    "반응",
+    "원더골",
+    "친형"
+   ],
+   "headlines": [
+    {
+     "title": "대체 뭐라고 했길래? 자지러진 앙리...'친형' 주드의 원더골 본 '동생' 조브의 반응은?",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBDYTkwYTBLNlFGUEE3dGo0Y0Vxb04yTDVHUXdtRTBWTU9TZDJVV2J3T1JYeVdjQkpSbV9FWE8xOU11ampaVHAzSjBsZVRMWl9lQ3FMQw?oc=5",
+     "date": "2026-11-25",
      "sentiment": "neu"
     }
    ]
@@ -11270,10 +11667,10 @@
     }
    ],
    "comm": {
-    "n": 18,
+    "n": 20,
     "sentiment": {
-     "pos": 3,
-     "neu": 2,
+     "pos": 4,
+     "neu": 3,
      "neg": 13
     },
     "top": [
@@ -11288,9 +11685,9 @@
       "sentiment": "neg"
      },
      {
-      "text": "설영우는 알면서도 안 뛰었겠지.",
-      "url": "https://www.youtube.com/watch?v=B1Au8shozIA&lc=Ugw-cOnfH2Zelm44FwB4AaABAg",
-      "sentiment": "neg"
+      "text": "섬네일..이재성은 왜 매번 저런얼굴로  올리냐..",
+      "url": "https://www.youtube.com/watch?v=ZMHTNSXu9us&lc=Ugx33QVaExTLgNrxlYZ4AaABAg",
+      "sentiment": "neu"
      }
     ]
    }
@@ -11593,26 +11990,26 @@
     }
    ],
    "comm": {
-    "n": 3,
+    "n": 22,
     "sentiment": {
-     "pos": 1,
-     "neu": 0,
-     "neg": 2
+     "pos": 5,
+     "neu": 9,
+     "neg": 8
     },
     "top": [
      {
-      "text": "21살에 십자인대 나가면 축구인생 조진거아님?",
-      "url": "https://www.youtube.com/watch?v=ZEn7-u0qi7o&lc=UgyC9VHM0veRtZOqEmN4AaABAg",
+      "text": "Bro wtf ur leg is fine",
+      "url": "https://www.youtube.com/watch?v=eJfHBCMC4jU&lc=UgzrfeYsldp_Wkt85NJ4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "이 영상에서 부상장면은 안나오네요?",
-      "url": "https://www.youtube.com/watch?v=lqqi0G498YI&lc=Ugz7HxjA450bqTuCFlV4AaABAg",
-      "sentiment": "pos"
+      "text": "In a way it will make psgs games more challenging now without kvarathskellia and doue",
+      "url": "https://www.youtube.com/watch?v=eJfHBCMC4jU&lc=UgwZZXyKYhb6S1T5vJl4AaABAg",
+      "sentiment": "neu"
      },
      {
-      "text": "무릎 조진 두에",
-      "url": "https://www.youtube.com/watch?v=ZEn7-u0qi7o&lc=UgywecIiZfa5ymmVVOd4AaABAg",
+      "text": "21살에 십자인대 나가면 축구인생 조진거아님?",
+      "url": "https://www.youtube.com/watch?v=ZEn7-u0qi7o&lc=UgyC9VHM0veRtZOqEmN4AaABAg",
       "sentiment": "neg"
      }
     ]
@@ -11976,9 +12373,9 @@
     }
    ],
    "comm": {
-    "n": 20,
+    "n": 21,
     "sentiment": {
-     "pos": 19,
+     "pos": 20,
      "neu": 0,
      "neg": 1
     },
@@ -12056,13 +12453,18 @@
     }
    ],
    "comm": {
-    "n": 1,
+    "n": 2,
     "sentiment": {
      "pos": 0,
      "neu": 0,
-     "neg": 1
+     "neg": 2
     },
     "top": [
+     {
+      "text": "자신의 생활비는 자신이 스스로 계산해야지. 남이 정해 주는게 아니야.",
+      "url": "https://www.youtube.com/watch?v=42R-yTe4yZQ&lc=Ugx-1kYoiyxgFHyjqeR4AaABAg",
+      "sentiment": "neg"
+     },
      {
       "text": "중원에서 돌리는 패스성공률이 그리 중요함?\n키패스나 유효슛같은걸 비교해야지",
       "url": "https://www.youtube.com/watch?v=JadIyklBCSA&lc=UgywCSomEFK0wSa6FLd4AaABAg",
@@ -12142,26 +12544,26 @@
     }
    ],
    "comm": {
-    "n": 27,
+    "n": 30,
     "sentiment": {
-     "pos": 24,
+     "pos": 27,
      "neu": 2,
      "neg": 1
     },
     "top": [
      {
+      "text": "앞으로 한국축구는 \n\n엄지성 김민수가 이끌어 가야된다 봅니다\n\n이강인이 이끌어 가야 되는데\n포용할 그릇은 안되보이고\n\n2030년을 위해서도 엄지성\n 세대로 다 바꿔야 한다 봅니다\n\n현재 축협라인들 다물러나야 하고\n\n일본에게는 이제 상대가\n되지않는것같고\n베트남 홍콩 중국한테도\n이기기 힘든 이런꼴을 만들어놓고 무슨 할말이 있는지\n\n그라인이 아직도 축협 흔드는것",
+      "url": "https://www.youtube.com/watch?v=hhhGBaAEaqg&lc=UgyaElrzlhG3urYxGJR4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "얘가 진짜 6각형임.\n우리나라 국대에 필요한건\n이강인,손흥민같은 맞춤팀 필요한 선수가 아니라 엄지성임.\n군면제됐고, 1부 승격하면 몸값 엄청 뛸듯",
+      "url": "https://www.youtube.com/watch?v=B6KZ9JoQTpc&lc=UgwClLvmX1VE_Q7G5Gd4AaABAg",
+      "sentiment": "pos"
+     },
+     {
       "text": "10번 간지",
       "url": "https://www.youtube.com/watch?v=_5w7XKfKFUo&lc=UgxavQlWnbGFndF6ezl4AaABAg",
-      "sentiment": "pos"
-     },
-     {
-      "text": "손흥민 선수를 롤모델로 삼고 그의 왼발을 뺏어오고 싶다는 선수가 훌륭하게 커서 자랑스러운 국대의 주장이 되는 날을 기대합니다\n그중간이 국대의 암흑기가 될 거 같지만 열심히 커리어를 쌓아주길",
-      "url": "https://www.youtube.com/watch?v=B0S10mfCUhI&lc=UgwS_YzzK2uGb2hCpbB4AaABAg",
-      "sentiment": "pos"
-     },
-     {
-      "text": "원래도 황희찬은 투박하나 낮은 중심으로 저돌적 대쉬가 특기인데 이제 나이들고 폼이 떨어지고 있고 이젠 동급이라하더라도 엄지성을 써야하는데 실제로도  엄지성 폼이 더 좋음",
-      "url": "https://www.youtube.com/watch?v=B0S10mfCUhI&lc=Ugy4SCgHWVz3E5clFDZ4AaABAg",
       "sentiment": "pos"
      }
     ]
@@ -12468,27 +12870,55 @@
     }
    ],
    "comm": {
-    "n": 6,
+    "n": 12,
     "sentiment": {
      "pos": 2,
      "neu": 1,
-     "neg": 3
+     "neg": 9
     },
     "top": [
      {
-      "text": "축구에서 팔꿈치는 이럴때 쓰는것임",
-      "url": "https://www.youtube.com/watch?v=rPPzZqq_8UQ&lc=Ugyt_i8cIPcstO2sKiN4AaABAg",
-      "sentiment": "neu"
-     },
-     {
-      "text": "오세훈이 못했고\n골키퍼가 잘했다",
-      "url": "https://www.youtube.com/watch?v=bX3IZ_z9p0Q&lc=Ugy5qQCKdcHo2RzmFrl4AaABAg",
+      "text": "흥민이 믿고 현규 데려왓다가 동상 세우는 이야기 싹들어감 ㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=2za6LfdDyJs&lc=Ugyh_E1xMiQnD5lG9LB4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "우리나라 선수 그 누구랑도 비교가 안됨",
-      "url": "https://www.youtube.com/watch?v=EkGFoKuyRbs&lc=UgyUaKkKimvMOEUorE14AaABAg",
-      "sentiment": "pos"
+      "text": "못가는거임 ㅋㅋ",
+      "url": "https://www.youtube.com/watch?v=2za6LfdDyJs&lc=UgyKYKorAzvrlhIYWeF4AaABAg",
+      "sentiment": "neg"
+     },
+     {
+      "text": "현규는 못가",
+      "url": "https://www.youtube.com/watch?v=2za6LfdDyJs&lc=Ugxqt50QAA7n4Fm2PzV4AaABAg",
+      "sentiment": "neg"
+     }
+    ]
+   }
+  },
+  "7650": {
+   "n": 0,
+   "h24": 0,
+   "sentiment": {
+    "pos": 0,
+    "neu": 0,
+    "neg": 0
+   },
+   "daily": [],
+   "topics": [],
+   "keywords": [],
+   "headlines": [],
+   "comm": {
+    "n": 1,
+    "sentiment": {
+     "pos": 0,
+     "neu": 1,
+     "neg": 0
+    },
+    "top": [
+     {
+      "text": "I recognize there wont be many changes for the sprint season but that being said:\n\nYeimar: can bring back on below tam contract or let go. The time to bring in his replacement is now\nKim: same as yeim",
+      "url": "https://www.youtube.com/watch?v=-gWi213RuTE&lc=Ugx7Y_XLlHh6A6FVdi94AaABAg",
+      "sentiment": "neu"
      }
     ]
    }
@@ -12564,26 +12994,26 @@
     }
    ],
    "comm": {
-    "n": 9,
+    "n": 15,
     "sentiment": {
      "pos": 2,
-     "neu": 0,
-     "neg": 7
+     "neu": 1,
+     "neg": 12
     },
     "top": [
      {
-      "text": "선방부터 늘리자ㅠ",
-      "url": "https://www.youtube.com/watch?v=MHhX01iq9-E&lc=Ugxj5YLZcs5bXj-lHqN4AaABAg",
-      "sentiment": "pos"
+      "text": "승규야 ㅎㅇㅌ",
+      "url": "https://www.youtube.com/watch?v=lQGRJMKqGMQ&lc=UgxFrV2N9frR5mbqQlV4AaABAg",
+      "sentiment": "neu"
      },
      {
-      "text": "김승규도 김승규인데 조현우도 김승규랑 나이차이 얼마 안남,  뭣 모르는 사람들이 월드컵,클럽 월드컵때 활약상에 젖어 조현우 얘기하는데 그때의 기량이 안나오는중.\n\n이젠 키퍼도 장기적으로 키울 선수가 필요함.\n세대교체가 필요하단거지",
-      "url": "https://www.youtube.com/watch?v=lQGRJMKqGMQ&lc=UgxssYMIgDbwn4dNrql4AaABAg",
+      "text": "사우디전 헤딩 그걸 손만 쭉 뻣고 앉아있어요 선방이 없어요. 대한민국에 최고는 빛(조)현우입니다.",
+      "url": "https://www.youtube.com/watch?v=lQGRJMKqGMQ&lc=UgzfldLNj9st7MlWoOh4AaABAg",
       "sentiment": "neg"
      },
      {
-      "text": "국대만 오면 실수 투성이~~~~",
-      "url": "https://www.youtube.com/watch?v=lQGRJMKqGMQ&lc=UgxjYZP5LG_ukB4gM9B4AaABAg",
+      "text": "오바 ㄴㄴ",
+      "url": "https://www.youtube.com/watch?v=MHhX01iq9-E&lc=UgyagdNruvfQfGswxNN4AaABAg",
       "sentiment": "neg"
      }
     ]
@@ -12640,27 +13070,27 @@
    "keywords": [],
    "headlines": [],
    "comm": {
-    "n": 7,
+    "n": 23,
     "sentiment": {
-     "pos": 6,
-     "neu": 1,
-     "neg": 0
+     "pos": 19,
+     "neu": 2,
+     "neg": 2
     },
     "top": [
      {
-      "text": "FA최대어 주성킴",
-      "url": "https://www.youtube.com/watch?v=7asTPTHjuBI&lc=UgwY4BYVT6fnQRLnAcZ4AaABAg",
+      "text": "알바노는 신이야",
+      "url": "https://www.youtube.com/watch?v=md0M7HBiJyg&lc=UgyaxyjLZdVbAl7kw1R4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "말 잘하고 재밌네😊",
+      "url": "https://www.youtube.com/watch?v=md0M7HBiJyg&lc=UgySoVr4XMPJnkJ9-Ut4AaABAg",
+      "sentiment": "pos"
+     },
+     {
+      "text": "지금 알바노 승부처에 자꾸 흥분하는거보면 김주성같이 눌러주기도 해야됨.. 이규섭은 걍 우쭈쭈형이라",
+      "url": "https://www.youtube.com/watch?v=md0M7HBiJyg&lc=Ugy7HLWak1myknWg5BJ4AaABAg",
       "sentiment": "neu"
-     },
-     {
-      "text": "진짜 원주 원년팬으로 항상 감사드립니다 큰선수가 삼보 동부을 명문으로 만들어줘서 다시 돌와오시길 기원합니다!",
-      "url": "https://www.youtube.com/watch?v=uq8awiYYTX8&lc=UgyKAzmI3wwIN8qDKQN4AaABAg",
-      "sentiment": "pos"
-     },
-     {
-      "text": "감독 안 하고 있는 지금이 제 눈엔 더 행복해보이세요. 앞으로도 한국 농구 발전에 이바지 해 주시길 바랍니다 👍",
-      "url": "https://www.youtube.com/watch?v=fBcDDkjGdvM&lc=UgyGqOQuAXrxH3cEsth4AaABAg",
-      "sentiment": "pos"
      }
     ]
    }
